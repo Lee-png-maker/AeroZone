@@ -1,398 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0066ff">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AeroZone | Shop Smart</title>
 
-  <title>AeroZone | Shop Smart. Shop Better.</title>
-  <meta name="description" content="AeroZone online store - tech, home, car accessories, beauty, pets, outdoor and travel products.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f5f6f8;color:#172033}
+button,input,select{font:inherit}
+button{cursor:pointer}
+.top{background:#005bea;color:white;text-align:center;padding:8px;font-size:13px;font-weight:bold}
+header{background:white;position:sticky;top:0;z-index:10;box-shadow:0 2px 10px #0001}
+.head{max-width:1300px;margin:auto;padding:14px;display:flex;gap:15px;align-items:center}
+.logo{font-size:27px;font-weight:900;color:#005bea;white-space:nowrap}
+.logo span{color:#111}
+.search{flex:1;padding:13px 16px;border:1px solid #ddd;border-radius:8px;outline:none}
+.cart{background:#005bea;color:white;border:0;border-radius:8px;padding:12px 16px;font-weight:bold;position:relative}
+.count{background:red;border-radius:50%;padding:3px 7px;font-size:11px;position:absolute;top:-8px;right:-7px}
+.cats{display:flex;gap:7px;overflow:auto;padding:10px 14px;max-width:1300px;margin:auto}
+.cat{border:0;background:#f1f3f6;padding:8px 13px;border-radius:20px;white-space:nowrap;font-size:12px;font-weight:bold}
+.cat.active,.cat:hover{background:#005bea;color:white}
+.hero{max-width:1300px;margin:18px auto;padding:45px 30px;border-radius:15px;background:linear-gradient(120deg,#005bea,#00a9ff);color:white}
+.hero h1{font-size:44px;margin-bottom:10px}
+.hero p{margin-bottom:20px}
+.hero button{border:0;background:white;color:#005bea;padding:12px 20px;border-radius:7px;font-weight:bold}
+main{max-width:1300px;margin:auto;padding:0 14px 40px}
+.title{display:flex;justify-content:space-between;align-items:center;margin:22px 0 14px}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.card{background:white;border-radius:10px;overflow:hidden;border:1px solid #e5e7eb;position:relative}
+.pic{height:190px;background:#eef4ff;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.pic img{width:100%;height:100%;object-fit:cover}
+.fallback{font-size:65px}
+.info{padding:11px}
+.category{font-size:10px;color:#64748b;font-weight:bold;text-transform:uppercase}
+.name{font-weight:bold;font-size:14px;height:42px;margin:5px 0}
+.stars{color:#f59e0b;font-size:12px}
+.price{font-size:19px;font-weight:900;margin-top:5px}
+.add{width:100%;border:0;background:#005bea;color:white;padding:10px;margin-top:10px;border-radius:6px;font-weight:bold}
+.like{position:absolute;right:8px;top:8px;border:0;background:white;border-radius:50%;width:32px;height:32px;font-size:18px}
+.drawer{position:fixed;right:-420px;top:0;width:min(420px,100%);height:100%;background:white;z-index:30;transition:.25s;box-shadow:-5px 0 20px #0003;display:flex;flex-direction:column}
+.drawer.open{right:0}
+.carthead{padding:18px;border-bottom:1px solid #ddd;display:flex;justify-content:space-between}
+.cartitems{flex:1;overflow:auto;padding:14px}
+.item{display:flex;gap:10px;padding:12px 0;border-bottom:1px solid #eee}
+.item img{width:65px;height:65px;object-fit:cover;border-radius:7px}
+.iteminfo{flex:1;font-size:13px}
+.qty button{padding:3px 9px;border:1px solid #ddd;background:white}
+.remove{border:0;background:white;color:red;font-size:11px}
+.cartfoot{padding:18px;border-top:1px solid #ddd}
+.total{display:flex;justify-content:space-between;font-size:20px;font-weight:bold;margin-bottom:12px}
+.checkout{width:100%;padding:14px;background:#00a86b;color:white;border:0;border-radius:7px;font-weight:bold}
+.clear{width:100%;margin-top:8px;padding:10px;border:0}
+.overlay{display:none;position:fixed;inset:0;background:#0007;z-index:20}
+.overlay.show{display:block}
+.empty{text-align:center;padding:50px;color:#64748b}
+footer{background:#111827;color:white;text-align:center;padding:30px}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:750px){.grid{grid-template-columns:repeat(3,1fr)}.hero h1{font-size:34px}}
+@media(max-width:500px){.head{flex-wrap:wrap}.logo{font-size:22px}.search{order:3;flex-basis:100%}.grid{grid-template-columns:repeat(2,1fr);gap:8px}.pic{height:155px}.hero{margin:10px;padding:30px 20px}.hero h1{font-size:32px}.name{font-size:13px}.price{font-size:17px}}
+</style>
+</head>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<body>
 
-    html {
-      scroll-behavior: smooth;
-    }
+<div class="top">🇿🇦 AeroZone South Africa • Shop Online • Secure Payments</div>
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f5f7fb;
-      color: #172033;
-      line-height: 1.5;
-    }
+<header>
+<div class="head">
+<div class="logo">Aero<span>Zone</span></div>
+<input id="search" class="search" placeholder="Search products...">
+<button class="cart" onclick="openCart()">🛒 Cart <b id="count" class="count">0</b></button>
+</div>
 
-    button,
-    input,
-    select {
-      font: inherit;
-    }
+<div class="cats">
+<button class="cat active" onclick="filter('All')">All</button>
+<button class="cat" onclick="filter('Tech')">📱 Tech</button>
+<button class="cat" onclick="filter('Car')">🚗 Car</button>
+<button class="cat" onclick="filter('Home')">🏠 Home</button>
+<button class="cat" onclick="filter('Kitchen')">🍳 Kitchen</button>
+<button class="cat" onclick="filter('Beauty')">💄 Beauty</button>
+<button class="cat" onclick="filter('Pets')">🐶 Pets</button>
+<button class="cat" onclick="filter('Outdoor')">⛺ Outdoor</button>
+<button class="cat" onclick="filter('Travel')">✈️ Travel</button>
+</div>
+</header>
 
-    button {
-      cursor: pointer;
-    }
+<section class="hero">
+<h1>Shop Smart.<br>Shop AeroZone.</h1>
+<p>Trending products at affordable prices.</p>
+<button onclick="document.getElementById('products').scrollIntoView()">Shop Now →</button>
+</section>
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+<main id="products">
+<div class="title">
+<h2>Popular Products</h2>
+<span id="results"></span>
+</div>
+<div id="grid" class="grid"></div>
+</main>
 
-    /* =========================
-       HEADER
-    ========================= */
+<div id="overlay" class="overlay" onclick="closeCart()"></div>
 
-    .topbar {
-      background: #005bea;
-      color: white;
-      text-align: center;
-      padding: 8px 15px;
-      font-size: 13px;
-      font-weight: bold;
-    }
+<aside id="drawer" class="drawer">
+<div class="carthead">
+<h2>🛒 Your Cart</h2>
+<button onclick="closeCart()">✕</button>
+</div>
+<div id="cartitems" class="cartitems"></div>
+<div class="cartfoot">
+<div class="total"><span>Total</span><span id="total">R0</span></div>
+<button class="checkout" onclick="checkout()">💳 Pay Securely with Yoco</button>
+<button class="clear" onclick="clearCart()">Clear Cart</button>
+</div>
+</aside>
 
-    header {
-      background: white;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    }
+<footer>
+<h2>AeroZone</h2>
+<p>Shop smart. Shop better.</p>
+<p style="margin-top:10px">© 2026 AeroZone South Africa</p>
+</footer>
 
-    .header-main {
-      max-width: 1400px;
-      margin: auto;
-      padding: 15px 20px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
+<script>
+const products=[
+["Wireless Bluetooth Earbuds",299,"Tech","🎧"],["Smart Watch Fitness Tracker",499,"Tech","⌚"],["Wireless Charging Pad",199,"Tech","🔋"],["USB-C Charging Cable",99,"Tech","🔌"],["20W USB-C Charger",149,"Tech","🔌"],["Bluetooth Speaker",399,"Tech","🔊"],["Mini Power Bank",249,"Tech","🔋"],["10000mAh Power Bank",349,"Tech","🔋"],["LED Ring Light",279,"Tech","💡"],["Phone Tripod Stand",229,"Tech","📱"],
+["Magnetic Phone Holder",149,"Tech","📱"],["Bluetooth Selfie Stick",179,"Tech","🤳"],["Wireless Keyboard",399,"Tech","⌨️"],["Wireless Mouse",199,"Tech","🖱️"],["Laptop Cooling Stand",329,"Tech","💻"],["USB Hub 4-Port",249,"Tech","🔌"],["LED Desk Lamp",299,"Tech","💡"],["Mini Projector",999,"Tech","📽️"],["Smart LED Bulb",149,"Tech","💡"],["Digital Alarm Clock",229,"Tech","⏰"],
+["Magnetic Car Phone Mount",179,"Car","🚗"],["Car USB Charger",129,"Car","🔌"],["Car Interior LED Lights",249,"Car","💡"],["Car Cleaning Brush Set",199,"Car","🧹"],["Microfiber Car Towels",159,"Car","🧽"],["Car Vacuum Cleaner",449,"Car","🧹"],["Car Seat Organiser",299,"Car","🚗"],["Steering Wheel Cover",199,"Car","🚘"],["Car Air Freshener Set",129,"Car","🌸"],["Emergency Car Tool Kit",599,"Car","🧰"],
+["Digital Tyre Pressure Gauge",229,"Car","🚗"],["Car Sunshade",179,"Car","☀️"],["Car Cup Holder",159,"Car","🥤"],["Car Trash Bin",139,"Car","🗑️"],["Car Seat Gap Organiser",149,"Car","🚗"],
+["Handheld Vacuum",699,"Home","🧹"],["Cleaning Cloth Set",129,"Home","🧽"],["Cleaning Brush",119,"Home","🧹"],["Spin Mop Bucket Set",499,"Home","🪣"],["Window Squeegee",149,"Home","🪟"],["Electric Scrubber",449,"Home","🧹"],["Spray Bottles",119,"Home","🧴"],["Storage Box Set",299,"Home","📦"],["Laundry Basket",249,"Home","🧺"],["Clothes Hanger Set",159,"Home","👕"],
+["Bathroom Organiser",229,"Home","🛁"],["Sink Organiser",179,"Home","🧽"],["Wall Hooks",99,"Home","🪝"],["Motion Sensor Light",199,"Home","💡"],["Under Cabinet Light",229,"Home","💡"],
+["Digital Kitchen Scale",179,"Kitchen","⚖️"],["Milk Frother",159,"Kitchen","☕"],["Portable Blender",349,"Kitchen","🥤"],["Mini Chopper",299,"Kitchen","🍴"],["Food Storage Bags",139,"Kitchen","🥡"],["Silicone Utensils",249,"Kitchen","🍳"],["Non-Stick Frying Pan",399,"Kitchen","🍳"],["Kitchen Knife Set",449,"Kitchen","🔪"],["Automatic Soap Dispenser",249,"Kitchen","🧴"],["Water Bottle With Filter",199,"Kitchen","💧"],
+["Facial Cleansing Brush",229,"Beauty","✨"],["LED Makeup Mirror",399,"Beauty","💄"],["Hair Straightener",399,"Beauty","💇"],["Curling Wand",449,"Beauty","💇"],["Electric Hair Trimmer",299,"Beauty","✂️"],["Makeup Brush Set",249,"Beauty","💄"],["Cosmetic Travel Bag",199,"Beauty","👜"],["Perfume Atomizer",99,"Beauty","🌸"],["Silk Sleep Mask",129,"Beauty","😴"],["Reusable Water Bottle",179,"Beauty","💧"],
+["Interactive Dog Toy",179,"Pets","🐶"],["Pet Grooming Brush",149,"Pets","🐕"],["Automatic Pet Feeder",699,"Pets","🐱"],["Pet Water Bottle",159,"Pets","💧"],["Dog Collar & Leash",229,"Pets","🐕"],["Pet Travel Carrier",599,"Pets","🐈"],["Cat Scratching Toy",249,"Pets","🐱"],["Pet Feeding Mat",149,"Pets","🐾"],["Waste Bag Dispenser",99,"Pets","🐕"],["Pet Cooling Mat",299,"Pets","🐶"],
+["Camping Lantern",299,"Outdoor","🏕️"],["Camping Stove",499,"Outdoor","⛺"],["Camping Headlamp",179,"Outdoor","🔦"],["Camping Chair",499,"Outdoor","🏕️"],["Picnic Blanket",299,"Outdoor","🧺"],["Cooler Bag",349,"Outdoor","🧊"],["Portable Hammock",399,"Outdoor","🌳"],["Solar Garden Light",199,"Outdoor","☀️"],["Folding Outdoor Table",599,"Outdoor","🏕️"],["Waterproof Dry Bag",249,"Outdoor","🎒"],
+["Travel Neck Pillow",179,"Travel","✈️"],["Luggage Organiser Set",249,"Travel","🧳"],["Digital Luggage Scale",159,"Travel","⚖️"],["Universal Travel Adapter",299,"Travel","🔌"],["Passport Holder",149,"Travel","🛂"],["Anti-Theft Backpack",599,"Travel","🎒"],["Travel Toiletry Bag",199,"Travel","👜"],["Travel Duffel Bag",299,"Travel","🧳"],["Travel Door Lock",179,"Travel","🔒"],["Compression Bags",149,"Travel","🧳"]
+];
 
-    .logo {
-      font-size: 28px;
-      font-weight: 900;
-      color: #005bea;
-      white-space: nowrap;
-    }
+let cart=JSON.parse(localStorage.getItem("aero_cart")||"[]");
+let category="All";
 
-    .logo span {
-      color: #111827;
-    }
+function image(p,i){
+let q=encodeURIComponent(p[0]);
+return `https://loremflickr.com/500/500/${q}?lock=${i+1}`;
+}
 
-    .search-box {
-      flex: 1;
-      position: relative;
-    }
+function render(){
+let search=document.getElementById("search").value.toLowerCase();
+let list=products.filter(p=>
+(category==="All"||p[2]===category)&&
+p[0].toLowerCase().includes(search)
+);
+document.getElementById("results").textContent=list.length+" products";
 
-    .search-box input {
-      width: 100%;
-      padding: 14px 50px 14px 18px;
-      border: 1px solid #d8dee9;
-      border-radius: 8px;
-      outline: none;
-      font-size: 15px;
-      background: #f8fafc;
-    }
+document.getElementById("grid").innerHTML=list.map((p,i)=>`
+<div class="card">
+<button class="like">♡</button>
+<div class="pic">
+<img src="${image(p,products.indexOf(p))}" alt="${p[0]}"
+onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+<div class="fallback" style="display:none">${p[3]}</div>
+</div>
+<div class="info">
+<div class="category">${p[2]}</div>
+<div class="name">${p[0]}</div>
+<div class="stars">★★★★★</div>
+<div class="price">R${p[1]}</div>
+<button class="add" onclick="add(${products.indexOf(p)})">🛒 Add to Cart</button>
+</div>
+</div>`).join("");
+}
 
-    .search-box input:focus {
-      border-color: #005bea;
-      background: white;
-    }
+function filter(c){
+category=c;
+document.querySelectorAll(".cat").forEach(b=>b.classList.remove("active"));
+event.target.classList.add("active");
+render();
+}
 
-    .search-icon {
-      position: absolute;
-      right: 17px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 19px;
-    }
+document.getElementById("search").addEventListener("input",render);
 
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+function add(i){
+let x=cart.find(a=>a.id===i);
+if(x)x.qty++;
+else cart.push({id:i,qty:1});
+save();
+update();
+alert(products[i][0]+" added to cart");
+}
 
-    .header-btn {
-      border: none;
-      background: #f1f5f9;
-      padding: 11px 14px;
-      border-radius: 8px;
-      font-weight: bold;
-      color: #172033;
-    }
+function save(){
+localStorage.setItem("aero_cart",JSON.stringify(cart));
+}
 
-    .header-btn:hover {
-      background: #e5eaf2;
-    }
+function update(){
+document.getElementById("count").textContent=cart.reduce((a,b)=>a+b.qty,0);
+document.getElementById("total").textContent="R"+cart.reduce((sum,x)=>sum+products[x.id][1]*x.qty,0);
+document.getElementById("cartitems").innerHTML=cart.length?cart.map(x=>{
+let p=products[x.id];
+return `<div class="item">
+<img src="${image(p,x.id)}" onerror="this.style.display='none'">
+<div class="iteminfo">
+<b>${p[0]}</b><br>R${p[1]}
+<div class="qty">
+<button onclick="qty(${x.id},-1)">−</button>
+<b>${x.qty}</b>
+<button onclick="qty(${x.id},1)">+</button>
+<button class="remove" onclick="removeItem(${x.id})">Remove</button>
+</div></div></div>`;
+}).join(""):`<div class="empty"><h2>🛒</h2><p>Your cart is empty.</p></div>`;
+}
 
-    .cart-button {
-      position: relative;
-      background: #005bea;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      padding: 12px 17px;
-      font-weight: bold;
-    }
+function qty(id,n){
+let x=cart.find(a=>a.id===id);
+if(!x)return;
+x.qty+=n;
+if(x.qty<=0)removeItem(id);
+else{save();update();}
+}
 
-    .cart-count {
-      position: absolute;
-      right: -7px;
-      top: -8px;
-      background: #ff3b30;
-      color: white;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      font-weight: bold;
-    }
+function removeItem(id){
+cart=cart.filter(x=>x.id!==id);
+save();update();
+}
 
-    /* =========================
-       CATEGORY NAV
-    ========================= */
+function clearCart(){
+cart=[];
+save();update();
+}
 
-    .category-bar {
-      background: white;
-      border-top: 1px solid #edf0f4;
-      overflow-x: auto;
-    }
+function openCart(){
+document.getElementById("drawer").classList.add("open");
+document.getElementById("overlay").classList.add("show");
+}
 
-    .categories {
-      max-width: 1400px;
-      margin: auto;
-      padding: 10px 20px;
-      display: flex;
-      gap: 8px;
-      white-space: nowrap;
-    }
+function closeCart(){
+document.getElementById("drawer").classList.remove("open");
+document.getElementById("overlay").classList.remove("show");
+}
 
-    .category-btn {
-      border: none;
-      background: transparent;
-      padding: 9px 14px;
-      border-radius: 20px;
-      color: #475569;
-      font-size: 13px;
-      font-weight: bold;
-    }
+function checkout(){
+if(!cart.length)return alert("Your cart is empty.");
+alert("Your AeroZone store is working. Yoco checkout will be connected here once your payment backend is ready.");
+}
 
-    .category-btn:hover,
-    .category-btn.active {
-      background: #005bea;
-      color: white;
-    }
+/* START */
+render();
+update();
+</script>
 
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-      max-width: 1400px;
-      margin: 20px auto;
-      padding: 0 20px;
-    }
-
-    .hero-box {
-      min-height: 300px;
-      border-radius: 18px;
-      padding: 45px;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      position: relative;
-      background:
-        linear-gradient(110deg, #005bea, #00a8ff);
-      color: white;
-    }
-
-    .hero-box::after {
-      content: "🛍️";
-      position: absolute;
-      right: 7%;
-      font-size: 170px;
-      opacity: 0.16;
-    }
-
-    .hero-content {
-      max-width: 620px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-content small {
-      display: inline-block;
-      background: rgba(255,255,255,0.18);
-      padding: 7px 12px;
-      border-radius: 20px;
-      margin-bottom: 15px;
-      font-weight: bold;
-    }
-
-    .hero h1 {
-      font-size: clamp(34px, 5vw, 58px);
-      line-height: 1.05;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      font-size: 18px;
-      opacity: 0.94;
-      margin-bottom: 25px;
-    }
-
-    .hero-btn {
-      border: none;
-      background: white;
-      color: #005bea;
-      padding: 13px 22px;
-      border-radius: 8px;
-      font-weight: 800;
-    }
-
-    .hero-btn:hover {
-      transform: translateY(-2px);
-    }
-
-    /* =========================
-       FEATURES
-    ========================= */
-
-    .features {
-      max-width: 1400px;
-      margin: 0 auto 25px;
-      padding: 0 20px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-    }
-
-    .feature {
-      background: white;
-      border-radius: 12px;
-      padding: 18px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
-
-    .feature-icon {
-      font-size: 27px;
-    }
-
-    .feature strong {
-      display: block;
-      font-size: 14px;
-    }
-
-    .feature span {
-      font-size: 12px;
-      color: #64748b;
-    }
-
-    /* =========================
-       PRODUCTS
-    ========================= */
-
-    .store {
-      max-width: 1400px;
-      margin: auto;
-      padding: 0 20px 50px;
-    }
-
-    .section-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 20px 0;
-      gap: 15px;
-    }
-
-    .section-heading h2 {
-      font-size: 25px;
-    }
-
-    .result-count {
-      color: #64748b;
-      font-size: 13px;
-    }
-
-    .sort-select {
-      padding: 9px 12px;
-      border: 1px solid #d8dee9;
-      border-radius: 7px;
-      background: white;
-    }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 15px;
-    }
-
-    .product-card {
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      position: relative;
-      border: 1px solid #e9edf3;
-      transition: transform 0.2s, box-shadow 0.2s;
-      min-width: 0;
-    }
-
-    .product-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.10);
-    }
-
-    .product-image {
-      height: 210px;
-      position: relative;
-      background: linear-gradient(135deg, #eef4ff, #f8fafc);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .product-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .image-fallback {
-      display: none;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .image-fallback .emoji {
-      font-size: 70px;
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .wishlist {
-      position: absolute;
-      right: 10px;
-      top: 10px;
-      width: 34px;
-      height: 34px;
-      border: none;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.95);
-      font-size: 18px;
-      z-index: 5;
-    }
-
-    .wishlist.active {
+</body>
+</html>
