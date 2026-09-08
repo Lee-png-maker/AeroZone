@@ -4,3305 +4,1716 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#000000">
-<meta name="description" content="AeroZone - Shop groceries, meals, pharmacy, fresh food and household essentials delivered to your door.">
-
-<title>AeroZone | Shop & Delivery</title>
+<title>AeroZone | Shopping & Delivery</title>
 
 <style>
+*{box-sizing:border-box;margin:0;padding:0}
 
-/* =========================================================
-   RESET
-========================================================= */
-
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-html{
-    background:#000;
-    scroll-behavior:smooth;
+html,body{
+  background:#000;
+  color:#111;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#000;
-    color:#111;
-    min-height:100vh;
-    overflow-x:hidden;
+  overflow-x:hidden;
 }
 
-button,
-input,
-textarea,
-select{
-    font:inherit;
+button,input,textarea,select{
+  font:inherit;
 }
 
 button{
-    cursor:pointer;
-    -webkit-tap-highlight-color:transparent;
+  cursor:pointer;
 }
-
-
-/* =========================================================
-   HEADER
-========================================================= */
 
 header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:rgba(255,255,255,.97);
-    border-bottom:1px solid #e8e8e8;
-    backdrop-filter:blur(15px);
-}
-
-.nav{
-    width:100%;
-    max-width:1250px;
-    margin:auto;
-    padding:13px 18px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
+  background:#000;
+  color:#fff;
+  padding:16px 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  border-bottom:1px solid #222;
 }
 
 .logo{
-    font-size:27px;
-    font-weight:950;
-    letter-spacing:-1.7px;
+  font-size:25px;
+  font-weight:900;
+  letter-spacing:-1px;
 }
 
 .logo span{
-    font-weight:400;
+  color:#aaa;
 }
 
-.nav-actions{
-    display:flex;
-    gap:8px;
+.header-actions{
+  display:flex;
+  gap:10px;
 }
 
-.nav-btn{
-    border:1px solid #ddd;
-    background:#fff;
-    color:#111;
-    padding:10px 14px;
-    border-radius:30px;
-    font-size:12px;
-    font-weight:900;
+.header-btn{
+  background:#fff;
+  color:#000;
+  border:0;
+  border-radius:50px;
+  padding:10px 16px;
+  font-weight:800;
 }
-
-.nav-btn.black{
-    background:#000;
-    color:#fff;
-    border-color:#000;
-}
-
-.cart-count{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    min-width:20px;
-    height:20px;
-    padding:0 5px;
-    border-radius:50%;
-    background:#fff;
-    color:#000;
-    font-size:10px;
-    margin-left:3px;
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
 
 .hero{
-    background:#000;
-    color:#fff;
-}
-
-.hero-inner{
-    max-width:1250px;
-    margin:auto;
-    padding:38px 18px 34px;
-}
-
-.location{
-    display:flex;
-    align-items:center;
-    gap:7px;
-    color:#aaa;
-    font-size:12px;
-    margin-bottom:20px;
-}
-
-.location strong{
-    color:#fff;
+  background:#000;
+  color:#fff;
+  padding:45px 5% 50px;
+  text-align:center;
 }
 
 .hero h1{
-    max-width:800px;
-    font-size:clamp(38px,7vw,70px);
-    line-height:.93;
-    letter-spacing:-4px;
-    margin-bottom:17px;
+  font-size:clamp(34px,7vw,70px);
+  line-height:1;
+  margin-bottom:15px;
+  font-weight:900;
 }
 
 .hero p{
-    max-width:620px;
-    color:#aaa;
-    font-size:14px;
-    line-height:1.6;
-    margin-bottom:24px;
+  color:#bbb;
+  font-size:16px;
+  margin-bottom:25px;
 }
 
-.search{
-    max-width:780px;
-    display:flex;
-    background:#fff;
-    padding:5px;
-    border-radius:15px;
+.search-box{
+  max-width:650px;
+  margin:auto;
+  position:relative;
 }
 
-.search input{
-    flex:1;
-    min-width:0;
-    border:0;
-    outline:0;
-    padding:14px;
-    background:#fff;
-    color:#111;
-    border-radius:11px;
+.search-box input{
+  width:100%;
+  padding:17px 20px;
+  border-radius:50px;
+  border:1px solid #444;
+  background:#fff;
+  color:#111;
+  outline:none;
+  font-size:16px;
 }
 
-.search button{
-    border:0;
-    background:#000;
-    color:#fff;
-    padding:0 21px;
-    border-radius:11px;
-    font-weight:900;
+.free-delivery-banner{
+  margin:25px auto 0;
+  max-width:650px;
+  border:1px solid #333;
+  border-radius:18px;
+  padding:14px 18px;
+  background:#111;
+  color:#fff;
+  font-weight:700;
 }
 
-
-/* =========================================================
-   MAIN
-========================================================= */
+.free-delivery-banner strong{
+  color:#fff;
+}
 
 main{
-    width:100%;
-    max-width:1250px;
-    margin:0 auto;
-    padding:22px 18px 0;
-    background:#f7f7f7;
+  background:#f7f7f7;
+  padding:30px 5% 0;
 }
 
-
-/* =========================================================
-   CATEGORY NAV
-========================================================= */
-
-.category-strip{
-    display:flex;
-    gap:9px;
-    overflow-x:auto;
-    scrollbar-width:none;
-    padding:2px 0 17px;
+.section-title{
+  font-size:27px;
+  font-weight:900;
+  margin-bottom:18px;
 }
 
-.category-strip::-webkit-scrollbar{
-    display:none;
+.categories{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding-bottom:10px;
+  scrollbar-width:none;
 }
 
-.category-pill{
-    flex:0 0 auto;
-    border:1px solid #ddd;
-    background:#fff;
-    color:#111;
-    padding:10px 15px;
-    border-radius:25px;
-    font-size:11px;
-    font-weight:900;
-    white-space:nowrap;
+.categories::-webkit-scrollbar{
+  display:none;
 }
 
-.category-pill.active{
-    background:#000;
-    color:#fff;
-    border-color:#000;
+.category{
+  flex:0 0 auto;
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:50px;
+  padding:12px 17px;
+  font-weight:800;
 }
 
-
-/* =========================================================
-   SECTION HEAD
-========================================================= */
-
-.section-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:end;
-    margin:7px 0 16px;
+.category.active,
+.category:hover{
+  background:#000;
+  color:#fff;
+  border-color:#000;
 }
-
-.section-head h2{
-    font-size:27px;
-    letter-spacing:-1.3px;
-}
-
-.section-head p{
-    color:#777;
-    font-size:12px;
-    margin-top:4px;
-}
-
-
-/* =========================================================
-   STORES
-========================================================= */
 
 .store-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
 }
 
 .store-card{
-    background:#fff;
-    border:1px solid #e5e5e5;
-    border-radius:20px;
-    overflow:hidden;
-    cursor:pointer;
-    transition:.2s;
+  background:#fff;
+  border:1px solid #e1e1e1;
+  border-radius:22px;
+  padding:22px;
+  min-height:170px;
+  transition:.2s;
+  cursor:pointer;
+  box-shadow:0 5px 18px rgba(0,0,0,.04);
 }
 
 .store-card:hover{
-    transform:translateY(-4px);
-    box-shadow:0 16px 35px rgba(0,0,0,.10);
+  transform:translateY(-4px);
+  box-shadow:0 12px 30px rgba(0,0,0,.1);
 }
 
-.store-card:active{
-    transform:scale(.98);
+.store-icon{
+  font-size:38px;
+  margin-bottom:15px;
 }
 
-.store-cover{
-    height:125px;
-    background:#111;
-    color:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:52px;
-    position:relative;
+.store-card h3{
+  font-size:20px;
+  margin-bottom:7px;
 }
 
-.store-cover:after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(135deg,transparent,rgba(255,255,255,.08));
+.store-card p{
+  color:#777;
+  font-size:14px;
+  line-height:1.4;
 }
 
-.store-content{
-    padding:14px;
+.store-arrow{
+  margin-top:15px;
+  font-weight:900;
 }
 
-.store-name{
-    font-size:16px;
-    font-weight:950;
+.catalog{
+  margin-top:38px;
 }
 
-.store-type{
-    color:#777;
-    font-size:11px;
-    margin-top:4px;
+.catalog-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  margin-bottom:18px;
 }
 
-.store-meta{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-top:11px;
-    color:#666;
-    font-size:10px;
+.catalog-head small{
+  color:#777;
 }
-
-.rating{
-    color:#111;
-    font-weight:900;
-}
-
-
-/* =========================================================
-   CATALOG
-========================================================= */
-
-#catalog{
-    display:none;
-}
-
-.catalog-top{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    margin-bottom:20px;
-}
-
-.back-btn{
-    border:1px solid #ddd;
-    background:#fff;
-    color:#111;
-    border-radius:25px;
-    padding:10px 15px;
-    font-size:12px;
-    font-weight:900;
-}
-
-.catalog-title h2{
-    font-size:29px;
-    letter-spacing:-1.3px;
-}
-
-.catalog-title p{
-    color:#777;
-    font-size:12px;
-    margin-top:4px;
-}
-
-
-/* =========================================================
-   PRODUCTS
-========================================================= */
 
 .product-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:14px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
 }
 
 .product{
-    background:#fff;
-    border:1px solid #e6e6e6;
-    border-radius:17px;
-    overflow:hidden;
-    transition:.2s;
+  background:#fff;
+  border:1px solid #e2e2e2;
+  border-radius:20px;
+  padding:15px;
+  position:relative;
+  overflow:hidden;
 }
 
-.product:hover{
-    transform:translateY(-3px);
-    box-shadow:0 12px 30px rgba(0,0,0,.08);
-}
-
-.product-img{
-    height:150px;
-    background:#f0f0f0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:60px;
-}
-
-.product-info{
-    padding:13px;
+.product-image{
+  height:135px;
+  border-radius:15px;
+  background:#f1f1f1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:65px;
+  margin-bottom:13px;
 }
 
 .product-category{
-    color:#999;
-    font-size:9px;
-    letter-spacing:1px;
-    text-transform:uppercase;
+  color:#888;
+  font-size:12px;
+  margin-bottom:5px;
 }
 
-.product-name{
-    font-size:14px;
-    font-weight:900;
-    margin:6px 0;
+.product h3{
+  font-size:16px;
+  margin-bottom:9px;
 }
 
-.product-price{
-    font-size:18px;
-    font-weight:950;
-    margin:9px 0 11px;
+.product-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.price{
+  font-weight:900;
+  font-size:17px;
 }
 
 .add-btn{
-    width:100%;
-    border:0;
-    background:#000;
-    color:#fff;
-    padding:11px;
-    border-radius:10px;
-    font-size:12px;
-    font-weight:950;
+  width:40px;
+  height:40px;
+  border:0;
+  border-radius:50%;
+  background:#000;
+  color:#fff;
+  font-size:22px;
+  font-weight:900;
 }
 
-.add-btn:active{
-    transform:scale(.97);
-}
-
-
-/* =========================================================
-   SEARCH RESULTS
-========================================================= */
-
-.search-results{
-    display:none;
+.add-btn:hover{
+  background:#333;
 }
 
 .no-results{
-    background:#fff;
-    border:1px solid #e5e5e5;
-    border-radius:16px;
-    text-align:center;
-    padding:40px 15px;
-    color:#777;
+  padding:40px;
+  background:#fff;
+  border-radius:20px;
+  text-align:center;
+  color:#777;
 }
 
-
-/* =========================================================
-   WHY AEROZONE
-========================================================= */
-
 .benefits{
-    margin:27px 0 0;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:10px;
+  margin:45px 0;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
 }
 
 .benefit{
-    background:#fff;
-    border:1px solid #e6e6e6;
-    border-radius:15px;
-    padding:16px;
+  background:#fff;
+  border-radius:20px;
+  padding:25px;
+  border:1px solid #e2e2e2;
 }
 
 .benefit-icon{
-    font-size:21px;
-    margin-bottom:8px;
+  font-size:30px;
+  margin-bottom:12px;
 }
 
-.benefit strong{
-    display:block;
-    font-size:13px;
-    margin-bottom:4px;
+.benefit h3{
+  margin-bottom:8px;
 }
 
-.benefit span{
-    display:block;
-    color:#777;
-    font-size:10px;
-    line-height:1.5;
+.benefit p{
+  color:#777;
+  line-height:1.5;
+  font-size:14px;
 }
 
-
-/* =========================================================
-   BOTTOM DELIVERY CTA
-========================================================= */
-
-.bottom-cta{
-    margin-top:22px;
-    background:#111;
-    color:#fff;
-    border-radius:20px 20px 0 0;
-    padding:25px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
+.premium-box{
+  background:#000;
+  color:#fff;
+  border-radius:25px;
+  padding:30px;
+  margin:45px 0 0;
+  text-align:center;
 }
 
-.bottom-cta h2{
-    font-size:24px;
-    letter-spacing:-1px;
-    margin-bottom:6px;
+.premium-box h2{
+  font-size:28px;
+  margin-bottom:10px;
 }
 
-.bottom-cta p{
-    color:#aaa;
-    font-size:11px;
-    line-height:1.5;
+.premium-box p{
+  color:#bbb;
+  margin-bottom:18px;
 }
 
-.cta-button{
-    flex:0 0 auto;
-    border:0;
-    background:#fff;
-    color:#000;
-    padding:13px 20px;
-    border-radius:25px;
-    font-size:12px;
-    font-weight:950;
+.premium-rule{
+  display:inline-block;
+  background:#fff;
+  color:#000;
+  padding:12px 20px;
+  border-radius:50px;
+  font-weight:900;
 }
-
-
-/* =========================================================
-   PROFESSIONAL FOOTER
-========================================================= */
 
 footer{
-    width:100%;
-    background:#000;
-    color:#fff;
-    margin:0;
-    padding:0;
+  background:#000;
+  color:#fff;
+  margin:0;
+  padding:40px 5% 35px;
 }
 
 .footer-inner{
-    width:100%;
-    max-width:1250px;
-    margin:auto;
-    padding:28px 18px 20px;
-}
-
-.footer-grid{
-    display:grid;
-    grid-template-columns:2fr 1fr 1fr 1.3fr;
-    gap:30px;
+  max-width:1100px;
+  margin:auto;
+  text-align:center;
 }
 
 .footer-logo{
-    font-size:24px;
-    font-weight:950;
-    letter-spacing:-1px;
+  font-size:26px;
+  font-weight:900;
+  margin-bottom:10px;
 }
 
-.footer-description{
-    color:#888;
-    font-size:11px;
-    line-height:1.6;
-    max-width:340px;
-    margin-top:9px;
+.footer-inner p{
+  color:#aaa;
+  margin:7px 0;
 }
 
-.footer-title{
-    font-size:11px;
-    font-weight:950;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    margin-bottom:11px;
+.footer-whatsapp{
+  display:inline-block;
+  margin-top:15px;
+  background:#fff;
+  color:#000;
+  padding:12px 20px;
+  border-radius:50px;
+  font-weight:900;
+  text-decoration:none;
 }
 
-.footer-link{
-    display:block;
-    border:0;
-    background:none;
-    color:#999;
-    font-size:11px;
-    padding:4px 0;
-    text-align:left;
+.cart-float{
+  position:fixed;
+  right:20px;
+  bottom:25px;
+  z-index:1500;
+  background:#000;
+  color:#fff;
+  border:2px solid #fff;
+  border-radius:50px;
+  padding:13px 18px;
+  font-weight:900;
+  box-shadow:0 8px 30px rgba(0,0,0,.35);
 }
 
-.footer-link:hover{
-    color:#fff;
+.cart-count{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:23px;
+  height:23px;
+  background:#fff;
+  color:#000;
+  border-radius:50%;
+  margin-left:6px;
 }
-
-.whatsapp-footer{
-    margin-top:10px;
-    display:inline-flex;
-    border:1px solid #333;
-    background:#111;
-    color:#fff;
-    padding:10px 14px;
-    border-radius:22px;
-    font-size:11px;
-    font-weight:900;
-}
-
-.footer-bottom{
-    border-top:1px solid #222;
-    margin-top:25px;
-    padding-top:15px;
-    display:flex;
-    justify-content:space-between;
-    gap:15px;
-    color:#666;
-    font-size:9px;
-}
-
-
-/* =========================================================
-   MOBILE APP BOTTOM NAV
-========================================================= */
 
 .mobile-nav{
-    display:none;
-}
-
-
-/* =========================================================
-   FLOATING CART
-========================================================= */
-
-.floating-cart{
-    display:none;
-    position:fixed;
-    right:15px;
-    bottom:75px;
-    z-index:1500;
-    border:0;
-    background:#000;
-    color:#fff;
-    border-radius:30px;
-    padding:13px 18px;
-    box-shadow:0 8px 25px rgba(0,0,0,.3);
-    font-size:12px;
-    font-weight:950;
-}
-
-
-/* =========================================================
-   MODALS
-========================================================= */
-
-.modal-bg{
-    display:none;
-    position:fixed;
-    inset:0;
-    z-index:3000;
-    background:rgba(0,0,0,.72);
-    padding:15px;
-    overflow:auto;
+  display:none;
 }
 
 .modal{
-    width:min(570px,100%);
-    background:#fff;
-    border-radius:22px;
-    margin:3vh auto;
-    padding:23px;
-    position:relative;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  z-index:3000;
+  display:none;
+  align-items:flex-end;
+  justify-content:center;
+  padding:15px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-card{
+  background:#fff;
+  width:100%;
+  max-width:600px;
+  max-height:90vh;
+  overflow-y:auto;
+  border-radius:25px 25px 15px 15px;
+  padding:24px;
+  position:relative;
+}
+
+.modal-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:20px;
+}
+
+.modal-header h2{
+  font-size:25px;
 }
 
 .close{
-    position:absolute;
-    right:14px;
-    top:14px;
-    width:35px;
-    height:35px;
-    border:0;
-    border-radius:50%;
-    background:#eee;
-    color:#111;
-    font-size:20px;
+  border:0;
+  background:#eee;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  font-size:20px;
 }
-
-.modal h2{
-    margin-right:45px;
-    margin-bottom:18px;
-}
-
-.field{
-    margin-bottom:12px;
-}
-
-.field label{
-    display:block;
-    font-size:10px;
-    font-weight:950;
-    margin-bottom:5px;
-}
-
-.field input,
-.field textarea,
-.field select{
-    width:100%;
-    padding:12px;
-    border:1px solid #ddd;
-    border-radius:10px;
-    outline:none;
-    background:#fff;
-}
-
-.field textarea{
-    min-height:75px;
-    resize:vertical;
-}
-
-.primary{
-    width:100%;
-    border:0;
-    background:#000;
-    color:#fff;
-    padding:14px;
-    border-radius:11px;
-    font-size:12px;
-    font-weight:950;
-}
-
-.secondary{
-    width:100%;
-    border:1px solid #ddd;
-    background:#fff;
-    color:#111;
-    padding:13px;
-    border-radius:11px;
-    font-size:12px;
-    font-weight:950;
-    margin-top:8px;
-}
-
-
-/* =========================================================
-   CART
-========================================================= */
 
 .cart-item{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:10px;
-    border-bottom:1px solid #eee;
-    padding:13px 0;
+  display:flex;
+  gap:12px;
+  padding:13px 0;
+  border-bottom:1px solid #eee;
+  align-items:center;
 }
 
-.cart-name{
-    font-size:13px;
-    font-weight:900;
+.cart-item-icon{
+  width:50px;
+  height:50px;
+  border-radius:12px;
+  background:#f2f2f2;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:25px;
 }
 
-.cart-price{
-    color:#777;
-    font-size:11px;
-    margin-top:3px;
+.cart-item-info{
+  flex:1;
+}
+
+.cart-item-info h4{
+  margin-bottom:5px;
+}
+
+.cart-item-info small{
+  color:#777;
 }
 
 .qty{
-    display:flex;
-    align-items:center;
-    gap:6px;
+  display:flex;
+  align-items:center;
+  gap:8px;
 }
 
 .qty button{
-    width:29px;
-    height:29px;
-    border:1px solid #ddd;
-    background:#fff;
-    border-radius:7px;
+  border:1px solid #ddd;
+  background:#fff;
+  width:30px;
+  height:30px;
+  border-radius:50%;
 }
 
 .summary{
-    border-top:1px solid #eee;
-    margin-top:14px;
-    padding-top:12px;
+  margin-top:18px;
+  border-top:1px solid #ddd;
+  padding-top:15px;
 }
 
 .summary-row{
-    display:flex;
-    justify-content:space-between;
-    padding:5px 0;
+  display:flex;
+  justify-content:space-between;
+  margin:10px 0;
+}
+
+.summary-total{
+  font-size:21px;
+  font-weight:900;
+}
+
+.free-message{
+  background:#000;
+  color:#fff;
+  border-radius:15px;
+  padding:13px;
+  margin:15px 0;
+  font-weight:800;
+  text-align:center;
+}
+
+.progress-wrap{
+  background:#eee;
+  height:8px;
+  border-radius:20px;
+  overflow:hidden;
+  margin-top:10px;
+}
+
+.progress{
+  height:100%;
+  width:0;
+  background:#000;
+  transition:.3s;
+}
+
+.checkout-form{
+  display:grid;
+  gap:12px;
+}
+
+.checkout-form input,
+.checkout-form textarea,
+.checkout-form select{
+  width:100%;
+  border:1px solid #ddd;
+  border-radius:12px;
+  padding:13px;
+  outline:none;
+  background:#fff;
+}
+
+.checkout-form textarea{
+  min-height:90px;
+  resize:vertical;
+}
+
+.primary{
+  width:100%;
+  background:#000;
+  color:#fff;
+  border:0;
+  padding:15px;
+  border-radius:14px;
+  font-weight:900;
+  font-size:16px;
+}
+
+.secondary{
+  width:100%;
+  background:#eee;
+  color:#000;
+  border:0;
+  padding:14px;
+  border-radius:14px;
+  font-weight:800;
+  margin-top:8px;
+}
+
+.added{
+  position:fixed;
+  top:85px;
+  left:50%;
+  transform:translateX(-50%) translateY(-20px);
+  background:#000;
+  color:#fff;
+  padding:12px 20px;
+  border-radius:50px;
+  z-index:5000;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+  font-weight:800;
+}
+
+.added.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+.order-success{
+  text-align:center;
+  padding:20px 5px;
+}
+
+.order-success .check{
+  font-size:65px;
+  margin-bottom:10px;
+}
+
+@media(max-width:900px){
+  .store-grid,
+  .product-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .benefits{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:600px){
+  header{
+    padding:13px 4%;
+  }
+
+  .logo{
+    font-size:21px;
+  }
+
+  .header-btn{
+    padding:8px 12px;
     font-size:13px;
-}
+  }
 
-.total{
-    font-size:20px;
-    font-weight:950;
-    margin-top:6px;
-}
+  .hero{
+    padding:35px 4% 40px;
+  }
 
-.empty{
-    text-align:center;
-    color:#777;
-    padding:30px 10px;
-    font-size:13px;
-}
+  main{
+    padding:25px 4% 0;
+    padding-bottom:75px;
+  }
 
+  .store-grid,
+  .product-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
 
-/* =========================================================
-   TRACKING
-========================================================= */
+  .store-card{
+    padding:15px;
+    min-height:145px;
+  }
 
-.order-number{
-    background:#f5f5f5;
-    padding:13px;
-    border-radius:11px;
-    font-size:13px;
-    font-weight:900;
-    margin-bottom:20px;
-}
+  .store-icon{
+    font-size:30px;
+  }
 
-.order-number small{
-    display:block;
-    color:#777;
-    font-size:10px;
-    margin-top:5px;
-}
+  .store-card h3{
+    font-size:16px;
+  }
 
-.timeline{
-    border-left:2px solid #ddd;
-    margin-left:8px;
-    padding-left:22px;
-}
+  .product{
+    padding:10px;
+    border-radius:16px;
+  }
 
-.step{
-    position:relative;
-    color:#aaa;
-    margin-bottom:22px;
-    font-size:13px;
-}
+  .product-image{
+    height:105px;
+    font-size:50px;
+  }
 
-.step:before{
-    content:"";
-    position:absolute;
-    left:-29px;
-    top:2px;
-    width:11px;
-    height:11px;
-    background:#ddd;
-    border-radius:50%;
-}
+  .product h3{
+    font-size:14px;
+  }
 
-.step.active{
-    color:#111;
-    font-weight:950;
-}
+  .price{
+    font-size:15px;
+  }
 
-.step.active:before{
+  .add-btn{
+    width:36px;
+    height:36px;
+  }
+
+  .cart-float{
+    bottom:75px;
+    right:15px;
+  }
+
+  .mobile-nav{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    height:62px;
     background:#000;
+    color:#fff;
+    z-index:2000;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    border-top:1px solid #222;
+  }
+
+  .mobile-nav button{
+    border:0;
+    background:none;
+    color:#fff;
+    font-size:12px;
+    font-weight:700;
+  }
+
+  .mobile-nav span{
+    display:block;
+    font-size:20px;
+    margin-bottom:2px;
+  }
+
+  footer{
+    padding-bottom:90px;
+  }
 }
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media(max-width:950px){
-
-    .store-grid,
-    .product-grid{
-        grid-template-columns:repeat(3,1fr);
-    }
-
-    .benefits{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .footer-grid{
-        grid-template-columns:2fr 1fr 1fr;
-    }
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media(max-width:650px){
-
-    body{
-        padding-bottom:58px;
-    }
-
-    .nav{
-        padding:11px 12px;
-    }
-
-    .logo{
-        font-size:22px;
-    }
-
-    .nav-btn{
-        padding:8px 10px;
-        font-size:10px;
-    }
-
-    .hero-inner{
-        padding:29px 13px 28px;
-    }
-
-    .hero h1{
-        font-size:42px;
-        letter-spacing:-3px;
-    }
-
-    .hero p{
-        font-size:12px;
-    }
-
-    .search input{
-        padding:13px 11px;
-        font-size:12px;
-    }
-
-    .search button{
-        padding:0 14px;
-        font-size:11px;
-    }
-
-    main{
-        padding:18px 12px 0;
-    }
-
-    .section-head h2{
-        font-size:23px;
-    }
-
-    .store-grid,
-    .product-grid{
-        grid-template-columns:repeat(2,1fr);
-        gap:9px;
-    }
-
-    .store-cover{
-        height:105px;
-        font-size:42px;
-    }
-
-    .store-content{
-        padding:11px;
-    }
-
-    .store-name{
-        font-size:14px;
-    }
-
-    .store-type{
-        font-size:10px;
-    }
-
-    .store-meta{
-        font-size:9px;
-    }
-
-    .product-img{
-        height:115px;
-        font-size:45px;
-    }
-
-    .product-info{
-        padding:10px;
-    }
-
-    .product-name{
-        font-size:12px;
-    }
-
-    .product-price{
-        font-size:16px;
-    }
-
-    .add-btn{
-        padding:10px;
-        font-size:11px;
-    }
-
-    .benefits{
-        grid-template-columns:1fr 1fr;
-        margin-top:22px;
-    }
-
-    .benefit{
-        padding:13px;
-    }
-
-    .bottom-cta{
-        margin-top:18px;
-        padding:20px 15px;
-        border-radius:17px 17px 0 0;
-    }
-
-    .bottom-cta h2{
-        font-size:19px;
-    }
-
-    .bottom-cta p{
-        font-size:10px;
-    }
-
-    .cta-button{
-        padding:11px 13px;
-        font-size:10px;
-    }
-
-    .footer-inner{
-        padding:24px 15px 80px;
-    }
-
-    .footer-grid{
-        grid-template-columns:1fr 1fr;
-        gap:23px 20px;
-    }
-
-    .footer-description{
-        font-size:10px;
-    }
-
-    .footer-bottom{
-        flex-direction:column;
-        gap:6px;
-    }
-
-    .mobile-nav{
-        display:flex;
-        position:fixed;
-        bottom:0;
-        left:0;
-        right:0;
-        height:58px;
-        background:#fff;
-        border-top:1px solid #ddd;
-        z-index:2000;
-        justify-content:space-around;
-        box-shadow:0 -5px 20px rgba(0,0,0,.08);
-    }
-
-    .mobile-nav button{
-        flex:1;
-        border:0;
-        background:#fff;
-        color:#777;
-        font-size:9px;
-        font-weight:900;
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        justify-content:center;
-        gap:3px;
-    }
-
-    .mobile-nav button span{
-        font-size:20px;
-        line-height:18px;
-    }
-
-    .mobile-nav button.active{
-        color:#000;
-    }
-
-    .floating-cart{
-        display:block;
-    }
-}
-
-
-/* =========================================================
-   VERY SMALL PHONES
-========================================================= */
-
-@media(max-width:380px){
-
-    .hero h1{
-        font-size:38px;
-    }
-
-    .store-grid,
-    .product-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .benefits{
-        grid-template-columns:1fr;
-    }
-
-    .bottom-cta{
-        align-items:flex-start;
-        flex-direction:column;
-    }
-
-    .cta-button{
-        width:100%;
-    }
-
-}
-
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =======================================================
-     HEADER
-======================================================= -->
-
 <header>
+  <div class="logo">Aero<span>Zone</span></div>
 
-<div class="nav">
-
-    <div class="logo">
-        Aero<span>Zone</span>
-    </div>
-
-    <div class="nav-actions">
-
-        <button
-            class="nav-btn"
-            onclick="openTracking()"
-        >
-            📦 Track
-        </button>
-
-        <button
-            class="nav-btn black"
-            onclick="openCart()"
-        >
-            🛒 Cart
-            <span
-                class="cart-count"
-                id="cartCount"
-            >0</span>
-        </button>
-
-    </div>
-
-</div>
-
+  <div class="header-actions">
+    <button class="header-btn" onclick="openTracking()">Track Order</button>
+    <button class="header-btn" onclick="openCart()">Cart 🛒</button>
+  </div>
 </header>
 
-
-<!-- =======================================================
-     HERO
-======================================================= -->
-
 <section class="hero">
+  <h1>Everything you need.<br>Delivered.</h1>
+  <p>Shop groceries, meals, health products and more with AeroZone.</p>
 
-<div class="hero-inner">
+  <div class="search-box">
+    <input
+      id="searchInput"
+      type="search"
+      placeholder="Search for products..."
+      oninput="searchProducts()"
+    >
+  </div>
 
-    <div class="location">
-        📍
-        <span>Delivery available around</span>
-        <strong>South Africa</strong>
-    </div>
-
-    <h1>
-        What are you
-        shopping for?
-    </h1>
-
-    <p>
-        Groceries, meals, fresh food, pharmacy essentials
-        and everyday products — all in one place.
-    </p>
-
-    <div class="search">
-
-        <input
-            id="searchInput"
-            type="search"
-            placeholder="Search groceries, food, drinks..."
-            oninput="searchProducts()"
-        >
-
-        <button onclick="searchProducts()">
-            Search
-        </button>
-
-    </div>
-
-</div>
-
+  <div class="free-delivery-banner">
+    🚚 Spend <strong>R500+</strong> and get <strong>FREE DELIVERY</strong>
+  </div>
 </section>
-
-
-<!-- =======================================================
-     MAIN
-======================================================= -->
 
 <main>
 
+  <h2 class="section-title">Shop by category</h2>
 
-<!-- CATEGORY BAR -->
+  <div class="categories">
+    <button class="category active" onclick="showStores()">All</button>
+    <button class="category" onclick="openBranch('supermarket')">🛒 Supermarket</button>
+    <button class="category" onclick="openBranch('pharmacy')">💊 Pharmacy</button>
+    <button class="category" onclick="openBranch('restaurant')">🍽️ Restaurants</button>
+    <button class="category" onclick="openBranch('fastfood')">🍔 Fast Food</button>
+    <button class="category" onclick="openBranch('butchery')">🥩 Butchery</button>
+    <button class="category" onclick="openBranch('bakery')">🥐 Bakery</button>
+    <button class="category" onclick="openBranch('fruitveg')">🥬 Fruit & Veg</button>
+    <button class="category" onclick="openBranch('home')">🧽 Home & Cleaning</button>
+  </div>
 
-<div class="category-strip">
+  <section id="storesSection">
 
-    <button
-        class="category-pill active"
-        onclick="showStores()"
-    >
-        All
-    </button>
+    <h2 class="section-title" style="margin-top:30px;">Shop our branches</h2>
 
-    <button
-        class="category-pill"
-        onclick="openBranch('supermarket')"
-    >
-        🛒 Supermarket
-    </button>
+    <div class="store-grid">
 
-    <button
-        class="category-pill"
-        onclick="openBranch('pharmacy')"
-    >
-        💊 Pharmacy
-    </button>
+      <div class="store-card" onclick="openBranch('supermarket')">
+        <div class="store-icon">🛒</div>
+        <h3>Supermarket</h3>
+        <p>Groceries and everyday essentials.</p>
+        <div class="store-arrow">Shop now →</div>
+      </div>
 
-    <button
-        class="category-pill"
-        onclick="openBranch('restaurant')"
-    >
-        🍽️ Restaurants
-    </button>
+      <div class="store-card" onclick="openBranch('pharmacy')">
+        <div class="store-icon">💊</div>
+        <h3>Pharmacy & Health</h3>
+        <p>Health and personal-care products.</p>
+        <div class="store-arrow">Shop now →</div>
+      </div>
 
-    <button
-        class="category-pill"
-        onclick="openBranch('fastfood')"
-    >
-        🍔 Fast Food
-    </button>
+      <div class="store-card" onclick="openBranch('restaurant')">
+        <div class="store-icon">🍽️</div>
+        <h3>Restaurants</h3>
+        <p>Fresh meals delivered to you.</p>
+        <div class="store-arrow">Shop now →</div>
+      </div>
 
-    <button
-        class="category-pill"
-        onclick="openBranch('butchery')"
-    >
-        🥩 Butchery
-    </button>
+      <div class="store-card" onclick="openBranch('fastfood')">
+        <div class="store-icon">🍔</div>
+        <h3>Fast Food</h3>
+        <p>Quick meals, snacks and drinks.</p>
+        <div class="store-arrow">Shop now →</div>
+      </div>
 
-    <button
-        class="category-pill"
-        onclick="openBranch('bakery')"
-    >
-        🥐 Bakery
-    </button>
+      <div class="store-card" onclick="openBranch('butchery')">
+        <div class="store-icon">🥩</div>
+        <h3>Butchery</h3>
+        <p>Fresh meat and poultry.</p>
+        <div class="store-arrow">Shop now →</div>
+      </div>
 
-    <button
-        class="category-pill"
-        onclick="openBranch('fruitveg')"
-    >
-        🥬 Fruit & Veg
-    </button>
+      <div class="store-card" onclick="openBranch('bakery')">
+        <div class="store-icon">🥐</div>
+        <h3>Bakery</h3>
+        <p>Freshly baked goods.</p>
+        <div class="store-arrow">Shop now →</div>
+      </div>
 
-    <button
-        class="category-pill"
-        onclick="openBranch('home')"
-    >
-        🧽 Home
-    </button>
+      <div class="store-card" onclick="openBranch('fruitveg')">
+        <div class="store-icon">🥬</div>
+        <h3>Fruit & Veg</h3>
+        <p>Fresh fruits and vegetables.</p>
+        <div class="store-arrow">Shop now →</div>
+      </div>
 
-</div>
-
-
-<!-- =======================================================
-     STORES
-======================================================= -->
-
-<section id="storesSection">
-
-<div class="section-head">
-
-    <div>
-        <h2>Shop by category</h2>
-        <p>Choose where you want to shop</p>
-    </div>
-
-</div>
-
-
-<div class="store-grid">
-
-
-<div
-    class="store-card"
-    onclick="openBranch('supermarket')"
->
-
-    <div class="store-cover">🛒</div>
-
-    <div class="store-content">
-
-        <div class="store-name">
-            Supermarket
-        </div>
-
-        <div class="store-type">
-            Groceries & everyday essentials
-        </div>
-
-        <div class="store-meta">
-            <span>🚚 Delivery</span>
-            <span class="rating">★ 4.8</span>
-        </div>
+      <div class="store-card" onclick="openBranch('home')">
+        <div class="store-icon">🧽</div>
+        <h3>Home & Cleaning</h3>
+        <p>Cleaning and household essentials.</p>
+        <div class="store-arrow">Shop now →</div>
+      </div>
 
     </div>
+  </section>
 
-</div>
+  <section class="catalog" id="catalogSection" style="display:none;">
 
+    <div class="catalog-head">
+      <div>
+        <h2 class="section-title" id="catalogTitle">Products</h2>
+        <small id="catalogSubtitle"></small>
+      </div>
 
-<div
-    class="store-card"
-    onclick="openBranch('pharmacy')"
->
-
-    <div class="store-cover">💊</div>
-
-    <div class="store-content">
-
-        <div class="store-name">
-            Pharmacy & Health
-        </div>
-
-        <div class="store-type">
-            Health & personal care
-        </div>
-
-        <div class="store-meta">
-            <span>🚚 Delivery</span>
-            <span class="rating">★ 4.7</span>
-        </div>
-
-    </div>
-
-</div>
-
-
-<div
-    class="store-card"
-    onclick="openBranch('restaurant')"
->
-
-    <div class="store-cover">🍽️</div>
-
-    <div class="store-content">
-
-        <div class="store-name">
-            Restaurants
-        </div>
-
-        <div class="store-type">
-            Fresh meals & dining
-        </div>
-
-        <div class="store-meta">
-            <span>🚚 Delivery</span>
-            <span class="rating">★ 4.9</span>
-        </div>
-
-    </div>
-
-</div>
-
-
-<div
-    class="store-card"
-    onclick="openBranch('fastfood')"
->
-
-    <div class="store-cover">🍔</div>
-
-    <div class="store-content">
-
-        <div class="store-name">
-            Fast Food
-        </div>
-
-        <div class="store-type">
-            Quick meals & snacks
-        </div>
-
-        <div class="store-meta">
-            <span>⚡ Fast</span>
-            <span class="rating">★ 4.8</span>
-        </div>
-
-    </div>
-
-</div>
-
-
-<div
-    class="store-card"
-    onclick="openBranch('butchery')"
->
-
-    <div class="store-cover">🥩</div>
-
-    <div class="store-content">
-
-        <div class="store-name">
-            Butchery
-        </div>
-
-        <div class="store-type">
-            Fresh meat & poultry
-        </div>
-
-        <div class="store-meta">
-            <span>🥩 Fresh</span>
-            <span class="rating">★ 4.8</span>
-        </div>
-
-    </div>
-
-</div>
-
-
-<div
-    class="store-card"
-    onclick="openBranch('bakery')"
->
-
-    <div class="store-cover">🥐</div>
-
-    <div class="store-content">
-
-        <div class="store-name">
-            Bakery
-        </div>
-
-        <div class="store-type">
-            Freshly baked goods
-        </div>
-
-        <div class="store-meta">
-            <span>🔥 Fresh</span>
-            <span class="rating">★ 4.9</span>
-        </div>
-
-    </div>
-
-</div>
-
-
-<div
-    class="store-card"
-    onclick="openBranch('fruitveg')"
->
-
-    <div class="store-cover">🥬</div>
-
-    <div class="store-content">
-
-        <div class="store-name">
-            Fruit & Veg
-        </div>
-
-        <div class="store-type">
-            Fresh produce
-        </div>
-
-        <div class="store-meta">
-            <span>🥬 Fresh</span>
-            <span class="rating">★ 4.8</span>
-        </div>
-
-    </div>
-
-</div>
-
-
-<div
-    class="store-card"
-    onclick="openBranch('home')"
->
-
-    <div class="store-cover">🧽</div>
-
-    <div class="store-content">
-
-        <div class="store-name">
-            Home & Cleaning
-        </div>
-
-        <div class="store-type">
-            Household essentials
-        </div>
-
-        <div class="store-meta">
-            <span>🚚 Delivery</span>
-            <span class="rating">★ 4.7</span>
-        </div>
-
-    </div>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- =======================================================
-     SEARCH RESULTS
-======================================================= -->
-
-<section
-    id="searchResults"
-    class="search-results"
->
-
-<div class="section-head">
-
-    <div>
-        <h2>Search results</h2>
-        <p>Products matching your search</p>
-    </div>
-
-</div>
-
-<div
-    id="searchProductGrid"
-    class="product-grid"
-></div>
-
-</section>
-
-
-<!-- =======================================================
-     CATALOG
-======================================================= -->
-
-<section id="catalog">
-
-<div class="catalog-top">
-
-    <button
-        class="back-btn"
-        onclick="showStores()"
-    >
+      <button class="secondary" style="width:auto;margin:0;padding:10px 15px;" onclick="showStores()">
         ← Back
-    </button>
-
-    <div class="catalog-title">
-
-        <h2 id="catalogTitle">
-            Store
-        </h2>
-
-        <p id="catalogSubtitle">
-            Products
-        </p>
-
+      </button>
     </div>
 
-</div>
+    <div id="productGrid" class="product-grid"></div>
 
+  </section>
 
-<div
-    id="productGrid"
-    class="product-grid"
-></div>
+  <section id="searchSection" class="catalog" style="display:none;">
+    <div class="catalog-head">
+      <h2 class="section-title">Search results</h2>
+    </div>
 
-</section>
+    <div id="searchGrid" class="product-grid"></div>
+  </section>
 
+  <section class="benefits">
 
-<!-- =======================================================
-     WHY AEROZONE
-======================================================= -->
+    <div class="benefit">
+      <div class="benefit-icon">🚚</div>
+      <h3>Free Delivery at R500+</h3>
+      <p>Spend R500 or more in one order and your delivery fee is automatically reduced to R0.</p>
+    </div>
 
-<section class="benefits">
+    <div class="benefit">
+      <div class="benefit-icon">📱</div>
+      <h3>Easy Ordering</h3>
+      <p>Add products to your cart and send your complete order directly through WhatsApp.</p>
+    </div>
 
-<div class="benefit">
+    <div class="benefit">
+      <div class="benefit-icon">⚡</div>
+      <h3>Simple & Fast</h3>
+      <p>Choose your products, enter your delivery details and place your order in minutes.</p>
+    </div>
 
-    <div class="benefit-icon">🚚</div>
+  </section>
 
-    <strong>
-        Delivery
-    </strong>
-
-    <span>
-        Get your shopping delivered to your door.
-    </span>
-
-</div>
-
-
-<div class="benefit">
-
-    <div class="benefit-icon">🛒</div>
-
-    <strong>
-        One Cart
-    </strong>
-
-    <span>
-        Shop different product categories in one place.
-    </span>
-
-</div>
-
-
-<div class="benefit">
-
-    <div class="benefit-icon">📲</div>
-
-    <strong>
-        Easy Ordering
-    </strong>
-
-    <span>
-        Confirm your order quickly through WhatsApp.
-    </span>
-
-</div>
-
-
-<div class="benefit">
-
-    <div class="benefit-icon">📦</div>
-
-    <strong>
-        Order Tracking
-    </strong>
-
-    <span>
-        Check the progress of your latest order.
-    </span>
-
-</div>
-
-</section>
-
-
-<!-- =======================================================
-     BOTTOM CTA
-======================================================= -->
-
-<section class="bottom-cta">
-
-<div>
-
-    <h2>
-        Need it delivered?
-    </h2>
-
-    <p>
-        Add your products to the cart and let AeroZone
-        handle the rest.
-    </p>
-
-</div>
-
-<button
-    class="cta-button"
-    onclick="openCart()"
->
-    🛒 View My Cart
-</button>
-
-</section>
-
+  <section class="premium-box">
+    <h2>🚚 AeroZone Premium Delivery</h2>
+    <p>The more you shop, the more you save on delivery.</p>
+    <div class="premium-rule">SPEND R500+ = FREE DELIVERY</div>
+  </section>
 
 </main>
 
-
-<!-- =======================================================
-     FOOTER
-======================================================= -->
-
 <footer>
+  <div class="footer-inner">
+    <div class="footer-logo">AeroZone</div>
+    <p>Shopping and delivery made simple.</p>
+    <p>South Africa</p>
 
-<div class="footer-inner">
-
-
-<div class="footer-grid">
-
-
-<div>
-
-    <div class="footer-logo">
-        AeroZone
-    </div>
-
-    <div class="footer-description">
-        Your everyday shopping and delivery platform.
-        Shop groceries, meals, health products, fresh food
-        and household essentials from your phone.
-    </div>
-
-    <button
-        class="whatsapp-footer"
-        onclick="openWhatsApp()"
-    >
-        💬 WhatsApp AeroZone
-    </button>
-
-</div>
-
-
-<div>
-
-    <div class="footer-title">
-        Shop
-    </div>
-
-    <button
-        class="footer-link"
-        onclick="openBranch('supermarket')"
-    >
-        Supermarket
-    </button>
-
-    <button
-        class="footer-link"
-        onclick="openBranch('restaurant')"
-    >
-        Restaurants
-    </button>
-
-    <button
-        class="footer-link"
-        onclick="openBranch('fastfood')"
-    >
-        Fast Food
-    </button>
-
-    <button
-        class="footer-link"
-        onclick="openBranch('bakery')"
-    >
-        Bakery
-    </button>
-
-</div>
-
-
-<div>
-
-    <div class="footer-title">
-        Categories
-    </div>
-
-    <button
-        class="footer-link"
-        onclick="openBranch('pharmacy')"
-    >
-        Pharmacy
-    </button>
-
-    <button
-        class="footer-link"
-        onclick="openBranch('butchery')"
-    >
-        Butchery
-    </button>
-
-    <button
-        class="footer-link"
-        onclick="openBranch('fruitveg')"
-    >
-        Fruit & Veg
-    </button>
-
-    <button
-        class="footer-link"
-        onclick="openBranch('home')"
-    >
-        Home & Cleaning
-    </button>
-
-</div>
-
-
-<div>
-
-    <div class="footer-title">
-        AeroZone
-    </div>
-
-    <button
-        class="footer-link"
-        onclick="openTracking()"
-    >
-        Track Order
-    </button>
-
-    <button
-        class="footer-link"
-        onclick="openCart()"
-    >
-        My Cart
-    </button>
-
-    <button
-        class="footer-link"
-        onclick="openWhatsApp()"
-    >
-        Contact Us
-    </button>
-
-</div>
-
-
-</div>
-
-
-<div class="footer-bottom">
-
-    <span>
-        © 2026 AeroZone
-    </span>
-
-    <span>
-        Shop • Order • Delivered
-    </span>
-
-</div>
-
-
-</div>
-
+    <a class="footer-whatsapp" href="https://wa.me/27688685355" target="_blank">
+      Order via WhatsApp
+    </a>
+  </div>
 </footer>
 
-
-<!-- =======================================================
-     FLOATING MOBILE CART
-======================================================= -->
-
-<button
-    class="floating-cart"
-    onclick="openCart()"
->
-
-    🛒 Cart
-    <span id="floatingCartCount">0</span>
-
+<button class="cart-float" onclick="openCart()">
+  🛒 Cart <span id="cartCount" class="cart-count">0</span>
 </button>
 
-
-<!-- =======================================================
-     MOBILE NAVIGATION
-======================================================= -->
+<div id="addedMessage" class="added">Added to cart ✓</div>
 
 <nav class="mobile-nav">
+  <button onclick="showStores()">
+    <span>⌂</span>Home
+  </button>
 
-<button
-    class="active"
-    onclick="showStores()"
->
+  <button onclick="document.getElementById('storesSection').scrollIntoView({behavior:'smooth'})">
+    <span>▦</span>Stores
+  </button>
 
-    <span>⌂</span>
-    Home
+  <button onclick="openCart()">
+    <span>🛒</span>Cart
+  </button>
 
-</button>
-
-
-<button
-    onclick="document.getElementById('searchInput').focus();window.scrollTo({top:0,behavior:'smooth'})"
->
-
-    <span>⌕</span>
-    Search
-
-</button>
-
-
-<button
-    onclick="openTracking()"
->
-
-    <span>📦</span>
-    Orders
-
-</button>
-
-
-<button
-    onclick="openCart()"
->
-
-    <span>🛒</span>
-    Cart
-
-</button>
-
-
-<button
-    onclick="openWhatsApp()"
->
-
-    <span>💬</span>
-    Help
-
-</button>
-
+  <button onclick="openTracking()">
+    <span>📦</span>Track
+  </button>
 </nav>
 
+<!-- CART MODAL -->
 
-<!-- =======================================================
-     CART MODAL
-======================================================= -->
+<div id="cartModal" class="modal">
+  <div class="modal-card">
 
-<div
-    class="modal-bg"
-    id="cartModal"
->
+    <div class="modal-header">
+      <h2>Your Cart</h2>
+      <button class="close" onclick="closeModal('cartModal')">×</button>
+    </div>
 
-<div class="modal">
+    <div id="cartItems"></div>
 
-<button
-    class="close"
-    onclick="closeModal('cartModal')"
->
-    ×
-</button>
+    <div id="deliveryProgress"></div>
 
+    <div class="summary">
 
-<h2>
-    Your Cart
-</h2>
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <strong id="cartSubtotal">R0.00</strong>
+      </div>
 
+      <div class="summary-row">
+        <span>Delivery</span>
+        <strong id="cartDelivery">R35.00</strong>
+      </div>
 
-<div id="cartItems"></div>
+      <div class="summary-row summary-total">
+        <span>Total</span>
+        <strong id="cartTotal">R35.00</strong>
+      </div>
 
+      <button class="primary" onclick="openCheckout()">
+        Continue to Checkout
+      </button>
 
-<div class="summary">
+      <button class="secondary" onclick="closeModal('cartModal')">
+        Continue Shopping
+      </button>
 
-<div class="summary-row">
+    </div>
 
-    <span>
-        Subtotal
-    </span>
-
-    <strong id="subtotal">
-        R0.00
-    </strong>
-
+  </div>
 </div>
 
+<!-- CHECKOUT MODAL -->
 
-<div class="summary-row">
+<div id="checkoutModal" class="modal">
+  <div class="modal-card">
 
-    <span>
-        Delivery
-    </span>
+    <div class="modal-header">
+      <h2>Checkout</h2>
+      <button class="close" onclick="closeModal('checkoutModal')">×</button>
+    </div>
 
-    <strong id="delivery">
-        R0.00
-    </strong>
+    <div id="checkoutDeliveryMessage"></div>
 
+    <form class="checkout-form" onsubmit="placeOrder(event)">
+
+      <input id="customerName" required placeholder="Full name">
+
+      <input id="customerPhone" required type="tel" placeholder="Phone number">
+
+      <input id="customerAddress" required placeholder="Delivery address">
+
+      <select id="paymentMethod" required>
+        <option value="">Select payment method</option>
+        <option value="Cash on delivery">Cash on delivery</option>
+        <option value="Yoco / card">Yoco / card</option>
+      </select>
+
+      <textarea id="customerNotes" placeholder="Special instructions (optional)"></textarea>
+
+      <button class="primary" type="submit">
+        Place Order via WhatsApp
+      </button>
+
+    </form>
+
+  </div>
 </div>
 
+<!-- TRACKING MODAL -->
 
-<div class="summary-row total">
+<div id="trackingModal" class="modal">
+  <div class="modal-card">
 
-    <span>
-        Total
-    </span>
+    <div class="modal-header">
+      <h2>Track Order</h2>
+      <button class="close" onclick="closeModal('trackingModal')">×</button>
+    </div>
 
-    <span id="total">
-        R0.00
-    </span>
+    <div id="trackingContent"></div>
 
+  </div>
 </div>
-
-</div>
-
-
-<button
-    class="primary"
-    onclick="openCheckout()"
->
-    Continue to Checkout
-</button>
-
-
-<button
-    class="secondary"
-    onclick="closeModal('cartModal')"
->
-    Continue Shopping
-</button>
-
-
-</div>
-
-</div>
-
-
-<!-- =======================================================
-     CHECKOUT
-======================================================= -->
-
-<div
-    class="modal-bg"
-    id="checkoutModal"
->
-
-<div class="modal">
-
-<button
-    class="close"
-    onclick="closeModal('checkoutModal')"
->
-    ×
-</button>
-
-
-<h2>
-    Checkout
-</h2>
-
-
-<div class="field">
-
-<label>
-    FULL NAME
-</label>
-
-<input
-    id="customerName"
-    type="text"
-    placeholder="Your full name"
->
-
-</div>
-
-
-<div class="field">
-
-<label>
-    PHONE NUMBER
-</label>
-
-<input
-    id="customerPhone"
-    type="tel"
-    placeholder="068 868 5355"
->
-
-</div>
-
-
-<div class="field">
-
-<label>
-    DELIVERY ADDRESS
-</label>
-
-<textarea
-    id="customerAddress"
-    placeholder="Enter your delivery address"
-></textarea>
-
-</div>
-
-
-<div class="field">
-
-<label>
-    ORDER NOTES
-</label>
-
-<textarea
-    id="customerNotes"
-    placeholder="Optional instructions"
-></textarea>
-
-</div>
-
-
-<button
-    class="primary"
-    onclick="placeOrder()"
->
-    📲 Order via WhatsApp
-</button>
-
-
-</div>
-
-</div>
-
-
-<!-- =======================================================
-     TRACKING
-======================================================= -->
-
-<div
-    class="modal-bg"
-    id="trackingModal"
->
-
-<div class="modal">
-
-<button
-    class="close"
-    onclick="closeModal('trackingModal')"
->
-    ×
-</button>
-
-
-<h2>
-    Track Your Order
-</h2>
-
-
-<div id="trackingContent"></div>
-
-
-</div>
-
-</div>
-
 
 <script>
 
-/* =========================================================
-   AEROZONE PRODUCTS
-========================================================= */
-
 const branches = {
 
-supermarket:{
+  supermarket:{
     name:"Supermarket",
     subtitle:"Groceries & everyday essentials",
     icon:"🛒",
     products:[
-        ["Milk 2L","R38.99","🥛","Dairy"],
-        ["Brown Bread","R18.99","🍞","Bakery"],
-        ["White Sugar 2kg","R39.99","🧂","Pantry"],
-        ["Rice 2kg","R42.99","🍚","Pantry"],
-        ["Cooking Oil 2L","R59.99","🫗","Pantry"],
-        ["Eggs 18 Pack","R54.99","🥚","Dairy"],
-        ["Cereal 500g","R49.99","🥣","Breakfast"],
-        ["Coffee 200g","R69.99","☕","Drinks"],
-        ["Tea 100 Bags","R44.99","🍵","Drinks"],
-        ["Cold Drink 2L","R24.99","🥤","Drinks"],
-        ["Water 6 Pack","R39.99","💧","Drinks"],
-        ["Toilet Paper 18 Pack","R89.99","🧻","Household"]
+      ["Milk 2L","R38.99","🥛","Dairy"],
+      ["Brown Bread","R18.99","🍞","Bakery"],
+      ["White Sugar 2kg","R39.99","🧂","Pantry"],
+      ["Rice 2kg","R42.99","🍚","Pantry"],
+      ["Cooking Oil 2L","R59.99","🫗","Pantry"],
+      ["Eggs 18 Pack","R54.99","🥚","Dairy"],
+      ["Cereal 500g","R49.99","🥣","Breakfast"],
+      ["Coffee 200g","R69.99","☕","Drinks"],
+      ["Tea 100 Bags","R44.99","🍵","Drinks"],
+      ["Cold Drink 2L","R24.99","🥤","Drinks"],
+      ["Water 6 Pack","R39.99","💧","Drinks"],
+      ["Toilet Paper 18 Pack","R89.99","🧻","Household"]
     ]
-},
+  },
 
-pharmacy:{
+  pharmacy:{
     name:"Pharmacy & Health",
     subtitle:"Health & personal care",
     icon:"💊",
     products:[
-        ["Paracetamol","R29.99","💊","Health"],
-        ["Vitamin C","R69.99","🍊","Vitamins"],
-        ["Multivitamins","R99.99","💊","Vitamins"],
-        ["Toothpaste","R32.99","🪥","Personal Care"],
-        ["Toothbrush","R19.99","🪥","Personal Care"],
-        ["Body Lotion","R59.99","🧴","Beauty"],
-        ["Shampoo","R69.99","🧴","Beauty"],
-        ["Deodorant","R39.99","🧴","Personal Care"],
-        ["Hand Sanitizer","R29.99","🧴","Health"],
-        ["Face Wash","R74.99","🧖","Beauty"]
+      ["Paracetamol","R29.99","💊","Health"],
+      ["Vitamin C","R69.99","🍊","Vitamins"],
+      ["Multivitamins","R99.99","💊","Vitamins"],
+      ["Toothpaste","R32.99","🪥","Personal Care"],
+      ["Toothbrush","R19.99","🪥","Personal Care"],
+      ["Body Lotion","R59.99","🧴","Beauty"],
+      ["Shampoo","R69.99","🧴","Beauty"],
+      ["Deodorant","R39.99","🧴","Personal Care"],
+      ["Hand Sanitizer","R29.99","🧴","Health"],
+      ["Face Wash","R74.99","🧖","Beauty"]
     ]
-},
+  },
 
-restaurant:{
+  restaurant:{
     name:"Restaurants",
     subtitle:"Fresh meals delivered",
     icon:"🍽️",
     products:[
-        ["Chicken Burger Meal","R89.99","🍔","Meals"],
-        ["Beef Burger Meal","R99.99","🍔","Meals"],
-        ["Chicken Wrap","R69.99","🌯","Meals"],
-        ["Grilled Chicken","R119.99","🍗","Meals"],
-        ["Fish & Chips","R99.99","🐟","Meals"],
-        ["Chicken Pasta","R109.99","🍝","Meals"],
-        ["Beef Pasta","R119.99","🍝","Meals"],
-        ["Medium Pizza","R129.99","🍕","Pizza"],
-        ["Large Pizza","R169.99","🍕","Pizza"],
-        ["Greek Salad","R69.99","🥗","Salads"]
+      ["Chicken Burger Meal","R89.99","🍔","Meals"],
+      ["Beef Burger Meal","R99.99","🍔","Meals"],
+      ["Chicken Wrap","R69.99","🌯","Meals"],
+      ["Grilled Chicken","R119.99","🍗","Meals"],
+      ["Fish & Chips","R99.99","🐟","Meals"],
+      ["Chicken Pasta","R109.99","🍝","Meals"],
+      ["Beef Pasta","R119.99","🍝","Meals"],
+      ["Medium Pizza","R129.99","🍕","Pizza"],
+      ["Large Pizza","R169.99","🍕","Pizza"],
+      ["Greek Salad","R69.99","🥗","Salads"]
     ]
-},
+  },
 
-fastfood:{
+  fastfood:{
     name:"Fast Food",
     subtitle:"Quick meals & snacks",
     icon:"🍔",
     products:[
-        ["Chicken Burger","R49.99","🍔","Burger"],
-        ["Cheese Burger","R54.99","🍔","Burger"],
-        ["Chicken Wings","R69.99","🍗","Chicken"],
-        ["Large Chips","R39.99","🍟","Sides"],
-        ["Chicken Nuggets","R59.99","🍗","Chicken"],
-        ["Hot Dog","R44.99","🌭","Fast Food"],
-        ["Milkshake","R39.99","🥤","Drinks"],
-        ["Ice Cream","R29.99","🍦","Dessert"],
-        ["Chicken Combo","R89.99","🍗","Combo"]
+      ["Chicken Burger","R49.99","🍔","Burger"],
+      ["Cheese Burger","R54.99","🍔","Burger"],
+      ["Chicken Wings","R69.99","🍗","Chicken"],
+      ["Large Chips","R39.99","🍟","Sides"],
+      ["Chicken Nuggets","R59.99","🍗","Chicken"],
+      ["Hot Dog","R44.99","🌭","Fast Food"],
+      ["Milkshake","R39.99","🥤","Drinks"],
+      ["Ice Cream","R29.99","🍦","Dessert"],
+      ["Chicken Combo","R89.99","🍗","Combo"]
     ]
-},
+  },
 
-butchery:{
+  butchery:{
     name:"Butchery",
     subtitle:"Fresh meat & poultry",
     icon:"🥩",
     products:[
-        ["Beef Steak 500g","R89.99","🥩","Beef"],
-        ["Beef Mince 500g","R69.99","🥩","Beef"],
-        ["Chicken Breasts 1kg","R79.99","🍗","Chicken"],
-        ["Chicken Wings 1kg","R69.99","🍗","Chicken"],
-        ["Boerewors 1kg","R99.99","🌭","Sausage"],
-        ["Pork Chops 1kg","R89.99","🥩","Pork"],
-        ["Lamb Chops 500g","R109.99","🥩","Lamb"],
-        ["Beef Short Ribs 1kg","R119.99","🥩","Beef"]
+      ["Beef Steak 500g","R89.99","🥩","Beef"],
+      ["Beef Mince 500g","R69.99","🥩","Beef"],
+      ["Chicken Breasts 1kg","R79.99","🍗","Chicken"],
+      ["Chicken Wings 1kg","R69.99","🍗","Chicken"],
+      ["Boerewors 1kg","R99.99","🌭","Sausage"],
+      ["Pork Chops 1kg","R89.99","🥩","Pork"],
+      ["Lamb Chops 500g","R109.99","🥩","Lamb"],
+      ["Beef Short Ribs 1kg","R119.99","🥩","Beef"]
     ]
-},
+  },
 
-bakery:{
+  bakery:{
     name:"Bakery",
     subtitle:"Freshly baked goods",
     icon:"🥐",
     products:[
-        ["Fresh Bread","R18.99","🍞","Bread"],
-        ["Brown Bread","R19.99","🍞","Bread"],
-        ["Croissant","R14.99","🥐","Pastry"],
-        ["Muffin","R16.99","🧁","Pastry"],
-        ["Doughnut","R12.99","🍩","Pastry"],
-        ["Chocolate Cake","R149.99","🍰","Cake"],
-        ["Birthday Cake","R199.99","🎂","Cake"],
-        ["Vetkoek","R12.99","🥯","Bakery"]
+      ["Fresh Bread","R18.99","🍞","Bread"],
+      ["Brown Bread","R19.99","🍞","Bread"],
+      ["Croissant","R14.99","🥐","Pastry"],
+      ["Muffin","R16.99","🧁","Pastry"],
+      ["Doughnut","R12.99","🍩","Pastry"],
+      ["Chocolate Cake","R149.99","🍰","Cake"],
+      ["Birthday Cake","R199.99","🎂","Cake"],
+      ["Vetkoek","R12.99","🥯","Bakery"]
     ]
-},
+  },
 
-fruitveg:{
+  fruitveg:{
     name:"Fruit & Veg",
     subtitle:"Fresh fruit & vegetables",
     icon:"🥬",
     products:[
-        ["Bananas 1kg","R24.99","🍌","Fruit"],
-        ["Apples 1kg","R34.99","🍎","Fruit"],
-        ["Oranges 1kg","R29.99","🍊","Fruit"],
-        ["Avocado Pack","R39.99","🥑","Fruit"],
-        ["Potatoes 2kg","R34.99","🥔","Vegetables"],
-        ["Tomatoes 1kg","R29.99","🍅","Vegetables"],
-        ["Onions 1kg","R24.99","🧅","Vegetables"],
-        ["Spinach","R14.99","🥬","Vegetables"],
-        ["Carrots 1kg","R24.99","🥕","Vegetables"],
-        ["Cabbage","R19.99","🥬","Vegetables"]
+      ["Bananas 1kg","R24.99","🍌","Fruit"],
+      ["Apples 1kg","R34.99","🍎","Fruit"],
+      ["Oranges 1kg","R29.99","🍊","Fruit"],
+      ["Avocado Pack","R39.99","🥑","Fruit"],
+      ["Potatoes 2kg","R34.99","🥔","Vegetables"],
+      ["Tomatoes 1kg","R29.99","🍅","Vegetables"],
+      ["Onions 1kg","R24.99","🧅","Vegetables"],
+      ["Spinach","R14.99","🥬","Vegetables"],
+      ["Carrots 1kg","R24.99","🥕","Vegetables"],
+      ["Cabbage","R19.99","🥬","Vegetables"]
     ]
-},
+  },
 
-home:{
+  home:{
     name:"Home & Cleaning",
     subtitle:"Cleaning & household essentials",
     icon:"🧽",
     products:[
-        ["Dishwashing Liquid","R29.99","🧴","Cleaning"],
-        ["Laundry Powder 2kg","R59.99","🧼","Laundry"],
-        ["Bleach 2L","R24.99","🧴","Cleaning"],
-        ["Floor Cleaner","R34.99","🧹","Cleaning"],
-        ["Sponges Pack","R19.99","🧽","Cleaning"],
-        ["Bin Bags","R29.99","🗑️","Household"],
-        ["Paper Towels","R39.99","🧻","Household"],
-        ["Air Freshener","R29.99","🌸","Home"],
-        ["Washing Gloves","R19.99","🧤","Cleaning"]
+      ["Dishwashing Liquid","R29.99","🧴","Cleaning"],
+      ["Laundry Powder 2kg","R59.99","🧼","Laundry"],
+      ["Bleach 2L","R24.99","🧴","Cleaning"],
+      ["Floor Cleaner","R34.99","🧹","Cleaning"],
+      ["Sponges Pack","R19.99","🧽","Cleaning"],
+      ["Bin Bags","R29.99","🗑️","Household"],
+      ["Paper Towels","R39.99","🧻","Household"],
+      ["Air Freshener","R29.99","🌸","Home"],
+      ["Washing Gloves","R19.99","🧤","Cleaning"]
     ]
-}
+  }
 
 };
 
-
-/* =========================================================
-   CART
-========================================================= */
-
-let cart=[];
-
-try{
-
-    cart=JSON.parse(
-        localStorage.getItem("aerozoneCart")
-    ) || [];
-
-}catch(error){
-
-    cart=[];
-
-}
-
-
-/* =========================================================
-   PRICE
-========================================================= */
+let cart = JSON.parse(localStorage.getItem("aerozoneCart") || "[]");
 
 function priceNumber(price){
-
-    return Number(
-        String(price)
-        .replace("R","")
-        .replace(",","")
-    );
-
+  return parseFloat(String(price).replace("R","").replace(",","")) || 0;
 }
 
-function money(number){
-
-    return "R"+Number(number).toFixed(2);
-
+function money(amount){
+  return "R" + Number(amount).toFixed(2);
 }
 
+function saveCart(){
+  localStorage.setItem("aerozoneCart",JSON.stringify(cart));
+}
 
-/* =========================================================
-   SHOW STORES
-========================================================= */
+function getSubtotal(){
+  return cart.reduce((sum,item)=>{
+    return sum + priceNumber(item.price) * item.qty;
+  },0);
+}
+
+/* PREMIUM DELIVERY RULE */
+function getDelivery(){
+
+  const subtotal = getSubtotal();
+
+  if(subtotal >= 500){
+    return 0;
+  }
+
+  if(subtotal <= 0){
+    return 0;
+  }
+
+  return 35;
+}
+
+function getTotal(){
+  return getSubtotal() + getDelivery();
+}
 
 function showStores(){
 
-    document.getElementById("storesSection").style.display="block";
+  document.getElementById("storesSection").style.display="block";
+  document.getElementById("catalogSection").style.display="none";
+  document.getElementById("searchSection").style.display="none";
 
-    document.getElementById("catalog").style.display="none";
+  window.scrollTo({
+    top:document.getElementById("storesSection").offsetTop - 80,
+    behavior:"smooth"
+  });
+}
 
-    document.getElementById("searchResults").style.display="none";
+function openBranch(branchKey){
 
-    document.getElementById("searchInput").value="";
+  const branch = branches[branchKey];
 
-    window.scrollTo({
-        top:document.querySelector("main").offsetTop-65,
-        behavior:"smooth"
+  if(!branch) return;
+
+  document.getElementById("storesSection").style.display="none";
+  document.getElementById("searchSection").style.display="none";
+  document.getElementById("catalogSection").style.display="block";
+
+  document.getElementById("catalogTitle").textContent =
+    branch.icon + " " + branch.name;
+
+  document.getElementById("catalogSubtitle").textContent =
+    branch.subtitle;
+
+  renderProducts(branchKey);
+
+  document.getElementById("catalogSection").scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+}
+
+function renderProducts(branchKey){
+
+  const grid = document.getElementById("productGrid");
+  const products = branches[branchKey].products;
+
+  grid.innerHTML = products.map((p,index)=>{
+
+    const id = branchKey + "-" + index;
+
+    return `
+      <div class="product">
+
+        <div class="product-image">${p[2]}</div>
+
+        <div class="product-category">${p[3]}</div>
+
+        <h3>${p[0]}</h3>
+
+        <div class="product-bottom">
+          <div class="price">${p[1]}</div>
+
+          <button class="add-btn"
+            onclick="addToCart('${id}','${escapeHtml(p[0])}','${p[1]}','${p[2]}')">
+            +
+          </button>
+        </div>
+
+      </div>
+    `;
+
+  }).join("");
+}
+
+function escapeHtml(text){
+  return String(text)
+    .replace(/\\/g,"\\\\")
+    .replace(/'/g,"\\'");
+}
+
+function addToCart(id,name,price,icon){
+
+  const existing = cart.find(item=>item.id===id);
+
+  if(existing){
+    existing.qty++;
+  }else{
+    cart.push({
+      id,
+      name,
+      price,
+      icon,
+      qty:1
     });
+  }
 
+  saveCart();
+  updateCart();
+  showAdded();
 }
-
-
-/* =========================================================
-   OPEN BRANCH
-========================================================= */
-
-function openBranch(key){
-
-    const branch=branches[key];
-
-    if(!branch){
-
-        console.error("Branch not found:",key);
-
-        return;
-
-    }
-
-    document.getElementById("storesSection").style.display="none";
-
-    document.getElementById("searchResults").style.display="none";
-
-    document.getElementById("catalog").style.display="block";
-
-    document.getElementById("catalogTitle").textContent=
-        branch.icon+" "+branch.name;
-
-    document.getElementById("catalogSubtitle").textContent=
-        branch.subtitle;
-
-    renderProducts(key);
-
-    window.scrollTo({
-        top:document.querySelector("main").offsetTop-65,
-        behavior:"smooth"
-    });
-
-}
-
-
-/* =========================================================
-   PRODUCTS
-========================================================= */
-
-function renderProducts(key){
-
-    const branch=branches[key];
-
-    const grid=document.getElementById("productGrid");
-
-    grid.innerHTML="";
-
-
-    branch.products.forEach(product=>{
-
-        const name=product[0];
-
-        const price=product[1];
-
-        const image=product[2];
-
-        const category=product[3];
-
-
-        const card=document.createElement("div");
-
-        card.className="product";
-
-
-        card.innerHTML=`
-
-            <div class="product-img">
-                ${image}
-            </div>
-
-            <div class="product-info">
-
-                <div class="product-category">
-                    ${category}
-                </div>
-
-                <div class="product-name">
-                    ${name}
-                </div>
-
-                <div class="product-price">
-                    ${price}
-                </div>
-
-                <button class="add-btn">
-                    + Add
-                </button>
-
-            </div>
-
-        `;
-
-
-        card.querySelector(".add-btn")
-        .addEventListener("click",function(){
-
-            addToCart(
-                name,
-                price,
-                image,
-                branch.name
-            );
-
-        });
-
-
-        grid.appendChild(card);
-
-    });
-
-}
-
-
-/* =========================================================
-   ADD CART
-========================================================= */
-
-function addToCart(name,price,image,store){
-
-    const existing=cart.find(
-        item=>
-        item.name===name &&
-        item.store===store
-    );
-
-
-    if(existing){
-
-        existing.qty++;
-
-    }else{
-
-        cart.push({
-            name:name,
-            price:price,
-            image:image,
-            store:store,
-            qty:1
-        });
-
-    }
-
-
-    saveCart();
-
-    updateCart();
-
-    showAdded();
-
-}
-
-
-/* =========================================================
-   SAVE CART
-========================================================= */
-
-function saveCart(){
-
-    localStorage.setItem(
-        "aerozoneCart",
-        JSON.stringify(cart)
-    );
-
-}
-
-
-/* =========================================================
-   CART COUNT
-========================================================= */
 
 function updateCart(){
 
-    const count=cart.reduce(
-        (sum,item)=>sum+item.qty,
-        0
-    );
+  const count = cart.reduce((sum,item)=>sum+item.qty,0);
 
+  document.getElementById("cartCount").textContent=count;
 
-    document.getElementById("cartCount").textContent=count;
-
-    const floating=
-        document.getElementById("floatingCartCount");
-
-    if(floating){
-
-        floating.textContent=count;
-
-    }
-
+  if(document.getElementById("cartModal").classList.contains("show")){
+    renderCart();
+  }
 }
-
-
-/* =========================================================
-   ADDED FEEDBACK
-========================================================= */
 
 function showAdded(){
 
-    const cartButton=
-        document.querySelector(".nav-btn.black");
+  const message=document.getElementById("addedMessage");
 
-    if(!cartButton){
+  message.classList.add("show");
 
-        return;
-
-    }
-
-
-    const original=
-        cartButton.innerHTML;
-
-
-    cartButton.innerHTML="✓ Added";
-
-
-    setTimeout(()=>{
-
-        cartButton.innerHTML=original;
-
-    },800);
-
+  setTimeout(()=>{
+    message.classList.remove("show");
+  },1200);
 }
-
-
-/* =========================================================
-   CART TOTALS
-========================================================= */
-
-function getSubtotal(){
-
-    return cart.reduce(
-        (sum,item)=>
-            sum+
-            priceNumber(item.price)*item.qty,
-        0
-    );
-
-}
-
-
-function getDelivery(){
-
-    const subtotal=getSubtotal();
-
-    if(subtotal===0){
-
-        return 0;
-
-    }
-
-    if(subtotal>=500){
-
-        return 0;
-
-    }
-
-    return 35;
-
-}
-
-
-function getTotal(){
-
-    return getSubtotal()+getDelivery();
-
-}
-
-
-/* =========================================================
-   OPEN CART
-========================================================= */
 
 function openCart(){
 
-    renderCart();
+  renderCart();
 
-    openModal("cartModal");
-
+  document.getElementById("cartModal").classList.add("show");
 }
-
-
-/* =========================================================
-   RENDER CART
-========================================================= */
 
 function renderCart(){
 
-    const container=
-        document.getElementById("cartItems");
+  const container=document.getElementById("cartItems");
 
+  if(cart.length===0){
 
-    if(cart.length===0){
+    container.innerHTML=`
+      <div class="no-results">
+        <div style="font-size:45px;">🛒</div>
+        <h3>Your cart is empty</h3>
+        <p style="margin-top:8px;">Add products to start your order.</p>
+      </div>
+    `;
 
-        container.innerHTML=`
+  }else{
 
-            <div class="empty">
+    container.innerHTML=cart.map(item=>`
 
-                🛒
+      <div class="cart-item">
 
-                <br><br>
+        <div class="cart-item-icon">${item.icon}</div>
 
-                Your cart is empty.
+        <div class="cart-item-info">
+          <h4>${item.name}</h4>
+          <small>${money(priceNumber(item.price))} each</small>
+        </div>
 
-                <br>
+        <div class="qty">
+          <button onclick="changeQuantity('${item.id}',-1)">−</button>
+          <strong>${item.qty}</strong>
+          <button onclick="changeQuantity('${item.id}',1)">+</button>
+        </div>
 
-                Start shopping to add products.
+      </div>
 
-            </div>
+    `).join("");
+  }
 
-        `;
+  const subtotal=getSubtotal();
+  const delivery=getDelivery();
+  const total=getTotal();
 
-    }else{
+  document.getElementById("cartSubtotal").textContent=money(subtotal);
 
-        container.innerHTML="";
+  document.getElementById("cartDelivery").textContent=
+    delivery===0 && subtotal>=500
+      ? "FREE"
+      : money(delivery);
 
+  document.getElementById("cartTotal").textContent=money(total);
 
-        cart.forEach((item,index)=>{
+  const progress=document.getElementById("deliveryProgress");
 
-            const row=document.createElement("div");
+  if(subtotal===0){
 
-            row.className="cart-item";
+    progress.innerHTML="";
 
+  }else if(subtotal<500){
 
-            row.innerHTML=`
+    const remaining=500-subtotal;
+    const percent=Math.min((subtotal/500)*100,100);
 
-                <div>
+    progress.innerHTML=`
+      <div class="free-message">
+        🚚 Spend ${money(remaining)} more to unlock FREE delivery!
+        <div class="progress-wrap">
+          <div class="progress" style="width:${percent}%"></div>
+        </div>
+      </div>
+    `;
 
-                    <div class="cart-name">
-                        ${item.image} ${item.name}
-                    </div>
+  }else{
 
-                    <div class="cart-price">
-                        ${item.store} · ${item.price}
-                    </div>
-
-                </div>
-
-                <div class="qty">
-
-                    <button
-                        onclick="changeQuantity(${index},-1)"
-                    >
-                        −
-                    </button>
-
-                    <strong>
-                        ${item.qty}
-                    </strong>
-
-                    <button
-                        onclick="changeQuantity(${index},1)"
-                    >
-                        +
-                    </button>
-
-                </div>
-
-            `;
-
-
-            container.appendChild(row);
-
-        });
-
-    }
-
-
-    document.getElementById("subtotal")
-        .textContent=money(getSubtotal());
-
-
-    document.getElementById("delivery")
-        .textContent=
-        getDelivery()===0
-        ?(
-            getSubtotal()>0
-            ?"FREE"
-            :"R0.00"
-        )
-        :money(getDelivery());
-
-
-    document.getElementById("total")
-        .textContent=money(getTotal());
-
+    progress.innerHTML=`
+      <div class="free-message">
+        🎉 PREMIUM DELIVERY UNLOCKED — YOUR DELIVERY IS FREE!
+      </div>
+    `;
+  }
 }
 
+function changeQuantity(id,change){
 
-/* =========================================================
-   CHANGE QUANTITY
-========================================================= */
+  const item=cart.find(i=>i.id===id);
 
-function changeQuantity(index,amount){
+  if(!item) return;
 
-    if(!cart[index]){
+  item.qty+=change;
 
-        return;
+  if(item.qty<=0){
+    cart=cart.filter(i=>i.id!==id);
+  }
 
-    }
-
-
-    cart[index].qty+=amount;
-
-
-    if(cart[index].qty<=0){
-
-        cart.splice(index,1);
-
-    }
-
-
-    saveCart();
-
-    updateCart();
-
-    renderCart();
-
+  saveCart();
+  updateCart();
+  renderCart();
 }
-
-
-/* =========================================================
-   CHECKOUT
-========================================================= */
 
 function openCheckout(){
 
-    if(cart.length===0){
+  if(cart.length===0){
+    alert("Your cart is empty.");
+    return;
+  }
 
-        alert("Your cart is empty.");
+  const subtotal=getSubtotal();
 
-        return;
+  document.getElementById("checkoutDeliveryMessage").innerHTML =
+    subtotal>=500
+      ? `<div class="free-message">🎉 You unlocked FREE DELIVERY!</div>`
+      : `<div class="free-message">🚚 Delivery: R35. Spend ${money(500-subtotal)} more for FREE delivery.</div>`;
 
-    }
+  closeModal("cartModal");
 
-
-    closeModal("cartModal");
-
-    openModal("checkoutModal");
-
+  document.getElementById("checkoutModal").classList.add("show");
 }
 
+function placeOrder(event){
 
-/* =========================================================
-   PLACE ORDER
-========================================================= */
+  event.preventDefault();
 
-function placeOrder(){
+  if(cart.length===0){
+    alert("Your cart is empty.");
+    return;
+  }
 
-    if(cart.length===0){
+  const name=document.getElementById("customerName").value.trim();
+  const phone=document.getElementById("customerPhone").value.trim();
+  const address=document.getElementById("customerAddress").value.trim();
+  const payment=document.getElementById("paymentMethod").value;
+  const notes=document.getElementById("customerNotes").value.trim();
 
-        alert("Your cart is empty.");
+  const subtotal=getSubtotal();
+  const delivery=getDelivery();
+  const total=getTotal();
 
-        return;
+  const orderNumber =
+    "AZ" + Math.floor(100000 + Math.random()*900000);
 
-    }
+  const itemsText=cart.map(item=>{
+    return `${item.qty} x ${item.name} - ${money(priceNumber(item.price)*item.qty)}`;
+  }).join("\n");
 
-
-    const name=
-        document
-        .getElementById("customerName")
-        .value
-        .trim();
-
-
-    const phone=
-        document
-        .getElementById("customerPhone")
-        .value
-        .trim();
-
-
-    const address=
-        document
-        .getElementById("customerAddress")
-        .value
-        .trim();
-
-
-    const notes=
-        document
-        .getElementById("customerNotes")
-        .value
-        .trim();
-
-
-    if(!name || !phone || !address){
-
-        alert(
-            "Please enter your name, phone number and delivery address."
-        );
-
-        return;
-
-    }
-
-
-    const orderNumber=
-        "AZ"+
-        Math.floor(
-            100000+
-            Math.random()*900000
-        );
-
-
-    const items=
-        cart.map(item=>
-            item.name+
-            " x"+
-            item.qty+
-            " - "+
-            item.price
-        ).join("\n");
-
-
-    const message=
+  const message =
 `*AEROZONE ORDER*
 
-Order: ${orderNumber}
+Order Number: ${orderNumber}
 
-Customer:
-${name}
+*Customer*
+Name: ${name}
+Phone: ${phone}
+Address: ${address}
 
-Phone:
-${phone}
+*Items*
+${itemsText}
 
-Delivery Address:
-${address}
+*Payment*
+${payment}
 
-Items:
-${items}
+*Subtotal:* ${money(subtotal)}
+*Delivery:* ${delivery===0 ? "FREE" : money(delivery)}
+*TOTAL:* ${money(total)}
 
-Subtotal:
-${money(getSubtotal())}
-
-Delivery:
-${getDelivery()===0?"FREE":money(getDelivery())}
-
-TOTAL:
-${money(getTotal())}
-
-Notes:
-${notes||"None"}
+${notes ? "*Notes:* "+notes : ""}
 
 Please confirm my order.`;
 
+  localStorage.setItem("aerozoneLastOrder",JSON.stringify({
+    orderNumber,
+    status:"Order received",
+    name,
+    phone,
+    address,
+    total,
+    date:new Date().toLocaleString()
+  }));
 
-    localStorage.setItem(
-        "aerozoneLastOrder",
-        JSON.stringify({
-            orderNumber:orderNumber,
-            name:name,
-            total:getTotal(),
-            status:"Order received",
-            date:new Date().toLocaleString()
-        })
-    );
+  const whatsappUrl=
+    "https://wa.me/27688685355?text="+
+    encodeURIComponent(message);
 
+  window.open(whatsappUrl,"_blank");
 
-    cart=[];
+  cart=[];
+  saveCart();
+  updateCart();
 
-    saveCart();
+  document.getElementById("checkoutModal").classList.remove("show");
 
-    updateCart();
+  setTimeout(()=>{
+    document.getElementById("trackingContent").innerHTML=`
+      <div class="order-success">
+        <div class="check">✓</div>
+        <h2>Order Sent</h2>
+        <p style="margin:12px 0;color:#777;">
+          Your order <strong>${orderNumber}</strong> has been sent to AeroZone on WhatsApp.
+        </p>
+        <button class="primary" onclick="closeModal('trackingModal')">
+          Done
+        </button>
+      </div>
+    `;
 
-
-    document.getElementById("customerName").value="";
-
-    document.getElementById("customerPhone").value="";
-
-    document.getElementById("customerAddress").value="";
-
-    document.getElementById("customerNotes").value="";
-
-
-    const whatsapp=
-        "https://wa.me/27688685355?text="+
-        encodeURIComponent(message);
-
-
-    window.open(
-        whatsapp,
-        "_blank"
-    );
-
-
-    closeModal("checkoutModal");
-
-
-    setTimeout(()=>{
-
-        openTracking();
-
-    },500);
-
+    document.getElementById("trackingModal").classList.add("show");
+  },500);
 }
-
-
-/* =========================================================
-   SEARCH
-========================================================= */
 
 function searchProducts(){
 
-    const query=
-        document
-        .getElementById("searchInput")
-        .value
-        .trim()
-        .toLowerCase();
+  const query=document.getElementById("searchInput").value.trim().toLowerCase();
 
+  if(!query){
 
-    if(!query){
+    document.getElementById("searchSection").style.display="none";
 
-        showStores();
-
-        return;
-
+    if(document.getElementById("catalogSection").style.display==="none"){
+      document.getElementById("storesSection").style.display="block";
     }
 
+    return;
+  }
 
-    const results=[];
+  document.getElementById("storesSection").style.display="none";
+  document.getElementById("catalogSection").style.display="none";
+  document.getElementById("searchSection").style.display="block";
 
+  let results=[];
 
-    Object.values(branches)
-    .forEach(branch=>{
+  Object.keys(branches).forEach(branchKey=>{
 
-        branch.products.forEach(product=>{
+    branches[branchKey].products.forEach((p,index)=>{
 
-            if(
+      if(
+        p[0].toLowerCase().includes(query) ||
+        p[3].toLowerCase().includes(query) ||
+        branches[branchKey].name.toLowerCase().includes(query)
+      ){
 
-                product[0]
-                .toLowerCase()
-                .includes(query)
-
-                ||
-
-                product[3]
-                .toLowerCase()
-                .includes(query)
-
-                ||
-
-                branch.name
-                .toLowerCase()
-                .includes(query)
-
-            ){
-
-                results.push({
-                    product:product,
-                    store:branch.name
-                });
-
-            }
-
+        results.push({
+          id:branchKey+"-"+index,
+          name:p[0],
+          price:p[1],
+          icon:p[2]
         });
+
+      }
 
     });
 
+  });
 
-    document.getElementById("storesSection")
-        .style.display="none";
+  const grid=document.getElementById("searchGrid");
 
-    document.getElementById("catalog")
-        .style.display="none";
+  if(results.length===0){
 
-    document.getElementById("searchResults")
-        .style.display="block";
+    grid.innerHTML=`
+      <div class="no-results" style="grid-column:1/-1;">
+        <h3>No products found</h3>
+        <p style="margin-top:8px;">Try another search.</p>
+      </div>
+    `;
 
+    return;
+  }
 
-    const grid=
-        document.getElementById("searchProductGrid");
+  grid.innerHTML=results.map(p=>`
 
+    <div class="product">
 
-    grid.innerHTML="";
+      <div class="product-image">${p.icon}</div>
 
+      <div class="product-category">AeroZone</div>
 
-    if(results.length===0){
+      <h3>${p.name}</h3>
 
-        grid.innerHTML=`
+      <div class="product-bottom">
 
-            <div class="no-results">
+        <div class="price">${p.price}</div>
 
-                🔍
+        <button class="add-btn"
+          onclick="addToCart('${p.id}','${escapeHtml(p.name)}','${p.price}','${p.icon}')">
+          +
+        </button>
 
-                <br><br>
+      </div>
 
-                No products found for
+    </div>
 
-                "<strong>${query}</strong>"
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    results.forEach(result=>{
-
-        const product=result.product;
-
-
-        const card=document.createElement("div");
-
-        card.className="product";
-
-
-        card.innerHTML=`
-
-            <div class="product-img">
-                ${product[2]}
-            </div>
-
-            <div class="product-info">
-
-                <div class="product-category">
-                    ${result.store}
-                </div>
-
-                <div class="product-name">
-                    ${product[0]}
-                </div>
-
-                <div class="product-price">
-                    ${product[1]}
-                </div>
-
-                <button class="add-btn">
-                    + Add
-                </button>
-
-            </div>
-
-        `;
-
-
-        card.querySelector(".add-btn")
-        .addEventListener("click",()=>{
-
-            addToCart(
-                product[0],
-                product[1],
-                product[2],
-                result.store
-            );
-
-        });
-
-
-        grid.appendChild(card);
-
-    });
-
+  `).join("");
 }
-
-
-/* =========================================================
-   MODALS
-========================================================= */
-
-function openModal(id){
-
-    document.getElementById(id)
-        .style.display="block";
-
-}
-
-
-function closeModal(id){
-
-    document.getElementById(id)
-        .style.display="none";
-
-}
-
-
-document
-.querySelectorAll(".modal-bg")
-.forEach(bg=>{
-
-    bg.addEventListener(
-        "click",
-        function(event){
-
-            if(event.target===bg){
-
-                bg.style.display="none";
-
-            }
-
-        }
-    );
-
-});
-
-
-document.addEventListener(
-    "keydown",
-    function(event){
-
-        if(event.key==="Escape"){
-
-            document
-            .querySelectorAll(".modal-bg")
-            .forEach(modal=>{
-
-                modal.style.display="none";
-
-            });
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   TRACKING
-========================================================= */
 
 function openTracking(){
 
-    const container=
-        document.getElementById(
-            "trackingContent"
-        );
+  const saved=JSON.parse(localStorage.getItem("aerozoneLastOrder") || "null");
 
+  const content=document.getElementById("trackingContent");
 
-    let order=null;
+  if(!saved){
 
+    content.innerHTML=`
+      <div class="no-results">
+        <div style="font-size:45px;">📦</div>
+        <h3>No recent order</h3>
+        <p style="margin-top:8px;">Place an order first and you can see its local status here.</p>
+      </div>
+    `;
 
-    try{
+  }else{
 
-        order=JSON.parse(
-            localStorage.getItem(
-                "aerozoneLastOrder"
-            )
-        );
+    content.innerHTML=`
+      <div class="order-success">
 
-    }catch(error){
+        <div style="font-size:50px;">📦</div>
 
-        order=null;
+        <h2>${saved.orderNumber}</h2>
 
-    }
+        <p style="margin:10px 0;color:#777;">
+          ${saved.date}
+        </p>
 
+        <div class="free-message">
+          ✓ ${saved.status}
+        </div>
 
-    if(!order){
+        <p><strong>Total:</strong> ${money(saved.total)}</p>
 
-        container.innerHTML=`
+        <button class="primary" style="margin-top:18px;"
+          onclick="openWhatsApp()">
+          Contact AeroZone on WhatsApp
+        </button>
 
-            <div class="empty">
+      </div>
+    `;
+  }
 
-                📦
-
-                <br><br>
-
-                No recent order found.
-
-                <br><br>
-
-                Place an order to start tracking.
-
-            </div>
-
-        `;
-
-    }else{
-
-        container.innerHTML=`
-
-            <div class="order-number">
-
-                Order ${order.orderNumber}
-
-                <small>
-                    ${order.date}
-                </small>
-
-            </div>
-
-
-            <div class="timeline">
-
-                <div class="step active">
-                    ✓ Order received
-                </div>
-
-                <div class="step active">
-                    ✓ Order being prepared
-                </div>
-
-                <div class="step">
-                    🚚 Driver collecting order
-                </div>
-
-                <div class="step">
-                    📍 On the way
-                </div>
-
-                <div class="step">
-                    🏠 Delivered
-                </div>
-
-            </div>
-
-
-            <button
-                class="primary"
-                onclick="openWhatsApp()"
-            >
-                💬 Contact AeroZone
-            </button>
-
-        `;
-
-    }
-
-
-    openModal("trackingModal");
-
+  document.getElementById("trackingModal").classList.add("show");
 }
-
-
-/* =========================================================
-   WHATSAPP
-========================================================= */
 
 function openWhatsApp(){
 
-    const url=
-        "https://wa.me/27688685355?text="+
-        encodeURIComponent(
-            "Hello AeroZone, I need assistance with my order."
-        );
-
-
-    window.open(
-        url,
-        "_blank"
-    );
-
+  window.open(
+    "https://wa.me/27688685355?text="+
+    encodeURIComponent("Hello AeroZone, I would like an update on my order."),
+    "_blank"
+  );
 }
 
+function closeModal(id){
+  document.getElementById(id).classList.remove("show");
+}
 
-/* =========================================================
-   START
-========================================================= */
+document.querySelectorAll(".modal").forEach(modal=>{
+
+  modal.addEventListener("click",function(e){
+
+    if(e.target===modal){
+      modal.classList.remove("show");
+    }
+
+  });
+
+});
+
+document.addEventListener("keydown",function(e){
+
+  if(e.key==="Escape"){
+    document.querySelectorAll(".modal").forEach(m=>{
+      m.classList.remove("show");
+    });
+  }
+
+});
 
 updateCart();
-
-console.log(
-    "AeroZone professional shopping app loaded."
-);
 
 </script>
 
