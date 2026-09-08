@@ -1,584 +1,943 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AeroZone | Smart Gadgets & Trending Products</title>
+  <meta charset="UTF-8">
 
-<script src="https://cdn.tailwindcss.com"></script>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        brandBlue: '#1E40AF',
-        brandLightBlue: '#3B82F6',
-        brandDarkBlue: '#1E293B'
-      }
+  <title>AeroZone | Online Store South Africa</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8fafc;
     }
-  }
-}
-</script>
+
+    .product-card {
+      transition: 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.10);
+    }
+
+    .cart-drawer {
+      transition: transform 0.3s ease;
+    }
+
+  </style>
 
 </head>
 
-<body class="bg-blue-50 text-gray-900">
 
-<!-- HEADER -->
+<body>
 
-<header class="bg-white shadow sticky top-0 z-50">
 
-<div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+<!-- =====================================
+     HEADER
+===================================== -->
 
-<h1 class="text-2xl font-extrabold text-brandDarkBlue">
-Aero<span class="text-brandLightBlue">Zone</span>
-</h1>
+<header class="bg-blue-700 text-white sticky top-0 z-50 shadow-lg">
 
-<button
-onclick="openCart()"
-class="bg-brandBlue text-white px-4 py-2 rounded-lg font-bold"
->
-🛒 Cart
-<span id="cartCount">0</span>
-</button>
+  <div
+    class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center"
+  >
 
-</div>
+    <div>
+
+      <h1 class="text-2xl font-bold">
+        AeroZone
+      </h1>
+
+      <p class="text-xs text-blue-100">
+        Smart Products. Great Prices.
+      </p>
+
+    </div>
+
+
+    <button
+      onclick="openCart()"
+      class="bg-white text-blue-700 px-4 py-2 rounded-lg font-bold"
+    >
+
+      🛒 Cart
+
+      <span id="cartCount">
+        (0)
+      </span>
+
+    </button>
+
+  </div>
 
 </header>
 
 
-<!-- HERO -->
+<!-- =====================================
+     HERO
+===================================== -->
 
-<section class="bg-gradient-to-r from-brandDarkBlue via-brandBlue to-brandDarkBlue text-white text-center py-14 px-5">
+<section class="bg-blue-600 text-white">
 
-<div class="max-w-3xl mx-auto">
+  <div
+    class="max-w-7xl mx-auto px-6 py-16 text-center"
+  >
 
-<p class="text-blue-200 uppercase text-sm font-bold mb-3">
-Trending in South Africa
-</p>
+    <h2 class="text-4xl md:text-6xl font-extrabold mb-5">
+      Shop In-Demand Products
+    </h2>
 
-<h2 class="text-4xl md:text-5xl font-extrabold mb-4">
-Smart Products. Better Life.
-</h2>
+    <p class="text-lg md:text-xl text-blue-100 mb-8">
+      Quality products delivered across South Africa.
+    </p>
 
-<p class="text-blue-100 mb-7">
-Discover useful gadgets, home products, beauty tools and everyday smart solutions.
-</p>
+    <a
+      href="#products"
+      class="inline-block bg-white text-blue-700 px-7 py-3 rounded-xl font-bold"
+    >
+      Shop Now
+    </a>
 
-<a
-href="#products"
-class="bg-white text-brandBlue px-7 py-3 rounded-full font-bold"
->
-Shop Now
-</a>
-
-</div>
-
-</section>
-
-
-<!-- PRODUCTS -->
-
-<section id="products" class="max-w-7xl mx-auto px-4 py-12">
-
-<h2 class="text-3xl font-bold text-center text-brandDarkBlue mb-8">
-Popular Products
-</h2>
-
-<div
-id="productGrid"
-class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
->
-</div>
+  </div>
 
 </section>
 
 
-<!-- CART -->
+<!-- =====================================
+     PAYMENT MESSAGE
+===================================== -->
 
 <div
-id="cart"
-class="hidden fixed inset-0 bg-black/50 z-50"
+  id="paymentMessage"
+  class="hidden max-w-4xl mx-auto mt-6 px-4"
 >
 
-<div class="bg-white absolute right-0 top-0 h-full w-full max-w-md p-6 overflow-y-auto">
+  <div
+    id="paymentMessageBox"
+    class="p-4 rounded-xl text-center font-semibold"
+  ></div>
 
-<div class="flex justify-between items-center mb-6">
+</div>
 
-<h2 class="text-2xl font-bold">
-Your Cart
-</h2>
 
-<button
-onclick="closeCart()"
-class="text-2xl"
+<!-- =====================================
+     PRODUCTS
+===================================== -->
+
+<section
+  id="products"
+  class="max-w-7xl mx-auto px-4 py-12"
 >
-✕
-</button>
 
-</div>
+  <div class="text-center mb-10">
 
+    <h2 class="text-3xl font-bold text-gray-900">
+      Popular Products
+    </h2>
 
-<div id="cartItems"></div>
+    <p class="text-gray-600 mt-2">
+      Products selected for the South African market.
+    </p>
 
-
-<div class="border-t mt-6 pt-5">
-
-<div class="flex justify-between text-xl font-bold mb-5">
-
-<span>Total</span>
-
-<span id="cartTotal">
-R0.00
-</span>
-
-</div>
+  </div>
 
 
-<!-- ==================================================
-     CHANGE ONLY THIS LINK
+  <div
+    id="productGrid"
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+  ></div>
 
-     Replace YOUR-YOCO-PAYMENT-LINK with your
-     actual Yoco Payment Link.
-================================================== -->
+</section>
 
-<a
-id="yocoButton"
-href="#"
-target="_blank"
-class="block w-full bg-brandBlue hover:bg-blue-800 text-white text-center py-4 rounded-lg font-bold"
-onclick="return checkCartBeforePayment()"
+
+<!-- =====================================
+     CART OVERLAY
+===================================== -->
+
+<div
+  id="cartOverlay"
+  onclick="closeCart()"
+  class="fixed inset-0 bg-black bg-opacity-50 hidden z-50"
+></div>
+
+
+<!-- =====================================
+     CART DRAWER
+===================================== -->
+
+<div
+  id="cartDrawer"
+  class="cart-drawer fixed top-0 right-0 h-full w-full sm:w-96 bg-white shadow-2xl z-[60] translate-x-full overflow-y-auto"
 >
-💳 Pay Securely with Yoco
-</a>
 
 
-<p class="text-center text-xs text-gray-500 mt-3">
-Secure payment powered by Yoco
-</p>
+  <div
+    class="p-5 border-b flex justify-between items-center"
+  >
+
+    <h2 class="text-2xl font-bold">
+      Your Cart
+    </h2>
+
+    <button
+      onclick="closeCart()"
+      class="text-gray-500 text-2xl"
+    >
+      ✕
+    </button>
+
+  </div>
+
+
+  <div
+    id="cartItems"
+    class="p-5"
+  ></div>
+
+
+  <div class="border-t p-5">
+
+    <div
+      class="flex justify-between text-lg font-bold mb-5"
+    >
+
+      <span>
+        Total
+      </span>
+
+      <span id="cartTotal">
+        R0
+      </span>
+
+    </div>
+
+
+    <button
+      id="checkoutButton"
+      onclick="checkoutWithYoco()"
+      class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl font-bold"
+    >
+
+      💳 Pay Securely with Yoco
+
+    </button>
+
+
+    <p class="text-xs text-gray-500 text-center mt-3">
+
+      Secure online payment powered by Yoco.
+
+    </p>
+
+  </div>
 
 </div>
 
-</div>
 
-</div>
+<!-- =====================================
+     FOOTER
+===================================== -->
 
+<footer class="bg-gray-900 text-white mt-16">
 
-<!-- JAVASCRIPT -->
+  <div
+    class="max-w-7xl mx-auto px-6 py-10 text-center"
+  >
+
+    <h2 class="text-2xl font-bold mb-2">
+      AeroZone
+    </h2>
+
+    <p class="text-gray-400 mb-4">
+      Online shopping in South Africa
+    </p>
+
+    <p class="text-gray-500 text-sm">
+      © 2026 AeroZone. All rights reserved.
+    </p>
+
+  </div>
+
+</footer>
+
 
 <script>
 
-/* ==================================================
-   YOUR YOCO PAYMENT LINK
-   ==================================================
 
-   Replace the text between the quotes with your
-   Yoco Payment Link.
+// ==========================================
+// IMPORTANT
+// ==========================================
+//
+// AFTER RENDER GIVES YOU YOUR BACKEND URL,
+// CHANGE ONLY THIS LINE.
+//
+// Example:
+//
+// const API_URL =
+// "https://aerozone-yoco-api.onrender.com";
+//
+// ==========================================
 
-   Example:
-
-   const YOCO_PAYMENT_LINK =
-   "https://pay.yoco.com/your-store";
-
-================================================== */
-
-const YOCO_PAYMENT_LINK = "YOUR-YOCO-PAYMENT-LINK";
+const API_URL =
+  "PASTE-YOUR-RENDER-URL-HERE";
 
 
-/* PRODUCTS */
+// ==========================================
+// PRODUCTS
+// ==========================================
 
 const products = [
 
-{
-id: 1,
-name: "Rechargeable LED Emergency Bulb (Pack of 2)",
-price: 299,
-category: "Emergency & Power",
-image: "https://images.unsplash.com/photo-1550985616-10810253b84d?w=600"
-},
+  {
+    id: 1,
+    name: "Rechargeable LED Emergency Bulb (Pack of 2)",
+    price: 299,
+    category: "Emergency & Power",
+    image:
+      "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&q=80"
+  },
 
-{
-id: 2,
-name: "Portable Solar Power Bank 20,000mAh",
-price: 449,
-category: "Tech & Gear",
-image: "https://images.unsplash.com/photo-1609592424109-dd9892f1b177?w=600"
-},
+  {
+    id: 2,
+    name: "Portable Solar Power Bank (20,000mAh)",
+    price: 449,
+    category: "Tech & Gear",
+    image:
+      "https://images.unsplash.com/photo-1609592424686-f8f9f8d2d8f4?auto=format&fit=crop&w=800&q=80"
+  },
 
-{
-id: 3,
-name: "Mini Portable Wi-Fi UPS Battery",
-price: 599,
-category: "Tech & Home",
-image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600"
-},
+  {
+    id: 3,
+    name: "Mini Portable Wireless Wi-Fi UPS Battery",
+    price: 599,
+    category: "Tech & Home",
+    image:
+      "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=800&q=80"
+  },
 
-{
-id: 4,
-name: "Portable Rechargeable Travel Espresso Maker",
-price: 899,
-category: "Lifestyle",
-image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600"
-},
+  {
+    id: 4,
+    name: "Portable Rechargeable Travel Espresso Maker",
+    price: 899,
+    category: "Lifestyle",
+    image:
+      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80"
+  },
 
-{
-id: 5,
-name: "MistBrush 2-in-1 Spray Hairbrush",
-price: 399,
-category: "Beauty Tools",
-image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600"
-},
+  {
+    id: 5,
+    name: "MistBrush™ 2-in-1 Spray Hairbrush",
+    price: 399,
+    category: "Beauty Tools",
+    image:
+      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80"
+  },
 
-{
-id: 6,
-name: "Electric Vegetable Chopper",
-price: 349,
-category: "Kitchen",
-image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600"
-},
+  {
+    id: 6,
+    name: "Express Chopper Electric Veggie Dicer",
+    price: 349,
+    category: "Kitchen Hacks",
+    image:
+      "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80"
+  },
 
-{
-id: 7,
-name: "Anti-Spill Pet Water Bowl",
-price: 299,
-category: "Pet Essentials",
-image: "https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=600"
-},
+  {
+    id: 7,
+    name: "SplashFree™ Anti-Spill Pet Water Bowl",
+    price: 299,
+    category: "Pet Essentials",
+    image:
+      "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=800&q=80"
+  },
 
-{
-id: 8,
-name: "Motion Sensor Solar Security Light",
-price: 249,
-category: "Home & Garden",
-image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600"
-},
+  {
+    id: 8,
+    name: "Motion-Sensor Solar Security Wall Light",
+    price: 249,
+    category: "Home & Garden",
+    image:
+      "https://images.unsplash.com/photo-1558008258-3256797b43f3?auto=format&fit=crop&w=800&q=80"
+  },
 
-{
-id: 9,
-name: "Cordless Hair Straightener",
-price: 499,
-category: "Beauty Tools",
-image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600"
-},
+  {
+    id: 9,
+    name: "PocketGlide™ Cordless Hair Straightener",
+    price: 499,
+    category: "Beauty Tools",
+    image:
+      "https://images.unsplash.com/photo-1522338242992-e1a54906a8da?auto=format&fit=crop&w=800&q=80"
+  },
 
-{
-id: 10,
-name: "Ultrasonic Jewelry Cleaner",
-price: 429,
-category: "Utility",
-image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600"
-}
+  {
+    id: 10,
+    name: "SonicShine™ Ultrasonic Jewelry Cleaner",
+    price: 429,
+    category: "Utility",
+    image:
+      "https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=800&q=80"
+  }
 
 ];
 
 
-let cartItems = [];
+// ==========================================
+// CART
+// ==========================================
+
+let cart = [];
 
 
-/* SHOW PRODUCTS */
+// ==========================================
+// DISPLAY PRODUCTS
+// ==========================================
 
-function showProducts() {
+function displayProducts() {
 
-const grid =
-document.getElementById("productGrid");
+  const grid =
+    document.getElementById("productGrid");
 
-grid.innerHTML = products.map(product => `
-
-<div class="bg-white rounded-xl shadow overflow-hidden">
-
-<img
-src="${product.image}"
-class="w-full h-48 object-cover"
-alt="${product.name}"
->
-
-<div class="p-4">
-
-<p class="text-xs text-brandBlue font-bold uppercase">
-${product.category}
-</p>
-
-<h3 class="font-bold text-lg mt-2">
-${product.name}
-</h3>
-
-<p class="text-xl font-extrabold text-brandBlue mt-2">
-R${product.price.toFixed(2)}
-</p>
-
-<button
-onclick="addToCart(${product.id})"
-class="w-full mt-4 bg-brandDarkBlue hover:bg-brandBlue text-white py-3 rounded-lg font-bold"
->
-Add to Cart
-</button>
-
-</div>
-
-</div>
-
-`).join("");
-
-}
+  grid.innerHTML = "";
 
 
-/* ADD TO CART */
+  products.forEach(product => {
 
-function addToCart(id) {
+    const card =
+      document.createElement("div");
 
-const product =
-products.find(p => p.id === id);
 
-const existing =
-cartItems.find(p => p.id === id);
+    card.className =
+      "product-card bg-white rounded-2xl overflow-hidden shadow border border-gray-100";
 
-if(existing) {
 
-existing.quantity++;
+    card.innerHTML = `
 
-} else {
+      <img
+        src="${product.image}"
+        alt="${product.name}"
+        class="w-full h-52 object-cover"
+        onerror="this.src='https://via.placeholder.com/800x500?text=AeroZone'"
+      >
 
-cartItems.push({
-...product,
-quantity: 1
-});
+      <div class="p-5">
 
-}
+        <p class="text-sm text-blue-600 font-semibold mb-2">
+          ${product.category}
+        </p>
 
-updateCart();
+        <h3 class="font-bold text-lg text-gray-900 min-h-[56px]">
+          ${product.name}
+        </h3>
 
-openCart();
+        <p class="text-2xl font-extrabold text-gray-900 mt-3 mb-4">
+          R${product.price}
+        </p>
+
+        <button
+          onclick="addToCart(${product.id})"
+          class="w-full bg-blue-700 hover:bg-blue-800 text-white py-3 rounded-xl font-bold"
+        >
+          🛒 Add to Cart
+        </button>
+
+      </div>
+
+    `;
+
+
+    grid.appendChild(card);
+
+  });
 
 }
 
 
-/* UPDATE CART */
+// ==========================================
+// ADD TO CART
+// ==========================================
+
+function addToCart(productId) {
+
+  const product =
+    products.find(
+      product => product.id === productId
+    );
+
+
+  if (!product) return;
+
+
+  const existing =
+    cart.find(
+      item => item.id === productId
+    );
+
+
+  if (existing) {
+
+    existing.quantity += 1;
+
+  }
+
+  else {
+
+    cart.push({
+
+      id: product.id,
+
+      name: product.name,
+
+      price: product.price,
+
+      image: product.image,
+
+      quantity: 1
+
+    });
+
+  }
+
+
+  updateCart();
+
+  openCart();
+
+}
+
+
+// ==========================================
+// UPDATE CART
+// ==========================================
 
 function updateCart() {
 
-const container =
-document.getElementById("cartItems");
+  const cartItems =
+    document.getElementById("cartItems");
 
-const count =
-document.getElementById("cartCount");
+  const cartCount =
+    document.getElementById("cartCount");
 
-const total =
-document.getElementById("cartTotal");
-
-
-let itemCount = 0;
-let totalPrice = 0;
+  const cartTotal =
+    document.getElementById("cartTotal");
 
 
-cartItems.forEach(item => {
+  let total = 0;
 
-itemCount += item.quantity;
-
-totalPrice +=
-item.price * item.quantity;
-
-});
+  let count = 0;
 
 
-count.innerText = itemCount;
-
-total.innerText =
-"R" + totalPrice.toFixed(2);
+  cartItems.innerHTML = "";
 
 
-if(cartItems.length === 0) {
+  if (cart.length === 0) {
 
-container.innerHTML = `
+    cartItems.innerHTML = `
 
-<div class="text-center py-10 text-gray-400">
+      <div class="text-center py-10 text-gray-500">
 
-<p class="text-4xl mb-3">🛒</p>
+        Your cart is empty.
 
-<p>Your cart is empty.</p>
+      </div>
 
-</div>
+    `;
 
-`;
-
-return;
-
-}
+  }
 
 
-container.innerHTML =
-cartItems.map(item => `
+  cart.forEach(item => {
 
-<div class="border-b py-4">
+    total +=
+      item.price * item.quantity;
 
-<div class="flex justify-between gap-3">
-
-<div>
-
-<h3 class="font-bold text-sm">
-${item.name}
-</h3>
-
-<p class="text-sm text-gray-500">
-R${item.price.toFixed(2)}
-</p>
-
-</div>
-
-<button
-onclick="removeItem(${item.id})"
-class="text-red-500 font-bold"
->
-Remove
-</button>
-
-</div>
+    count += item.quantity;
 
 
-<div class="flex justify-between items-center mt-3">
-
-<div class="flex items-center gap-3">
-
-<button
-onclick="changeQuantity(${item.id}, -1)"
-class="bg-gray-200 px-3 py-1 rounded"
->
-−
-</button>
-
-<span class="font-bold">
-${item.quantity}
-</span>
-
-<button
-onclick="changeQuantity(${item.id}, 1)"
-class="bg-gray-200 px-3 py-1 rounded"
->
-+
-</button>
-
-</div>
-
-<strong>
-R${(item.price * item.quantity).toFixed(2)}
-</strong>
-
-</div>
-
-</div>
-
-`).join("");
-
-}
+    const div =
+      document.createElement("div");
 
 
-/* CHANGE QUANTITY */
+    div.className =
+      "border-b pb-4 mb-4";
 
-function changeQuantity(id, amount) {
 
-const item =
-cartItems.find(p => p.id === id);
+    div.innerHTML = `
 
-if(!item) return;
+      <div class="flex gap-3">
 
-item.quantity += amount;
+        <img
+          src="${item.image}"
+          class="w-20 h-20 object-cover rounded-lg"
+          alt="${item.name}"
+        >
 
-if(item.quantity <= 0) {
+        <div class="flex-1">
 
-removeItem(id);
+          <h3 class="font-bold text-sm">
+            ${item.name}
+          </h3>
 
-return;
+          <p class="text-gray-600 text-sm mt-1">
+            R${item.price}
+          </p>
 
-}
+          <div class="flex items-center gap-2 mt-3">
 
-updateCart();
+            <button
+              onclick="changeQuantity(${item.id}, -1)"
+              class="w-8 h-8 rounded bg-gray-200"
+            >
+              −
+            </button>
+
+            <span class="font-bold">
+              ${item.quantity}
+            </span>
+
+            <button
+              onclick="changeQuantity(${item.id}, 1)"
+              class="w-8 h-8 rounded bg-gray-200"
+            >
+              +
+            </button>
+
+            <button
+              onclick="removeFromCart(${item.id})"
+              class="text-red-600 text-sm ml-auto"
+            >
+              Remove
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    `;
+
+
+    cartItems.appendChild(div);
+
+  });
+
+
+  cartCount.textContent =
+    `(${count})`;
+
+
+  cartTotal.textContent =
+    `R${total}`;
 
 }
 
 
-/* REMOVE */
+// ==========================================
+// CHANGE QUANTITY
+// ==========================================
 
-function removeItem(id) {
+function changeQuantity(
+  productId,
+  amount
+) {
 
-cartItems =
-cartItems.filter(p => p.id !== id);
+  const item =
+    cart.find(
+      item => item.id === productId
+    );
 
-updateCart();
+
+  if (!item) return;
+
+
+  item.quantity += amount;
+
+
+  if (item.quantity <= 0) {
+
+    cart =
+      cart.filter(
+        item => item.id !== productId
+      );
+
+  }
+
+
+  updateCart();
 
 }
 
 
-/* OPEN CART */
+// ==========================================
+// REMOVE
+// ==========================================
+
+function removeFromCart(productId) {
+
+  cart =
+    cart.filter(
+      item => item.id !== productId
+    );
+
+
+  updateCart();
+
+}
+
+
+// ==========================================
+// OPEN CART
+// ==========================================
 
 function openCart() {
 
-document
-.getElementById("cart")
-.classList.remove("hidden");
+  document
+    .getElementById("cartDrawer")
+    .classList
+    .remove("translate-x-full");
+
+
+  document
+    .getElementById("cartOverlay")
+    .classList
+    .remove("hidden");
 
 }
 
 
-/* CLOSE CART */
+// ==========================================
+// CLOSE CART
+// ==========================================
 
 function closeCart() {
 
-document
-.getElementById("cart")
-.classList.add("hidden");
+  document
+    .getElementById("cartDrawer")
+    .classList
+    .add("translate-x-full");
+
+
+  document
+    .getElementById("cartOverlay")
+    .classList
+    .add("hidden");
 
 }
 
 
-/* YOCO PAYMENT */
+// ==========================================
+// CHECKOUT WITH YOCO
+// ==========================================
 
-function checkCartBeforePayment() {
+async function checkoutWithYoco() {
 
-if(cartItems.length === 0) {
+  if (cart.length === 0) {
 
-alert("Your cart is empty.");
+    alert("Your cart is empty.");
 
-return false;
+    return;
+
+  }
+
+
+  if (
+    !API_URL ||
+    API_URL.includes("PASTE-YOUR-RENDER-URL")
+  ) {
+
+    alert(
+      "The Yoco payment system is not connected yet. Please add your Render backend URL."
+    );
+
+    return;
+
+  }
+
+
+  const button =
+    document.getElementById("checkoutButton");
+
+
+  button.disabled = true;
+
+  button.textContent =
+    "Creating secure payment...";
+
+
+  try {
+
+    const response =
+      await fetch(
+        `${API_URL}/api/checkout/yoco`,
+        {
+
+          method: "POST",
+
+          headers: {
+            "Content-Type": "application/json"
+          },
+
+          body: JSON.stringify({
+
+            items: cart.map(item => ({
+
+              id: item.id,
+
+              quantity: item.quantity
+
+            }))
+
+          })
+
+        }
+      );
+
+
+    const data =
+      await response.json();
+
+
+    if (!response.ok || !data.success) {
+
+      console.error(data);
+
+      throw new Error(
+        data.message ||
+        "Unable to create payment."
+      );
+
+    }
+
+
+    if (!data.redirectUrl) {
+
+      throw new Error(
+        "Yoco did not return a checkout URL."
+      );
+
+    }
+
+
+    window.location.href =
+      data.redirectUrl;
+
+  }
+
+  catch (error) {
+
+    console.error(error);
+
+    alert(
+      error.message ||
+      "Something went wrong while creating the payment."
+    );
+
+    button.disabled = false;
+
+    button.textContent =
+      "💳 Pay Securely with Yoco";
+
+  }
 
 }
 
 
-if(
-YOCO_PAYMENT_LINK ===
-"YOUR-YOCO-PAYMENT-LINK"
-) {
+// ==========================================
+// PAYMENT STATUS
+// ==========================================
 
-alert(
-"Yoco payment has not been connected yet. Please add your Yoco Payment Link."
-);
+function checkPaymentStatus() {
 
-return false;
+  const params =
+    new URLSearchParams(
+      window.location.search
+    );
+
+
+  const payment =
+    params.get("payment");
+
+
+  if (!payment) return;
+
+
+  const message =
+    document.getElementById(
+      "paymentMessage"
+    );
+
+
+  const box =
+    document.getElementById(
+      "paymentMessageBox"
+    );
+
+
+  message.classList.remove("hidden");
+
+
+  if (payment === "success") {
+
+    box.className =
+      "p-4 rounded-xl text-center font-semibold bg-green-100 text-green-800";
+
+    box.textContent =
+      "Payment completed. Thank you for shopping with AeroZone!";
+
+    cart = [];
+
+    updateCart();
+
+  }
+
+
+  else if (payment === "cancelled") {
+
+    box.className =
+      "p-4 rounded-xl text-center font-semibold bg-yellow-100 text-yellow-800";
+
+    box.textContent =
+      "Payment was cancelled. Your cart is still available.";
+
+  }
+
+
+  else if (payment === "failed") {
+
+    box.className =
+      "p-4 rounded-xl text-center font-semibold bg-red-100 text-red-800";
+
+    box.textContent =
+      "Payment was not completed. Please try again.";
+
+  }
 
 }
 
 
-/*
-   Open the Yoco Payment Link.
-*/
+// ==========================================
+// START
+// ==========================================
 
-document
-.getElementById("yocoButton")
-.href =
-YOCO_PAYMENT_LINK;
-
-return true;
-
-}
-
-
-/* START */
-
-showProducts();
+displayProducts();
 
 updateCart();
 
+checkPaymentStatus();
+
 </script>
 
+
 </body>
+
 </html>
