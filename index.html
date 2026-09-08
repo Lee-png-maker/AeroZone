@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,59 +13,59 @@
       theme: {
         extend: {
           colors: {
-            brandPink: '#FF4E6E',
-            brandPurple: '#6C5CE7',
-            brandDark: '#1E1E2F'
+            brandBlue: '#1E40AF',      /* Royal Blue */
+            brandLightBlue: '#3B82F6', /* Sky Accent */
+            brandDarkBlue: '#1E293B'   /* Deep Slate Blue */
           }
         }
       }
     }
   </script>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans antialiased">
+<body class="bg-blue-50/30 text-gray-900 font-sans antialiased">
 
   <!-- Header / Navigation -->
-  <header class="sticky top-0 z-50 bg-brandDark text-white shadow-md">
+  <header class="sticky top-0 z-50 bg-white border-b border-blue-100 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
       <div class="flex items-center space-x-2">
-        <span class="p-2 bg-gradient-to-r from-brandPink to-brandPurple rounded-lg">
+        <span class="p-2 bg-brandBlue rounded-lg shadow">
           <i data-lucide="zap" class="w-6 h-6 text-white"></i>
         </span>
-        <span class="text-xl font-bold tracking-wide">Aero<span class="text-brandPink">Zone</span></span>
+        <span class="text-xl font-bold tracking-wide text-brandDarkBlue">Aero<span class="text-brandLightBlue">Zone</span></span>
       </div>
 
-      <button id="cartBtn" class="relative p-2 rounded-full hover:bg-gray-800 transition">
+      <button id="cartBtn" class="relative p-2 rounded-full hover:bg-blue-50 text-brandDarkBlue transition">
         <i data-lucide="shopping-bag" class="w-6 h-6"></i>
-        <span id="cartCount" class="absolute -top-1 -right-1 bg-brandPink text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+        <span id="cartCount" class="absolute -top-1 -right-1 bg-brandBlue text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center shadow">0</span>
       </button>
     </div>
   </header>
 
   <!-- Hero Banner -->
-  <section class="bg-gradient-to-r from-brandDark via-purple-900 to-brandDark text-white py-12 px-4 text-center">
+  <section class="bg-gradient-to-r from-brandDarkBlue via-brandBlue to-brandDarkBlue text-white py-12 px-4 text-center shadow-inner">
     <div class="max-w-3xl mx-auto">
-      <span class="bg-brandPink/20 text-brandPink text-xs font-semibold uppercase tracking-widest py-1 px-3 rounded-full inline-block mb-3">Welcome to AeroZone</span>
+      <span class="bg-white/10 text-blue-200 border border-blue-300/30 text-xs font-semibold uppercase tracking-widest py-1 px-3 rounded-full inline-block mb-3">South Africa's Top Trending Hacks</span>
       <h1 class="text-3xl md:text-5xl font-extrabold mb-4">Your Zone for Daily Upgrades</h1>
-      <p class="text-gray-300 text-sm md:text-base mb-6">Discover top-rated viral gadgets and smart solutions designed to simplify your everyday routine.</p>
-      <a href="#products" class="bg-gradient-to-r from-brandPink to-brandPurple hover:opacity-90 font-bold py-3 px-8 rounded-full shadow-lg transition inline-block">Shop the Top 10</a>
+      <p class="text-blue-100 text-sm md:text-base mb-6">Discover South Africa's most in-demand gadgets, smart backup solutions, and viral everyday hacks.</p>
+      <a href="#products" class="bg-white text-brandBlue hover:bg-blue-50 font-bold py-3 px-8 rounded-full shadow-lg transition inline-block">Shop Top Deals</a>
     </div>
   </section>
 
   <!-- Product Catalog -->
   <main id="products" class="max-w-7xl mx-auto px-4 py-12">
-    <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">Featured AeroZone Catalogue</h2>
+    <h2 class="text-2xl font-bold text-brandDarkBlue mb-8 text-center">Featured South Africa Catalogue</h2>
     <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       <!-- Products generated via JS -->
     </div>
   </main>
 
   <!-- Cart Drawer Overlay -->
-  <div id="cartDrawer" class="fixed inset-0 bg-black/50 z-50 hidden transition-opacity">
+  <div id="cartDrawer" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 hidden transition-opacity">
     <div class="fixed right-0 top-0 bottom-0 w-full max-w-md bg-white shadow-2xl flex flex-col justify-between p-6">
       <div>
         <div class="flex justify-between items-center pb-4 border-b">
-          <h3 class="text-lg font-bold text-gray-900">Your AeroZone Cart</h3>
-          <button id="closeCart" class="text-gray-500 hover:text-gray-800">
+          <h3 class="text-lg font-bold text-brandDarkBlue">Your AeroZone Cart</h3>
+          <button id="closeCart" class="text-gray-400 hover:text-gray-700">
             <i data-lucide="x" class="w-6 h-6"></i>
           </button>
         </div>
@@ -75,28 +74,28 @@
         </div>
       </div>
       <div class="border-t pt-4">
-        <div class="flex justify-between text-lg font-bold mb-4">
+        <div class="flex justify-between text-lg font-bold mb-4 text-brandDarkBlue">
           <span>Total:</span>
-          <span id="cartTotal">$0.00</span>
+          <span id="cartTotal">R0.00</span>
         </div>
-        <button id="checkoutBtn" class="w-full bg-brandPink hover:bg-rose-600 text-white font-bold py-3 rounded-lg shadow transition">Proceed to Checkout</button>
+        <button id="checkoutBtn" class="w-full bg-brandBlue hover:bg-blue-800 text-white font-bold py-3 rounded-lg shadow-md transition">Proceed to Checkout</button>
       </div>
     </div>
-  </div>
+  </main>
 
   <!-- JavaScript Logic -->
   <script>
     const products = [
-      { id: 1, name: "MistBrush™ 2-in-1 Spray Hairbrush", price: 24.99, category: "Beauty", img: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500&q=80" },
-      { id: 2, name: "PocketGlide™ Cordless Straightener", price: 29.99, category: "Beauty", img: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=500&q=80" },
-      { id: 3, name: "Mini Travel Electric Espresso Maker", price: 49.99, category: "Lifestyle", img: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500&q=80" },
-      { id: 4, name: "PureTone™ ANC Wireless Earbuds", price: 34.99, category: "Tech", img: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500&q=80" },
-      { id: 5, name: "Express Chopper Electric Veggie Dicer", price: 19.99, category: "Kitchen", img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=500&q=80" },
-      { id: 6, name: "MagPower™ Magnetic Power Bank", price: 27.99, category: "Tech", img: "https://images.unsplash.com/photo-1609592424109-dd9892f1b177?w=500&q=80" },
-      { id: 7, name: "AuraGlow™ Sunset Mood Lamp", price: 18.99, category: "Home", img: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=500&q=80" },
-      { id: 8, name: "SplashFree™ Anti-Spill Pet Bowl", price: 21.99, category: "Pets", img: "https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=500&q=80" },
-      { id: 9, name: "Motion LED Under-Cabinet Strip", price: 16.99, category: "Home", img: "https://images.unsplash.com/photo-1550985616-10810253b84d?w=500&q=80" },
-      { id: 10, name: "SonicShine™ Ultrasonic Cleaner", price: 26.99, category: "Utility", img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&q=80" }
+      { id: 1, name: "Rechargeable LED Emergency Bulb (Pack of 2)", price: 299, category: "Emergency & Power", img: "https://images.unsplash.com/photo-1550985616-10810253b84d?w=500&q=80" },
+      { id: 2, name: "Portable Solar Power Bank (20,000mAh)", price: 449, category: "Tech & Gear", img: "https://images.unsplash.com/photo-1609592424109-dd9892f1b177?w=500&q=80" },
+      { id: 3, name: "Mini Portable Wireless Wi-Fi UPS Battery", price: 599, category: "Tech & Home", img: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500&q=80" },
+      { id: 4, name: "Portable Rechargeable Travel Espresso Maker", price: 899, category: "Lifestyle", img: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500&q=80" },
+      { id: 5, name: "MistBrush™ 2-in-1 Spray Hairbrush", price: 399, category: "Beauty Tools", img: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500&q=80" },
+      { id: 6, name: "Express Chopper Electric Veggie Dicer", price: 349, category: "Kitchen Hacks", img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=500&q=80" },
+      { id: 7, name: "SplashFree™ Anti-Spill Pet Water Bowl", price: 299, category: "Pet Essentials", img: "https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=500&q=80" },
+      { id: 8, name: "Motion-Sensor Solar Security Wall Light", price: 249, category: "Home & Garden", img: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=500&q=80" },
+      { id: 9, name: "PocketGlide™ Cordless Hair Straightener", price: 499, category: "Beauty Tools", img: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=500&q=80" },
+      { id: 10, name: "SonicShine™ Ultrasonic Jewelry Cleaner", price: 429, category: "Utility", img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&q=80" }
     ];
 
     let cart = [];
@@ -104,17 +103,17 @@
     function renderProducts() {
       const grid = document.getElementById('productGrid');
       grid.innerHTML = products.map(product => `
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition flex flex-col justify-between">
+        <div class="bg-white rounded-xl border border-blue-100 shadow-sm overflow-hidden hover:shadow-md transition flex flex-col justify-between">
           <div>
             <img src="${product.img}" alt="${product.name}" class="w-full h-48 object-cover">
             <div class="p-4">
-              <span class="text-xs font-semibold text-brandPurple bg-purple-50 px-2 py-1 rounded">${product.category}</span>
-              <h3 class="font-bold text-gray-900 mt-2">${product.name}</h3>
-              <p class="text-brandPink font-extrabold text-lg mt-1">$${product.price.toFixed(2)}</p>
+              <span class="text-xs font-semibold text-brandBlue bg-blue-50 border border-blue-100 px-2 py-1 rounded">${product.category}</span>
+              <h3 class="font-bold text-brandDarkBlue mt-2">${product.name}</h3>
+              <p class="text-brandBlue font-extrabold text-xl mt-1">R ${product.price.toFixed(2)}</p>
             </div>
           </div>
           <div class="p-4 pt-0">
-            <button onclick="addToCart(${product.id})" class="w-full bg-brandDark hover:bg-gray-800 text-white text-sm font-bold py-2 rounded-lg transition flex items-center justify-center space-x-1">
+            <button onclick="addToCart(${product.id})" class="w-full bg-brandDarkBlue hover:bg-brandBlue text-white text-sm font-bold py-2.5 rounded-lg transition flex items-center justify-center space-x-1 shadow-sm">
               <i data-lucide="plus" class="w-4 h-4"></i>
               <span>Add to Cart</span>
             </button>
@@ -144,24 +143,24 @@
       const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
 
       cartCount.textContent = totalItems;
-      cartTotal.textContent = `$${totalPrice.toFixed(2)}`;
+      cartTotal.textContent = `R ${totalPrice.toFixed(2)}`;
 
       if (cart.length === 0) {
-        cartItems.innerHTML = '<p class="text-gray-500 text-center">Your cart is empty.</p>';
+        cartItems.innerHTML = '<p class="text-gray-400 text-center py-6">Your cart is empty.</p>';
       } else {
         cartItems.innerHTML = cart.map(item => `
-          <div class="flex items-center justify-between border-b pb-2">
+          <div class="flex items-center justify-between border-b pb-3">
             <div>
-              <p class="font-bold text-sm">${item.name}</p>
-              <p class="text-xs text-gray-500">$${item.price} x ${item.qty}</p>
+              <p class="font-bold text-sm text-brandDarkBlue">${item.name}</p>
+              <p class="text-xs text-gray-500">R ${item.price} x ${item.qty}</p>
             </div>
-            <span class="font-bold text-brandPink">$${(item.price * item.qty).toFixed(2)}</span>
+            <span class="font-bold text-brandBlue">R ${(item.price * item.qty).toFixed(2)}</span>
           </div>
         `).join('');
       }
     }
 
-    // Modal Drawer Controls
+    // Modal Controls
     const cartBtn = document.getElementById('cartBtn');
     const closeCart = document.getElementById('closeCart');
     const cartDrawer = document.getElementById('cartDrawer');
