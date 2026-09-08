@@ -3,19 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AeroZone | Supermarket & Food Delivery</title>
+<title>AeroZone | Premium Shopping & Delivery</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
 
 body{
 margin:0;
-font-family:Arial,sans-serif;
-background:#f5f5f5;
+font-family:Arial,Helvetica,sans-serif;
+background:#fff;
 color:#111;
 }
 
-button,input{
+button,
+input{
 font:inherit;
 }
 
@@ -24,120 +31,174 @@ cursor:pointer;
 border:0;
 }
 
+/* ================= HEADER ================= */
+
 header{
-background:#111827;
-color:white;
+background:#050505;
+color:#fff;
 position:sticky;
 top:0;
-z-index:50;
-box-shadow:0 2px 10px #999;
+z-index:100;
+box-shadow:0 3px 15px rgba(0,0,0,.18);
 }
 
 .header{
-max-width:1200px;
+max-width:1250px;
 margin:auto;
-padding:13px 16px;
+padding:14px 18px;
 display:flex;
 align-items:center;
-gap:12px;
+gap:14px;
 }
 
 .logo{
 font-size:25px;
-font-weight:bold;
+font-weight:900;
+letter-spacing:-1px;
 white-space:nowrap;
 }
 
 .logo span{
-color:#f59e0b;
+font-weight:400;
 }
 
 .search{
 flex:1;
-padding:12px 16px;
-border:0;
-border-radius:25px;
+height:42px;
+border:1px solid #333;
+border-radius:24px;
+padding:0 18px;
 outline:none;
+background:#fff;
+color:#111;
 }
 
-.cartBtn{
-background:#f59e0b;
-padding:11px 16px;
-border-radius:25px;
+.search:focus{
+border-color:#aaa;
+}
+
+.cart-btn{
+background:#fff;
+color:#111;
+border-radius:24px;
+padding:11px 18px;
 font-weight:bold;
 white-space:nowrap;
 }
 
+/* ================= QUICK MENU ================= */
+
 .quick{
-background:white;
-padding:10px;
+background:#fff;
+border-bottom:1px solid #e5e5e5;
+padding:9px 15px;
 display:flex;
 gap:8px;
-overflow:auto;
+overflow-x:auto;
 white-space:nowrap;
-border-bottom:1px solid #ddd;
 }
 
 .quick button{
-background:#eee;
-padding:10px 16px;
-border-radius:22px;
+background:#f3f3f3;
+color:#111;
+padding:9px 16px;
+border-radius:20px;
+font-size:13px;
 }
 
-.quick button.active,
-.quick button:hover{
-background:#111827;
-color:white;
+.quick button:hover,
+.quick button.active{
+background:#111;
+color:#fff;
 }
+
+/* ================= HERO ================= */
 
 .hero{
-max-width:1200px;
+max-width:1250px;
 margin:18px auto;
-padding:40px 22px;
-border-radius:15px;
-background:linear-gradient(135deg,#111827,#374151);
-color:white;
+padding:48px 28px;
+border-radius:18px;
+background:#080808;
+color:#fff;
+position:relative;
+overflow:hidden;
+}
+
+.hero:after{
+content:"";
+position:absolute;
+right:-100px;
+top:-100px;
+width:300px;
+height:300px;
+border:1px solid #444;
+border-radius:50%;
 }
 
 .hero h1{
-font-size:38px;
+font-size:42px;
 margin:0 0 10px;
+letter-spacing:-1px;
 }
 
 .hero p{
+color:#ccc;
 font-size:17px;
+margin-bottom:24px;
 }
 
-.address{
+.delivery-box{
 display:flex;
 gap:8px;
-max-width:650px;
+max-width:680px;
+position:relative;
+z-index:2;
 }
 
-.address input{
+.delivery-box input{
 flex:1;
-padding:13px;
-border:0;
+height:45px;
+padding:0 15px;
 border-radius:8px;
+border:0;
 outline:none;
 }
 
-.address button{
-background:#f59e0b;
-padding:13px 18px;
+.delivery-box button{
+background:#fff;
+color:#111;
+padding:0 20px;
 border-radius:8px;
 font-weight:bold;
 }
 
+/* ================= CONTAINER ================= */
+
 .container{
-max-width:1200px;
+max-width:1250px;
 margin:auto;
-padding:0 15px;
+padding:0 18px;
 }
 
-h2{
-margin-top:25px;
+.section-title{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin:28px 0 14px;
 }
+
+.section-title h2{
+margin:0;
+font-size:22px;
+}
+
+.section-title span{
+font-size:13px;
+color:#777;
+}
+
+/* ================= STORES ================= */
 
 .stores{
 display:grid;
@@ -146,126 +207,163 @@ gap:15px;
 }
 
 .store{
-background:white;
+background:#fff;
+border:1px solid #e5e5e5;
+border-radius:14px;
 padding:20px;
-border-radius:12px;
-box-shadow:0 2px 7px #ddd;
 text-align:center;
+transition:.2s;
 }
 
-.storeIcon{
-font-size:45px;
-margin-bottom:8px;
+.store:hover{
+transform:translateY(-3px);
+box-shadow:0 8px 25px rgba(0,0,0,.08);
 }
 
-.storeName{
+.store-icon{
+width:65px;
+height:65px;
+margin:auto auto 10px;
+border-radius:50%;
+background:#111;
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+}
+
+.store-name{
+font-size:17px;
 font-weight:bold;
-font-size:18px;
+}
+
+.store-text{
+font-size:13px;
+color:#777;
+margin:6px 0 13px;
 }
 
 .store button{
-margin-top:10px;
-background:#111827;
-color:white;
-padding:9px 16px;
+background:#111;
+color:#fff;
+padding:9px 18px;
 border-radius:7px;
+font-size:13px;
 }
+
+/* ================= CATEGORIES ================= */
 
 .categories{
 display:flex;
 gap:8px;
-overflow:auto;
-padding:8px 0 15px;
+overflow-x:auto;
+padding-bottom:5px;
 }
 
 .categories button{
-background:white;
+background:#fff;
 border:1px solid #ddd;
-padding:10px 15px;
+padding:10px 16px;
 border-radius:22px;
 white-space:nowrap;
 }
 
-.categories button.active{
-background:#111827;
-color:white;
+.categories button.active,
+.categories button:hover{
+background:#111;
+color:#fff;
+border-color:#111;
 }
+
+/* ================= PRODUCTS ================= */
 
 .products{
 display:grid;
 grid-template-columns:repeat(5,1fr);
-gap:15px;
+gap:16px;
+padding-bottom:35px;
 }
 
 .product{
-background:white;
-border-radius:12px;
+background:#fff;
+border:1px solid #e5e5e5;
+border-radius:13px;
 overflow:hidden;
-box-shadow:0 2px 7px #ddd;
+transition:.2s;
+position:relative;
 }
 
-.productImage{
-height:150px;
-background:#eee;
+.product:hover{
+transform:translateY(-4px);
+box-shadow:0 10px 28px rgba(0,0,0,.10);
+}
+
+.product-image{
+height:155px;
+background:#f3f3f3;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:60px;
+font-size:58px;
 }
 
-.productInfo{
-padding:12px;
+.product-info{
+padding:13px;
 }
 
-.productName{
+.product-name{
 font-weight:bold;
-min-height:40px;
+font-size:15px;
+min-height:38px;
 }
 
-.productDesc{
+.product-store{
 font-size:12px;
-color:#666;
-min-height:30px;
+color:#777;
 margin:5px 0;
 }
 
 .price{
 font-size:20px;
-font-weight:bold;
+font-weight:900;
 margin:8px 0;
 }
 
 .add{
 width:100%;
-background:#111827;
-color:white;
+background:#111;
+color:#fff;
 padding:11px;
 border-radius:7px;
+font-weight:bold;
 }
 
 .add:hover{
-background:#f59e0b;
-color:#111;
+background:#333;
 }
 
 .empty{
 grid-column:1/-1;
-background:white;
 padding:40px;
 text-align:center;
-border-radius:10px;
+border:1px solid #ddd;
+border-radius:12px;
+color:#777;
 }
+
+/* ================= CART ================= */
 
 .cart{
 position:fixed;
-right:-430px;
+right:-440px;
 top:0;
-width:410px;
+width:420px;
 max-width:95%;
-height:100%;
-background:white;
-z-index:100;
-box-shadow:-5px 0 20px #777;
+height:100vh;
+background:#fff;
+z-index:200;
+box-shadow:-10px 0 35px rgba(0,0,0,.25);
 transition:right .25s ease;
 display:flex;
 flex-direction:column;
@@ -275,58 +373,63 @@ flex-direction:column;
 right:0;
 }
 
-.cartHead{
-background:#111827;
-color:white;
-padding:15px;
+.cart-header{
+background:#050505;
+color:#fff;
+padding:16px;
 display:flex;
 align-items:center;
 justify-content:space-between;
 }
 
-.cartHead h2{
+.cart-header h2{
 margin:0;
+font-size:20px;
 }
 
 .close{
+background:#fff;
+color:#111;
 width:35px;
 height:35px;
 border-radius:50%;
+font-weight:bold;
 }
 
-.cartItems{
+.cart-items{
 flex:1;
 overflow:auto;
 padding:15px;
 }
 
-.cartItem{
+.cart-item{
 display:flex;
 gap:10px;
-padding:12px 0;
-border-bottom:1px solid #ddd;
+padding:13px 0;
+border-bottom:1px solid #eee;
 }
 
-.cartIcon{
+.cart-icon{
 width:55px;
 height:55px;
-background:#eee;
+background:#f2f2f2;
 border-radius:8px;
 display:flex;
 align-items:center;
 justify-content:center;
 font-size:27px;
+flex-shrink:0;
 }
 
-.cartDetails{
+.cart-details{
 flex:1;
 }
 
 .qty{
 display:flex;
 align-items:center;
-gap:7px;
-margin-top:7px;
+gap:8px;
+margin-top:8px;
 }
 
 .qty button{
@@ -337,23 +440,16 @@ background:#eee;
 }
 
 .remove{
-color:#d00;
 background:none;
+color:#777;
 font-size:12px;
+padding:3px;
 }
 
 .checkout{
 padding:15px;
 border-top:1px solid #ddd;
-}
-
-.checkoutAddress{
-width:100%;
-padding:12px;
-border:1px solid #ddd;
-border-radius:7px;
-margin:8px 0;
-outline:none;
+background:#fff;
 }
 
 .row{
@@ -363,35 +459,62 @@ margin:8px 0;
 }
 
 .total{
-font-size:21px;
+font-size:22px;
 font-weight:bold;
+}
+
+.checkout-address{
+width:100%;
+height:44px;
+padding:0 12px;
+border:1px solid #ddd;
+border-radius:7px;
+outline:none;
+margin:9px 0;
 }
 
 .whatsapp{
 width:100%;
+background:#111;
+color:#fff;
 padding:13px;
-background:#16a34a;
-color:white;
-font-weight:bold;
 border-radius:7px;
+font-weight:bold;
 }
 
+.whatsapp:hover{
+background:#333;
+}
+
+/* ================= FOOTER ================= */
+
 footer{
-margin-top:40px;
-padding:30px;
-background:#111827;
-color:white;
+background:#050505;
+color:#fff;
+padding:40px 20px;
+margin-top:10px;
 text-align:center;
 }
 
-@media(max-width:1000px){
+footer h2{
+margin:0 0 8px;
+}
+
+footer p{
+color:#aaa;
+font-size:13px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:1050px){
+
+.products{
+grid-template-columns:repeat(4,1fr);
+}
 
 .stores{
 grid-template-columns:repeat(2,1fr);
-}
-
-.products{
-grid-template-columns:repeat(3,1fr);
 }
 
 }
@@ -400,10 +523,11 @@ grid-template-columns:repeat(3,1fr);
 
 .header{
 flex-wrap:wrap;
+padding:10px;
 }
 
 .logo{
-font-size:22px;
+font-size:21px;
 }
 
 .search{
@@ -413,20 +537,52 @@ flex-basis:100%;
 
 .hero{
 margin:12px;
-padding:30px 18px;
+padding:32px 18px;
 }
 
 .hero h1{
-font-size:28px;
+font-size:30px;
 }
 
-.address{
+.hero p{
+font-size:14px;
+}
+
+.delivery-box{
 flex-direction:column;
+}
+
+.delivery-box input,
+.delivery-box button{
+height:43px;
 }
 
 .stores{
 grid-template-columns:repeat(2,1fr);
-gap:10px;
+gap:9px;
+}
+
+.store{
+padding:15px 8px;
+}
+
+.store-icon{
+width:50px;
+height:50px;
+font-size:24px;
+}
+
+.store-name{
+font-size:14px;
+}
+
+.store-text{
+font-size:11px;
+}
+
+.store button{
+font-size:11px;
+padding:8px 12px;
 }
 
 .products{
@@ -434,21 +590,38 @@ grid-template-columns:repeat(2,1fr);
 gap:10px;
 }
 
-.productImage{
-height:120px;
+.product-image{
+height:125px;
 font-size:48px;
 }
 
-.productInfo{
+.product-info{
 padding:9px;
 }
 
-.productName{
-font-size:14px;
+.product-name{
+font-size:13px;
+}
+
+.product-store{
+font-size:11px;
 }
 
 .price{
 font-size:17px;
+}
+
+.add{
+font-size:12px;
+padding:10px 5px;
+}
+
+.section-title h2{
+font-size:19px;
+}
+
+.cart{
+width:390px;
 }
 
 }
@@ -457,24 +630,29 @@ font-size:17px;
 
 <body>
 
+<!-- HEADER -->
+
 <header>
 
 <div class="header">
 
 <div class="logo">
-Aero<span>Zone</span> 🛒
+Aero<span>Zone</span> ◈
 </div>
 
 <input
 id="search"
 class="search"
+type="search"
 placeholder="Search products, food and stores..."
-type="search">
+autocomplete="off">
 
 <button
-class="cartBtn"
+class="cart-btn"
 onclick="openCart()">
+
 🛒 Cart (<span id="cartCount">0</span>)
+
 </button>
 
 </div>
@@ -482,258 +660,8 @@ onclick="openCart()">
 </header>
 
 
+<!-- MAIN MENU -->
+
 <div class="quick">
 
-<button class="active"
-onclick="selectStore('All',this)">
-🏠 All
-</button>
-
-<button
-onclick="selectStore('Supermarket',this)">
-🛒 Supermarket
-</button>
-
-<button
-onclick="selectStore('Health & Beauty',this)">
-💄 Health & Beauty
-</button>
-
-<button
-onclick="selectStore('Food',this)">
-🍔 Food
-</button>
-
-<button
-onclick="selectStore('Drinks',this)">
-🥤 Drinks
-</button>
-
-<button
-onclick="selectStore('Household',this)">
-🏠 Household
-</button>
-
-</div>
-
-
-<section class="hero">
-
-<h1>
-Everything you need, delivered.
-</h1>
-
-<p>
-Shop groceries, household products, beauty items and food with AeroZone.
-</p>
-
-<div class="address">
-
-<input
-id="address"
-placeholder="Enter your delivery address">
-
-<button onclick="saveAddress()">
-📍 Save
-</button>
-
-</div>
-
-</section>
-
-
-<main class="container">
-
-
-<h2>
-🏪 Shop by Store
-</h2>
-
-<div class="stores">
-
-
-<div class="store">
-
-<div class="storeIcon">
-🛒
-</div>
-
-<div class="storeName">
-Aero Supermarket
-</div>
-
-<p>
-Groceries & essentials
-</p>
-
-<button onclick="selectStoreByName('Supermarket')">
-Shop Now
-</button>
-
-</div>
-
-
-<div class="store">
-
-<div class="storeIcon">
-💄
-</div>
-
-<div class="storeName">
-Aero Beauty
-</div>
-
-<p>
-Beauty & personal care
-</p>
-
-<button onclick="selectStoreByName('Health & Beauty')">
-Shop Now
-</button>
-
-</div>
-
-
-<div class="store">
-
-<div class="storeIcon">
-🍔
-</div>
-
-<div class="storeName">
-Aero Food
-</div>
-
-<p>
-Meals & fast food
-</p>
-
-<button onclick="selectStoreByName('Food')">
-Order Food
-</button>
-
-</div>
-
-
-<div class="store">
-
-<div class="storeIcon">
-🏠
-</div>
-
-<div class="storeName">
-Aero Home
-</div>
-
-<p>
-Household essentials
-</p>
-
-<button onclick="selectStoreByName('Household')">
-Shop Now
-</button>
-
-</div>
-
-</div>
-
-
-<h2>
-📦 Categories
-</h2>
-
-<div class="categories">
-
-<button class="active"
-onclick="selectCategory('All',this)">
-All
-</button>
-
-<button
-onclick="selectCategory('Groceries',this)">
-🥦 Groceries
-</button>
-
-<button
-onclick="selectCategory('Bakery',this)">
-🍞 Bakery
-</button>
-
-<button
-onclick="selectCategory('Meat',this)">
-🥩 Meat
-</button>
-
-<button
-onclick="selectCategory('Drinks',this)">
-🥤 Drinks
-</button>
-
-<button
-onclick="selectCategory('Beauty',this)">
-💄 Beauty
-</button>
-
-<button
-onclick="selectCategory('Household',this)">
-🧹 Household
-</button>
-
-<button
-onclick="selectCategory('Food',this)">
-🍔 Food
-</button>
-
-</div>
-
-
-<h2>
-🔥 Popular Products
-</h2>
-
-<div
-id="products"
-class="products">
-</div>
-
-
-</main>
-
-
-<!-- CART -->
-
-<div
-id="cart"
-class="cart">
-
-<div class="cartHead">
-
-<h2>
-🛒 Your Cart
-</h2>
-
-<button
-class="close"
-onclick="closeCart()">
-✕
-</button>
-
-</div>
-
-
-<div
-id="cartItems"
-class="cartItems">
-</div>
-
-
-<div class="checkout">
-
-<div class="row">
-<span>Subtotal</span>
-<span>R<span id="subtotal">0.00</span></span>
-</div>
-
-<div class="row">
-<span>Delivery</span>
-<span>R<span id="delivery">35.00</span
+<button class="
