@@ -16,11 +16,14 @@
 
 :root{
     --black:#050505;
-    --dark:#111111;
+    --dark:#111;
     --grey:#666;
     --light:#f5f5f5;
     --white:#fff;
     --border:#e8e8e8;
+    --green:#16833b;
+    --orange:#e67e22;
+    --blue:#2867d7;
     --radius:20px;
 }
 
@@ -43,7 +46,7 @@ button{
     position:sticky;
     top:0;
     z-index:1000;
-    background:rgba(255,255,255,.96);
+    background:rgba(255,255,255,.97);
     backdrop-filter:blur(15px);
     border-bottom:1px solid #eee;
 }
@@ -55,7 +58,7 @@ button{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:15px;
+    gap:12px;
 }
 
 .logo{
@@ -86,6 +89,21 @@ button{
 
 .logo-text span{
     font-weight:400;
+}
+
+.header-actions{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.track-button{
+    border:1px solid #ddd;
+    background:#fff;
+    color:#111;
+    border-radius:14px;
+    padding:11px 14px;
+    font-weight:800;
 }
 
 .cart-button{
@@ -623,7 +641,7 @@ main{
     font-weight:900;
 }
 
-/* MODAL */
+/* MODALS */
 
 .modal-overlay{
     display:none;
@@ -648,6 +666,10 @@ main{
     padding:25px;
     max-height:95vh;
     overflow:auto;
+}
+
+.modal-wide{
+    width:min(760px,100%);
 }
 
 .modal-head{
@@ -727,6 +749,254 @@ main{
     color:#666;
     margin-top:12px;
     line-height:1.5;
+}
+
+/* TRACKING */
+
+.tracking-search{
+    display:flex;
+    gap:8px;
+    margin-bottom:20px;
+}
+
+.tracking-search input{
+    flex:1;
+    border:1px solid #ddd;
+    border-radius:12px;
+    padding:13px;
+    outline:none;
+}
+
+.tracking-search button{
+    background:#000;
+    color:#fff;
+    border:0;
+    border-radius:12px;
+    padding:13px 17px;
+    font-weight:800;
+}
+
+.tracking-card{
+    border:1px solid #e5e5e5;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.tracking-top{
+    background:#050505;
+    color:#fff;
+    padding:20px;
+}
+
+.tracking-number{
+    font-size:25px;
+    font-weight:900;
+    margin-top:5px;
+}
+
+.status-label{
+    display:inline-block;
+    margin-top:10px;
+    background:#fff;
+    color:#000;
+    padding:7px 11px;
+    border-radius:30px;
+    font-size:12px;
+    font-weight:900;
+}
+
+.timeline{
+    padding:25px 20px;
+}
+
+.timeline-step{
+    display:flex;
+    gap:14px;
+    position:relative;
+    padding-bottom:25px;
+}
+
+.timeline-step:last-child{
+    padding-bottom:0;
+}
+
+.timeline-step:not(:last-child):after{
+    content:"";
+    position:absolute;
+    left:13px;
+    top:28px;
+    width:2px;
+    height:calc(100% - 10px);
+    background:#ddd;
+}
+
+.timeline-step.done:not(:last-child):after{
+    background:#000;
+}
+
+.timeline-dot{
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    background:#eee;
+    color:#777;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    z-index:2;
+    flex-shrink:0;
+    font-size:13px;
+}
+
+.timeline-step.done .timeline-dot{
+    background:#000;
+    color:#fff;
+}
+
+.timeline-step.current .timeline-dot{
+    background:#fff;
+    border:4px solid #000;
+    color:#000;
+}
+
+.timeline-content h4{
+    font-size:14px;
+    margin-bottom:4px;
+}
+
+.timeline-content p{
+    color:#777;
+    font-size:12px;
+}
+
+.order-summary{
+    margin-top:20px;
+    background:#f7f7f7;
+    border-radius:15px;
+    padding:16px;
+}
+
+.order-summary h3{
+    margin-bottom:12px;
+}
+
+.order-line{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    padding:7px 0;
+    border-bottom:1px solid #e5e5e5;
+    font-size:13px;
+}
+
+.order-line:last-child{
+    border-bottom:0;
+}
+
+.track-actions{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:15px;
+}
+
+.track-actions button{
+    border:0;
+    border-radius:12px;
+    padding:13px;
+    font-weight:800;
+}
+
+.whatsapp-button{
+    background:#000;
+    color:#fff;
+}
+
+.close-track{
+    background:#eee;
+    color:#111;
+}
+
+/* DELIVERY PORTAL */
+
+.driver-banner{
+    background:#050505;
+    color:#fff;
+    padding:22px;
+    border-radius:18px;
+    margin-bottom:18px;
+}
+
+.driver-banner p{
+    color:#aaa;
+    font-size:13px;
+    margin-top:5px;
+}
+
+.driver-order{
+    border:1px solid #ddd;
+    border-radius:18px;
+    padding:18px;
+    margin-top:14px;
+}
+
+.driver-order-head{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    align-items:start;
+    margin-bottom:14px;
+}
+
+.driver-order h3{
+    font-size:18px;
+}
+
+.driver-status{
+    background:#f2f2f2;
+    border-radius:30px;
+    padding:6px 9px;
+    font-size:10px;
+    font-weight:900;
+    white-space:nowrap;
+}
+
+.driver-info{
+    background:#f7f7f7;
+    border-radius:12px;
+    padding:12px;
+    font-size:13px;
+    line-height:1.7;
+}
+
+.driver-buttons{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:8px;
+    margin-top:12px;
+}
+
+.driver-buttons button{
+    border:0;
+    border-radius:11px;
+    padding:11px;
+    font-weight:800;
+    background:#eee;
+}
+
+.driver-buttons .complete{
+    background:#000;
+    color:#fff;
+}
+
+.completed-box{
+    margin-top:12px;
+    background:#f0f0f0;
+    border-radius:12px;
+    padding:12px;
+    font-size:12px;
+    line-height:1.6;
 }
 
 /* TOAST */
@@ -812,6 +1082,7 @@ footer{
 }
 
 @media(max-width:650px){
+
     main{
         padding:0 12px 90px;
     }
@@ -827,6 +1098,20 @@ footer{
     .logo-mark{
         width:38px;
         height:38px;
+    }
+
+    .header-actions{
+        gap:5px;
+    }
+
+    .track-button{
+        padding:10px;
+        font-size:12px;
+    }
+
+    .cart-button{
+        padding:10px;
+        font-size:12px;
     }
 
     .hero{
@@ -930,6 +1215,18 @@ footer{
         grid-column:auto;
     }
 
+    .payment-options{
+        grid-template-columns:1fr;
+    }
+
+    .track-actions{
+        grid-template-columns:1fr;
+    }
+
+    .driver-buttons{
+        grid-template-columns:1fr;
+    }
+
     .footer-inner{
         flex-direction:column;
     }
@@ -945,17 +1242,27 @@ footer{
 
 <header class="header">
     <div class="header-inner">
+
         <div class="logo" onclick="goHome()">
             <div class="logo-mark">AZ</div>
             <div class="logo-text">Aero<span>Zone</span></div>
         </div>
 
-        <button class="cart-button" onclick="openCart()">
-            🛒 Cart
-            <span class="cart-count" id="cartCount">0</span>
-        </button>
+        <div class="header-actions">
+
+            <button class="track-button" onclick="openTracking()">
+                📦 Track Order
+            </button>
+
+            <button class="cart-button" onclick="openCart()">
+                🛒 Cart
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+
+        </div>
     </div>
 </header>
+
 
 <main>
 
@@ -964,9 +1271,13 @@ footer{
 
     <section class="hero">
         <div class="hero-content">
+
             <span class="badge">AEROZONE DELIVERY</span>
 
-            <h1>Everything you need.<br>Delivered.</h1>
+            <h1>
+                Everything you need.<br>
+                Delivered.
+            </h1>
 
             <p>
                 Shop groceries, food, health essentials, home products
@@ -975,80 +1286,144 @@ footer{
 
             <div class="search-box">
                 <span>🔎</span>
+
                 <input
                     id="homeSearch"
                     type="text"
                     placeholder="What are you looking for?"
                     onkeydown="if(event.key==='Enter') searchAll()"
                 >
-                <button onclick="searchAll()">Search</button>
+
+                <button onclick="searchAll()">
+                    Search
+                </button>
             </div>
+
         </div>
     </section>
 
+
     <div class="location-bar">
+
         <div class="location-left">
+
             <span style="font-size:22px;">📍</span>
+
             <div>
-                <div class="location-title">Deliver to</div>
+
+                <div class="location-title">
+                    Deliver to
+                </div>
+
                 <div class="location-value" id="locationText">
                     Add your delivery address
                 </div>
+
             </div>
+
         </div>
 
-        <button onclick="setLocation()">Add address</button>
+        <button onclick="setLocation()">
+            Add address
+        </button>
+
     </div>
+
 
     <div class="section-head">
+
         <div>
+
             <h2>Main Branches</h2>
-            <p>Choose a branch to start shopping</p>
+
+            <p>
+                Choose a branch to start shopping
+            </p>
+
         </div>
+
     </div>
+
 
     <section class="branches" id="branches"></section>
 
+
     <section class="features">
+
         <div class="feature">
+
             <strong>🚚 Delivery</strong>
-            <p>Convenient delivery straight to your chosen address.</p>
+
+            <p>
+                Convenient delivery straight to your chosen address.
+            </p>
+
         </div>
 
+
         <div class="feature">
+
             <strong>🛒 Easy Shopping</strong>
-            <p>Browse products by branch and add what you need to your cart.</p>
+
+            <p>
+                Browse products by branch and add what you need to your cart.
+            </p>
+
         </div>
 
+
         <div class="feature">
-            <strong>💬 WhatsApp Orders</strong>
-            <p>Place your order quickly through WhatsApp.</p>
+
+            <strong>📦 Track Your Order</strong>
+
+            <p>
+                Track your order from preparation through delivery completion.
+            </p>
+
         </div>
+
     </section>
 
 </section>
 
 
 <!-- CATALOGUE -->
+
 <section id="catalogueView">
 
     <div class="catalogue-top">
+
         <button class="back-button" onclick="goHome()">
             ← All branches
         </button>
 
+
         <div class="branch-banner">
-            <div class="branch-banner-icon" id="catalogueIcon">🛒</div>
+
+            <div
+                class="branch-banner-icon"
+                id="catalogueIcon"
+            >
+                🛒
+            </div>
 
             <div>
-                <h1 id="catalogueTitle">Supermarket</h1>
+
+                <h1 id="catalogueTitle">
+                    Supermarket
+                </h1>
+
                 <p id="catalogueDescription">
                     Shop everyday essentials.
                 </p>
+
             </div>
+
         </div>
 
+
         <div class="catalogue-tools">
+
             <input
                 class="catalogue-search"
                 id="branchSearch"
@@ -1056,12 +1431,21 @@ footer{
                 oninput="filterProducts()"
             >
 
-            <button class="filter-button" onclick="sortProducts()">
+            <button
+                class="filter-button"
+                onclick="sortProducts()"
+            >
                 ↕ Sort
             </button>
+
         </div>
 
-        <div class="products" id="products"></div>
+
+        <div
+            class="products"
+            id="products"
+        ></div>
+
     </div>
 
 </section>
@@ -1070,163 +1454,499 @@ footer{
 
 
 <footer>
+
     <div class="footer-inner">
+
         <div class="footer-brand">
+
             <h2>AeroZone</h2>
+
             <p>
                 Your convenient online shopping and delivery destination.
                 Browse our main branches, choose your products and order
                 with ease.
             </p>
+
         </div>
+
 
         <div class="footer-links">
+
             <strong>Customer Support</strong>
-            <p>WhatsApp: 068 868 5355</p>
-            <p>South Africa</p>
-            <p>Delivery available where supported</p>
+
+            <p>
+                WhatsApp: 068 868 5355
+            </p>
+
+            <p>
+                South Africa
+            </p>
+
+            <p>
+                Delivery available where supported
+            </p>
+
         </div>
+
     </div>
 
+
     <div class="footer-bottom">
+
         © 2026 AeroZone. All rights reserved.
+
     </div>
+
 </footer>
 
 
 <!-- CART -->
-<div class="overlay" id="cartOverlay" onclick="closeCartOutside(event)">
+
+<div
+    class="overlay"
+    id="cartOverlay"
+    onclick="closeCartOutside(event)"
+>
+
     <div class="cart-drawer">
 
         <div class="cart-head">
-            <h2>Your Cart</h2>
-            <button class="close" onclick="closeCart()">×</button>
+
+            <h2>
+                Your Cart
+            </h2>
+
+            <button
+                class="close"
+                onclick="closeCart()"
+            >
+                ×
+            </button>
+
         </div>
 
-        <div class="cart-items" id="cartItems"></div>
+
+        <div
+            class="cart-items"
+            id="cartItems"
+        ></div>
+
 
         <div class="cart-bottom">
 
             <div class="total-row">
-                <span>Subtotal</span>
-                <strong id="cartSubtotal">R0.00</strong>
+
+                <span>
+                    Subtotal
+                </span>
+
+                <strong id="cartSubtotal">
+                    R0.00
+                </strong>
+
             </div>
+
 
             <div class="total-row">
-                <span>Delivery</span>
-                <strong id="cartDelivery">R35.00</strong>
+
+                <span>
+                    Delivery
+                </span>
+
+                <strong id="cartDelivery">
+                    R35.00
+                </strong>
+
             </div>
+
 
             <div class="total-row grand">
-                <span>Total</span>
-                <strong id="cartTotal">R0.00</strong>
+
+                <span>
+                    Total
+                </span>
+
+                <strong id="cartTotal">
+                    R0.00
+                </strong>
+
             </div>
 
-            <button class="checkout-button" onclick="openCheckout()">
+
+            <button
+                class="checkout-button"
+                onclick="openCheckout()"
+            >
                 Continue to Checkout
             </button>
 
         </div>
+
     </div>
+
 </div>
 
 
 <!-- CHECKOUT -->
-<div class="modal-overlay" id="checkoutOverlay">
+
+<div
+    class="modal-overlay"
+    id="checkoutOverlay"
+>
+
     <div class="modal">
 
         <div class="modal-head">
-            <h2>Checkout</h2>
-            <button class="close" onclick="closeCheckout()">×</button>
+
+            <h2>
+                Checkout
+            </h2>
+
+            <button
+                class="close"
+                onclick="closeCheckout()"
+            >
+                ×
+            </button>
+
         </div>
+
 
         <div class="form-grid">
 
             <div class="field">
-                <label>FULL NAME</label>
-                <input id="customerName" type="text" placeholder="Your name">
+
+                <label>
+                    FULL NAME
+                </label>
+
+                <input
+                    id="customerName"
+                    type="text"
+                    placeholder="Your name"
+                >
+
             </div>
 
+
             <div class="field">
-                <label>PHONE NUMBER</label>
-                <input id="customerPhone" type="tel" placeholder="Your phone">
+
+                <label>
+                    PHONE NUMBER
+                </label>
+
+                <input
+                    id="customerPhone"
+                    type="tel"
+                    placeholder="Your phone"
+                >
+
             </div>
+
 
             <div class="field full">
-                <label>DELIVERY ADDRESS</label>
-                <input id="customerAddress" type="text" placeholder="House number, street, suburb, city">
+
+                <label>
+                    DELIVERY ADDRESS
+                </label>
+
+                <input
+                    id="customerAddress"
+                    type="text"
+                    placeholder="House number, street, suburb, city"
+                >
+
             </div>
 
-            <div class="field">
-                <label>DELIVERY DATE</label>
-                <input id="deliveryDate" type="date">
-            </div>
 
             <div class="field">
-                <label>DELIVERY TIME</label>
+
+                <label>
+                    DELIVERY DATE
+                </label>
+
+                <input
+                    id="deliveryDate"
+                    type="date"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    DELIVERY TIME
+                </label>
+
                 <select id="deliveryTime">
-                    <option>As soon as possible</option>
-                    <option>09:00 - 11:00</option>
-                    <option>11:00 - 13:00</option>
-                    <option>13:00 - 15:00</option>
-                    <option>15:00 - 17:00</option>
-                    <option>17:00 - 19:00</option>
+
+                    <option>
+                        As soon as possible
+                    </option>
+
+                    <option>
+                        09:00 - 11:00
+                    </option>
+
+                    <option>
+                        11:00 - 13:00
+                    </option>
+
+                    <option>
+                        13:00 - 15:00
+                    </option>
+
+                    <option>
+                        15:00 - 17:00
+                    </option>
+
+                    <option>
+                        17:00 - 19:00
+                    </option>
+
                 </select>
+
             </div>
 
-            <div class="field full">
-                <label>ORDER NOTES</label>
-                <textarea id="orderNotes" placeholder="Any special instructions?"></textarea>
-            </div>
 
             <div class="field full">
-                <label>PAYMENT METHOD</label>
+
+                <label>
+                    ORDER NOTES
+                </label>
+
+                <textarea
+                    id="orderNotes"
+                    placeholder="Any special instructions?"
+                ></textarea>
+
+            </div>
+
+
+            <div class="field full">
+
+                <label>
+                    PAYMENT METHOD
+                </label>
 
                 <div class="payment-options">
 
                     <label class="payment-option">
-                        <input type="radio" name="payment" value="WhatsApp Payment" checked>
+
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="WhatsApp Payment"
+                            checked
+                        >
+
                         WhatsApp Payment
+
                     </label>
 
+
                     <label class="payment-option">
-                        <input type="radio" name="payment" value="Cash on Delivery">
+
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="Cash on Delivery"
+                        >
+
                         Cash on Delivery
+
                     </label>
 
+
                     <label class="payment-option">
-                        <input type="radio" name="payment" value="Card / Yoco">
+
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="Card / Yoco"
+                        >
+
                         Card / Yoco
+
                     </label>
 
+
                     <label class="payment-option">
-                        <input type="radio" name="payment" value="EFT">
+
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="EFT"
+                        >
+
                         EFT
+
                     </label>
 
                 </div>
+
             </div>
 
         </div>
 
+
         <div class="notice">
+
             Your order will be prepared and sent to AeroZone on WhatsApp.
-            Card/Yoco is not processed automatically on this page;
-            payment arrangements can be confirmed on WhatsApp.
+            Your AeroZone order number can be used to track your delivery.
+
         </div>
 
-        <button class="confirm-button" onclick="placeOrder()">
+
+        <button
+            class="confirm-button"
+            onclick="placeOrder()"
+        >
             💬 Send Order on WhatsApp
         </button>
 
     </div>
+
 </div>
 
 
-<div class="toast" id="toast">Added to cart</div>
+<!-- TRACK ORDER -->
+
+<div
+    class="modal-overlay"
+    id="trackingOverlay"
+>
+
+    <div class="modal modal-wide">
+
+        <div class="modal-head">
+
+            <div>
+
+                <h2>
+                    📦 Track Order
+                </h2>
+
+                <p style="font-size:12px;color:#777;margin-top:4px;">
+                    Enter your AeroZone order number
+                </p>
+
+            </div>
+
+            <button
+                class="close"
+                onclick="closeTracking()"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="tracking-search">
+
+            <input
+                id="trackingNumberInput"
+                placeholder="Example: AZ123456"
+                onkeydown="if(event.key==='Enter') trackOrder()"
+            >
+
+            <button onclick="trackOrder()">
+                Track
+            </button>
+
+        </div>
+
+
+        <div id="trackingResult">
+
+            <div class="empty">
+
+                <div style="font-size:45px;">
+                    📦
+                </div>
+
+                <h3>
+                    Track your delivery
+                </h3>
+
+                <p>
+                    Enter your order number above.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- DELIVERY PORTAL -->
+
+<div
+    class="modal-overlay"
+    id="deliveryOverlay"
+>
+
+    <div class="modal modal-wide">
+
+        <div class="modal-head">
+
+            <div>
+
+                <h2>
+                    🚚 Delivery Portal
+                </h2>
+
+                <p style="font-size:12px;color:#777;margin-top:4px;">
+                    Manage delivery status
+                </p>
+
+            </div>
+
+            <button
+                class="close"
+                onclick="closeDeliveryPortal()"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="driver-banner">
+
+            <h3>
+                AeroZone Driver
+            </h3>
+
+            <p>
+                Select an order below and update its delivery status.
+            </p>
+
+        </div>
+
+
+        <div id="driverOrders"></div>
+
+    </div>
+
+</div>
+
+
+<div
+    class="toast"
+    id="toast"
+>
+    Added to cart
+</div>
 
 
 <script>
+
 /* ==========================================
    AEROZONE PRODUCTS
 ========================================== */
@@ -1362,9 +2082,26 @@ const branches = {
    STATE
 ========================================== */
 
-let cart = JSON.parse(localStorage.getItem("aerozoneCart") || "[]");
+let cart =
+    JSON.parse(
+        localStorage.getItem("aerozoneCart") || "[]"
+    );
+
 let currentBranch = null;
 let sortAscending = true;
+
+
+/* ==========================================
+   ORDER STATUS
+========================================== */
+
+const orderStatuses = [
+    "Order Received",
+    "Preparing",
+    "Out for Delivery",
+    "Arrived",
+    "Delivered"
+];
 
 
 /* ==========================================
@@ -1373,31 +2110,45 @@ let sortAscending = true;
 
 function renderBranches(){
 
-    const container = document.getElementById("branches");
+    const container =
+        document.getElementById("branches");
 
-    container.innerHTML = Object.entries(branches).map(([id,branch]) => {
+    container.innerHTML =
+        Object.entries(branches)
+        .map(([id,branch]) => {
 
-        return `
-            <div class="branch-card" onclick="openBranch('${id}')">
+            return `
 
-                <div class="branch-icon">
-                    ${branch.icon}
+                <div
+                    class="branch-card"
+                    onclick="openBranch('${id}')"
+                >
+
+                    <div class="branch-icon">
+                        ${branch.icon}
+                    </div>
+
+                    <h3>
+                        ${branch.name}
+                    </h3>
+
+                    <p>
+                        ${branch.description}
+                    </p>
+
+                    <span class="branch-count">
+                        ${branch.products.length} products
+                    </span>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
                 </div>
 
-                <h3>${branch.name}</h3>
+            `;
 
-                <p>${branch.description}</p>
-
-                <span class="branch-count">
-                    ${branch.products.length} products
-                </span>
-
-                <span class="arrow">→</span>
-
-            </div>
-        `;
-
-    }).join("");
+        }).join("");
 }
 
 
@@ -1409,16 +2160,25 @@ function openBranch(id){
 
     currentBranch = id;
 
-    document.getElementById("homeView").style.display="none";
-    document.getElementById("catalogueView").style.display="block";
+    document.getElementById("homeView")
+        .style.display="none";
+
+    document.getElementById("catalogueView")
+        .style.display="block";
 
     const branch = branches[id];
 
-    document.getElementById("catalogueIcon").textContent=branch.icon;
-    document.getElementById("catalogueTitle").textContent=branch.name;
-    document.getElementById("catalogueDescription").textContent=branch.description;
+    document.getElementById("catalogueIcon")
+        .textContent=branch.icon;
 
-    document.getElementById("branchSearch").value="";
+    document.getElementById("catalogueTitle")
+        .textContent=branch.name;
+
+    document.getElementById("catalogueDescription")
+        .textContent=branch.description;
+
+    document.getElementById("branchSearch")
+        .value="";
 
     renderProducts(branch.products);
 
@@ -1435,51 +2195,74 @@ function openBranch(id){
 
 function renderProducts(products){
 
-    const container=document.getElementById("products");
+    const container =
+        document.getElementById("products");
 
     if(!products.length){
 
         container.innerHTML=`
+
             <div class="empty">
-                <div style="font-size:45px;">🔎</div>
-                <h3>No products found</h3>
-                <p>Try another search.</p>
+
+                <div style="font-size:45px;">
+                    🔎
+                </div>
+
+                <h3>
+                    No products found
+                </h3>
+
+                <p>
+                    Try another search.
+                </p>
+
             </div>
+
         `;
 
         return;
     }
 
-    container.innerHTML=products.map((product,index)=>{
+    container.innerHTML =
+        products.map(product=>{
 
-        const name=product[0];
-        const price=product[1];
-        const icon=product[2];
+            const name=product[0];
+            const price=product[1];
+            const icon=product[2];
 
-        return `
-            <div class="product">
+            return `
 
-                <div class="product-image">
-                    ${icon}
+                <div class="product">
+
+                    <div class="product-image">
+                        ${icon}
+                    </div>
+
+                    <h3>
+                        ${name}
+                    </h3>
+
+                    <div class="product-price">
+                        R${price.toFixed(2)}
+                    </div>
+
+                    <button
+                        class="add-button"
+                        onclick="addToCart(
+                            '${escapeString(name)}',
+                            ${price},
+                            '${icon}',
+                            '${currentBranch}'
+                        )"
+                    >
+                        + Add to cart
+                    </button>
+
                 </div>
 
-                <h3>${name}</h3>
+            `;
 
-                <div class="product-price">
-                    R${price.toFixed(2)}
-                </div>
-
-                <button
-                    class="add-button"
-                    onclick="addToCart('${escapeString(name)}',${price},'${icon}','${currentBranch}')"
-                >
-                    + Add to cart
-                </button>
-
-            </div>
-        `;
-
-    }).join("");
+        }).join("");
 }
 
 
@@ -1491,15 +2274,20 @@ function filterProducts(){
 
     if(!currentBranch) return;
 
-    const search=document
+    const search =
+        document
         .getElementById("branchSearch")
         .value
         .toLowerCase()
         .trim();
 
-    const products=branches[currentBranch].products.filter(product =>
-        product[0].toLowerCase().includes(search)
-    );
+    const products =
+        branches[currentBranch].products
+        .filter(product =>
+            product[0]
+            .toLowerCase()
+            .includes(search)
+        );
 
     renderProducts(products);
 }
@@ -1515,10 +2303,13 @@ function sortProducts(){
 
     sortAscending=!sortAscending;
 
-    const products=[...branches[currentBranch].products];
+    const products =
+        [...branches[currentBranch].products];
 
     products.sort((a,b)=>
-        sortAscending ? a[1]-b[1] : b[1]-a[1]
+        sortAscending
+        ? a[1]-b[1]
+        : b[1]-a[1]
     );
 
     renderProducts(products);
@@ -1531,7 +2322,8 @@ function sortProducts(){
 
 function searchAll(){
 
-    const search=document
+    const search =
+        document
         .getElementById("homeSearch")
         .value
         .toLowerCase()
@@ -1543,11 +2335,16 @@ function searchAll(){
 
     const results=[];
 
-    Object.entries(branches).forEach(([branchId,branch])=>{
+    Object.entries(branches)
+    .forEach(([branchId,branch])=>{
 
         branch.products.forEach(product=>{
 
-            if(product[0].toLowerCase().includes(search)){
+            if(
+                product[0]
+                .toLowerCase()
+                .includes(search)
+            ){
 
                 results.push({
                     product:product,
@@ -1560,65 +2357,102 @@ function searchAll(){
 
     });
 
-    document.getElementById("homeView").style.display="none";
-    document.getElementById("catalogueView").style.display="block";
+
+    document.getElementById("homeView")
+        .style.display="none";
+
+    document.getElementById("catalogueView")
+        .style.display="block";
 
     currentBranch=null;
 
-    document.getElementById("catalogueIcon").textContent="🔎";
-    document.getElementById("catalogueTitle").textContent="Search Results";
-    document.getElementById("catalogueDescription").textContent=
-        results.length+" product(s) found";
+    document.getElementById("catalogueIcon")
+        .textContent="🔎";
 
-    document.getElementById("branchSearch").value=search;
+    document.getElementById("catalogueTitle")
+        .textContent="Search Results";
 
-    const container=document.getElementById("products");
+    document.getElementById("catalogueDescription")
+        .textContent=
+            results.length+" product(s) found";
+
+    document.getElementById("branchSearch")
+        .value=search;
+
+
+    const container =
+        document.getElementById("products");
+
 
     if(!results.length){
 
         container.innerHTML=`
+
             <div class="empty">
-                <div style="font-size:50px;">😕</div>
-                <h3>No products found</h3>
-                <p>Try searching for something else.</p>
+
+                <div style="font-size:50px;">
+                    😕
+                </div>
+
+                <h3>
+                    No products found
+                </h3>
+
+                <p>
+                    Try searching for something else.
+                </p>
+
             </div>
+
         `;
 
     }else{
 
-        container.innerHTML=results.map(item=>{
+        container.innerHTML =
+            results.map(item=>{
 
-            const product=item.product;
-            const branch=item.branch;
+                const product=item.product;
+                const branch=item.branch;
 
-            return `
-                <div class="product">
+                return `
 
-                    <div class="product-image">
-                        ${product[2]}
+                    <div class="product">
+
+                        <div class="product-image">
+                            ${product[2]}
+                        </div>
+
+                        <h3>
+                            ${product[0]}
+                        </h3>
+
+                        <div
+                            style="font-size:11px;color:#777;margin-bottom:5px;"
+                        >
+                            ${branches[branch].name}
+                        </div>
+
+                        <div class="product-price">
+                            R${product[1].toFixed(2)}
+                        </div>
+
+                        <button
+                            class="add-button"
+                            onclick="addToCart(
+                                '${escapeString(product[0])}',
+                                ${product[1]},
+                                '${product[2]}',
+                                '${branch}'
+                            )"
+                        >
+                            + Add to cart
+                        </button>
+
                     </div>
 
-                    <h3>${product[0]}</h3>
+                `;
 
-                    <div style="font-size:11px;color:#777;margin-bottom:5px;">
-                        ${branches[branch].name}
-                    </div>
-
-                    <div class="product-price">
-                        R${product[1].toFixed(2)}
-                    </div>
-
-                    <button
-                        class="add-button"
-                        onclick="addToCart('${escapeString(product[0])}',${product[1]},'${product[2]}','${branch}')"
-                    >
-                        + Add to cart
-                    </button>
-
-                </div>
-            `;
-
-        }).join("");
+            }).join("");
 
     }
 
@@ -1637,8 +2471,11 @@ function goHome(){
 
     currentBranch=null;
 
-    document.getElementById("homeView").style.display="block";
-    document.getElementById("catalogueView").style.display="none";
+    document.getElementById("homeView")
+        .style.display="block";
+
+    document.getElementById("catalogueView")
+        .style.display="none";
 
     window.scrollTo({
         top:0,
@@ -1653,9 +2490,11 @@ function goHome(){
 
 function addToCart(name,price,icon,branch){
 
-    const existing=cart.find(item =>
-        item.name===name && item.branch===branch
-    );
+    const existing =
+        cart.find(item =>
+            item.name===name &&
+            item.branch===branch
+        );
 
     if(existing){
 
@@ -1713,89 +2552,138 @@ function saveCart(){
 
 function updateCart(){
 
-    const count=cart.reduce(
-        (sum,item)=>sum+item.qty,
-        0
-    );
+    const count =
+        cart.reduce(
+            (sum,item)=>sum+item.qty,
+            0
+        );
 
-    document.getElementById("cartCount").textContent=count;
+    document.getElementById("cartCount")
+        .textContent=count;
 
-    const container=document.getElementById("cartItems");
+
+    const container =
+        document.getElementById("cartItems");
+
 
     if(!cart.length){
 
         container.innerHTML=`
+
             <div class="empty">
-                <div style="font-size:50px;">🛒</div>
-                <h3>Your cart is empty</h3>
-                <p>Browse a branch and add products.</p>
+
+                <div style="font-size:50px;">
+                    🛒
+                </div>
+
+                <h3>
+                    Your cart is empty
+                </h3>
+
+                <p>
+                    Browse a branch and add products.
+                </p>
+
             </div>
+
         `;
 
     }else{
 
-        container.innerHTML=cart.map((item,index)=>{
+        container.innerHTML =
+            cart.map((item,index)=>{
 
-            return `
-                <div class="cart-item">
+                return `
 
-                    <div class="cart-item-icon">
-                        ${item.icon}
-                    </div>
+                    <div class="cart-item">
 
-                    <div class="cart-info">
-
-                        <h4>${item.name}</h4>
-
-                        <div class="cart-price">
-                            R${(item.price*item.qty).toFixed(2)}
+                        <div class="cart-item-icon">
+                            ${item.icon}
                         </div>
 
-                        <div class="qty">
+                        <div class="cart-info">
 
-                            <button onclick="changeQty(${index},-1)">
-                                −
-                            </button>
+                            <h4>
+                                ${item.name}
+                            </h4>
 
-                            <strong>${item.qty}</strong>
+                            <div class="cart-price">
+                                R${(
+                                    item.price*
+                                    item.qty
+                                ).toFixed(2)}
+                            </div>
 
-                            <button onclick="changeQty(${index},1)">
-                                +
-                            </button>
+                            <div class="qty">
 
-                            <button
-                                onclick="removeFromCart(${index})"
-                                style="margin-left:auto;background:#111;color:#fff;"
-                            >
-                                ×
-                            </button>
+                                <button
+                                    onclick="changeQty(${index},-1)"
+                                >
+                                    −
+                                </button>
+
+                                <strong>
+                                    ${item.qty}
+                                </strong>
+
+                                <button
+                                    onclick="changeQty(${index},1)"
+                                >
+                                    +
+                                </button>
+
+                                <button
+                                    onclick="removeFromCart(${index})"
+                                    style="
+                                    margin-left:auto;
+                                    background:#111;
+                                    color:#fff;
+                                    "
+                                >
+                                    ×
+                                </button>
+
+                            </div>
 
                         </div>
 
                     </div>
 
-                </div>
-            `;
+                `;
 
-        }).join("");
+            }).join("");
 
     }
 
-    const subtotal=cart.reduce(
-        (sum,item)=>sum+(item.price*item.qty),
-        0
-    );
 
-    const delivery=subtotal>=500 ? 0 : 35;
+    const subtotal =
+        cart.reduce(
+            (sum,item)=>
+                sum+(item.price*item.qty),
+            0
+        );
 
-    document.getElementById("cartSubtotal").textContent=
-        "R"+subtotal.toFixed(2);
+    const delivery =
+        subtotal>=500
+        ? 0
+        : 35;
 
-    document.getElementById("cartDelivery").textContent=
-        delivery===0 ? "FREE" : "R"+delivery.toFixed(2);
 
-    document.getElementById("cartTotal").textContent=
-        "R"+(subtotal+delivery).toFixed(2);
+    document.getElementById("cartSubtotal")
+        .textContent=
+            "R"+subtotal.toFixed(2);
+
+    document.getElementById("cartDelivery")
+        .textContent=
+            delivery===0
+            ? "FREE"
+            : "R"+delivery.toFixed(2);
+
+    document.getElementById("cartTotal")
+        .textContent=
+            "R"+
+            (subtotal+delivery)
+            .toFixed(2);
 }
 
 
@@ -1839,10 +2727,13 @@ function openCheckout(){
 
     closeCart();
 
-    const savedLocation=
-        localStorage.getItem("aerozoneAddress") || "";
+    const savedLocation =
+        localStorage.getItem(
+            "aerozoneAddress"
+        ) || "";
 
-    document.getElementById("customerAddress").value=savedLocation;
+    document.getElementById("customerAddress")
+        .value=savedLocation;
 
     document
         .getElementById("checkoutOverlay")
@@ -1864,72 +2755,169 @@ function closeCheckout(){
 
 function placeOrder(){
 
-    const name=document
+    const name =
+        document
         .getElementById("customerName")
         .value.trim();
 
-    const phone=document
+    const phone =
+        document
         .getElementById("customerPhone")
         .value.trim();
 
-    const address=document
+    const address =
+        document
         .getElementById("customerAddress")
         .value.trim();
 
-    const date=document
+    const date =
+        document
         .getElementById("deliveryDate")
         .value;
 
-    const time=document
+    const time =
+        document
         .getElementById("deliveryTime")
         .value;
 
-    const notes=document
+    const notes =
+        document
         .getElementById("orderNotes")
         .value.trim();
 
-    const payment=document.querySelector(
-        'input[name="payment"]:checked'
-    )?.value || "WhatsApp Payment";
+    const payment =
+        document.querySelector(
+            'input[name="payment"]:checked'
+        )?.value ||
+        "WhatsApp Payment";
 
 
     if(!name){
 
-        alert("Please enter your full name.");
+        alert(
+            "Please enter your full name."
+        );
+
         return;
     }
+
 
     if(!phone){
 
-        alert("Please enter your phone number.");
+        alert(
+            "Please enter your phone number."
+        );
+
         return;
     }
+
 
     if(!address){
 
-        alert("Please enter your delivery address.");
+        alert(
+            "Please enter your delivery address."
+        );
+
         return;
     }
 
 
-    const subtotal=cart.reduce(
-        (sum,item)=>sum+(item.price*item.qty),
-        0
+    const subtotal =
+        cart.reduce(
+            (sum,item)=>
+                sum+(item.price*item.qty),
+            0
+        );
+
+    const delivery =
+        subtotal>=500
+        ? 0
+        : 35;
+
+    const total =
+        subtotal+delivery;
+
+
+    const orderNumber =
+        "AZ"+
+        Date.now()
+        .toString()
+        .slice(-6);
+
+
+    /*
+       CREATE TRACKING ORDER
+    */
+
+    const trackingOrder = {
+
+        orderNumber,
+
+        name,
+
+        phone,
+
+        address,
+
+        date:
+            date ||
+            "As soon as possible",
+
+        time,
+
+        notes,
+
+        payment,
+
+        items:
+            cart.map(item=>({
+
+                name:item.name,
+
+                price:item.price,
+
+                qty:item.qty,
+
+                icon:item.icon,
+
+                branch:item.branch
+
+            })),
+
+        subtotal,
+
+        delivery,
+
+        total,
+
+        status:
+            "Order Received",
+
+        createdAt:
+            new Date().toISOString(),
+
+        updatedAt:
+            new Date().toISOString(),
+
+        deliveredAt:null
+
+    };
+
+
+    saveTrackingOrder(
+        trackingOrder
     );
 
-    const delivery=subtotal>=500 ? 0 : 35;
 
-    const total=subtotal+delivery;
-
-    const orderNumber=
-        "AZ"+Date.now().toString().slice(-6);
-
-
-    let message=
+    let message =
 `AEROZONE NEW ORDER
 ====================
 
 Order Number: ${orderNumber}
+
+TRACK ORDER
+Use this order number to track the delivery:
+${orderNumber}
 
 CUSTOMER
 Name: ${name}
@@ -1947,20 +2935,27 @@ ITEMS
 ====================
 `;
 
+
     cart.forEach(item=>{
 
-        message+=
-`${item.qty} x ${item.name} — R${(item.price*item.qty).toFixed(2)}
+        message +=
+`${item.qty} x ${item.name} — R${(
+    item.price*item.qty
+).toFixed(2)}
 `;
 
     });
 
 
-    message+=
+    message +=
 `
 ====================
 Subtotal: R${subtotal.toFixed(2)}
-Delivery: ${delivery===0 ? "FREE" : "R"+delivery.toFixed(2)}
+Delivery: ${
+    delivery===0
+    ? "FREE"
+    : "R"+delivery.toFixed(2)
+}
 TOTAL: R${total.toFixed(2)}
 
 Notes:
@@ -1972,34 +2967,942 @@ Please confirm my order.
 
     localStorage.setItem(
         "aerozoneLastOrder",
-        JSON.stringify({
-            orderNumber,
-            name,
-            phone,
-            address,
-            total,
-            date:new Date().toISOString()
-        })
+        JSON.stringify(
+            trackingOrder
+        )
     );
 
 
-    const whatsappNumber="27688685355";
-
-    const url=
-        "https://wa.me/"+whatsappNumber+
-        "?text="+encodeURIComponent(message);
+    const whatsappNumber =
+        "27688685355";
 
 
-    window.open(url,"_blank");
+    const url =
+        "https://wa.me/"+
+        whatsappNumber+
+        "?text="+
+        encodeURIComponent(message);
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
 
     cart=[];
 
     saveCart();
+
     updateCart();
 
     closeCheckout();
 
-    showToast("Order prepared for WhatsApp");
+
+    showToast(
+        "Order "+orderNumber+
+        " created"
+    );
+
+
+    /*
+       Show tracking after order
+    */
+
+    setTimeout(()=>{
+
+        openTracking();
+
+        document
+            .getElementById(
+                "trackingNumberInput"
+            )
+            .value=orderNumber;
+
+        trackOrder();
+
+    },500);
+}
+
+
+/* ==========================================
+   TRACKING STORAGE
+========================================== */
+
+function getTrackingOrders(){
+
+    return JSON.parse(
+        localStorage.getItem(
+            "aerozoneOrders"
+        ) || "[]"
+    );
+
+}
+
+
+function saveTrackingOrder(order){
+
+    const orders =
+        getTrackingOrders();
+
+    const existingIndex =
+        orders.findIndex(
+            item =>
+                item.orderNumber ===
+                order.orderNumber
+        );
+
+
+    if(existingIndex>=0){
+
+        orders[existingIndex]=order;
+
+    }else{
+
+        orders.unshift(order);
+
+    }
+
+
+    localStorage.setItem(
+        "aerozoneOrders",
+        JSON.stringify(orders)
+    );
+
+}
+
+
+/* ==========================================
+   FIND ORDER
+========================================== */
+
+function findOrder(orderNumber){
+
+    const clean =
+        orderNumber
+        .trim()
+        .toUpperCase();
+
+    return getTrackingOrders()
+        .find(order =>
+            order.orderNumber
+            .toUpperCase() === clean
+        );
+
+}
+
+
+/* ==========================================
+   OPEN TRACKING
+========================================== */
+
+function openTracking(){
+
+    document
+        .getElementById("trackingOverlay")
+        .classList.add("active");
+
+
+    const lastOrder =
+        JSON.parse(
+            localStorage.getItem(
+                "aerozoneLastOrder"
+            ) || "null"
+        );
+
+
+    if(lastOrder){
+
+        document
+            .getElementById(
+                "trackingNumberInput"
+            )
+            .value=
+                lastOrder.orderNumber;
+
+        trackOrder();
+
+    }
+
+}
+
+
+function closeTracking(){
+
+    document
+        .getElementById(
+            "trackingOverlay"
+        )
+        .classList.remove("active");
+
+}
+
+
+/* ==========================================
+   TRACK ORDER
+========================================== */
+
+function trackOrder(){
+
+    const orderNumber =
+        document
+        .getElementById(
+            "trackingNumberInput"
+        )
+        .value
+        .trim();
+
+
+    if(!orderNumber){
+
+        showToast(
+            "Enter an order number"
+        );
+
+        return;
+    }
+
+
+    const order =
+        findOrder(orderNumber);
+
+
+    const result =
+        document.getElementById(
+            "trackingResult"
+        );
+
+
+    if(!order){
+
+        result.innerHTML=`
+
+            <div class="empty">
+
+                <div style="font-size:50px;">
+                    🔎
+                </div>
+
+                <h3>
+                    Order not found
+                </h3>
+
+                <p>
+                    Check your order number and try again.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    renderTrackingOrder(order);
+
+}
+
+
+/* ==========================================
+   RENDER TRACKING
+========================================== */
+
+function renderTrackingOrder(order){
+
+    const result =
+        document.getElementById(
+            "trackingResult"
+        );
+
+
+    const currentIndex =
+        orderStatuses.indexOf(
+            order.status
+        );
+
+
+    const steps =
+        orderStatuses.map(
+            (status,index)=>{
+
+                let className="";
+
+                if(index<currentIndex){
+                    className="done";
+                }
+
+                if(index===currentIndex){
+                    className+=" current done";
+                }
+
+
+                let icon =
+                    index<currentIndex ||
+                    index===currentIndex
+                    ? "✓"
+                    : index+1;
+
+
+                let description="Waiting";
+
+
+                if(status==="Order Received"){
+                    description =
+                        "Your order has been received.";
+                }
+
+                if(status==="Preparing"){
+                    description =
+                        "Your items are being prepared.";
+                }
+
+                if(status==="Out for Delivery"){
+                    description =
+                        "Your order is on its way.";
+                }
+
+                if(status==="Arrived"){
+                    description =
+                        "Your driver has arrived.";
+                }
+
+                if(status==="Delivered"){
+                    description =
+                        order.deliveredAt
+                        ? "Delivery completed successfully."
+                        : "Waiting for delivery completion.";
+                }
+
+
+                return `
+
+                    <div class="timeline-step ${className}">
+
+                        <div class="timeline-dot">
+                            ${icon}
+                        </div>
+
+                        <div class="timeline-content">
+
+                            <h4>
+                                ${status}
+                            </h4>
+
+                            <p>
+                                ${description}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            }
+        ).join("");
+
+
+    const itemLines =
+        order.items.map(item=>`
+
+            <div class="order-line">
+
+                <span>
+                    ${item.qty} × ${item.name}
+                </span>
+
+                <strong>
+                    R${(
+                        item.price*
+                        item.qty
+                    ).toFixed(2)}
+                </strong>
+
+            </div>
+
+        `).join("");
+
+
+    const deliveredText =
+        order.deliveredAt
+        ? `
+            <div class="completed-box">
+                ✅ <strong>Delivery completed</strong><br>
+                ${formatDate(
+                    order.deliveredAt
+                )}
+            </div>
+        `
+        : "";
+
+
+    result.innerHTML=`
+
+        <div class="tracking-card">
+
+            <div class="tracking-top">
+
+                <div style="font-size:12px;color:#aaa;">
+                    AEROZONE ORDER
+                </div>
+
+                <div class="tracking-number">
+                    ${order.orderNumber}
+                </div>
+
+                <div class="status-label">
+                    ${order.status}
+                </div>
+
+            </div>
+
+
+            <div class="timeline">
+
+                ${steps}
+
+            </div>
+
+        </div>
+
+
+        <div class="order-summary">
+
+            <h3>
+                Order Details
+            </h3>
+
+            <div
+                style="
+                font-size:13px;
+                color:#666;
+                line-height:1.7;
+                margin-bottom:10px;
+                "
+            >
+
+                <strong>
+                    Customer:
+                </strong>
+                ${order.name}
+                <br>
+
+                <strong>
+                    Delivery:
+                </strong>
+                ${order.address}
+                <br>
+
+                <strong>
+                    Time:
+                </strong>
+                ${order.time}
+
+            </div>
+
+
+            ${itemLines}
+
+
+            <div
+                class="order-line"
+                style="
+                margin-top:5px;
+                font-weight:900;
+                font-size:16px;
+                "
+            >
+
+                <span>
+                    Total
+                </span>
+
+                <strong>
+                    R${order.total.toFixed(2)}
+                </strong>
+
+            </div>
+
+
+            ${deliveredText}
+
+
+            <div class="track-actions">
+
+                <button
+                    class="whatsapp-button"
+                    onclick="contactAeroZone('${order.orderNumber}')"
+                >
+                    💬 Contact AeroZone
+                </button>
+
+                <button
+                    class="close-track"
+                    onclick="closeTracking()"
+                >
+                    Close
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* ==========================================
+   DELIVERY PORTAL
+========================================== */
+
+function openDeliveryPortal(){
+
+    document
+        .getElementById(
+            "deliveryOverlay"
+        )
+        .classList.add("active");
+
+    renderDriverOrders();
+
+}
+
+
+function closeDeliveryPortal(){
+
+    document
+        .getElementById(
+            "deliveryOverlay"
+        )
+        .classList.remove("active");
+
+}
+
+
+/* ==========================================
+   DRIVER ORDERS
+========================================== */
+
+function renderDriverOrders(){
+
+    const container =
+        document.getElementById(
+            "driverOrders"
+        );
+
+
+    const orders =
+        getTrackingOrders();
+
+
+    if(!orders.length){
+
+        container.innerHTML=`
+
+            <div class="empty">
+
+                <div style="font-size:45px;">
+                    🚚
+                </div>
+
+                <h3>
+                    No orders yet
+                </h3>
+
+                <p>
+                    New customer orders will appear here.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    container.innerHTML =
+        orders.map(order=>{
+
+            let buttons="";
+
+
+            if(order.status==="Order Received"){
+
+                buttons=`
+
+                    <button
+                        onclick="driverUpdateStatus(
+                            '${order.orderNumber}',
+                            'Preparing'
+                        )"
+                    >
+                        📦 Start Preparing
+                    </button>
+
+                `;
+
+            }
+
+
+            if(order.status==="Preparing"){
+
+                buttons=`
+
+                    <button
+                        onclick="driverUpdateStatus(
+                            '${order.orderNumber}',
+                            'Out for Delivery'
+                        )"
+                    >
+                        🚚 Start Delivery
+                    </button>
+
+                `;
+
+            }
+
+
+            if(order.status==="Out for Delivery"){
+
+                buttons=`
+
+                    <button
+                        onclick="driverUpdateStatus(
+                            '${order.orderNumber}',
+                            'Arrived'
+                        )"
+                    >
+                        📍 Arrived
+                    </button>
+
+                `;
+
+            }
+
+
+            if(order.status==="Arrived"){
+
+                buttons=`
+
+                    <button
+                        class="complete"
+                        onclick="completeDelivery(
+                            '${order.orderNumber}'
+                        )"
+                    >
+                        ✅ Complete Delivery
+                    </button>
+
+                `;
+
+            }
+
+
+            if(order.status==="Delivered"){
+
+                buttons=`
+
+                    <button
+                        disabled
+                        style="
+                        background:#000;
+                        color:#fff;
+                        opacity:.75;
+                        "
+                    >
+                        ✅ Delivered
+                    </button>
+
+                `;
+
+            }
+
+
+            return `
+
+                <div class="driver-order">
+
+                    <div class="driver-order-head">
+
+                        <div>
+
+                            <h3>
+                                ${order.orderNumber}
+                            </h3>
+
+                            <div
+                                style="
+                                font-size:11px;
+                                color:#777;
+                                margin-top:4px;
+                                "
+                            >
+                                ${order.name}
+                            </div>
+
+                        </div>
+
+                        <span class="driver-status">
+                            ${order.status}
+                        </span>
+
+                    </div>
+
+
+                    <div class="driver-info">
+
+                        <strong>
+                            📍 Delivery:
+                        </strong>
+
+                        ${order.address}
+
+                        <br>
+
+                        <strong>
+                            📞 Phone:
+                        </strong>
+
+                        ${order.phone}
+
+                        <br>
+
+                        <strong>
+                            💰 Total:
+                        </strong>
+
+                        R${order.total.toFixed(2)}
+
+                    </div>
+
+
+                    <div class="driver-buttons">
+
+                        ${buttons}
+
+                        <button
+                            onclick="contactCustomer(
+                                '${order.phone}'
+                            )"
+                        >
+                            💬 WhatsApp Customer
+                        </button>
+
+                    </div>
+
+
+                    ${
+                        order.deliveredAt
+                        ? `
+                            <div class="completed-box">
+                                ✅ Delivery completed on
+                                <strong>
+                                    ${formatDate(
+                                        order.deliveredAt
+                                    )}
+                                </strong>
+                            </div>
+                        `
+                        : ""
+                    }
+
+                </div>
+
+            `;
+
+        }).join("");
+
+}
+
+
+/* ==========================================
+   DRIVER UPDATE
+========================================== */
+
+function driverUpdateStatus(
+    orderNumber,
+    newStatus
+){
+
+    const orders =
+        getTrackingOrders();
+
+
+    const order =
+        orders.find(
+            item =>
+                item.orderNumber===
+                orderNumber
+        );
+
+
+    if(!order) return;
+
+
+    order.status=newStatus;
+
+    order.updatedAt =
+        new Date().toISOString();
+
+
+    saveAllOrders(orders);
+
+
+    renderDriverOrders();
+
+
+    showToast(
+        orderNumber+
+        " → "+
+        newStatus
+    );
+
+}
+
+
+/* ==========================================
+   COMPLETE DELIVERY
+========================================== */
+
+function completeDelivery(
+    orderNumber
+){
+
+    const confirmed =
+        confirm(
+            "Confirm that order "+
+            orderNumber+
+            " has been delivered?"
+        );
+
+
+    if(!confirmed){
+        return;
+    }
+
+
+    const orders =
+        getTrackingOrders();
+
+
+    const order =
+        orders.find(
+            item =>
+                item.orderNumber===
+                orderNumber
+        );
+
+
+    if(!order) return;
+
+
+    order.status="Delivered";
+
+    order.deliveredAt =
+        new Date().toISOString();
+
+    order.updatedAt =
+        new Date().toISOString();
+
+
+    saveAllOrders(orders);
+
+
+    renderDriverOrders();
+
+
+    showToast(
+        "✅ Delivery completed"
+    );
+
+}
+
+
+/* ==========================================
+   SAVE ALL ORDERS
+========================================== */
+
+function saveAllOrders(orders){
+
+    localStorage.setItem(
+        "aerozoneOrders",
+        JSON.stringify(orders)
+    );
+
+
+    const last =
+        orders[0];
+
+
+    if(last){
+
+        localStorage.setItem(
+            "aerozoneLastOrder",
+            JSON.stringify(last)
+        );
+
+    }
+
+}
+
+
+/* ==========================================
+   CONTACT AEROZONE
+========================================== */
+
+function contactAeroZone(
+    orderNumber
+){
+
+    const number =
+        "27688685355";
+
+
+    const message =
+        "Hello AeroZone. I would like an update on order "+
+        orderNumber+".";
+
+
+    window.open(
+        "https://wa.me/"+
+        number+
+        "?text="+
+        encodeURIComponent(message),
+        "_blank"
+    );
+
+}
+
+
+/* ==========================================
+   CONTACT CUSTOMER
+========================================== */
+
+function contactCustomer(
+    phone
+){
+
+    let clean =
+        phone
+        .replace(/\D/g,"");
+
+
+    if(clean.startsWith("0")){
+        clean =
+            "27"+
+            clean.substring(1);
+    }
+
+
+    window.open(
+        "https://wa.me/"+
+        clean,
+        "_blank"
+    );
+
 }
 
 
@@ -2009,23 +3912,32 @@ Please confirm my order.
 
 function setLocation(){
 
-    const address=prompt(
-        "Enter your delivery address:"
-    );
+    const address =
+        prompt(
+            "Enter your delivery address:"
+        );
+
 
     if(!address){
         return;
     }
+
 
     localStorage.setItem(
         "aerozoneAddress",
         address
     );
 
-    document.getElementById("locationText").textContent=
-        address;
 
-    showToast("Delivery address saved");
+    document.getElementById(
+        "locationText"
+    ).textContent=address;
+
+
+    showToast(
+        "Delivery address saved"
+    );
+
 }
 
 
@@ -2035,14 +3947,48 @@ function setLocation(){
 
 function showToast(message){
 
-    const toast=document.getElementById("toast");
+    const toast =
+        document.getElementById(
+            "toast"
+        );
+
 
     toast.textContent=message;
+
     toast.classList.add("show");
 
+
     setTimeout(()=>{
-        toast.classList.remove("show");
+
+        toast.classList.remove(
+            "show"
+        );
+
     },2200);
+
+}
+
+
+/* ==========================================
+   DATE FORMAT
+========================================== */
+
+function formatDate(value){
+
+    if(!value){
+        return "";
+    }
+
+
+    return new Date(value)
+        .toLocaleString(
+            "en-ZA",
+            {
+                dateStyle:"medium",
+                timeStyle:"short"
+            }
+        );
+
 }
 
 
@@ -2052,33 +3998,85 @@ function showToast(message){
 
 function escapeString(value){
 
-    return value
+    return String(value)
         .replace(/\\/g,"\\\\")
         .replace(/'/g,"\\'")
         .replace(/"/g,'&quot;');
+
 }
+
+
+/* ==========================================
+   LOAD SAVED ADDRESS
+========================================== */
+
+function loadSavedAddress(){
+
+    const address =
+        localStorage.getItem(
+            "aerozoneAddress"
+        );
+
+
+    if(address){
+
+        document
+            .getElementById(
+                "locationText"
+            )
+            .textContent=address;
+
+    }
+
+}
+
+
+/* ==========================================
+   KEYBOARD ESCAPE
+========================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key==="Escape"){
+
+            closeCart();
+
+            closeCheckout();
+
+            closeTracking();
+
+            closeDeliveryPortal();
+
+        }
+
+    }
+);
 
 
 /* ==========================================
    START
 ========================================== */
 
-function loadSavedAddress(){
-
-    const address=
-        localStorage.getItem("aerozoneAddress");
-
-    if(address){
-
-        document.getElementById("locationText")
-            .textContent=address;
-
-    }
-}
-
 renderBranches();
+
 updateCart();
+
 loadSavedAddress();
+
+
+/*
+   DELIVERY PORTAL TEST ACCESS
+
+   You can open the driver portal
+   from the browser console by using:
+
+   openDeliveryPortal()
+
+   Later we can add a secure
+   driver/admin login page.
+*/
 
 </script>
 
