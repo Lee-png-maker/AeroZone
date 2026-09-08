@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#000000">
 
-<title>QuickCart | Shop & Deliver</title>
+<title>AeroZone | Shop & Delivery</title>
 
 <style>
 *{
@@ -14,14 +14,18 @@
     padding:0;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     font-family:Arial,Helvetica,sans-serif;
     background:#f7f7f7;
     color:#111;
-    padding-bottom:90px;
+    padding-bottom:80px;
 }
 
-button,input,select{
+button,input,textarea{
     font:inherit;
 }
 
@@ -29,20 +33,23 @@ button{
     cursor:pointer;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
+
 header{
-    background:#000;
-    color:#fff;
     position:sticky;
     top:0;
     z-index:1000;
-    box-shadow:0 3px 15px rgba(0,0,0,.18);
+    background:#000;
+    color:#fff;
+    box-shadow:0 3px 18px rgba(0,0,0,.2);
 }
 
 .header{
-    max-width:1200px;
+    max-width:1250px;
     margin:auto;
-    padding:16px 20px;
+    padding:14px 20px;
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -50,86 +57,108 @@ header{
 }
 
 .logo{
-    font-size:24px;
+    font-size:27px;
     font-weight:900;
-    letter-spacing:-1px;
+    letter-spacing:-1.5px;
 }
 
 .logo span{
     background:#fff;
     color:#000;
-    padding:4px 7px;
-    border-radius:6px;
+    border-radius:7px;
+    padding:4px 8px;
+    margin-right:3px;
 }
 
-.cart-button{
+.tagline{
+    font-size:11px;
+    color:#aaa;
+    margin-top:2px;
+}
+
+.cart-btn{
     background:#fff;
     color:#000;
     border:0;
+    padding:11px 15px;
     border-radius:12px;
-    padding:10px 15px;
     font-weight:800;
 }
 
 .cart-count{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:22px;
+    height:22px;
+    padding:0 5px;
     background:#000;
     color:#fff;
     border-radius:50%;
-    padding:2px 7px;
-    margin-left:4px;
+    margin-left:5px;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
+
 .hero{
     background:#fff;
-    padding:38px 20px 28px;
     border-bottom:1px solid #ddd;
+    padding:42px 20px 35px;
 }
 
 .hero-inner{
-    max-width:1200px;
+    max-width:1250px;
     margin:auto;
 }
 
 .hero h1{
-    font-size:clamp(30px,5vw,52px);
-    line-height:1;
-    margin-bottom:12px;
+    font-size:clamp(32px,6vw,58px);
+    line-height:.98;
+    letter-spacing:-2px;
+    margin-bottom:15px;
 }
 
 .hero p{
     color:#666;
-    font-size:16px;
-    margin-bottom:22px;
+    max-width:600px;
+    line-height:1.5;
+    margin-bottom:24px;
 }
 
 .search{
+    max-width:800px;
+    height:55px;
     display:flex;
     background:#f1f1f1;
     border:1px solid #ddd;
     border-radius:15px;
     overflow:hidden;
-    max-width:750px;
 }
 
 .search input{
-    width:100%;
+    flex:1;
+    min-width:0;
     border:0;
     outline:0;
-    padding:16px;
     background:transparent;
+    padding:0 18px;
 }
 
 .search button{
+    width:65px;
     border:0;
     background:#000;
     color:#fff;
-    padding:0 22px;
 }
 
-/* LOCATION */
+/* =========================
+   DELIVERY LOCATION
+========================= */
+
 .location{
-    max-width:1200px;
+    max-width:1250px;
     margin:20px auto;
     padding:0 20px;
 }
@@ -137,161 +166,187 @@ header{
 .location-box{
     background:#fff;
     border:1px solid #ddd;
-    border-radius:15px;
-    padding:16px;
+    border-radius:16px;
+    padding:15px;
     display:flex;
-    gap:12px;
     align-items:center;
+    gap:13px;
 }
 
 .location-icon{
-    font-size:25px;
+    font-size:26px;
 }
 
-.location-text{
+.location-info{
     flex:1;
 }
 
-.location-text strong{
+.location-info strong{
     display:block;
     margin-bottom:4px;
 }
 
-.location-text small{
+.location-info small{
     color:#777;
 }
 
-/* SECTIONS */
+/* =========================
+   MAIN
+========================= */
+
+main{
+    max-width:1250px;
+    margin:auto;
+}
+
 section{
-    max-width:1200px;
-    margin:28px auto;
     padding:0 20px;
+    margin:30px 0;
 }
 
-.section-title{
+.section-heading{
     display:flex;
-    align-items:center;
     justify-content:space-between;
-    margin-bottom:15px;
+    align-items:end;
+    gap:15px;
+    margin-bottom:16px;
 }
 
-.section-title h2{
-    font-size:23px;
+.section-heading h2{
+    font-size:25px;
 }
 
-.section-title span{
+.section-heading p{
     color:#777;
     font-size:13px;
 }
 
-/* CATEGORIES */
-.categories{
-    display:flex;
+/* =========================
+   STORE NAVIGATION
+========================= */
+
+.store-nav{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
     gap:12px;
-    overflow-x:auto;
-    padding-bottom:5px;
 }
 
-.categories::-webkit-scrollbar{
-    display:none;
-}
-
-.category{
-    min-width:115px;
-    border:1px solid #ddd;
+.store-nav button{
     background:#fff;
-    border-radius:15px;
-    padding:16px 10px;
-    text-align:center;
+    border:1px solid #ddd;
+    border-radius:16px;
+    padding:17px 10px;
     transition:.2s;
 }
 
-.category:hover{
+.store-nav button:hover{
     transform:translateY(-2px);
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    border-color:#000;
 }
 
-.category-icon{
+.store-nav .icon{
     font-size:30px;
+    display:block;
     margin-bottom:8px;
 }
 
-.category strong{
+.store-nav strong{
     font-size:13px;
 }
 
-/* STORE CARDS */
-.stores{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-    gap:14px;
-}
+/* =========================
+   DEAL BANNER
+========================= */
 
-.store{
-    background:#000;
-    color:#fff;
-    border-radius:17px;
-    padding:20px;
-    min-height:125px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-}
-
-.store-icon{
-    font-size:32px;
-}
-
-.store h3{
-    margin-top:12px;
-}
-
-.store small{
-    color:#bbb;
-}
-
-/* DEAL */
 .deal{
     background:#000;
     color:#fff;
     border-radius:20px;
-    padding:24px;
+    padding:25px;
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
     gap:20px;
 }
 
 .deal h2{
-    font-size:25px;
-    margin-bottom:6px;
+    margin-bottom:7px;
 }
 
 .deal p{
-    color:#ccc;
+    color:#bbb;
+    font-size:14px;
 }
 
 .deal button{
+    border:0;
     background:#fff;
     color:#000;
-    border:0;
-    border-radius:12px;
     padding:12px 18px;
-    font-weight:bold;
+    border-radius:11px;
+    font-weight:800;
 }
 
-/* PRODUCTS */
+/* =========================
+   CATALOGUE
+========================= */
+
+.catalogue{
+    margin-top:35px;
+}
+
+.catalogue-section{
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:22px;
+    padding:20px;
+    margin-bottom:25px;
+}
+
+.catalogue-title{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:18px;
+    padding-bottom:14px;
+    border-bottom:1px solid #eee;
+}
+
+.catalogue-title-icon{
+    width:50px;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#000;
+    color:#fff;
+    border-radius:13px;
+    font-size:25px;
+}
+
+.catalogue-title h2{
+    font-size:21px;
+}
+
+.catalogue-title small{
+    color:#777;
+}
+
+/* =========================
+   PRODUCTS
+========================= */
+
 .products{
     display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(170px,1fr));
-    gap:15px;
+    grid-template-columns:repeat(5,1fr);
+    gap:14px;
 }
 
 .product{
-    background:#fff;
-    border:1px solid #ddd;
-    border-radius:18px;
+    border:1px solid #e1e1e1;
+    border-radius:17px;
     overflow:hidden;
+    background:#fff;
     transition:.2s;
 }
 
@@ -300,59 +355,86 @@ section{
     box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
 
-.product-image{
+.product-img{
     height:145px;
-    background:#eee;
+    background:#f0f0f0;
     display:flex;
-    justify-content:center;
     align-items:center;
-    font-size:58px;
+    justify-content:center;
+    font-size:55px;
 }
 
 .product-info{
-    padding:14px;
-}
-
-.product-store{
-    color:#777;
-    font-size:11px;
-    margin-bottom:5px;
+    padding:12px;
 }
 
 .product-name{
-    font-weight:700;
+    font-size:14px;
+    font-weight:800;
     min-height:38px;
+    line-height:1.25;
+}
+
+.product-description{
+    color:#777;
+    font-size:11px;
+    margin-top:3px;
+    min-height:15px;
 }
 
 .product-bottom{
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
+    gap:8px;
     margin-top:12px;
 }
 
 .price{
-    font-size:18px;
+    font-size:17px;
     font-weight:900;
 }
 
-.add{
+.add-btn{
     width:38px;
     height:38px;
     border:0;
-    border-radius:12px;
+    border-radius:11px;
     background:#000;
     color:#fff;
     font-size:22px;
 }
 
-/* CART DRAWER */
-.overlay{
+/* =========================
+   SEARCH RESULTS
+========================= */
+
+.search-results{
     display:none;
+}
+
+.search-results.show{
+    display:block;
+}
+
+.no-results{
+    text-align:center;
+    padding:40px;
+    color:#777;
+    background:#fff;
+    border-radius:15px;
+}
+
+/* =========================
+   CART
+========================= */
+
+.overlay{
     position:fixed;
     inset:0;
     background:rgba(0,0,0,.55);
-    z-index:1999;
+    z-index:1900;
+    display:none;
 }
 
 .overlay.show{
@@ -361,15 +443,15 @@ section{
 
 .cart{
     position:fixed;
-    right:-500px;
     top:0;
+    right:-520px;
+    width:min(500px,100%);
     height:100%;
-    width:min(480px,100%);
     background:#fff;
     z-index:2000;
-    transition:.3s;
     display:flex;
     flex-direction:column;
+    transition:.3s;
 }
 
 .cart.open{
@@ -379,41 +461,42 @@ section{
 .cart-header{
     background:#000;
     color:#fff;
-    padding:20px;
+    padding:18px;
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
 }
 
-.close{
-    background:#fff;
-    color:#000;
+.close-btn{
     border:0;
-    border-radius:9px;
     width:35px;
     height:35px;
+    border-radius:9px;
+    background:#fff;
+    color:#000;
+    font-weight:bold;
 }
 
 .cart-items{
     flex:1;
-    overflow:auto;
+    overflow-y:auto;
     padding:15px;
 }
 
-.empty{
+.empty-cart{
     text-align:center;
     color:#777;
-    padding:50px 20px;
+    padding:60px 20px;
 }
 
 .cart-item{
     display:flex;
     gap:12px;
-    padding:13px 0;
+    padding:14px 0;
     border-bottom:1px solid #eee;
 }
 
-.cart-item-icon{
+.cart-item-img{
     width:55px;
     height:55px;
     border-radius:12px;
@@ -421,29 +504,35 @@ section{
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:25px;
+    font-size:26px;
 }
 
-.cart-item-info{
+.cart-item-details{
     flex:1;
 }
 
-.cart-item-info strong{
+.cart-item-details strong{
     display:block;
-    margin-bottom:5px;
+    margin-bottom:4px;
+}
+
+.cart-item-price{
+    color:#777;
+    font-size:12px;
+    margin-bottom:8px;
 }
 
 .qty{
     display:flex;
     align-items:center;
-    gap:9px;
+    gap:8px;
 }
 
 .qty button{
-    border:1px solid #ccc;
+    width:28px;
+    height:28px;
     background:#fff;
-    width:27px;
-    height:27px;
+    border:1px solid #ccc;
     border-radius:7px;
 }
 
@@ -452,35 +541,38 @@ section{
     padding:18px;
 }
 
-.total-row{
+.total-line{
     display:flex;
     justify-content:space-between;
-    margin-bottom:8px;
+    margin-bottom:9px;
 }
 
-.grand-total{
-    font-size:22px;
+.total{
+    font-size:23px;
     font-weight:900;
-    margin:12px 0;
+    margin:13px 0;
 }
 
-.checkout{
+.checkout-btn{
     width:100%;
     background:#000;
     color:#fff;
     border:0;
-    padding:15px;
+    padding:16px;
     border-radius:13px;
-    font-weight:800;
+    font-weight:900;
 }
 
-/* CHECKOUT */
+/* =========================
+   CHECKOUT
+========================= */
+
 .checkout-modal{
-    display:none;
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.6);
+    background:rgba(0,0,0,.65);
     z-index:3000;
+    display:none;
     overflow:auto;
     padding:20px;
 }
@@ -492,22 +584,23 @@ section{
 }
 
 .checkout-box{
-    background:#fff;
     width:min(650px,100%);
-    margin:30px auto;
+    background:#fff;
     border-radius:20px;
     overflow:hidden;
+    margin:25px auto;
 }
 
-.checkout-header{
+.checkout-top{
     background:#000;
     color:#fff;
-    padding:22px;
+    padding:20px;
     display:flex;
+    align-items:center;
     justify-content:space-between;
 }
 
-.form{
+.checkout-form{
     padding:20px;
 }
 
@@ -517,7 +610,8 @@ section{
 
 .form-group label{
     display:block;
-    font-weight:bold;
+    font-weight:800;
+    font-size:13px;
     margin-bottom:7px;
 }
 
@@ -525,9 +619,9 @@ section{
 .form-group textarea,
 .form-group select{
     width:100%;
-    padding:13px;
     border:1px solid #ccc;
     border-radius:10px;
+    padding:13px;
     outline:0;
 }
 
@@ -536,43 +630,49 @@ section{
     resize:vertical;
 }
 
-.payment{
+.payment-options{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:10px;
+    gap:9px;
 }
 
-.payment label{
+.payment-option{
     border:1px solid #ccc;
     padding:13px;
     border-radius:10px;
-    cursor:pointer;
 }
 
-.payment input{
+.payment-option input{
+    width:auto;
     margin-right:6px;
+}
+
+.order-summary{
+    background:#f4f4f4;
+    padding:15px;
+    border-radius:13px;
+    margin:15px 0;
 }
 
 .place-order{
     width:100%;
+    border:0;
     background:#000;
     color:#fff;
-    border:0;
     padding:16px;
-    border-radius:12px;
+    border-radius:13px;
     font-weight:900;
-    margin-top:10px;
 }
 
-/* ORDER STATUS */
-.status{
+/* =========================
+   ORDER STATUS
+========================= */
+
+.order-status{
     display:none;
-    max-width:1200px;
-    margin:30px auto;
-    padding:0 20px;
 }
 
-.status.show{
+.order-status.show{
     display:block;
 }
 
@@ -586,39 +686,37 @@ section{
 
 .status-icon{
     font-size:55px;
+    margin-bottom:10px;
 }
 
 .status-steps{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     margin-top:25px;
-    gap:8px;
 }
 
-.step{
-    padding:15px 5px;
+.status-step{
     border-top:4px solid #ddd;
+    padding:12px 4px;
     color:#777;
     font-size:12px;
 }
 
-.step.active{
-    border-top-color:#000;
+.status-step.active{
+    border-color:#000;
     color:#000;
-    font-weight:bold;
+    font-weight:800;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
+
 footer{
     background:#000;
     color:#fff;
-    padding:35px 20px;
+    padding:38px 20px;
     margin-top:40px;
-}
-
-.footer-inner{
-    max-width:1200px;
-    margin:auto;
     text-align:center;
 }
 
@@ -636,26 +734,47 @@ footer p{
     border-radius:50%;
     background:#000;
     color:#fff;
+    text-decoration:none;
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
     font-size:27px;
     z-index:1500;
     box-shadow:0 5px 20px rgba(0,0,0,.25);
-    text-decoration:none;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1000px){
+    .products{
+        grid-template-columns:repeat(4,1fr);
+    }
+}
+
+@media(max-width:750px){
+    .products{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .store-nav{
+        grid-template-columns:repeat(4,1fr);
+    }
 }
 
 @media(max-width:600px){
+
     .header{
-        padding:13px 15px;
+        padding:12px 15px;
     }
 
     .logo{
-        font-size:20px;
+        font-size:22px;
     }
 
     .hero{
-        padding:28px 15px 22px;
+        padding:30px 15px;
     }
 
     section{
@@ -671,12 +790,21 @@ footer p{
         gap:10px;
     }
 
-    .product-image{
+    .product-img{
         height:120px;
+        font-size:45px;
     }
 
     .product-info{
         padding:10px;
+    }
+
+    .product-name{
+        font-size:13px;
+    }
+
+    .store-nav{
+        grid-template-columns:repeat(2,1fr);
     }
 
     .deal{
@@ -684,8 +812,16 @@ footer p{
         align-items:flex-start;
     }
 
+    .payment-options{
+        grid-template-columns:1fr;
+    }
+
     .status-steps{
         grid-template-columns:repeat(2,1fr);
+    }
+
+    .catalogue-section{
+        padding:14px;
     }
 }
 </style>
@@ -693,573 +829,1393 @@ footer p{
 
 <body>
 
-<header>
-    <div class="header">
-        <div class="logo"><span>Q</span> QuickCart</div>
+<!-- =========================
+     HEADER
+========================= -->
 
-        <button class="cart-button" onclick="openCart()">
-            🛒 Cart
-            <span class="cart-count" id="cartCount">0</span>
-        </button>
+<header>
+
+<div class="header">
+
+    <div>
+        <div class="logo">
+            <span>A</span>AeroZone
+        </div>
+
+        <div class="tagline">
+            Shop • Order • Deliver
+        </div>
     </div>
+
+    <button class="cart-btn" onclick="openCart()">
+        🛒 Cart
+        <span class="cart-count" id="cartCount">0</span>
+    </button>
+
+</div>
+
 </header>
 
-<div class="hero">
-    <div class="hero-inner">
-        <h1>Shop everything.<br>Delivered to you.</h1>
-        <p>Groceries, food, health, household items and more.</p>
+<!-- =========================
+     HERO
+========================= -->
 
-        <div class="search">
-            <input
-                type="search"
-                id="searchInput"
-                placeholder="Search products..."
-                oninput="searchProducts()"
-            >
-            <button onclick="searchProducts()">🔍</button>
-        </div>
+<div class="hero">
+
+<div class="hero-inner">
+
+    <h1>
+        Everything you need.<br>
+        Delivered to you.
+    </h1>
+
+    <p>
+        Browse our catalogue, choose your products,
+        add them to your cart and order easily.
+    </p>
+
+    <div class="search">
+
+        <input
+            id="searchInput"
+            type="search"
+            placeholder="Search the catalogue..."
+            oninput="searchProducts()"
+        >
+
+        <button onclick="searchProducts()">🔍</button>
+
     </div>
+
 </div>
+
+</div>
+
+<!-- =========================
+     LOCATION
+========================= -->
 
 <div class="location">
-    <div class="location-box">
-        <div class="location-icon">📍</div>
 
-        <div class="location-text">
-            <strong>Delivery location</strong>
-            <small id="locationText">Enter your address at checkout</small>
-        </div>
+<div class="location-box">
 
-        <button onclick="openCheckout()" style="border:1px solid #ccc;background:#fff;border-radius:9px;padding:9px 12px;">
-            Change
-        </button>
+    <div class="location-icon">📍</div>
+
+    <div class="location-info">
+
+        <strong>Delivery location</strong>
+
+        <small id="locationText">
+            Add your address when checking out
+        </small>
+
     </div>
+
+    <button
+        onclick="openCheckout()"
+        style="
+        background:#fff;
+        border:1px solid #ccc;
+        border-radius:9px;
+        padding:9px 12px;
+        "
+    >
+        Add
+    </button>
+
 </div>
 
-<section>
-    <div class="section-title">
-        <h2>Shop by category</h2>
-    </div>
-
-    <div class="categories">
-
-        <button class="category" onclick="filterCategory('Supermarket')">
-            <div class="category-icon">🛒</div>
-            <strong>Supermarket</strong>
-        </button>
-
-        <button class="category" onclick="filterCategory('Pharmacy')">
-            <div class="category-icon">💊</div>
-            <strong>Pharmacy</strong>
-        </button>
-
-        <button class="category" onclick="filterCategory('Restaurant')">
-            <div class="category-icon">🍽️</div>
-            <strong>Restaurant</strong>
-        </button>
-
-        <button class="category" onclick="filterCategory('Fast Food')">
-            <div class="category-icon">🍔</div>
-            <strong>Fast Food</strong>
-        </button>
-
-        <button class="category" onclick="filterCategory('Bakery')">
-            <div class="category-icon">🥐</div>
-            <strong>Bakery</strong>
-        </button>
-
-        <button class="category" onclick="filterCategory('Butchery')">
-            <div class="category-icon">🥩</div>
-            <strong>Butchery</strong>
-        </button>
-
-        <button class="category" onclick="filterCategory('Fruit & Veg')">
-            <div class="category-icon">🥦</div>
-            <strong>Fruit & Veg</strong>
-        </button>
-
-        <button class="category" onclick="filterCategory('Home')">
-            <div class="category-icon">🧹</div>
-            <strong>Home</strong>
-        </button>
-
-    </div>
-</section>
-
-<section>
-
-    <div class="section-title">
-        <h2>Popular stores</h2>
-        <span>Browse stores</span>
-    </div>
-
-    <div class="stores">
-
-        <div class="store">
-            <div class="store-icon">🛒</div>
-            <div>
-                <h3>Supermarket</h3>
-                <small>Groceries & essentials</small>
-            </div>
-        </div>
-
-        <div class="store">
-            <div class="store-icon">💊</div>
-            <div>
-                <h3>Pharmacy & Health</h3>
-                <small>Health & personal care</small>
-            </div>
-        </div>
-
-        <div class="store">
-            <div class="store-icon">🍔</div>
-            <div>
-                <h3>Fast Food</h3>
-                <small>Meals & drinks</small>
-            </div>
-        </div>
-
-        <div class="store">
-            <div class="store-icon">🥩</div>
-            <div>
-                <h3>Butchery</h3>
-                <small>Fresh meat</small>
-            </div>
-        </div>
-
-        <div class="store">
-            <div class="store-icon">🥐</div>
-            <div>
-                <h3>Bakery</h3>
-                <small>Fresh baked goods</small>
-            </div>
-        </div>
-
-        <div class="store">
-            <div class="store-icon">🧹</div>
-            <div>
-                <h3>Home & Cleaning</h3>
-                <small>Household essentials</small>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<section>
-    <div class="deal">
-        <div>
-            <h2>🔥 Today's deals</h2>
-            <p>Save more when you order multiple items.</p>
-        </div>
-
-        <button onclick="showDeals()">View deals</button>
-    </div>
-</section>
-
-<section>
-
-    <div class="section-title">
-        <h2 id="productsTitle">Popular products</h2>
-        <span id="productResult">50+ items</span>
-    </div>
-
-    <div class="products" id="products"></div>
-
-</section>
-
-<div class="status" id="orderStatus">
-    <div class="status-card">
-        <div class="status-icon">📦</div>
-
-        <h2>Order received!</h2>
-
-        <p id="orderNumber" style="margin-top:8px;color:#666;"></p>
-
-        <div class="status-steps">
-            <div class="step active">✓<br>Order received</div>
-            <div class="step">2<br>Preparing</div>
-            <div class="step">3<br>On the way</div>
-            <div class="step">4<br>Delivered</div>
-        </div>
-    </div>
 </div>
 
-<footer>
-    <div class="footer-inner">
-        <h2>QuickCart</h2>
-        <p>Shop online. Order easily. Get it delivered.</p>
-        <p style="margin-top:18px;">WhatsApp: 068 868 5355</p>
-        <p style="margin-top:18px;font-size:12px;">
-            © 2026 QuickCart. All rights reserved.
+<main>
+
+<!-- =========================
+     STORE CATEGORIES
+========================= -->
+
+<section>
+
+<div class="section-heading">
+
+    <div>
+        <h2>Browse stores</h2>
+        <p>Choose a catalogue</p>
+    </div>
+
+</div>
+
+<div class="store-nav">
+
+    <button onclick="scrollToStore('supermarket')">
+        <span class="icon">🛒</span>
+        <strong>Supermarket</strong>
+    </button>
+
+    <button onclick="scrollToStore('pharmacy')">
+        <span class="icon">💊</span>
+        <strong>Pharmacy</strong>
+    </button>
+
+    <button onclick="scrollToStore('restaurant')">
+        <span class="icon">🍽️</span>
+        <strong>Restaurant</strong>
+    </button>
+
+    <button onclick="scrollToStore('fastfood')">
+        <span class="icon">🍔</span>
+        <strong>Fast Food</strong>
+    </button>
+
+    <button onclick="scrollToStore('bakery')">
+        <span class="icon">🥐</span>
+        <strong>Bakery</strong>
+    </button>
+
+    <button onclick="scrollToStore('butchery')">
+        <span class="icon">🥩</span>
+        <strong>Butchery</strong>
+    </button>
+
+    <button onclick="scrollToStore('fruitveg')">
+        <span class="icon">🥦</span>
+        <strong>Fruit & Veg</strong>
+    </button>
+
+    <button onclick="scrollToStore('home')">
+        <span class="icon">🧹</span>
+        <strong>Home & Cleaning</strong>
+    </button>
+
+</div>
+
+</section>
+
+<!-- =========================
+     DEAL
+========================= -->
+
+<section>
+
+<div class="deal">
+
+    <div>
+        <h2>🔥 Great value every day</h2>
+        <p>
+            Add R500 or more to your basket and delivery is FREE.
         </p>
     </div>
+
+    <button onclick="showDeals()">
+        View deals
+    </button>
+
+</div>
+
+</section>
+
+<!-- =========================
+     SEARCH RESULTS
+========================= -->
+
+<section id="searchResultsSection" class="search-results">
+
+<div class="section-heading">
+
+    <div>
+        <h2>Search results</h2>
+        <p id="searchResultCount"></p>
+    </div>
+
+</div>
+
+<div class="products" id="searchResults"></div>
+
+</section>
+
+<!-- =========================
+     CATALOGUE
+========================= -->
+
+<section class="catalogue">
+
+<!-- SUPERMARKET -->
+
+<div class="catalogue-section" id="supermarket">
+
+<div class="catalogue-title">
+
+    <div class="catalogue-title-icon">🛒</div>
+
+    <div>
+        <h2>Supermarket</h2>
+        <small>Groceries & everyday essentials</small>
+    </div>
+
+</div>
+
+<div class="products" id="supermarketProducts"></div>
+
+</div>
+
+
+<!-- PHARMACY -->
+
+<div class="catalogue-section" id="pharmacy">
+
+<div class="catalogue-title">
+
+    <div class="catalogue-title-icon">💊</div>
+
+    <div>
+        <h2>Pharmacy & Health</h2>
+        <small>Personal care & health essentials</small>
+    </div>
+
+</div>
+
+<div class="products" id="pharmacyProducts"></div>
+
+</div>
+
+
+<!-- RESTAURANT -->
+
+<div class="catalogue-section" id="restaurant">
+
+<div class="catalogue-title">
+
+    <div class="catalogue-title-icon">🍽️</div>
+
+    <div>
+        <h2>Restaurant</h2>
+        <small>Fresh meals</small>
+    </div>
+
+</div>
+
+<div class="products" id="restaurantProducts"></div>
+
+</div>
+
+
+<!-- FAST FOOD -->
+
+<div class="catalogue-section" id="fastfood">
+
+<div class="catalogue-title">
+
+    <div class="catalogue-title-icon">🍔</div>
+
+    <div>
+        <h2>Fast Food</h2>
+        <small>Burgers, pizza & more</small>
+    </div>
+
+</div>
+
+<div class="products" id="fastfoodProducts"></div>
+
+</div>
+
+
+<!-- BAKERY -->
+
+<div class="catalogue-section" id="bakery">
+
+<div class="catalogue-title">
+
+    <div class="catalogue-title-icon">🥐</div>
+
+    <div>
+        <h2>Bakery</h2>
+        <small>Fresh baked products</small>
+    </div>
+
+</div>
+
+<div class="products" id="bakeryProducts"></div>
+
+</div>
+
+
+<!-- BUTCHERY -->
+
+<div class="catalogue-section" id="butchery">
+
+<div class="catalogue-title">
+
+    <div class="catalogue-title-icon">🥩</div>
+
+    <div>
+        <h2>Butchery</h2>
+        <small>Fresh meat</small>
+    </div>
+
+</div>
+
+<div class="products" id="butcheryProducts"></div>
+
+</div>
+
+
+<!-- FRUIT & VEG -->
+
+<div class="catalogue-section" id="fruitveg">
+
+<div class="catalogue-title">
+
+    <div class="catalogue-title-icon">🥦</div>
+
+    <div>
+        <h2>Fruit & Veg</h2>
+        <small>Fresh produce</small>
+    </div>
+
+</div>
+
+<div class="products" id="fruitvegProducts"></div>
+
+</div>
+
+
+<!-- HOME -->
+
+<div class="catalogue-section" id="home">
+
+<div class="catalogue-title">
+
+    <div class="catalogue-title-icon">🧹</div>
+
+    <div>
+        <h2>Home & Cleaning</h2>
+        <small>Household essentials</small>
+    </div>
+
+</div>
+
+<div class="products" id="homeProducts"></div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     ORDER STATUS
+========================= -->
+
+<section class="order-status" id="orderStatus">
+
+<div class="status-card">
+
+    <div class="status-icon">📦</div>
+
+    <h2>Order received</h2>
+
+    <p
+        id="orderNumber"
+        style="color:#777;margin-top:7px;"
+    ></p>
+
+    <div class="status-steps">
+
+        <div class="status-step active">
+            ✓<br>
+            Order received
+        </div>
+
+        <div class="status-step">
+            2<br>
+            Preparing
+        </div>
+
+        <div class="status-step">
+            3<br>
+            On the way
+        </div>
+
+        <div class="status-step">
+            4<br>
+            Delivered
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<h2>AeroZone</h2>
+
+<p>
+Shop online and get your order delivered.
+</p>
+
+<p>
+WhatsApp: 068 868 5355
+</p>
+
+<p style="font-size:12px;margin-top:18px;">
+© 2026 AeroZone
+</p>
+
 </footer>
+
+
+<!-- WHATSAPP -->
 
 <a
     class="whatsapp"
     href="https://wa.me/27688685355"
     target="_blank"
-    aria-label="WhatsApp"
->💬</a>
+>
+    💬
+</a>
 
-<div class="overlay" id="overlay" onclick="closeCart()"></div>
 
-<!-- CART -->
+<!-- =========================
+     CART OVERLAY
+========================= -->
+
+<div
+    class="overlay"
+    id="overlay"
+    onclick="closeCart()"
+></div>
+
+
+<!-- =========================
+     CART
+========================= -->
+
 <div class="cart" id="cart">
 
-    <div class="cart-header">
-        <h2>Your Cart</h2>
-        <button class="close" onclick="closeCart()">✕</button>
+<div class="cart-header">
+
+    <h2>Your Cart</h2>
+
+    <button
+        class="close-btn"
+        onclick="closeCart()"
+    >
+        ✕
+    </button>
+
+</div>
+
+<div
+    class="cart-items"
+    id="cartItems"
+></div>
+
+<div class="cart-footer">
+
+    <div class="total-line">
+        <span>Subtotal</span>
+        <strong id="subtotal">R0.00</strong>
     </div>
 
-    <div class="cart-items" id="cartItems">
-        <div class="empty">
-            🛒<br><br>
-            Your cart is empty.
-        </div>
+    <div class="total-line">
+        <span>Delivery</span>
+        <strong id="delivery">R0.00</strong>
     </div>
 
-    <div class="cart-footer">
+    <div class="total-line total">
+        <span>Total</span>
+        <span id="total">R0.00</span>
+    </div>
 
-        <div class="total-row">
-            <span>Subtotal</span>
-            <strong id="subtotal">R0.00</strong>
-        </div>
+    <button
+        class="checkout-btn"
+        onclick="openCheckout()"
+    >
+        Proceed to Checkout
+    </button>
 
-        <div class="total-row">
-            <span>Delivery</span>
-            <strong id="delivery">R0.00</strong>
-        </div>
+</div>
 
-        <div class="total-row grand-total">
-            <span>Total</span>
-            <span id="total">R0.00</span>
-        </div>
+</div>
 
-        <button class="checkout" onclick="openCheckout()">
-            Proceed to checkout
-        </button>
+
+<!-- =========================
+     CHECKOUT MODAL
+========================= -->
+
+<div
+    class="checkout-modal"
+    id="checkoutModal"
+>
+
+<div class="checkout-box">
+
+<div class="checkout-top">
+
+    <h2>Checkout</h2>
+
+    <button
+        class="close-btn"
+        onclick="closeCheckout()"
+    >
+        ✕
+    </button>
+
+</div>
+
+<div class="checkout-form">
+
+<div class="form-group">
+
+    <label>Full name</label>
+
+    <input
+        id="customerName"
+        type="text"
+        placeholder="Your full name"
+    >
+
+</div>
+
+<div class="form-group">
+
+    <label>Phone number</label>
+
+    <input
+        id="customerPhone"
+        type="tel"
+        placeholder="Your phone number"
+    >
+
+</div>
+
+<div class="form-group">
+
+    <label>Delivery address</label>
+
+    <textarea
+        id="customerAddress"
+        placeholder="House number, street, suburb, city"
+    ></textarea>
+
+</div>
+
+<div class="form-group">
+
+    <label>Delivery instructions</label>
+
+    <textarea
+        id="instructions"
+        placeholder="Gate code, directions, etc."
+    ></textarea>
+
+</div>
+
+<div class="form-group">
+
+    <label>Payment method</label>
+
+    <div class="payment-options">
+
+        <label class="payment-option">
+            <input
+                type="radio"
+                name="payment"
+                value="WhatsApp payment"
+                checked
+            >
+            💬 WhatsApp
+        </label>
+
+        <label class="payment-option">
+            <input
+                type="radio"
+                name="payment"
+                value="Cash on Delivery"
+            >
+            💵 Cash on Delivery
+        </label>
+
+        <label class="payment-option">
+            <input
+                type="radio"
+                name="payment"
+                value="Yoco"
+            >
+            💳 Card / Yoco
+        </label>
+
+        <label class="payment-option">
+            <input
+                type="radio"
+                name="payment"
+                value="EFT"
+            >
+            🏦 EFT
+        </label>
 
     </div>
 
 </div>
 
-<!-- CHECKOUT -->
-<div class="checkout-modal" id="checkoutModal">
+<div class="order-summary">
 
-    <div class="checkout-box">
-
-        <div class="checkout-header">
-            <h2>Checkout</h2>
-            <button class="close" onclick="closeCheckout()">✕</button>
-        </div>
-
-        <div class="form">
-
-            <div class="form-group">
-                <label>Full name</label>
-                <input id="customerName" type="text" placeholder="Your full name">
-            </div>
-
-            <div class="form-group">
-                <label>Phone number</label>
-                <input id="customerPhone" type="tel" placeholder="Your phone number">
-            </div>
-
-            <div class="form-group">
-                <label>Delivery address</label>
-                <textarea id="customerAddress" placeholder="House number, street, suburb, city"></textarea>
-            </div>
-
-            <div class="form-group">
-                <label>Delivery instructions</label>
-                <textarea id="instructions" placeholder="Gate code, directions, special instructions..."></textarea>
-            </div>
-
-            <div class="form-group">
-                <label>Payment method</label>
-
-                <div class="payment">
-
-                    <label>
-                        <input type="radio" name="payment" value="WhatsApp payment" checked>
-                        💬 WhatsApp
-                    </label>
-
-                    <label>
-                        <input type="radio" name="payment" value="Cash on Delivery">
-                        💵 Cash
-                    </label>
-
-                    <label>
-                        <input type="radio" name="payment" value="Yoco">
-                        💳 Card / Yoco
-                    </label>
-
-                    <label>
-                        <input type="radio" name="payment" value="EFT">
-                        🏦 EFT
-                    </label>
-
-                </div>
-            </div>
-
-            <div style="background:#f4f4f4;padding:15px;border-radius:12px;margin-bottom:10px;">
-                <div class="total-row">
-                    <span>Subtotal</span>
-                    <strong id="checkoutSubtotal">R0.00</strong>
-                </div>
-
-                <div class="total-row">
-                    <span>Delivery</span>
-                    <strong id="checkoutDelivery">R0.00</strong>
-                </div>
-
-                <div class="total-row grand-total">
-                    <span>Total</span>
-                    <span id="checkoutTotal">R0.00</span>
-                </div>
-            </div>
-
-            <button class="place-order" onclick="placeOrder()">
-                📱 Place Order via WhatsApp
-            </button>
-
-        </div>
-
+    <div class="total-line">
+        <span>Subtotal</span>
+        <strong id="checkoutSubtotal">R0.00</strong>
     </div>
+
+    <div class="total-line">
+        <span>Delivery</span>
+        <strong id="checkoutDelivery">R0.00</strong>
+    </div>
+
+    <div class="total-line total">
+        <span>Total</span>
+        <span id="checkoutTotal">R0.00</span>
+    </div>
+
 </div>
+
+<button
+    class="place-order"
+    onclick="placeOrder()"
+>
+    📱 Place Order via WhatsApp
+</button>
+
+</div>
+
+</div>
+
+</div>
+
 
 <script>
 
-/* =========================
-   PRODUCTS
-========================= */
+/* =========================================================
+   AEROZONE PRODUCT CATALOGUE
+========================================================= */
 
 const products = [
 
 /* SUPERMARKET */
-{name:"Milk 2L",price:39.99,cat:"Supermarket",icon:"🥛"},
-{name:"Bread White Loaf",price:18.99,cat:"Supermarket",icon:"🍞"},
-{name:"Brown Bread",price:19.99,cat:"Supermarket",icon:"🍞"},
-{name:"Eggs 18 Pack",price:59.99,cat:"Supermarket",icon:"🥚"},
-{name:"Rice 2kg",price:42.99,cat:"Supermarket",icon:"🍚"},
-{name:"Sugar 2kg",price:39.99,cat:"Supermarket",icon:"🍚"},
-{name:"Cooking Oil 2L",price:59.99,cat:"Supermarket",icon:"🫗"},
-{name:"Maize Meal 2.5kg",price:45.99,cat:"Supermarket",icon:"🌽"},
-{name:"Tea Bags 100",price:49.99,cat:"Supermarket",icon:"☕"},
-{name:"Coffee 200g",price:69.99,cat:"Supermarket",icon:"☕"},
-{name:"Breakfast Cereal",price:54.99,cat:"Supermarket",icon:"🥣"},
-{name:"Baked Beans",price:16.99,cat:"Supermarket",icon:"🥫"},
-{name:"Tomato Sauce",price:29.99,cat:"Supermarket",icon:"🍅"},
-{name:"Peanut Butter",price:39.99,cat:"Supermarket",icon:"🥜"},
-{name:"Laundry Detergent",price:79.99,cat:"Supermarket",icon:"🧺"},
+
+{
+ name:"Fresh Milk 2L",
+ price:39.99,
+ category:"supermarket",
+ icon:"🥛",
+ description:"Full cream milk"
+},
+
+{
+ name:"White Bread",
+ price:18.99,
+ category:"supermarket",
+ icon:"🍞",
+ description:"Fresh loaf"
+},
+
+{
+ name:"Brown Bread",
+ price:19.99,
+ category:"supermarket",
+ icon:"🍞",
+ description:"Fresh loaf"
+},
+
+{
+ name:"Eggs 18 Pack",
+ price:59.99,
+ category:"supermarket",
+ icon:"🥚",
+ description:"Fresh eggs"
+},
+
+{
+ name:"Rice 2kg",
+ price:42.99,
+ category:"supermarket",
+ icon:"🍚",
+ description:"Long grain rice"
+},
+
+{
+ name:"Sugar 2kg",
+ price:39.99,
+ category:"supermarket",
+ icon:"🧂",
+ description:"White sugar"
+},
+
+{
+ name:"Cooking Oil 2L",
+ price:59.99,
+ category:"supermarket",
+ icon:"🫗",
+ description:"Cooking oil"
+},
+
+{
+ name:"Maize Meal 2.5kg",
+ price:45.99,
+ category:"supermarket",
+ icon:"🌽",
+ description:"Maize meal"
+},
+
+{
+ name:"Tea Bags 100",
+ price:49.99,
+ category:"supermarket",
+ icon:"☕",
+ description:"Tea bags"
+},
+
+{
+ name:"Coffee 200g",
+ price:69.99,
+ category:"supermarket",
+ icon:"☕",
+ description:"Instant coffee"
+},
+
+{
+ name:"Breakfast Cereal",
+ price:54.99,
+ category:"supermarket",
+ icon:"🥣",
+ description:"Breakfast cereal"
+},
+
+{
+ name:"Baked Beans",
+ price:16.99,
+ category:"supermarket",
+ icon:"🥫",
+ description:"Canned beans"
+},
+
+{
+ name:"Tomato Sauce",
+ price:29.99,
+ category:"supermarket",
+ icon:"🍅",
+ description:"Tomato sauce"
+},
+
+{
+ name:"Peanut Butter",
+ price:39.99,
+ category:"supermarket",
+ icon:"🥜",
+ description:"Smooth peanut butter"
+},
+
+{
+ name:"Laundry Detergent",
+ price:79.99,
+ category:"supermarket",
+ icon:"🧺",
+ description:"Laundry detergent"
+},
 
 /* FRUIT & VEG */
-{name:"Potatoes 2kg",price:29.99,cat:"Fruit & Veg",icon:"🥔"},
-{name:"Onions 1kg",price:24.99,cat:"Fruit & Veg",icon:"🧅"},
-{name:"Tomatoes 1kg",price:29.99,cat:"Fruit & Veg",icon:"🍅"},
-{name:"Bananas 1kg",price:24.99,cat:"Fruit & Veg",icon:"🍌"},
-{name:"Apples 1kg",price:34.99,cat:"Fruit & Veg",icon:"🍎"},
-{name:"Oranges 1kg",price:29.99,cat:"Fruit & Veg",icon:"🍊"},
-{name:"Spinach",price:14.99,cat:"Fruit & Veg",icon:"🥬"},
+
+{
+ name:"Potatoes 2kg",
+ price:29.99,
+ category:"fruitveg",
+ icon:"🥔",
+ description:"Fresh potatoes"
+},
+
+{
+ name:"Onions 1kg",
+ price:24.99,
+ category:"fruitveg",
+ icon:"🧅",
+ description:"Fresh onions"
+},
+
+{
+ name:"Tomatoes 1kg",
+ price:29.99,
+ category:"fruitveg",
+ icon:"🍅",
+ description:"Fresh tomatoes"
+},
+
+{
+ name:"Bananas 1kg",
+ price:24.99,
+ category:"fruitveg",
+ icon:"🍌",
+ description:"Fresh bananas"
+},
+
+{
+ name:"Apples 1kg",
+ price:34.99,
+ category:"fruitveg",
+ icon:"🍎",
+ description:"Fresh apples"
+},
+
+{
+ name:"Oranges 1kg",
+ price:29.99,
+ category:"fruitveg",
+ icon:"🍊",
+ description:"Fresh oranges"
+},
+
+{
+ name:"Spinach",
+ price:14.99,
+ category:"fruitveg",
+ icon:"🥬",
+ description:"Fresh spinach"
+},
 
 /* BUTCHERY */
-{name:"Beef Steak 500g",price:89.99,cat:"Butchery",icon:"🥩"},
-{name:"Beef Mince 500g",price:69.99,cat:"Butchery",icon:"🥩"},
-{name:"Chicken Breasts 1kg",price:79.99,cat:"Butchery",icon:"🍗"},
-{name:"Chicken Wings 1kg",price:64.99,cat:"Butchery",icon:"🍗"},
-{name:"Boerewors 1kg",price:99.99,cat:"Butchery",icon:"🌭"},
-{name:"Lamb Chops 500g",price:109.99,cat:"Butchery",icon:"🥩"},
+
+{
+ name:"Beef Steak 500g",
+ price:89.99,
+ category:"butchery",
+ icon:"🥩",
+ description:"Fresh beef"
+},
+
+{
+ name:"Beef Mince 500g",
+ price:69.99,
+ category:"butchery",
+ icon:"🥩",
+ description:"Fresh mince"
+},
+
+{
+ name:"Chicken Breasts 1kg",
+ price:79.99,
+ category:"butchery",
+ icon:"🍗",
+ description:"Fresh chicken"
+},
+
+{
+ name:"Chicken Wings 1kg",
+ price:64.99,
+ category:"butchery",
+ icon:"🍗",
+ description:"Fresh wings"
+},
+
+{
+ name:"Boerewors 1kg",
+ price:99.99,
+ category:"butchery",
+ icon:"🌭",
+ description:"Fresh boerewors"
+},
+
+{
+ name:"Lamb Chops 500g",
+ price:109.99,
+ category:"butchery",
+ icon:"🥩",
+ description:"Fresh lamb"
+},
 
 /* BAKERY */
-{name:"Fresh Rolls 6 Pack",price:24.99,cat:"Bakery",icon:"🥖"},
-{name:"Croissants 4 Pack",price:39.99,cat:"Bakery",icon:"🥐"},
-{name:"Chocolate Muffins",price:34.99,cat:"Bakery",icon:"🧁"},
-{name:"Chocolate Cake",price:119.99,cat:"Bakery",icon:"🍰"},
-{name:"Birthday Cake",price:199.99,cat:"Bakery",icon:"🎂"},
+
+{
+ name:"Fresh Rolls 6 Pack",
+ price:24.99,
+ category:"bakery",
+ icon:"🥖",
+ description:"Fresh rolls"
+},
+
+{
+ name:"Croissants 4 Pack",
+ price:39.99,
+ category:"bakery",
+ icon:"🥐",
+ description:"Fresh croissants"
+},
+
+{
+ name:"Chocolate Muffins",
+ price:34.99,
+ category:"bakery",
+ icon:"🧁",
+ description:"Fresh muffins"
+},
+
+{
+ name:"Chocolate Cake",
+ price:119.99,
+ category:"bakery",
+ icon:"🍰",
+ description:"Chocolate cake"
+},
+
+{
+ name:"Birthday Cake",
+ price:199.99,
+ category:"bakery",
+ icon:"🎂",
+ description:"Celebration cake"
+},
 
 /* FAST FOOD */
-{name:"Beef Burger",price:59.99,cat:"Fast Food",icon:"🍔"},
-{name:"Chicken Burger",price:54.99,cat:"Fast Food",icon:"🍔"},
-{name:"Large Chips",price:34.99,cat:"Fast Food",icon:"🍟"},
-{name:"Pizza Margherita",price:89.99,cat:"Fast Food",icon:"🍕"},
-{name:"Chicken Pizza",price:109.99,cat:"Fast Food",icon:"🍕"},
-{name:"Chicken Wings 8pc",price:79.99,cat:"Fast Food",icon:"🍗"},
-{name:"Combo Meal",price:99.99,cat:"Fast Food",icon:"🍔"},
+
+{
+ name:"Beef Burger",
+ price:59.99,
+ category:"fastfood",
+ icon:"🍔",
+ description:"Beef burger"
+},
+
+{
+ name:"Chicken Burger",
+ price:54.99,
+ category:"fastfood",
+ icon:"🍔",
+ description:"Chicken burger"
+},
+
+{
+ name:"Large Chips",
+ price:34.99,
+ category:"fastfood",
+ icon:"🍟",
+ description:"Large fries"
+},
+
+{
+ name:"Pizza Margherita",
+ price:89.99,
+ category:"fastfood",
+ icon:"🍕",
+ description:"Cheese pizza"
+},
+
+{
+ name:"Chicken Pizza",
+ price:109.99,
+ category:"fastfood",
+ icon:"🍕",
+ description:"Chicken pizza"
+},
+
+{
+ name:"Chicken Wings 8pc",
+ price:79.99,
+ category:"fastfood",
+ icon:"🍗",
+ description:"8 piece wings"
+},
+
+{
+ name:"Combo Meal",
+ price:99.99,
+ category:"fastfood",
+ icon:"🍔",
+ description:"Burger combo"
+},
 
 /* RESTAURANT */
-{name:"Chicken & Rice",price:79.99,cat:"Restaurant",icon:"🍗"},
-{name:"Beef Pasta",price:89.99,cat:"Restaurant",icon:"🍝"},
-{name:"Grilled Chicken",price:99.99,cat:"Restaurant",icon:"🍗"},
-{name:"Fish & Chips",price:89.99,cat:"Restaurant",icon:"🐟"},
-{name:"Breakfast Plate",price:69.99,cat:"Restaurant",icon:"🍳"},
+
+{
+ name:"Chicken & Rice",
+ price:79.99,
+ category:"restaurant",
+ icon:"🍗",
+ description:"Chicken meal"
+},
+
+{
+ name:"Beef Pasta",
+ price:89.99,
+ category:"restaurant",
+ icon:"🍝",
+ description:"Beef pasta"
+},
+
+{
+ name:"Grilled Chicken",
+ price:99.99,
+ category:"restaurant",
+ icon:"🍗",
+ description:"Grilled chicken"
+},
+
+{
+ name:"Fish & Chips",
+ price:89.99,
+ category:"restaurant",
+ icon:"🐟",
+ description:"Fish meal"
+},
+
+{
+ name:"Breakfast Plate",
+ price:69.99,
+ category:"restaurant",
+ icon:"🍳",
+ description:"Breakfast meal"
+},
 
 /* PHARMACY */
-{name:"Toothpaste",price:29.99,cat:"Pharmacy",icon:"🪥"},
-{name:"Toothbrush",price:24.99,cat:"Pharmacy",icon:"🪥"},
-{name:"Shampoo",price:49.99,cat:"Pharmacy",icon:"🧴"},
-{name:"Body Lotion",price:44.99,cat:"Pharmacy",icon:"🧴"},
-{name:"Hand Sanitiser",price:29.99,cat:"Pharmacy",icon:"🧴"},
-{name:"Face Wash",price:59.99,cat:"Pharmacy",icon:"🧼"},
-{name:"Deodorant",price:39.99,cat:"Pharmacy",icon:"🧴"},
+
+{
+ name:"Toothpaste",
+ price:29.99,
+ category:"pharmacy",
+ icon:"🪥",
+ description:"Dental care"
+},
+
+{
+ name:"Toothbrush",
+ price:24.99,
+ category:"pharmacy",
+ icon:"🪥",
+ description:"Dental care"
+},
+
+{
+ name:"Shampoo",
+ price:49.99,
+ category:"pharmacy",
+ icon:"🧴",
+ description:"Hair care"
+},
+
+{
+ name:"Body Lotion",
+ price:44.99,
+ category:"pharmacy",
+ icon:"🧴",
+ description:"Skin care"
+},
+
+{
+ name:"Hand Sanitiser",
+ price:29.99,
+ category:"pharmacy",
+ icon:"🧴",
+ description:"Hand hygiene"
+},
+
+{
+ name:"Face Wash",
+ price:59.99,
+ category:"pharmacy",
+ icon:"🧼",
+ description:"Facial cleanser"
+},
+
+{
+ name:"Deodorant",
+ price:39.99,
+ category:"pharmacy",
+ icon:"🧴",
+ description:"Personal care"
+},
 
 /* HOME */
-{name:"Dishwashing Liquid",price:29.99,cat:"Home",icon:"🧽"},
-{name:"Sponges 5 Pack",price:19.99,cat:"Home",icon:"🧽"},
-{name:"Toilet Paper 18 Pack",price:79.99,cat:"Home",icon:"🧻"},
-{name:"Paper Towels",price:34.99,cat:"Home",icon:"🧻"},
-{name:"Bin Bags",price:39.99,cat:"Home",icon:"🗑️"},
-{name:"Floor Cleaner",price:39.99,cat:"Home",icon:"🧹"}
+
+{
+ name:"Dishwashing Liquid",
+ price:29.99,
+ category:"home",
+ icon:"🧽",
+ description:"Dish cleaner"
+},
+
+{
+ name:"Sponges 5 Pack",
+ price:19.99,
+ category:"home",
+ icon:"🧽",
+ description:"Cleaning sponges"
+},
+
+{
+ name:"Toilet Paper 18 Pack",
+ price:79.99,
+ category:"home",
+ icon:"🧻",
+ description:"Toilet paper"
+},
+
+{
+ name:"Paper Towels",
+ price:34.99,
+ category:"home",
+ icon:"🧻",
+ description:"Kitchen towels"
+},
+
+{
+ name:"Bin Bags",
+ price:39.99,
+ category:"home",
+ icon:"🗑️",
+ description:"Waste bags"
+},
+
+{
+ name:"Floor Cleaner",
+ price:39.99,
+ category:"home",
+ icon:"🧹",
+ description:"Floor cleaner"
+}
+
 ];
 
-let cart = JSON.parse(localStorage.getItem("quickcart")) || [];
 
-/* =========================
-   DISPLAY PRODUCTS
-========================= */
+/* =========================================================
+   CART
+========================================================= */
 
-function displayProducts(list=products){
+let cart =
+JSON.parse(localStorage.getItem("aerozoneCart")) || [];
 
-    const container=document.getElementById("products");
 
-    container.innerHTML="";
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
 
-    if(list.length===0){
+function productCard(product){
 
-        container.innerHTML=`
-            <div style="grid-column:1/-1;text-align:center;padding:40px;color:#777;">
-                No products found.
-            </div>
-        `;
+    const index=products.indexOf(product);
 
-        document.getElementById("productResult").textContent="0 items";
+    return `
 
-        return;
-    }
+    <div class="product">
 
-    document.getElementById("productResult").textContent=list.length+" items";
+        <div class="product-img">
+            ${product.icon}
+        </div>
 
-    list.forEach((product,index)=>{
+        <div class="product-info">
 
-        const originalIndex=products.indexOf(product);
-
-        container.innerHTML+=`
-
-        <div class="product">
-
-            <div class="product-image">
-                ${product.icon}
+            <div class="product-name">
+                ${product.name}
             </div>
 
-            <div class="product-info">
+            <div class="product-description">
+                ${product.description}
+            </div>
 
-                <div class="product-store">
-                    ${product.cat}
+            <div class="product-bottom">
+
+                <div class="price">
+                    R${product.price.toFixed(2)}
                 </div>
 
-                <div class="product-name">
-                    ${product.name}
-                </div>
-
-                <div class="product-bottom">
-
-                    <div class="price">
-                        R${product.price.toFixed(2)}
-                    </div>
-
-                    <button
-                        class="add"
-                        onclick="addToCart(${originalIndex})"
-                    >+</button>
-
-                </div>
+                <button
+                    class="add-btn"
+                    onclick="addToCart(${index})"
+                    aria-label="Add ${product.name}"
+                >
+                    +
+                </button>
 
             </div>
 
         </div>
 
-        `;
-    });
+    </div>
+
+    `;
 }
 
-/* =========================
+
+/* =========================================================
+   DISPLAY CATALOGUE
+========================================================= */
+
+function displayCatalogue(){
+
+    const categories=[
+        "supermarket",
+        "pharmacy",
+        "restaurant",
+        "fastfood",
+        "bakery",
+        "butchery",
+        "fruitveg",
+        "home"
+    ];
+
+    categories.forEach(category=>{
+
+        const container=
+        document.getElementById(category+"Products");
+
+        const items=
+        products.filter(p=>p.category===category);
+
+        if(container){
+            container.innerHTML=
+            items.map(productCard).join("");
+        }
+
+    });
+
+}
+
+
+/* =========================================================
    SEARCH
-========================= */
+========================================================= */
 
 function searchProducts(){
 
-    const q=document
-        .getElementById("searchInput")
-        .value
-        .toLowerCase()
-        .trim();
+    const query=
+    document
+    .getElementById("searchInput")
+    .value
+    .toLowerCase()
+    .trim();
 
-    const results=products.filter(p=>
-        p.name.toLowerCase().includes(q) ||
-        p.cat.toLowerCase().includes(q)
+    const section=
+    document.getElementById("searchResultsSection");
+
+    const resultsContainer=
+    document.getElementById("searchResults");
+
+    if(!query){
+
+        section.classList.remove("show");
+
+        return;
+    }
+
+    const results=
+    products.filter(product=>
+
+        product.name.toLowerCase().includes(query) ||
+
+        product.description.toLowerCase().includes(query) ||
+
+        product.category.toLowerCase().includes(query)
+
     );
 
-    document.getElementById("productsTitle").textContent=
-        q ? "Search results" : "Popular products";
+    section.classList.add("show");
 
-    displayProducts(results);
-}
+    document.getElementById("searchResultCount")
+    .textContent=
+    results.length+" products found";
 
-/* =========================
-   CATEGORY
-========================= */
+    if(results.length===0){
 
-function filterCategory(category){
+        resultsContainer.innerHTML=`
+            <div class="no-results"
+                 style="grid-column:1/-1;">
+                🔍<br><br>
+                No products found for "${query}".
+            </div>
+        `;
 
-    const results=products.filter(p=>p.cat===category);
+        return;
+    }
 
-    document.getElementById("productsTitle").textContent=category;
+    resultsContainer.innerHTML=
+    results.map(productCard).join("");
 
-    displayProducts(results);
-
-    window.scrollTo({
-        top:document.getElementById("products").offsetTop-130,
-        behavior:"smooth"
+    section.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
     });
 }
 
-/* =========================
-   DEALS
-========================= */
+
+/* =========================================================
+   SHOW DEALS
+========================================================= */
 
 function showDeals(){
 
-    const deals=products.filter(p=>p.price<40);
+    const deals=
+    products.filter(product=>product.price<40);
 
-    document.getElementById("productsTitle").textContent="Today's deals";
+    const section=
+    document.getElementById("searchResultsSection");
 
-    displayProducts(deals);
+    section.classList.add("show");
 
-    window.scrollTo({
-        top:document.getElementById("products").offsetTop-130,
+    document.getElementById("searchResultCount")
+    .textContent=
+    deals.length+" great-value products";
+
+    document.getElementById("searchResults")
+    .innerHTML=
+    deals.map(productCard).join("");
+
+    section.scrollIntoView({
         behavior:"smooth"
     });
 }
 
-/* =========================
-   CART
-========================= */
+
+/* =========================================================
+   SCROLL TO STORE
+========================================================= */
+
+function scrollToStore(id){
+
+    const element=
+    document.getElementById(id);
+
+    if(element){
+
+        element.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+    }
+}
+
+
+/* =========================================================
+   ADD TO CART
+========================================================= */
 
 function addToCart(index){
 
-    const product=products[index];
-
-    const existing=cart.find(item=>item.index===index);
+    const existing=
+    cart.find(item=>item.index===index);
 
     if(existing){
+
         existing.qty++;
+
     }else{
+
         cart.push({
             index:index,
             qty:1
         });
+
     }
 
     saveCart();
@@ -1267,178 +2223,292 @@ function addToCart(index){
 
 }
 
-function changeQty(index,change){
 
-    const item=cart.find(i=>i.index===index);
+/* =========================================================
+   CHANGE QUANTITY
+========================================================= */
+
+function changeQuantity(index,change){
+
+    const item=
+    cart.find(item=>item.index===index);
 
     if(!item)return;
 
     item.qty+=change;
 
     if(item.qty<=0){
-        cart=cart.filter(i=>i.index!==index);
+
+        cart=
+        cart.filter(item=>item.index!==index);
+
     }
 
     saveCart();
     updateCart();
+
 }
 
+
+/* =========================================================
+   SAVE CART
+========================================================= */
+
 function saveCart(){
-    localStorage.setItem("quickcart",JSON.stringify(cart));
+
+    localStorage.setItem(
+        "aerozoneCart",
+        JSON.stringify(cart)
+    );
+
 }
+
+
+/* =========================================================
+   SUBTOTAL
+========================================================= */
 
 function getSubtotal(){
 
-    return cart.reduce((sum,item)=>{
+    return cart.reduce((total,item)=>{
 
-        const product=products[item.index];
+        const product=
+        products[item.index];
 
-        return sum+(product.price*item.qty);
+        return total+
+        (product.price*item.qty);
 
     },0);
+
 }
+
+
+/* =========================================================
+   DELIVERY
+========================================================= */
 
 function getDelivery(){
 
-    if(cart.length===0)return 0;
-
     const subtotal=getSubtotal();
 
-    if(subtotal>=500)return 0;
+    if(subtotal===0){
+        return 0;
+    }
+
+    if(subtotal>=500){
+        return 0;
+    }
 
     return 35;
+
 }
+
+
+/* =========================================================
+   UPDATE CART
+========================================================= */
 
 function updateCart(){
 
-    const container=document.getElementById("cartItems");
+    const container=
+    document.getElementById("cartItems");
 
-    document.getElementById("cartCount").textContent=
-        cart.reduce((sum,item)=>sum+item.qty,0);
+    const count=
+    cart.reduce(
+        (total,item)=>total+item.qty,
+        0
+    );
+
+    document.getElementById("cartCount")
+    .textContent=count;
 
     if(cart.length===0){
 
         container.innerHTML=`
-            <div class="empty">
-                🛒<br><br>
+
+            <div class="empty-cart">
+                🛒
+                <br><br>
                 Your cart is empty.
+                <br>
+                Add products from the catalogue.
             </div>
+
         `;
 
     }else{
 
-        container.innerHTML="";
+        container.innerHTML=
+        cart.map(item=>{
 
-        cart.forEach(item=>{
+            const product=
+            products[item.index];
 
-            const p=products[item.index];
-
-            container.innerHTML+=`
+            return `
 
             <div class="cart-item">
 
-                <div class="cart-item-icon">
-                    ${p.icon}
+                <div class="cart-item-img">
+                    ${product.icon}
                 </div>
 
-                <div class="cart-item-info">
+                <div class="cart-item-details">
 
-                    <strong>${p.name}</strong>
+                    <strong>
+                        ${product.name}
+                    </strong>
 
-                    <div style="color:#666;font-size:13px;margin-bottom:7px;">
-                        R${p.price.toFixed(2)} each
+                    <div class="cart-item-price">
+                        R${product.price.toFixed(2)}
                     </div>
 
                     <div class="qty">
 
-                        <button onclick="changeQty(${item.index},-1)">−</button>
+                        <button
+                            onclick="changeQuantity(${item.index},-1)"
+                        >
+                            −
+                        </button>
 
-                        <strong>${item.qty}</strong>
+                        <strong>
+                            ${item.qty}
+                        </strong>
 
-                        <button onclick="changeQty(${item.index},1)">+</button>
+                        <button
+                            onclick="changeQuantity(${item.index},1)"
+                        >
+                            +
+                        </button>
 
                     </div>
 
                 </div>
 
                 <strong>
-                    R${(p.price*item.qty).toFixed(2)}
+                    R${(
+                        product.price*item.qty
+                    ).toFixed(2)}
                 </strong>
 
             </div>
 
             `;
-        });
+
+        }).join("");
+
     }
 
     const subtotal=getSubtotal();
     const delivery=getDelivery();
     const total=subtotal+delivery;
 
-    document.getElementById("subtotal").textContent=
-        "R"+subtotal.toFixed(2);
+    document.getElementById("subtotal")
+    .textContent=
+    "R"+subtotal.toFixed(2);
 
-    document.getElementById("delivery").textContent=
-        delivery===0 && subtotal>0 ? "FREE" : "R"+delivery.toFixed(2);
+    document.getElementById("delivery")
+    .textContent=
+    delivery===0 && subtotal>0
+    ? "FREE"
+    : "R"+delivery.toFixed(2);
 
-    document.getElementById("total").textContent=
-        "R"+total.toFixed(2);
+    document.getElementById("total")
+    .textContent=
+    "R"+total.toFixed(2);
 
-    document.getElementById("checkoutSubtotal").textContent=
-        "R"+subtotal.toFixed(2);
+    document.getElementById("checkoutSubtotal")
+    .textContent=
+    "R"+subtotal.toFixed(2);
 
-    document.getElementById("checkoutDelivery").textContent=
-        delivery===0 && subtotal>0 ? "FREE" : "R"+delivery.toFixed(2);
+    document.getElementById("checkoutDelivery")
+    .textContent=
+    delivery===0 && subtotal>0
+    ? "FREE"
+    : "R"+delivery.toFixed(2);
 
-    document.getElementById("checkoutTotal").textContent=
-        "R"+total.toFixed(2);
+    document.getElementById("checkoutTotal")
+    .textContent=
+    "R"+total.toFixed(2);
+
 }
+
+
+/* =========================================================
+   OPEN CART
+========================================================= */
 
 function openCart(){
 
-    document.getElementById("cart").classList.add("open");
-    document.getElementById("overlay").classList.add("show");
+    document
+    .getElementById("cart")
+    .classList.add("open");
+
+    document
+    .getElementById("overlay")
+    .classList.add("show");
 
 }
+
+
+/* =========================================================
+   CLOSE CART
+========================================================= */
 
 function closeCart(){
 
-    document.getElementById("cart").classList.remove("open");
-    document.getElementById("overlay").classList.remove("show");
+    document
+    .getElementById("cart")
+    .classList.remove("open");
+
+    document
+    .getElementById("overlay")
+    .classList.remove("show");
 
 }
 
-/* =========================
-   CHECKOUT
-========================= */
+
+/* =========================================================
+   OPEN CHECKOUT
+========================================================= */
 
 function openCheckout(){
 
     if(cart.length===0){
 
-        alert("Your cart is empty.");
+        alert(
+            "Your cart is empty. Please add products first."
+        );
 
         return;
     }
 
     closeCart();
 
-    document.getElementById("checkoutModal")
-        .classList.add("show");
-
     updateCart();
+
+    document
+    .getElementById("checkoutModal")
+    .classList.add("show");
+
 }
+
+
+/* =========================================================
+   CLOSE CHECKOUT
+========================================================= */
 
 function closeCheckout(){
 
-    document.getElementById("checkoutModal")
-        .classList.remove("show");
+    document
+    .getElementById("checkoutModal")
+    .classList.remove("show");
 
 }
 
-/* =========================
+
+/* =========================================================
    PLACE ORDER
-========================= */
+========================================================= */
 
 function placeOrder(){
 
@@ -1449,101 +2519,142 @@ function placeOrder(){
         return;
     }
 
-    const name=document
-        .getElementById("customerName")
-        .value.trim();
+    const name=
+    document
+    .getElementById("customerName")
+    .value
+    .trim();
 
-    const phone=document
-        .getElementById("customerPhone")
-        .value.trim();
+    const phone=
+    document
+    .getElementById("customerPhone")
+    .value
+    .trim();
 
-    const address=document
-        .getElementById("customerAddress")
-        .value.trim();
+    const address=
+    document
+    .getElementById("customerAddress")
+    .value
+    .trim();
 
-    const instructions=document
-        .getElementById("instructions")
-        .value.trim();
+    const instructions=
+    document
+    .getElementById("instructions")
+    .value
+    .trim();
 
-    const payment=document
-        .querySelector('input[name="payment"]:checked')
-        .value;
+    const payment=
+    document
+    .querySelector(
+        'input[name="payment"]:checked'
+    )
+    .value;
 
-    if(!name || !phone || !address){
+    if(!name){
 
-        alert("Please enter your name, phone number and delivery address.");
+        alert("Please enter your full name.");
+
+        return;
+    }
+
+    if(!phone){
+
+        alert("Please enter your phone number.");
+
+        return;
+    }
+
+    if(!address){
+
+        alert("Please enter your delivery address.");
 
         return;
     }
 
     const orderNumber=
-        "QC"+Date.now().toString().slice(-8);
-
-    let message=
-`🛒 *NEW QUICKCART ORDER*
-
-Order Number: ${orderNumber}
-
-👤 *Customer*
-Name: ${name}
-Phone: ${phone}
-
-📍 *Delivery Address*
-${address}
-
-📝 *Instructions*
-${instructions || "None"}
-
-💳 *Payment*
-${payment}
-
-📦 *ORDER ITEMS*
-`;
-
-    cart.forEach(item=>{
-
-        const p=products[item.index];
-
-        message+=
-`\n• ${p.name} x${item.qty} — R${(p.price*item.qty).toFixed(2)}`;
-
-    });
+    "AZ"+Date.now()
+    .toString()
+    .slice(-8);
 
     const subtotal=getSubtotal();
     const delivery=getDelivery();
     const total=subtotal+delivery;
 
-    message+=`
+    let message=
+`🛒 *AEROZONE NEW ORDER*
 
-💰 *SUBTOTAL:* R${subtotal.toFixed(2)}
-🚚 *DELIVERY:* ${delivery===0 ? "FREE" : "R"+delivery.toFixed(2)}
-💵 *TOTAL:* R${total.toFixed(2)}
+Order Number: ${orderNumber}
+
+👤 *CUSTOMER*
+Name: ${name}
+Phone: ${phone}
+
+📍 *DELIVERY ADDRESS*
+${address}
+
+📝 *DELIVERY INSTRUCTIONS*
+${instructions || "None"}
+
+💳 *PAYMENT METHOD*
+${payment}
+
+📦 *ITEMS*
+`;
+
+    cart.forEach(item=>{
+
+        const product=
+        products[item.index];
+
+        message+=
+`\n• ${product.name} x${item.qty} — R${(
+    product.price*item.qty
+).toFixed(2)}`;
+
+    });
+
+    message+=
+`
+
+💰 Subtotal: R${subtotal.toFixed(2)}
+🚚 Delivery: ${
+    delivery===0
+    ? "FREE"
+    : "R"+delivery.toFixed(2)
+}
+💵 *TOTAL: R${total.toFixed(2)}*
 
 Please confirm my order.
 `;
 
-    const whatsappNumber="27688685355";
+    const whatsappNumber=
+    "27688685355";
 
-    const url=
-        "https://wa.me/"+whatsappNumber+
-        "?text="+encodeURIComponent(message);
+    const whatsappURL=
+    "https://wa.me/"+
+    whatsappNumber+
+    "?text="+
+    encodeURIComponent(message);
 
-    window.open(url,"_blank");
+    window.open(
+        whatsappURL,
+        "_blank"
+    );
 
-    localStorage.setItem("lastOrder",JSON.stringify({
-        orderNumber:orderNumber,
-        name:name,
-        phone:phone,
-        address:address,
-        total:total,
-        date:new Date().toISOString()
-    }));
+    document
+    .getElementById("locationText")
+    .textContent=
+    address;
 
-    document.getElementById("orderNumber").textContent=
-        "Order #"+orderNumber+" • Total R"+total.toFixed(2);
+    document
+    .getElementById("orderNumber")
+    .textContent=
+    "Order #"+orderNumber+
+    " • Total R"+total.toFixed(2);
 
-    document.getElementById("orderStatus")
-        .classList.add("show");
+    document
+    .getElementById("orderStatus")
+    .classList.add("show");
 
     closeCheckout();
 
@@ -1552,17 +2663,36 @@ Please confirm my order.
     saveCart();
     updateCart();
 
-    window.scrollTo({
-        top:document.getElementById("orderStatus").offsetTop-100,
+    document
+    .getElementById("customerName")
+    .value="";
+
+    document
+    .getElementById("customerPhone")
+    .value="";
+
+    document
+    .getElementById("customerAddress")
+    .value="";
+
+    document
+    .getElementById("instructions")
+    .value="";
+
+    document
+    .getElementById("orderStatus")
+    .scrollIntoView({
         behavior:"smooth"
     });
+
 }
 
-/* =========================
-   INITIALIZE
-========================= */
 
-displayProducts();
+/* =========================================================
+   START
+========================================================= */
+
+displayCatalogue();
 updateCart();
 
 </script>
