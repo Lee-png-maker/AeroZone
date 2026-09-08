@@ -20,10 +20,8 @@
     --grey:#666;
     --light:#f5f5f5;
     --white:#fff;
-    --border:#e8e8e8;
-    --green:#16833b;
-    --orange:#e67e22;
-    --blue:#2867d7;
+    --border:#e7e7e7;
+    --green:#16863d;
     --radius:20px;
 }
 
@@ -42,11 +40,13 @@ button{
     cursor:pointer;
 }
 
+/* HEADER */
+
 .header{
     position:sticky;
     top:0;
     z-index:1000;
-    background:rgba(255,255,255,.97);
+    background:rgba(255,255,255,.96);
     backdrop-filter:blur(15px);
     border-bottom:1px solid #eee;
 }
@@ -54,11 +54,11 @@ button{
 .header-inner{
     max-width:1200px;
     margin:auto;
-    padding:14px 18px;
+    padding:12px 18px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:12px;
+    gap:15px;
 }
 
 .logo{
@@ -78,7 +78,6 @@ button{
     align-items:center;
     justify-content:center;
     font-weight:900;
-    font-size:18px;
 }
 
 .logo-text{
@@ -97,25 +96,25 @@ button{
     gap:8px;
 }
 
-.track-button{
-    border:1px solid #ddd;
-    background:#fff;
-    color:#111;
-    border-radius:14px;
+.track-button,
+.cart-button{
+    border:0;
+    border-radius:13px;
     padding:11px 14px;
     font-weight:800;
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+
+.track-button{
+    background:#f1f1f1;
+    color:#111;
 }
 
 .cart-button{
-    border:0;
     background:#000;
     color:#fff;
-    border-radius:14px;
-    padding:11px 16px;
-    display:flex;
-    align-items:center;
-    gap:8px;
-    font-weight:700;
 }
 
 .cart-count{
@@ -130,11 +129,15 @@ button{
     font-size:12px;
 }
 
+/* MAIN */
+
 main{
     max-width:1200px;
     margin:auto;
     padding:0 18px 100px;
 }
+
+/* HERO */
 
 .hero{
     margin-top:20px;
@@ -225,6 +228,8 @@ main{
     font-weight:700;
 }
 
+/* LOCATION */
+
 .location-bar{
     margin:18px 0 28px;
     border:1px solid var(--border);
@@ -269,6 +274,8 @@ main{
     font-weight:700;
 }
 
+/* SECTION */
+
 .section-head{
     display:flex;
     align-items:end;
@@ -286,6 +293,8 @@ main{
     font-size:13px;
     margin-top:5px;
 }
+
+/* BRANCHES */
 
 .branches{
     display:grid;
@@ -358,6 +367,8 @@ main{
     font-weight:900;
 }
 
+/* FEATURES */
+
 .features{
     margin-top:35px;
     display:grid;
@@ -380,6 +391,38 @@ main{
     font-size:13px;
     color:#777;
     line-height:1.5;
+}
+
+/* TRACK CARD */
+
+.track-home{
+    margin-top:35px;
+    background:#000;
+    color:#fff;
+    border-radius:24px;
+    padding:25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.track-home h2{
+    margin-bottom:7px;
+}
+
+.track-home p{
+    color:#aaa;
+    font-size:13px;
+}
+
+.track-home button{
+    border:0;
+    background:#fff;
+    color:#000;
+    padding:13px 18px;
+    border-radius:12px;
+    font-weight:900;
 }
 
 /* CATALOGUE */
@@ -661,15 +704,15 @@ main{
 
 .modal{
     background:#fff;
-    width:min(600px,100%);
+    width:min(650px,100%);
     border-radius:25px;
     padding:25px;
     max-height:95vh;
     overflow:auto;
 }
 
-.modal-wide{
-    width:min(760px,100%);
+.modal.large{
+    width:min(750px,100%);
 }
 
 .modal-head{
@@ -764,7 +807,7 @@ main{
     border:1px solid #ddd;
     border-radius:12px;
     padding:13px;
-    outline:none;
+    text-transform:uppercase;
 }
 
 .tracking-search button{
@@ -772,252 +815,204 @@ main{
     color:#fff;
     border:0;
     border-radius:12px;
-    padding:13px 17px;
+    padding:0 18px;
     font-weight:800;
 }
 
-.tracking-card{
-    border:1px solid #e5e5e5;
-    border-radius:20px;
-    overflow:hidden;
-}
-
-.tracking-top{
-    background:#050505;
-    color:#fff;
-    padding:20px;
-}
-
-.tracking-number{
-    font-size:25px;
-    font-weight:900;
-    margin-top:5px;
-}
-
-.status-label{
-    display:inline-block;
+.tracking-result{
     margin-top:10px;
-    background:#fff;
-    color:#000;
-    padding:7px 11px;
+}
+
+.order-summary{
+    background:#f6f6f6;
+    border-radius:18px;
+    padding:18px;
+    margin-bottom:20px;
+}
+
+.order-summary-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:start;
+    gap:15px;
+}
+
+.order-number{
+    font-size:13px;
+    color:#777;
+    margin-top:4px;
+}
+
+.status-badge{
+    background:#000;
+    color:#fff;
     border-radius:30px;
-    font-size:12px;
-    font-weight:900;
+    padding:8px 12px;
+    font-size:11px;
+    font-weight:800;
+    white-space:nowrap;
+}
+
+.status-badge.delivered{
+    background:var(--green);
 }
 
 .timeline{
-    padding:25px 20px;
-}
-
-.timeline-step{
-    display:flex;
-    gap:14px;
+    margin-top:22px;
     position:relative;
-    padding-bottom:25px;
 }
 
-.timeline-step:last-child{
-    padding-bottom:0;
+.timeline-item{
+    display:flex;
+    gap:13px;
+    position:relative;
+    min-height:58px;
 }
 
-.timeline-step:not(:last-child):after{
+.timeline-item:not(:last-child):after{
     content:"";
     position:absolute;
-    left:13px;
-    top:28px;
+    left:12px;
+    top:26px;
     width:2px;
-    height:calc(100% - 10px);
+    height:40px;
     background:#ddd;
 }
 
-.timeline-step.done:not(:last-child):after{
-    background:#000;
-}
-
 .timeline-dot{
-    width:28px;
-    height:28px;
+    width:25px;
+    height:25px;
     border-radius:50%;
-    background:#eee;
-    color:#777;
+    background:#ddd;
     display:flex;
-    align-items:center;
     justify-content:center;
-    position:relative;
+    align-items:center;
+    color:#fff;
+    font-size:12px;
+    font-weight:900;
     z-index:2;
     flex-shrink:0;
-    font-size:13px;
 }
 
-.timeline-step.done .timeline-dot{
+.timeline-item.done .timeline-dot{
     background:#000;
-    color:#fff;
 }
 
-.timeline-step.current .timeline-dot{
-    background:#fff;
-    border:4px solid #000;
-    color:#000;
+.timeline-item.current .timeline-dot{
+    background:#000;
+    box-shadow:0 0 0 5px #eee;
 }
 
-.timeline-content h4{
+.timeline-content strong{
     font-size:14px;
-    margin-bottom:4px;
 }
 
 .timeline-content p{
     color:#777;
-    font-size:12px;
+    font-size:11px;
+    margin-top:3px;
 }
 
-.order-summary{
-    margin-top:20px;
-    background:#f7f7f7;
-    border-radius:15px;
-    padding:16px;
+.driver-card{
+    margin-top:10px;
+    background:#000;
+    color:#fff;
+    border-radius:18px;
+    padding:18px;
 }
 
-.order-summary h3{
+.driver-card h3{
     margin-bottom:12px;
 }
 
-.order-line{
-    display:flex;
-    justify-content:space-between;
+.driver-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
     gap:10px;
-    padding:7px 0;
-    border-bottom:1px solid #e5e5e5;
+}
+
+.driver-info{
+    background:#1b1b1b;
+    border-radius:12px;
+    padding:10px;
+}
+
+.driver-info span{
+    display:block;
+    color:#999;
+    font-size:10px;
+    margin-bottom:4px;
+}
+
+.driver-info strong{
     font-size:13px;
 }
 
-.order-line:last-child{
-    border-bottom:0;
+.delivery-complete{
+    margin-top:15px;
+    border:1px solid #d9eadf;
+    background:#f3fff6;
+    border-radius:18px;
+    padding:18px;
 }
 
-.track-actions{
+.delivery-complete h3{
+    color:var(--green);
+    margin-bottom:10px;
+}
+
+.delivery-complete p{
+    font-size:13px;
+    line-height:1.5;
+    color:#555;
+}
+
+/* DELIVERY PORTAL */
+
+.delivery-tools{
+    display:grid;
+    gap:12px;
+}
+
+.delivery-status{
+    padding:13px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    width:100%;
+}
+
+.delivery-actions{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:10px;
     margin-top:15px;
 }
 
-.track-actions button{
+.delivery-save{
     border:0;
-    border-radius:12px;
-    padding:13px;
-    font-weight:800;
-}
-
-.whatsapp-button{
+    border-radius:13px;
+    padding:14px;
     background:#000;
     color:#fff;
-}
-
-.close-track{
-    background:#eee;
-    color:#111;
-}
-
-/* DELIVERY PORTAL */
-
-.driver-banner{
-    background:#050505;
-    color:#fff;
-    padding:22px;
-    border-radius:18px;
-    margin-bottom:18px;
-}
-
-.driver-banner p{
-    color:#aaa;
-    font-size:13px;
-    margin-top:5px;
-}
-
-.driver-order{
-    border:1px solid #ddd;
-    border-radius:18px;
-    padding:18px;
-    margin-top:14px;
-}
-
-.driver-order-head{
-    display:flex;
-    justify-content:space-between;
-    gap:10px;
-    align-items:start;
-    margin-bottom:14px;
-}
-
-.driver-order h3{
-    font-size:18px;
-}
-
-.driver-status{
-    background:#f2f2f2;
-    border-radius:30px;
-    padding:6px 9px;
-    font-size:10px;
     font-weight:900;
-    white-space:nowrap;
 }
 
-.driver-info{
-    background:#f7f7f7;
-    border-radius:12px;
-    padding:12px;
-    font-size:13px;
-    line-height:1.7;
-}
-
-.driver-buttons{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:8px;
-    margin-top:12px;
-}
-
-.driver-buttons button{
+.delivered-button{
     border:0;
-    border-radius:11px;
-    padding:11px;
-    font-weight:800;
-    background:#eee;
-}
-
-.driver-buttons .complete{
-    background:#000;
+    border-radius:13px;
+    padding:14px;
+    background:var(--green);
     color:#fff;
+    font-weight:900;
 }
 
-.completed-box{
-    margin-top:12px;
-    background:#f0f0f0;
+.driver-note{
+    background:#fff8e7;
     border-radius:12px;
     padding:12px;
+    color:#765d19;
     font-size:12px;
-    line-height:1.6;
-}
-
-/* TOAST */
-
-.toast{
-    position:fixed;
-    left:50%;
-    bottom:25px;
-    transform:translate(-50%,100px);
-    background:#000;
-    color:#fff;
-    padding:13px 18px;
-    border-radius:12px;
-    z-index:5000;
-    transition:.3s;
-    font-size:13px;
-    font-weight:700;
-}
-
-.toast.show{
-    transform:translate(-50%,0);
+    line-height:1.5;
 }
 
 /* FOOTER */
@@ -1060,6 +1055,16 @@ footer{
     margin:6px 0;
 }
 
+.footer-links button{
+    margin-top:10px;
+    background:#fff;
+    color:#000;
+    border:0;
+    border-radius:10px;
+    padding:9px 12px;
+    font-weight:800;
+}
+
 .footer-bottom{
     max-width:1200px;
     margin:30px auto 0;
@@ -1069,9 +1074,31 @@ footer{
     font-size:12px;
 }
 
+/* TOAST */
+
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:25px;
+    transform:translate(-50%,100px);
+    background:#000;
+    color:#fff;
+    padding:13px 18px;
+    border-radius:12px;
+    z-index:5000;
+    transition:.3s;
+    font-size:13px;
+    font-weight:700;
+}
+
+.toast.show{
+    transform:translate(-50%,0);
+}
+
 /* MOBILE */
 
 @media(max-width:900px){
+
     .branches{
         grid-template-columns:repeat(2,1fr);
     }
@@ -1088,7 +1115,7 @@ footer{
     }
 
     .header-inner{
-        padding:11px 12px;
+        padding:10px 12px;
     }
 
     .logo-text{
@@ -1100,18 +1127,16 @@ footer{
         height:38px;
     }
 
-    .header-actions{
-        gap:5px;
-    }
-
     .track-button{
         padding:10px;
-        font-size:12px;
+    }
+
+    .track-button span:last-child{
+        display:none;
     }
 
     .cart-button{
         padding:10px;
-        font-size:12px;
     }
 
     .hero{
@@ -1169,6 +1194,15 @@ footer{
         grid-template-columns:1fr;
     }
 
+    .track-home{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .track-home button{
+        width:100%;
+    }
+
     .products{
         grid-template-columns:repeat(2,1fr);
         gap:10px;
@@ -1219,11 +1253,19 @@ footer{
         grid-template-columns:1fr;
     }
 
-    .track-actions{
+    .tracking-search{
+        flex-direction:column;
+    }
+
+    .tracking-search button{
+        padding:13px;
+    }
+
+    .driver-grid{
         grid-template-columns:1fr;
     }
 
-    .driver-buttons{
+    .delivery-actions{
         grid-template-columns:1fr;
     }
 
@@ -1241,6 +1283,7 @@ footer{
 <body>
 
 <header class="header">
+
     <div class="header-inner">
 
         <div class="logo" onclick="goHome()">
@@ -1251,7 +1294,7 @@ footer{
         <div class="header-actions">
 
             <button class="track-button" onclick="openTracking()">
-                📦 Track Order
+                📦 Track
             </button>
 
             <button class="cart-button" onclick="openCart()">
@@ -1260,16 +1303,20 @@ footer{
             </button>
 
         </div>
+
     </div>
+
 </header>
 
 
 <main>
 
 <!-- HOME -->
+
 <section id="homeView">
 
     <section class="hero">
+
         <div class="hero-content">
 
             <span class="badge">AEROZONE DELIVERY</span>
@@ -1285,6 +1332,7 @@ footer{
             </p>
 
             <div class="search-box">
+
                 <span>🔎</span>
 
                 <input
@@ -1297,9 +1345,11 @@ footer{
                 <button onclick="searchAll()">
                     Search
                 </button>
+
             </div>
 
         </div>
+
     </section>
 
 
@@ -1360,7 +1410,6 @@ footer{
 
         </div>
 
-
         <div class="feature">
 
             <strong>🛒 Easy Shopping</strong>
@@ -1371,16 +1420,34 @@ footer{
 
         </div>
 
-
         <div class="feature">
 
-            <strong>📦 Track Your Order</strong>
+            <strong>💬 WhatsApp Orders</strong>
 
             <p>
-                Track your order from preparation through delivery completion.
+                Place your order quickly through WhatsApp.
             </p>
 
         </div>
+
+    </section>
+
+
+    <section class="track-home">
+
+        <div>
+
+            <h2>Track your order</h2>
+
+            <p>
+                Enter your AeroZone order number and see your delivery status.
+            </p>
+
+        </div>
+
+        <button onclick="openTracking()">
+            📦 Track My Order
+        </button>
 
     </section>
 
@@ -1397,13 +1464,9 @@ footer{
             ← All branches
         </button>
 
-
         <div class="branch-banner">
 
-            <div
-                class="branch-banner-icon"
-                id="catalogueIcon"
-            >
+            <div class="branch-banner-icon" id="catalogueIcon">
                 🛒
             </div>
 
@@ -1441,10 +1504,7 @@ footer{
         </div>
 
 
-        <div
-            class="products"
-            id="products"
-        ></div>
+        <div class="products" id="products"></div>
 
     </div>
 
@@ -1486,15 +1546,21 @@ footer{
                 Delivery available where supported
             </p>
 
+            <button onclick="openTracking()">
+                Track Order
+            </button>
+
+            <button onclick="openDeliveryPortal()">
+                Delivery Portal
+            </button>
+
         </div>
 
     </div>
 
 
     <div class="footer-bottom">
-
         © 2026 AeroZone. All rights reserved.
-
     </div>
 
 </footer>
@@ -1512,9 +1578,7 @@ footer{
 
         <div class="cart-head">
 
-            <h2>
-                Your Cart
-            </h2>
+            <h2>Your Cart</h2>
 
             <button
                 class="close"
@@ -1536,9 +1600,7 @@ footer{
 
             <div class="total-row">
 
-                <span>
-                    Subtotal
-                </span>
+                <span>Subtotal</span>
 
                 <strong id="cartSubtotal">
                     R0.00
@@ -1549,9 +1611,7 @@ footer{
 
             <div class="total-row">
 
-                <span>
-                    Delivery
-                </span>
+                <span>Delivery</span>
 
                 <strong id="cartDelivery">
                     R35.00
@@ -1562,9 +1622,7 @@ footer{
 
             <div class="total-row grand">
 
-                <span>
-                    Total
-                </span>
+                <span>Total</span>
 
                 <strong id="cartTotal">
                     R0.00
@@ -1598,9 +1656,7 @@ footer{
 
         <div class="modal-head">
 
-            <h2>
-                Checkout
-            </h2>
+            <h2>Checkout</h2>
 
             <button
                 class="close"
@@ -1616,9 +1672,7 @@ footer{
 
             <div class="field">
 
-                <label>
-                    FULL NAME
-                </label>
+                <label>FULL NAME</label>
 
                 <input
                     id="customerName"
@@ -1631,9 +1685,7 @@ footer{
 
             <div class="field">
 
-                <label>
-                    PHONE NUMBER
-                </label>
+                <label>PHONE NUMBER</label>
 
                 <input
                     id="customerPhone"
@@ -1646,9 +1698,7 @@ footer{
 
             <div class="field full">
 
-                <label>
-                    DELIVERY ADDRESS
-                </label>
+                <label>DELIVERY ADDRESS</label>
 
                 <input
                     id="customerAddress"
@@ -1661,9 +1711,7 @@ footer{
 
             <div class="field">
 
-                <label>
-                    DELIVERY DATE
-                </label>
+                <label>DELIVERY DATE</label>
 
                 <input
                     id="deliveryDate"
@@ -1675,9 +1723,7 @@ footer{
 
             <div class="field">
 
-                <label>
-                    DELIVERY TIME
-                </label>
+                <label>DELIVERY TIME</label>
 
                 <select id="deliveryTime">
 
@@ -1712,9 +1758,7 @@ footer{
 
             <div class="field full">
 
-                <label>
-                    ORDER NOTES
-                </label>
+                <label>ORDER NOTES</label>
 
                 <textarea
                     id="orderNotes"
@@ -1726,9 +1770,7 @@ footer{
 
             <div class="field full">
 
-                <label>
-                    PAYMENT METHOD
-                </label>
+                <label>PAYMENT METHOD</label>
 
                 <div class="payment-options">
 
@@ -1794,7 +1836,8 @@ footer{
         <div class="notice">
 
             Your order will be prepared and sent to AeroZone on WhatsApp.
-            Your AeroZone order number can be used to track your delivery.
+            Your order number will also be saved so you can track the order
+            on this device.
 
         </div>
 
@@ -1811,25 +1854,23 @@ footer{
 </div>
 
 
-<!-- TRACK ORDER -->
+<!-- TRACKING MODAL -->
 
 <div
     class="modal-overlay"
     id="trackingOverlay"
 >
 
-    <div class="modal modal-wide">
+    <div class="modal large">
 
         <div class="modal-head">
 
             <div>
 
-                <h2>
-                    📦 Track Order
-                </h2>
+                <h2>📦 Track My Order</h2>
 
-                <p style="font-size:12px;color:#777;margin-top:4px;">
-                    Enter your AeroZone order number
+                <p style="font-size:12px;color:#777;margin-top:5px;">
+                    Follow your AeroZone delivery.
                 </p>
 
             </div>
@@ -1847,8 +1888,8 @@ footer{
         <div class="tracking-search">
 
             <input
-                id="trackingNumberInput"
-                placeholder="Example: AZ123456"
+                id="trackingOrderNumber"
+                placeholder="Enter order number e.g. AZ123456"
                 onkeydown="if(event.key==='Enter') trackOrder()"
             >
 
@@ -1859,7 +1900,10 @@ footer{
         </div>
 
 
-        <div id="trackingResult">
+        <div
+            id="trackingResult"
+            class="tracking-result"
+        >
 
             <div class="empty">
 
@@ -1868,11 +1912,11 @@ footer{
                 </div>
 
                 <h3>
-                    Track your delivery
+                    Enter your order number
                 </h3>
 
                 <p>
-                    Enter your order number above.
+                    Your tracking information will appear here.
                 </p>
 
             </div>
@@ -1891,18 +1935,16 @@ footer{
     id="deliveryOverlay"
 >
 
-    <div class="modal modal-wide">
+    <div class="modal">
 
         <div class="modal-head">
 
             <div>
 
-                <h2>
-                    🚚 Delivery Portal
-                </h2>
+                <h2>🚚 Delivery Portal</h2>
 
-                <p style="font-size:12px;color:#777;margin-top:4px;">
-                    Manage delivery status
+                <p style="font-size:12px;color:#777;margin-top:5px;">
+                    Update an AeroZone delivery.
                 </p>
 
             </div>
@@ -1917,20 +1959,199 @@ footer{
         </div>
 
 
-        <div class="driver-banner">
+        <div class="driver-note">
 
-            <h3>
-                AeroZone Driver
-            </h3>
-
-            <p>
-                Select an order below and update its delivery status.
-            </p>
+            <strong>Important:</strong>
+            This is a browser-based delivery demo. Order updates are stored
+            locally on this device. For a real driver system where customers
+            can see updates from another phone, connect this to Firebase.
 
         </div>
 
 
-        <div id="driverOrders"></div>
+        <div
+            class="delivery-tools"
+            style="margin-top:15px;"
+        >
+
+            <div class="field">
+
+                <label>ORDER NUMBER</label>
+
+                <input
+                    id="deliveryOrderNumber"
+                    placeholder="AZ123456"
+                >
+
+            </div>
+
+
+            <button
+                class="confirm-button"
+                onclick="loadDeliveryOrder()"
+                style="margin-top:0;"
+            >
+                Find Order
+            </button>
+
+
+            <div id="deliveryForm" style="display:none;">
+
+                <div class="form-grid">
+
+                    <div class="field">
+
+                        <label>DELIVERY STATUS</label>
+
+                        <select
+                            id="deliveryStatus"
+                            class="delivery-status"
+                        >
+
+                            <option>
+                                Order received
+                            </option>
+
+                            <option>
+                                Order confirmed
+                            </option>
+
+                            <option>
+                                Preparing order
+                            </option>
+
+                            <option>
+                                Driver assigned
+                            </option>
+
+                            <option>
+                                Out for delivery
+                            </option>
+
+                            <option>
+                                Delivered
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>DRIVER NAME</label>
+
+                        <input
+                            id="driverName"
+                            placeholder="Driver name"
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>DRIVER PHONE</label>
+
+                        <input
+                            id="driverPhone"
+                            type="tel"
+                            placeholder="Driver phone"
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>VEHICLE</label>
+
+                        <input
+                            id="driverVehicle"
+                            placeholder="Vehicle / registration"
+                        >
+
+                    </div>
+
+
+                    <div class="field full">
+
+                        <label>ESTIMATED DELIVERY TIME</label>
+
+                        <input
+                            id="estimatedTime"
+                            placeholder="Example: 30-45 minutes"
+                        >
+
+                    </div>
+
+
+                    <div class="field full">
+
+                        <label>RECIPIENT NAME</label>
+
+                        <input
+                            id="recipientName"
+                            placeholder="Who received the order?"
+                        >
+
+                    </div>
+
+
+                    <div class="field full">
+
+                        <label>DELIVERY NOTE / PROOF</label>
+
+                        <textarea
+                            id="deliveryNote"
+                            placeholder="Example: Delivered to customer at front door."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="field full">
+
+                        <label>DELIVERY PHOTO</label>
+
+                        <input
+                            id="deliveryPhoto"
+                            type="file"
+                            accept="image/*"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="photoPreview"
+                    style="margin-top:12px;"
+                ></div>
+
+
+                <div class="delivery-actions">
+
+                    <button
+                        class="delivery-save"
+                        onclick="saveDeliveryUpdate()"
+                    >
+                        💾 Save Update
+                    </button>
+
+                    <button
+                        class="delivered-button"
+                        onclick="markDelivered()"
+                    >
+                        ✅ Mark Delivered
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
@@ -1947,9 +2168,9 @@ footer{
 
 <script>
 
-/* ==========================================
+/* ==========================================================
    AEROZONE PRODUCTS
-========================================== */
+========================================================== */
 
 const branches = {
 
@@ -2078,35 +2299,91 @@ const branches = {
 };
 
 
-/* ==========================================
+/* ==========================================================
    STATE
-========================================== */
+========================================================== */
 
 let cart =
-    JSON.parse(
-        localStorage.getItem("aerozoneCart") || "[]"
-    );
+    JSON.parse(localStorage.getItem("aerozoneCart") || "[]");
+
+let orders =
+    JSON.parse(localStorage.getItem("aerozoneOrders") || "[]");
 
 let currentBranch = null;
+
 let sortAscending = true;
 
+let deliveryEditingOrder = null;
 
-/* ==========================================
-   ORDER STATUS
-========================================== */
+
+/* ==========================================================
+   STATUS
+========================================================== */
 
 const orderStatuses = [
-    "Order Received",
-    "Preparing",
-    "Out for Delivery",
-    "Arrived",
+    "Order received",
+    "Order confirmed",
+    "Preparing order",
+    "Driver assigned",
+    "Out for delivery",
     "Delivered"
 ];
 
 
-/* ==========================================
+function statusIndex(status){
+
+    const index=orderStatuses.indexOf(status);
+
+    return index < 0 ? 0 : index;
+}
+
+
+/* ==========================================================
+   SECURITY / DISPLAY HELPERS
+========================================================== */
+
+function escapeHTML(value){
+
+    return String(value ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+}
+
+
+function escapeString(value){
+
+    return String(value)
+        .replace(/\\/g,"\\\\")
+        .replace(/'/g,"\\'")
+        .replace(/"/g,'&quot;');
+}
+
+
+function formatDate(date){
+
+    if(!date){
+        return "Not available";
+    }
+
+    const d=new Date(date);
+
+    if(isNaN(d)){
+        return date;
+    }
+
+    return d.toLocaleString("en-ZA",{
+        dateStyle:"medium",
+        timeStyle:"short"
+    });
+}
+
+
+/* ==========================================================
    BRANCH CARDS
-========================================== */
+========================================================== */
 
 function renderBranches(){
 
@@ -2114,71 +2391,67 @@ function renderBranches(){
         document.getElementById("branches");
 
     container.innerHTML =
-        Object.entries(branches)
-        .map(([id,branch]) => {
+        Object.entries(branches).map(
+            ([id,branch])=>{
 
-            return `
+                return `
+                    <div
+                        class="branch-card"
+                        onclick="openBranch('${id}')"
+                    >
 
-                <div
-                    class="branch-card"
-                    onclick="openBranch('${id}')"
-                >
+                        <div class="branch-icon">
+                            ${branch.icon}
+                        </div>
 
-                    <div class="branch-icon">
-                        ${branch.icon}
+                        <h3>
+                            ${branch.name}
+                        </h3>
+
+                        <p>
+                            ${branch.description}
+                        </p>
+
+                        <span class="branch-count">
+                            ${branch.products.length} products
+                        </span>
+
+                        <span class="arrow">
+                            →
+                        </span>
+
                     </div>
+                `;
 
-                    <h3>
-                        ${branch.name}
-                    </h3>
-
-                    <p>
-                        ${branch.description}
-                    </p>
-
-                    <span class="branch-count">
-                        ${branch.products.length} products
-                    </span>
-
-                    <span class="arrow">
-                        →
-                    </span>
-
-                </div>
-
-            `;
-
-        }).join("");
+            }
+        ).join("");
 }
 
 
-/* ==========================================
+/* ==========================================================
    OPEN BRANCH
-========================================== */
+========================================================== */
 
 function openBranch(id){
 
-    currentBranch = id;
+    currentBranch=id;
 
-    document.getElementById("homeView")
-        .style.display="none";
+    document.getElementById("homeView").style.display="none";
 
-    document.getElementById("catalogueView")
-        .style.display="block";
+    document.getElementById("catalogueView").style.display="block";
 
-    const branch = branches[id];
+    const branch=branches[id];
 
-    document.getElementById("catalogueIcon")
-        .textContent=branch.icon;
+    document.getElementById("catalogueIcon").textContent=
+        branch.icon;
 
-    document.getElementById("catalogueTitle")
-        .textContent=branch.name;
+    document.getElementById("catalogueTitle").textContent=
+        branch.name;
 
-    document.getElementById("catalogueDescription")
-        .textContent=branch.description;
+    document.getElementById("catalogueDescription").textContent=
+        branch.description;
 
-    document.getElementById("branchSearch")
-        .value="";
+    document.getElementById("branchSearch").value="";
 
     renderProducts(branch.products);
 
@@ -2189,9 +2462,9 @@ function openBranch(id){
 }
 
 
-/* ==========================================
+/* ==========================================================
    PRODUCTS
-========================================== */
+========================================================== */
 
 function renderProducts(products){
 
@@ -2201,7 +2474,6 @@ function renderProducts(products){
     if(!products.length){
 
         container.innerHTML=`
-
             <div class="empty">
 
                 <div style="font-size:45px;">
@@ -2217,11 +2489,11 @@ function renderProducts(products){
                 </p>
 
             </div>
-
         `;
 
         return;
     }
+
 
     container.innerHTML =
         products.map(product=>{
@@ -2231,7 +2503,6 @@ function renderProducts(products){
             const icon=product[2];
 
             return `
-
                 <div class="product">
 
                     <div class="product-image">
@@ -2239,7 +2510,7 @@ function renderProducts(products){
                     </div>
 
                     <h3>
-                        ${name}
+                        ${escapeHTML(name)}
                     </h3>
 
                     <div class="product-price">
@@ -2259,20 +2530,21 @@ function renderProducts(products){
                     </button>
 
                 </div>
-
             `;
 
         }).join("");
 }
 
 
-/* ==========================================
+/* ==========================================================
    BRANCH SEARCH
-========================================== */
+========================================================== */
 
 function filterProducts(){
 
-    if(!currentBranch) return;
+    if(!currentBranch){
+        return;
+    }
 
     const search =
         document
@@ -2282,43 +2554,47 @@ function filterProducts(){
         .trim();
 
     const products =
-        branches[currentBranch].products
-        .filter(product =>
-            product[0]
-            .toLowerCase()
-            .includes(search)
+        branches[currentBranch].products.filter(
+            product =>
+                product[0]
+                .toLowerCase()
+                .includes(search)
         );
 
     renderProducts(products);
 }
 
 
-/* ==========================================
+/* ==========================================================
    SORT
-========================================== */
+========================================================== */
 
 function sortProducts(){
 
-    if(!currentBranch) return;
+    if(!currentBranch){
+        return;
+    }
 
     sortAscending=!sortAscending;
 
-    const products =
-        [...branches[currentBranch].products];
+    const products=[
+        ...branches[currentBranch].products
+    ];
 
-    products.sort((a,b)=>
-        sortAscending
-        ? a[1]-b[1]
-        : b[1]-a[1]
+    products.sort(
+        (a,b)=>
+            sortAscending
+            ? a[1]-b[1]
+            : b[1]-a[1]
     );
 
     renderProducts(products);
 }
 
 
-/* ==========================================
+/* ==========================================================
    SEARCH ALL
-========================================== */
+========================================================== */
 
 function searchAll(){
 
@@ -2335,49 +2611,45 @@ function searchAll(){
 
     const results=[];
 
-    Object.entries(branches)
-    .forEach(([branchId,branch])=>{
+    Object.entries(branches).forEach(
+        ([branchId,branch])=>{
 
-        branch.products.forEach(product=>{
+            branch.products.forEach(product=>{
 
-            if(
-                product[0]
-                .toLowerCase()
-                .includes(search)
-            ){
+                if(
+                    product[0]
+                    .toLowerCase()
+                    .includes(search)
+                ){
 
-                results.push({
-                    product:product,
-                    branch:branchId
-                });
+                    results.push({
+                        product,
+                        branch:branchId
+                    });
 
-            }
+                }
 
-        });
+            });
 
-    });
+        }
+    );
 
 
-    document.getElementById("homeView")
-        .style.display="none";
+    document.getElementById("homeView").style.display="none";
 
-    document.getElementById("catalogueView")
-        .style.display="block";
+    document.getElementById("catalogueView").style.display="block";
 
     currentBranch=null;
 
-    document.getElementById("catalogueIcon")
-        .textContent="🔎";
+    document.getElementById("catalogueIcon").textContent="🔎";
 
-    document.getElementById("catalogueTitle")
-        .textContent="Search Results";
+    document.getElementById("catalogueTitle").textContent=
+        "Search Results";
 
-    document.getElementById("catalogueDescription")
-        .textContent=
-            results.length+" product(s) found";
+    document.getElementById("catalogueDescription").textContent=
+        results.length+" product(s) found";
 
-    document.getElementById("branchSearch")
-        .value=search;
+    document.getElementById("branchSearch").value=search;
 
 
     const container =
@@ -2387,7 +2659,6 @@ function searchAll(){
     if(!results.length){
 
         container.innerHTML=`
-
             <div class="empty">
 
                 <div style="font-size:50px;">
@@ -2403,7 +2674,6 @@ function searchAll(){
                 </p>
 
             </div>
-
         `;
 
     }else{
@@ -2415,7 +2685,6 @@ function searchAll(){
                 const branch=item.branch;
 
                 return `
-
                     <div class="product">
 
                         <div class="product-image">
@@ -2423,13 +2692,13 @@ function searchAll(){
                         </div>
 
                         <h3>
-                            ${product[0]}
+                            ${escapeHTML(product[0])}
                         </h3>
 
                         <div
                             style="font-size:11px;color:#777;margin-bottom:5px;"
                         >
-                            ${branches[branch].name}
+                            ${escapeHTML(branches[branch].name)}
                         </div>
 
                         <div class="product-price">
@@ -2449,7 +2718,6 @@ function searchAll(){
                         </button>
 
                     </div>
-
                 `;
 
             }).join("");
@@ -2463,19 +2731,17 @@ function searchAll(){
 }
 
 
-/* ==========================================
+/* ==========================================================
    HOME
-========================================== */
+========================================================== */
 
 function goHome(){
 
     currentBranch=null;
 
-    document.getElementById("homeView")
-        .style.display="block";
+    document.getElementById("homeView").style.display="block";
 
-    document.getElementById("catalogueView")
-        .style.display="none";
+    document.getElementById("catalogueView").style.display="none";
 
     window.scrollTo({
         top:0,
@@ -2484,17 +2750,19 @@ function goHome(){
 }
 
 
-/* ==========================================
+/* ==========================================================
    CART
-========================================== */
+========================================================== */
 
 function addToCart(name,price,icon,branch){
 
     const existing =
-        cart.find(item =>
-            item.name===name &&
-            item.branch===branch
+        cart.find(
+            item =>
+                item.name===name &&
+                item.branch===branch
         );
+
 
     if(existing){
 
@@ -2513,6 +2781,7 @@ function addToCart(name,price,icon,branch){
     }
 
     saveCart();
+
     updateCart();
 
     showToast(name+" added to cart");
@@ -2524,11 +2793,16 @@ function removeFromCart(index){
     cart.splice(index,1);
 
     saveCart();
+
     updateCart();
 }
 
 
 function changeQty(index,change){
+
+    if(!cart[index]){
+        return;
+    }
 
     cart[index].qty+=change;
 
@@ -2537,6 +2811,7 @@ function changeQty(index,change){
     }
 
     saveCart();
+
     updateCart();
 }
 
@@ -2558,8 +2833,7 @@ function updateCart(){
             0
         );
 
-    document.getElementById("cartCount")
-        .textContent=count;
+    document.getElementById("cartCount").textContent=count;
 
 
     const container =
@@ -2569,7 +2843,6 @@ function updateCart(){
     if(!cart.length){
 
         container.innerHTML=`
-
             <div class="empty">
 
                 <div style="font-size:50px;">
@@ -2585,7 +2858,6 @@ function updateCart(){
                 </p>
 
             </div>
-
         `;
 
     }else{
@@ -2594,7 +2866,6 @@ function updateCart(){
             cart.map((item,index)=>{
 
                 return `
-
                     <div class="cart-item">
 
                         <div class="cart-item-icon">
@@ -2604,12 +2875,12 @@ function updateCart(){
                         <div class="cart-info">
 
                             <h4>
-                                ${item.name}
+                                ${escapeHTML(item.name)}
                             </h4>
 
                             <div class="cart-price">
                                 R${(
-                                    item.price*
+                                    item.price *
                                     item.qty
                                 ).toFixed(2)}
                             </div>
@@ -2635,9 +2906,9 @@ function updateCart(){
                                 <button
                                     onclick="removeFromCart(${index})"
                                     style="
-                                    margin-left:auto;
-                                    background:#111;
-                                    color:#fff;
+                                        margin-left:auto;
+                                        background:#111;
+                                        color:#fff;
                                     "
                                 >
                                     ×
@@ -2648,7 +2919,6 @@ function updateCart(){
                         </div>
 
                     </div>
-
                 `;
 
             }).join("");
@@ -2668,22 +2938,18 @@ function updateCart(){
         ? 0
         : 35;
 
+    document.getElementById("cartSubtotal").textContent=
+        "R"+subtotal.toFixed(2);
 
-    document.getElementById("cartSubtotal")
-        .textContent=
-            "R"+subtotal.toFixed(2);
+    document.getElementById("cartDelivery").textContent=
+        delivery===0
+        ? "FREE"
+        : "R"+delivery.toFixed(2);
 
-    document.getElementById("cartDelivery")
-        .textContent=
-            delivery===0
-            ? "FREE"
-            : "R"+delivery.toFixed(2);
-
-    document.getElementById("cartTotal")
-        .textContent=
-            "R"+
-            (subtotal+delivery)
-            .toFixed(2);
+    document.getElementById("cartTotal").textContent=
+        "R"+(
+            subtotal+delivery
+        ).toFixed(2);
 }
 
 
@@ -2713,27 +2979,29 @@ function closeCartOutside(event){
 }
 
 
-/* ==========================================
+/* ==========================================================
    CHECKOUT
-========================================== */
+========================================================== */
 
 function openCheckout(){
 
     if(!cart.length){
 
         showToast("Your cart is empty");
+
         return;
     }
 
     closeCart();
 
-    const savedLocation =
-        localStorage.getItem(
-            "aerozoneAddress"
-        ) || "";
 
-    document.getElementById("customerAddress")
-        .value=savedLocation;
+    const savedLocation =
+        localStorage.getItem("aerozoneAddress") || "";
+
+
+    document.getElementById("customerAddress").value=
+        savedLocation;
+
 
     document
         .getElementById("checkoutOverlay")
@@ -2749,9 +3017,29 @@ function closeCheckout(){
 }
 
 
-/* ==========================================
+/* ==========================================================
+   SAVE ORDER
+========================================================== */
+
+function saveOrder(order){
+
+    orders.push(order);
+
+    localStorage.setItem(
+        "aerozoneOrders",
+        JSON.stringify(orders)
+    );
+
+    localStorage.setItem(
+        "aerozoneLastOrder",
+        JSON.stringify(order)
+    );
+}
+
+
+/* ==========================================================
    PLACE ORDER
-========================================== */
+========================================================== */
 
 function placeOrder(){
 
@@ -2760,30 +3048,36 @@ function placeOrder(){
         .getElementById("customerName")
         .value.trim();
 
+
     const phone =
         document
         .getElementById("customerPhone")
         .value.trim();
+
 
     const address =
         document
         .getElementById("customerAddress")
         .value.trim();
 
+
     const date =
         document
         .getElementById("deliveryDate")
         .value;
+
 
     const time =
         document
         .getElementById("deliveryTime")
         .value;
 
+
     const notes =
         document
         .getElementById("orderNotes")
         .value.trim();
+
 
     const payment =
         document.querySelector(
@@ -2794,9 +3088,7 @@ function placeOrder(){
 
     if(!name){
 
-        alert(
-            "Please enter your full name."
-        );
+        alert("Please enter your full name.");
 
         return;
     }
@@ -2804,9 +3096,7 @@ function placeOrder(){
 
     if(!phone){
 
-        alert(
-            "Please enter your phone number."
-        );
+        alert("Please enter your phone number.");
 
         return;
     }
@@ -2814,9 +3104,15 @@ function placeOrder(){
 
     if(!address){
 
-        alert(
-            "Please enter your delivery address."
-        );
+        alert("Please enter your delivery address.");
+
+        return;
+    }
+
+
+    if(!cart.length){
+
+        alert("Your cart is empty.");
 
         return;
     }
@@ -2829,27 +3125,26 @@ function placeOrder(){
             0
         );
 
+
     const delivery =
         subtotal>=500
         ? 0
         : 35;
 
-    const total =
+
+    const total=
         subtotal+delivery;
 
 
     const orderNumber =
         "AZ"+
-        Date.now()
-        .toString()
-        .slice(-6);
+        Math.floor(
+            100000+
+            Math.random()*900000
+        );
 
 
-    /*
-       CREATE TRACKING ORDER
-    */
-
-    const trackingOrder = {
+    const order = {
 
         orderNumber,
 
@@ -2859,54 +3154,50 @@ function placeOrder(){
 
         address,
 
-        date:
-            date ||
-            "As soon as possible",
-
-        time,
-
-        notes,
-
-        payment,
-
-        items:
-            cart.map(item=>({
-
-                name:item.name,
-
-                price:item.price,
-
-                qty:item.qty,
-
-                icon:item.icon,
-
-                branch:item.branch
-
-            })),
-
         subtotal,
 
         delivery,
 
         total,
 
-        status:
-            "Order Received",
+        date:date || "As soon as possible",
 
-        createdAt:
-            new Date().toISOString(),
+        deliveryTime:time,
 
-        updatedAt:
-            new Date().toISOString(),
+        notes,
 
-        deliveredAt:null
+        payment,
+
+        items:JSON.parse(
+            JSON.stringify(cart)
+        ),
+
+        status:"Order received",
+
+        driverName:"Not assigned",
+
+        driverPhone:"",
+
+        vehicle:"",
+
+        estimatedTime:"Pending",
+
+        recipientName:"",
+
+        deliveryNote:"",
+
+        deliveryPhoto:"",
+
+        createdAt:new Date().toISOString(),
+
+        updatedAt:new Date().toISOString(),
+
+        completedAt:null
 
     };
 
 
-    saveTrackingOrder(
-        trackingOrder
-    );
+    saveOrder(order);
 
 
     let message =
@@ -2914,10 +3205,6 @@ function placeOrder(){
 ====================
 
 Order Number: ${orderNumber}
-
-TRACK ORDER
-Use this order number to track the delivery:
-${orderNumber}
 
 CUSTOMER
 Name: ${name}
@@ -2940,8 +3227,8 @@ ITEMS
 
         message +=
 `${item.qty} x ${item.name} — R${(
-    item.price*item.qty
-).toFixed(2)}
+            item.price*item.qty
+        ).toFixed(2)}
 `;
 
     });
@@ -2958,19 +3245,14 @@ Delivery: ${
 }
 TOTAL: R${total.toFixed(2)}
 
+TRACKING
+Order Number: ${orderNumber}
+
 Notes:
 ${notes || "None"}
 
 Please confirm my order.
 `;
-
-
-    localStorage.setItem(
-        "aerozoneLastOrder",
-        JSON.stringify(
-            trackingOrder
-        )
-    );
 
 
     const whatsappNumber =
@@ -2984,10 +3266,7 @@ Please confirm my order.
         encodeURIComponent(message);
 
 
-    window.open(
-        url,
-        "_blank"
-    );
+    window.open(url,"_blank");
 
 
     cart=[];
@@ -3000,24 +3279,17 @@ Please confirm my order.
 
 
     showToast(
-        "Order "+orderNumber+
-        " created"
+        "Order "+orderNumber+" created"
     );
 
-
-    /*
-       Show tracking after order
-    */
 
     setTimeout(()=>{
 
         openTracking();
 
-        document
-            .getElementById(
-                "trackingNumberInput"
-            )
-            .value=orderNumber;
+        document.getElementById(
+            "trackingOrderNumber"
+        ).value=orderNumber;
 
         trackOrder();
 
@@ -3025,890 +3297,9 @@ Please confirm my order.
 }
 
 
-/* ==========================================
-   TRACKING STORAGE
-========================================== */
-
-function getTrackingOrders(){
-
-    return JSON.parse(
-        localStorage.getItem(
-            "aerozoneOrders"
-        ) || "[]"
-    );
-
-}
-
-
-function saveTrackingOrder(order){
-
-    const orders =
-        getTrackingOrders();
-
-    const existingIndex =
-        orders.findIndex(
-            item =>
-                item.orderNumber ===
-                order.orderNumber
-        );
-
-
-    if(existingIndex>=0){
-
-        orders[existingIndex]=order;
-
-    }else{
-
-        orders.unshift(order);
-
-    }
-
-
-    localStorage.setItem(
-        "aerozoneOrders",
-        JSON.stringify(orders)
-    );
-
-}
-
-
-/* ==========================================
-   FIND ORDER
-========================================== */
-
-function findOrder(orderNumber){
-
-    const clean =
-        orderNumber
-        .trim()
-        .toUpperCase();
-
-    return getTrackingOrders()
-        .find(order =>
-            order.orderNumber
-            .toUpperCase() === clean
-        );
-
-}
-
-
-/* ==========================================
-   OPEN TRACKING
-========================================== */
-
-function openTracking(){
-
-    document
-        .getElementById("trackingOverlay")
-        .classList.add("active");
-
-
-    const lastOrder =
-        JSON.parse(
-            localStorage.getItem(
-                "aerozoneLastOrder"
-            ) || "null"
-        );
-
-
-    if(lastOrder){
-
-        document
-            .getElementById(
-                "trackingNumberInput"
-            )
-            .value=
-                lastOrder.orderNumber;
-
-        trackOrder();
-
-    }
-
-}
-
-
-function closeTracking(){
-
-    document
-        .getElementById(
-            "trackingOverlay"
-        )
-        .classList.remove("active");
-
-}
-
-
-/* ==========================================
-   TRACK ORDER
-========================================== */
-
-function trackOrder(){
-
-    const orderNumber =
-        document
-        .getElementById(
-            "trackingNumberInput"
-        )
-        .value
-        .trim();
-
-
-    if(!orderNumber){
-
-        showToast(
-            "Enter an order number"
-        );
-
-        return;
-    }
-
-
-    const order =
-        findOrder(orderNumber);
-
-
-    const result =
-        document.getElementById(
-            "trackingResult"
-        );
-
-
-    if(!order){
-
-        result.innerHTML=`
-
-            <div class="empty">
-
-                <div style="font-size:50px;">
-                    🔎
-                </div>
-
-                <h3>
-                    Order not found
-                </h3>
-
-                <p>
-                    Check your order number and try again.
-                </p>
-
-            </div>
-
-        `;
-
-        return;
-    }
-
-
-    renderTrackingOrder(order);
-
-}
-
-
-/* ==========================================
-   RENDER TRACKING
-========================================== */
-
-function renderTrackingOrder(order){
-
-    const result =
-        document.getElementById(
-            "trackingResult"
-        );
-
-
-    const currentIndex =
-        orderStatuses.indexOf(
-            order.status
-        );
-
-
-    const steps =
-        orderStatuses.map(
-            (status,index)=>{
-
-                let className="";
-
-                if(index<currentIndex){
-                    className="done";
-                }
-
-                if(index===currentIndex){
-                    className+=" current done";
-                }
-
-
-                let icon =
-                    index<currentIndex ||
-                    index===currentIndex
-                    ? "✓"
-                    : index+1;
-
-
-                let description="Waiting";
-
-
-                if(status==="Order Received"){
-                    description =
-                        "Your order has been received.";
-                }
-
-                if(status==="Preparing"){
-                    description =
-                        "Your items are being prepared.";
-                }
-
-                if(status==="Out for Delivery"){
-                    description =
-                        "Your order is on its way.";
-                }
-
-                if(status==="Arrived"){
-                    description =
-                        "Your driver has arrived.";
-                }
-
-                if(status==="Delivered"){
-                    description =
-                        order.deliveredAt
-                        ? "Delivery completed successfully."
-                        : "Waiting for delivery completion.";
-                }
-
-
-                return `
-
-                    <div class="timeline-step ${className}">
-
-                        <div class="timeline-dot">
-                            ${icon}
-                        </div>
-
-                        <div class="timeline-content">
-
-                            <h4>
-                                ${status}
-                            </h4>
-
-                            <p>
-                                ${description}
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                `;
-
-            }
-        ).join("");
-
-
-    const itemLines =
-        order.items.map(item=>`
-
-            <div class="order-line">
-
-                <span>
-                    ${item.qty} × ${item.name}
-                </span>
-
-                <strong>
-                    R${(
-                        item.price*
-                        item.qty
-                    ).toFixed(2)}
-                </strong>
-
-            </div>
-
-        `).join("");
-
-
-    const deliveredText =
-        order.deliveredAt
-        ? `
-            <div class="completed-box">
-                ✅ <strong>Delivery completed</strong><br>
-                ${formatDate(
-                    order.deliveredAt
-                )}
-            </div>
-        `
-        : "";
-
-
-    result.innerHTML=`
-
-        <div class="tracking-card">
-
-            <div class="tracking-top">
-
-                <div style="font-size:12px;color:#aaa;">
-                    AEROZONE ORDER
-                </div>
-
-                <div class="tracking-number">
-                    ${order.orderNumber}
-                </div>
-
-                <div class="status-label">
-                    ${order.status}
-                </div>
-
-            </div>
-
-
-            <div class="timeline">
-
-                ${steps}
-
-            </div>
-
-        </div>
-
-
-        <div class="order-summary">
-
-            <h3>
-                Order Details
-            </h3>
-
-            <div
-                style="
-                font-size:13px;
-                color:#666;
-                line-height:1.7;
-                margin-bottom:10px;
-                "
-            >
-
-                <strong>
-                    Customer:
-                </strong>
-                ${order.name}
-                <br>
-
-                <strong>
-                    Delivery:
-                </strong>
-                ${order.address}
-                <br>
-
-                <strong>
-                    Time:
-                </strong>
-                ${order.time}
-
-            </div>
-
-
-            ${itemLines}
-
-
-            <div
-                class="order-line"
-                style="
-                margin-top:5px;
-                font-weight:900;
-                font-size:16px;
-                "
-            >
-
-                <span>
-                    Total
-                </span>
-
-                <strong>
-                    R${order.total.toFixed(2)}
-                </strong>
-
-            </div>
-
-
-            ${deliveredText}
-
-
-            <div class="track-actions">
-
-                <button
-                    class="whatsapp-button"
-                    onclick="contactAeroZone('${order.orderNumber}')"
-                >
-                    💬 Contact AeroZone
-                </button>
-
-                <button
-                    class="close-track"
-                    onclick="closeTracking()"
-                >
-                    Close
-                </button>
-
-            </div>
-
-        </div>
-
-    `;
-
-}
-
-
-/* ==========================================
-   DELIVERY PORTAL
-========================================== */
-
-function openDeliveryPortal(){
-
-    document
-        .getElementById(
-            "deliveryOverlay"
-        )
-        .classList.add("active");
-
-    renderDriverOrders();
-
-}
-
-
-function closeDeliveryPortal(){
-
-    document
-        .getElementById(
-            "deliveryOverlay"
-        )
-        .classList.remove("active");
-
-}
-
-
-/* ==========================================
-   DRIVER ORDERS
-========================================== */
-
-function renderDriverOrders(){
-
-    const container =
-        document.getElementById(
-            "driverOrders"
-        );
-
-
-    const orders =
-        getTrackingOrders();
-
-
-    if(!orders.length){
-
-        container.innerHTML=`
-
-            <div class="empty">
-
-                <div style="font-size:45px;">
-                    🚚
-                </div>
-
-                <h3>
-                    No orders yet
-                </h3>
-
-                <p>
-                    New customer orders will appear here.
-                </p>
-
-            </div>
-
-        `;
-
-        return;
-    }
-
-
-    container.innerHTML =
-        orders.map(order=>{
-
-            let buttons="";
-
-
-            if(order.status==="Order Received"){
-
-                buttons=`
-
-                    <button
-                        onclick="driverUpdateStatus(
-                            '${order.orderNumber}',
-                            'Preparing'
-                        )"
-                    >
-                        📦 Start Preparing
-                    </button>
-
-                `;
-
-            }
-
-
-            if(order.status==="Preparing"){
-
-                buttons=`
-
-                    <button
-                        onclick="driverUpdateStatus(
-                            '${order.orderNumber}',
-                            'Out for Delivery'
-                        )"
-                    >
-                        🚚 Start Delivery
-                    </button>
-
-                `;
-
-            }
-
-
-            if(order.status==="Out for Delivery"){
-
-                buttons=`
-
-                    <button
-                        onclick="driverUpdateStatus(
-                            '${order.orderNumber}',
-                            'Arrived'
-                        )"
-                    >
-                        📍 Arrived
-                    </button>
-
-                `;
-
-            }
-
-
-            if(order.status==="Arrived"){
-
-                buttons=`
-
-                    <button
-                        class="complete"
-                        onclick="completeDelivery(
-                            '${order.orderNumber}'
-                        )"
-                    >
-                        ✅ Complete Delivery
-                    </button>
-
-                `;
-
-            }
-
-
-            if(order.status==="Delivered"){
-
-                buttons=`
-
-                    <button
-                        disabled
-                        style="
-                        background:#000;
-                        color:#fff;
-                        opacity:.75;
-                        "
-                    >
-                        ✅ Delivered
-                    </button>
-
-                `;
-
-            }
-
-
-            return `
-
-                <div class="driver-order">
-
-                    <div class="driver-order-head">
-
-                        <div>
-
-                            <h3>
-                                ${order.orderNumber}
-                            </h3>
-
-                            <div
-                                style="
-                                font-size:11px;
-                                color:#777;
-                                margin-top:4px;
-                                "
-                            >
-                                ${order.name}
-                            </div>
-
-                        </div>
-
-                        <span class="driver-status">
-                            ${order.status}
-                        </span>
-
-                    </div>
-
-
-                    <div class="driver-info">
-
-                        <strong>
-                            📍 Delivery:
-                        </strong>
-
-                        ${order.address}
-
-                        <br>
-
-                        <strong>
-                            📞 Phone:
-                        </strong>
-
-                        ${order.phone}
-
-                        <br>
-
-                        <strong>
-                            💰 Total:
-                        </strong>
-
-                        R${order.total.toFixed(2)}
-
-                    </div>
-
-
-                    <div class="driver-buttons">
-
-                        ${buttons}
-
-                        <button
-                            onclick="contactCustomer(
-                                '${order.phone}'
-                            )"
-                        >
-                            💬 WhatsApp Customer
-                        </button>
-
-                    </div>
-
-
-                    ${
-                        order.deliveredAt
-                        ? `
-                            <div class="completed-box">
-                                ✅ Delivery completed on
-                                <strong>
-                                    ${formatDate(
-                                        order.deliveredAt
-                                    )}
-                                </strong>
-                            </div>
-                        `
-                        : ""
-                    }
-
-                </div>
-
-            `;
-
-        }).join("");
-
-}
-
-
-/* ==========================================
-   DRIVER UPDATE
-========================================== */
-
-function driverUpdateStatus(
-    orderNumber,
-    newStatus
-){
-
-    const orders =
-        getTrackingOrders();
-
-
-    const order =
-        orders.find(
-            item =>
-                item.orderNumber===
-                orderNumber
-        );
-
-
-    if(!order) return;
-
-
-    order.status=newStatus;
-
-    order.updatedAt =
-        new Date().toISOString();
-
-
-    saveAllOrders(orders);
-
-
-    renderDriverOrders();
-
-
-    showToast(
-        orderNumber+
-        " → "+
-        newStatus
-    );
-
-}
-
-
-/* ==========================================
-   COMPLETE DELIVERY
-========================================== */
-
-function completeDelivery(
-    orderNumber
-){
-
-    const confirmed =
-        confirm(
-            "Confirm that order "+
-            orderNumber+
-            " has been delivered?"
-        );
-
-
-    if(!confirmed){
-        return;
-    }
-
-
-    const orders =
-        getTrackingOrders();
-
-
-    const order =
-        orders.find(
-            item =>
-                item.orderNumber===
-                orderNumber
-        );
-
-
-    if(!order) return;
-
-
-    order.status="Delivered";
-
-    order.deliveredAt =
-        new Date().toISOString();
-
-    order.updatedAt =
-        new Date().toISOString();
-
-
-    saveAllOrders(orders);
-
-
-    renderDriverOrders();
-
-
-    showToast(
-        "✅ Delivery completed"
-    );
-
-}
-
-
-/* ==========================================
-   SAVE ALL ORDERS
-========================================== */
-
-function saveAllOrders(orders){
-
-    localStorage.setItem(
-        "aerozoneOrders",
-        JSON.stringify(orders)
-    );
-
-
-    const last =
-        orders[0];
-
-
-    if(last){
-
-        localStorage.setItem(
-            "aerozoneLastOrder",
-            JSON.stringify(last)
-        );
-
-    }
-
-}
-
-
-/* ==========================================
-   CONTACT AEROZONE
-========================================== */
-
-function contactAeroZone(
-    orderNumber
-){
-
-    const number =
-        "27688685355";
-
-
-    const message =
-        "Hello AeroZone. I would like an update on order "+
-        orderNumber+".";
-
-
-    window.open(
-        "https://wa.me/"+
-        number+
-        "?text="+
-        encodeURIComponent(message),
-        "_blank"
-    );
-
-}
-
-
-/* ==========================================
-   CONTACT CUSTOMER
-========================================== */
-
-function contactCustomer(
-    phone
-){
-
-    let clean =
-        phone
-        .replace(/\D/g,"");
-
-
-    if(clean.startsWith("0")){
-        clean =
-            "27"+
-            clean.substring(1);
-    }
-
-
-    window.open(
-        "https://wa.me/"+
-        clean,
-        "_blank"
-    );
-
-}
-
-
-/* ==========================================
+/* ==========================================================
    LOCATION
-========================================== */
+========================================================== */
 
 function setLocation(){
 
@@ -3937,13 +3328,852 @@ function setLocation(){
     showToast(
         "Delivery address saved"
     );
-
 }
 
 
-/* ==========================================
+/* ==========================================================
+   TRACKING
+========================================================== */
+
+function openTracking(){
+
+    const last =
+        JSON.parse(
+            localStorage.getItem(
+                "aerozoneLastOrder"
+            ) || "null"
+        );
+
+
+    if(last){
+
+        document.getElementById(
+            "trackingOrderNumber"
+        ).value=last.orderNumber;
+
+        renderTracking(last);
+
+    }
+
+
+    document
+        .getElementById("trackingOverlay")
+        .classList.add("active");
+}
+
+
+function closeTracking(){
+
+    document
+        .getElementById("trackingOverlay")
+        .classList.remove("active");
+}
+
+
+function findOrder(orderNumber){
+
+    const normalized =
+        String(orderNumber)
+        .trim()
+        .toUpperCase();
+
+
+    return orders.find(
+        order =>
+            order.orderNumber.toUpperCase()===
+            normalized
+    );
+}
+
+
+function trackOrder(){
+
+    const input =
+        document.getElementById(
+            "trackingOrderNumber"
+        );
+
+
+    const orderNumber =
+        input.value.trim().toUpperCase();
+
+
+    if(!orderNumber){
+
+        alert("Please enter your order number.");
+
+        return;
+    }
+
+
+    const order =
+        findOrder(orderNumber);
+
+
+    const result =
+        document.getElementById(
+            "trackingResult"
+        );
+
+
+    if(!order){
+
+        result.innerHTML=`
+            <div class="empty">
+
+                <div style="font-size:45px;">
+                    ❌
+                </div>
+
+                <h3>
+                    Order not found
+                </h3>
+
+                <p>
+                    Check your order number and try again.
+                </p>
+
+            </div>
+        `;
+
+        return;
+    }
+
+
+    renderTracking(order);
+}
+
+
+function renderTracking(order){
+
+    const result =
+        document.getElementById(
+            "trackingResult"
+        );
+
+
+    const current =
+        statusIndex(order.status);
+
+
+    const delivered =
+        order.status==="Delivered";
+
+
+    let timeline="";
+
+
+    orderStatuses.forEach(
+        (status,index)=>{
+
+            const done =
+                index<=current;
+
+
+            const isCurrent =
+                index===current;
+
+
+            let detail="";
+
+            if(isCurrent){
+
+                detail =
+                    order.status==="Delivered"
+                    ? "Delivery completed"
+                    : "Current status";
+
+            }
+
+
+            timeline +=`
+
+                <div class="
+                    timeline-item
+                    ${done ? "done" : ""}
+                    ${isCurrent ? "current" : ""}
+                ">
+
+                    <div class="timeline-dot">
+                        ${done ? "✓" : ""}
+                    </div>
+
+                    <div class="timeline-content">
+
+                        <strong>
+                            ${status}
+                        </strong>
+
+                        ${
+                            detail
+                            ? `<p>${detail}</p>`
+                            : ""
+                        }
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+    ).join("");
+
+
+    let driverHTML="";
+
+
+    if(
+        order.driverName &&
+        order.driverName!=="Not assigned"
+    ){
+
+        driverHTML=`
+
+            <div class="driver-card">
+
+                <h3>
+                    🚚 Your Driver
+                </h3>
+
+                <div class="driver-grid">
+
+                    <div class="driver-info">
+
+                        <span>
+                            DRIVER
+                        </span>
+
+                        <strong>
+                            ${escapeHTML(order.driverName)}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="driver-info">
+
+                        <span>
+                            PHONE
+                        </span>
+
+                        <strong>
+                            ${escapeHTML(
+                                order.driverPhone || "Not provided"
+                            )}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="driver-info">
+
+                        <span>
+                            VEHICLE
+                        </span>
+
+                        <strong>
+                            ${escapeHTML(
+                                order.vehicle || "Not provided"
+                            )}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="driver-info">
+
+                        <span>
+                            ESTIMATE
+                        </span>
+
+                        <strong>
+                            ${escapeHTML(
+                                order.estimatedTime || "Pending"
+                            )}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
+
+    }
+
+
+    let completionHTML="";
+
+
+    if(delivered){
+
+        completionHTML=`
+
+            <div class="delivery-complete">
+
+                <h3>
+                    ✅ Delivery Completed
+                </h3>
+
+                <p>
+                    <strong>Received by:</strong>
+                    ${escapeHTML(
+                        order.recipientName ||
+                        order.name
+                    )}
+                </p>
+
+                <p>
+                    <strong>Completed:</strong>
+                    ${formatDate(order.completedAt)}
+                </p>
+
+                ${
+                    order.deliveryNote
+                    ? `
+                        <p style="margin-top:7px;">
+                            <strong>Delivery note:</strong>
+                            ${escapeHTML(order.deliveryNote)}
+                        </p>
+                    `
+                    : ""
+                }
+
+                ${
+                    order.deliveryPhoto
+                    ? `
+                        <p style="margin-top:7px;">
+                            📷 Delivery photo recorded:
+                            ${escapeHTML(order.deliveryPhoto)}
+                        </p>
+                    `
+                    : ""
+                }
+
+            </div>
+
+        `;
+
+    }
+
+
+    result.innerHTML=`
+
+        <div class="order-summary">
+
+            <div class="order-summary-top">
+
+                <div>
+
+                    <h3>
+                        AeroZone Order
+                    </h3>
+
+                    <div class="order-number">
+                        ${escapeHTML(order.orderNumber)}
+                    </div>
+
+                </div>
+
+                <div class="
+                    status-badge
+                    ${delivered ? "delivered" : ""}
+                ">
+                    ${escapeHTML(order.status)}
+                </div>
+
+            </div>
+
+
+            <div
+                style="
+                    margin-top:15px;
+                    font-size:13px;
+                    color:#555;
+                "
+            >
+
+                <div>
+                    👤 ${escapeHTML(order.name)}
+                </div>
+
+                <div style="margin-top:5px;">
+                    📍 ${escapeHTML(order.address)}
+                </div>
+
+                <div style="margin-top:5px;">
+                    💰 Total: R${Number(order.total).toFixed(2)}
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline">
+            ${timeline}
+        </div>
+
+
+        ${driverHTML}
+
+        ${completionHTML}
+
+    `;
+}
+
+
+/* ==========================================================
+   DELIVERY PORTAL
+========================================================== */
+
+function openDeliveryPortal(){
+
+    document
+        .getElementById("deliveryOverlay")
+        .classList.add("active");
+
+
+    document.getElementById(
+        "deliveryForm"
+    ).style.display="none";
+
+
+    document.getElementById(
+        "deliveryOrderNumber"
+    ).value="";
+}
+
+
+function closeDeliveryPortal(){
+
+    document
+        .getElementById("deliveryOverlay")
+        .classList.remove("active");
+}
+
+
+function loadDeliveryOrder(){
+
+    const number =
+        document.getElementById(
+            "deliveryOrderNumber"
+        ).value.trim().toUpperCase();
+
+
+    if(!number){
+
+        alert("Enter an order number.");
+
+        return;
+    }
+
+
+    const order=findOrder(number);
+
+
+    if(!order){
+
+        alert(
+            "Order not found on this device."
+        );
+
+        return;
+    }
+
+
+    deliveryEditingOrder=order;
+
+
+    document.getElementById(
+        "deliveryForm"
+    ).style.display="block";
+
+
+    document.getElementById(
+        "deliveryStatus"
+    ).value=order.status;
+
+
+    document.getElementById(
+        "driverName"
+    ).value=order.driverName || "";
+
+
+    document.getElementById(
+        "driverPhone"
+    ).value=order.driverPhone || "";
+
+
+    document.getElementById(
+        "driverVehicle"
+    ).value=order.vehicle || "";
+
+
+    document.getElementById(
+        "estimatedTime"
+    ).value=order.estimatedTime || "";
+
+
+    document.getElementById(
+        "recipientName"
+    ).value=order.recipientName || "";
+
+
+    document.getElementById(
+        "deliveryNote"
+    ).value=order.deliveryNote || "";
+
+
+    document.getElementById(
+        "deliveryPhoto"
+    ).value="";
+
+
+    document.getElementById(
+        "photoPreview"
+    ).innerHTML="";
+
+
+    showToast(
+        "Order "+order.orderNumber+" loaded"
+    );
+}
+
+
+/* ==========================================================
+   UPDATE ORDER
+========================================================== */
+
+function updateOrderData(order,status){
+
+    order.status=status;
+
+    order.driverName =
+        document.getElementById(
+            "driverName"
+        ).value.trim() ||
+        "Not assigned";
+
+
+    order.driverPhone =
+        document.getElementById(
+            "driverPhone"
+        ).value.trim();
+
+
+    order.vehicle =
+        document.getElementById(
+            "driverVehicle"
+        ).value.trim();
+
+
+    order.estimatedTime =
+        document.getElementById(
+            "estimatedTime"
+        ).value.trim() ||
+        "Pending";
+
+
+    order.recipientName =
+        document.getElementById(
+            "recipientName"
+        ).value.trim();
+
+
+    order.deliveryNote =
+        document.getElementById(
+            "deliveryNote"
+        ).value.trim();
+
+
+    order.updatedAt =
+        new Date().toISOString();
+
+
+    if(status==="Delivered"){
+
+        if(!order.completedAt){
+
+            order.completedAt =
+                new Date().toISOString();
+
+        }
+
+        if(!order.recipientName){
+
+            order.recipientName=
+                order.name;
+
+        }
+
+    }else{
+
+        order.completedAt=null;
+
+    }
+
+
+    const photo =
+        document.getElementById(
+            "deliveryPhoto"
+        ).files[0];
+
+
+    if(photo){
+
+        order.deliveryPhoto=photo.name;
+
+    }
+
+
+    const index =
+        orders.findIndex(
+            item =>
+                item.orderNumber===
+                order.orderNumber
+        );
+
+
+    if(index>=0){
+
+        orders[index]=order;
+
+    }else{
+
+        orders.push(order);
+
+    }
+
+
+    localStorage.setItem(
+        "aerozoneOrders",
+        JSON.stringify(orders)
+    );
+
+
+    localStorage.setItem(
+        "aerozoneLastOrder",
+        JSON.stringify(order)
+    );
+
+
+    deliveryEditingOrder=order;
+
+    return order;
+}
+
+
+/* ==========================================================
+   SAVE DELIVERY UPDATE
+========================================================== */
+
+function saveDeliveryUpdate(){
+
+    if(!deliveryEditingOrder){
+
+        alert(
+            "Find an order first."
+        );
+
+        return;
+    }
+
+
+    const status =
+        document.getElementById(
+            "deliveryStatus"
+        ).value;
+
+
+    const order =
+        updateOrderData(
+            deliveryEditingOrder,
+            status
+        );
+
+
+    showToast(
+        "Delivery status updated"
+    );
+
+
+    setTimeout(()=>{
+
+        openTracking();
+
+        document.getElementById(
+            "trackingOrderNumber"
+        ).value=order.orderNumber;
+
+        renderTracking(order);
+
+    },500);
+}
+
+
+/* ==========================================================
+   MARK DELIVERED
+========================================================== */
+
+function markDelivered(){
+
+    if(!deliveryEditingOrder){
+
+        alert(
+            "Find an order first."
+        );
+
+        return;
+    }
+
+
+    const recipient =
+        document.getElementById(
+            "recipientName"
+        ).value.trim();
+
+
+    if(!recipient){
+
+        alert(
+            "Enter the name of the person who received the order."
+        );
+
+        return;
+    }
+
+
+    document.getElementById(
+        "deliveryStatus"
+    ).value="Delivered";
+
+
+    const order =
+        updateOrderData(
+            deliveryEditingOrder,
+            "Delivered"
+        );
+
+
+    showToast(
+        "✅ Order marked as delivered"
+    );
+
+
+    setTimeout(()=>{
+
+        openTracking();
+
+        document.getElementById(
+            "trackingOrderNumber"
+        ).value=order.orderNumber;
+
+        renderTracking(order);
+
+    },500);
+}
+
+
+/* ==========================================================
+   DELIVERY PHOTO PREVIEW
+========================================================== */
+
+document.addEventListener(
+    "change",
+    function(event){
+
+        if(
+            event.target.id!=="deliveryPhoto"
+        ){
+            return;
+        }
+
+
+        const file =
+            event.target.files[0];
+
+
+        const preview =
+            document.getElementById(
+                "photoPreview"
+            );
+
+
+        if(!file){
+
+            preview.innerHTML="";
+
+            return;
+        }
+
+
+        if(!file.type.startsWith("image/")){
+
+            preview.innerHTML=
+                "<p style='color:#777;font-size:12px;'>Selected file: "+
+                escapeHTML(file.name)+
+                "</p>";
+
+            return;
+        }
+
+
+        const reader =
+            new FileReader();
+
+
+        reader.onload=function(){
+
+            preview.innerHTML=`
+
+                <div
+                    style="
+                        background:#f5f5f5;
+                        padding:10px;
+                        border-radius:12px;
+                    "
+                >
+
+                    <img
+                        src="${reader.result}"
+                        alt="Delivery proof"
+                        style="
+                            width:100%;
+                            max-height:220px;
+                            object-fit:cover;
+                            border-radius:10px;
+                        "
+                    >
+
+                    <p
+                        style="
+                            font-size:11px;
+                            color:#777;
+                            margin-top:6px;
+                        "
+                    >
+                        ${escapeHTML(file.name)}
+                    </p>
+
+                </div>
+
+            `;
+
+        };
+
+
+        reader.readAsDataURL(file);
+
+    }
+);
+
+
+/* ==========================================================
    TOAST
-========================================== */
+========================================================== */
 
 function showToast(message){
 
@@ -3958,57 +4188,23 @@ function showToast(message){
     toast.classList.add("show");
 
 
-    setTimeout(()=>{
+    clearTimeout(
+        window.aerozoneToastTimer
+    );
 
-        toast.classList.remove(
-            "show"
-        );
 
-    },2200);
+    window.aerozoneToastTimer =
+        setTimeout(()=>{
 
+            toast.classList.remove("show");
+
+        },2200);
 }
 
 
-/* ==========================================
-   DATE FORMAT
-========================================== */
-
-function formatDate(value){
-
-    if(!value){
-        return "";
-    }
-
-
-    return new Date(value)
-        .toLocaleString(
-            "en-ZA",
-            {
-                dateStyle:"medium",
-                timeStyle:"short"
-            }
-        );
-
-}
-
-
-/* ==========================================
-   SECURITY HELPER
-========================================== */
-
-function escapeString(value){
-
-    return String(value)
-        .replace(/\\/g,"\\\\")
-        .replace(/'/g,"\\'")
-        .replace(/"/g,'&quot;');
-
-}
-
-
-/* ==========================================
+/* ==========================================================
    LOAD SAVED ADDRESS
-========================================== */
+========================================================== */
 
 function loadSavedAddress(){
 
@@ -4020,44 +4216,17 @@ function loadSavedAddress(){
 
     if(address){
 
-        document
-            .getElementById(
-                "locationText"
-            )
-            .textContent=address;
+        document.getElementById(
+            "locationText"
+        ).textContent=address;
 
     }
-
 }
 
 
-/* ==========================================
-   KEYBOARD ESCAPE
-========================================== */
-
-document.addEventListener(
-    "keydown",
-    function(event){
-
-        if(event.key==="Escape"){
-
-            closeCart();
-
-            closeCheckout();
-
-            closeTracking();
-
-            closeDeliveryPortal();
-
-        }
-
-    }
-);
-
-
-/* ==========================================
-   START
-========================================== */
+/* ==========================================================
+   INITIALISE
+========================================================== */
 
 renderBranches();
 
@@ -4066,19 +4235,48 @@ updateCart();
 loadSavedAddress();
 
 
-/*
-   DELIVERY PORTAL TEST ACCESS
+/* ==========================================================
+   SET MINIMUM DELIVERY DATE
+========================================================== */
 
-   You can open the driver portal
-   from the browser console by using:
+const today =
+    new Date().toISOString().split("T")[0];
 
-   openDeliveryPortal()
 
-   Later we can add a secure
-   driver/admin login page.
-*/
+document.getElementById(
+    "deliveryDate"
+).min=today;
+
+
+/* ==========================================================
+   ESC KEY CLOSES MODALS
+========================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key!=="Escape"){
+            return;
+        }
+
+
+        closeCart();
+
+        closeCheckout();
+
+        closeTracking();
+
+        closeDeliveryPortal();
+
+    }
+);
 
 </script>
 
 </body>
 </html>
+
+This version includes AeroZone branches → products → cart → checkout → WhatsApp order → order number → customer tracking → driver status updates → driver details → estimated delivery → “Mark Delivered” → recipient name → delivery note/photo record.
+
+Important: because this is still a single "index.html", the tracking data is stored in the browser. For customers and drivers to see the same order live from different phones, the next upgrade should connect the tracking system to Firebase.
