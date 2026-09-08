@@ -2,12 +2,24 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#050505">
-<meta name="description" content="AeroZone online shopping and delivery">
-<title>AeroZone | Shop & Delivery</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AeroZone | Shop. Order. Get Delivered.</title>
+
+<meta name="description"
+content="AeroZone shopping and delivery. Shop groceries, pharmacy products, meals, bakery, fresh produce and household essentials.">
 
 <style>
+:root{
+  --black:#050505;
+  --dark:#111111;
+  --white:#ffffff;
+  --soft:#f6f6f6;
+  --line:#e8e8e8;
+  --muted:#777;
+  --radius:20px;
+}
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -16,16 +28,13 @@
 
 html{
   scroll-behavior:smooth;
-  min-height:100%;
 }
 
 body{
-  min-height:100dvh;
-  font-family:Inter,Arial,Helvetica,sans-serif;
-  background:#f7f7f5;
-  color:#0a0a0a;
-  display:flex;
-  flex-direction:column;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#fff;
+  color:#111;
+  min-height:100vh;
 }
 
 button,
@@ -39,39 +48,43 @@ button{
   cursor:pointer;
 }
 
-button:disabled{
-  opacity:.55;
-  cursor:not-allowed;
+a{
+  color:inherit;
+  text-decoration:none;
 }
 
-:root{
-  --black:#050505;
-  --dark:#111;
-  --grey:#777;
-  --light:#f3f3f1;
-  --line:#e4e4e1;
-  --white:#fff;
-  --radius:22px;
-  --shadow:0 18px 50px rgba(0,0,0,.09);
+/* =========================
+   PAGE
+========================= */
+
+.page{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
 }
 
-/* ================= HEADER ================= */
+main{
+  flex:1;
+}
 
-header{
+/* =========================
+   HEADER
+========================= */
+
+.header{
   position:sticky;
   top:0;
   z-index:1000;
-  background:rgba(255,255,255,.95);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid #e5e5e5;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid var(--line);
 }
 
-.nav{
-  width:100%;
-  max-width:1280px;
+.header-inner{
+  max-width:1200px;
   margin:auto;
-  min-height:68px;
-  padding:10px 18px;
+  height:72px;
+  padding:0 18px;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -79,734 +92,847 @@ header{
 }
 
 .logo{
-  font-size:24px;
-  font-weight:950;
-  letter-spacing:-1.5px;
+  font-size:20px;
+  font-weight:900;
+  letter-spacing:-1px;
 }
 
 .logo span{
-  font-weight:400;
+  display:block;
+  font-size:9px;
+  letter-spacing:3px;
+  color:#888;
+  margin-top:2px;
 }
 
-.nav-actions{
+.header-actions{
   display:flex;
+  align-items:center;
   gap:8px;
 }
 
-.pill{
+.header-btn{
   border:1px solid #ddd;
   background:#fff;
   color:#111;
+  padding:10px 15px;
   border-radius:999px;
-  padding:10px 14px;
-  font-weight:850;
+  font-weight:700;
 }
 
-.pill.dark{
-  background:#050505;
+.header-btn.cart{
+  background:#000;
   color:#fff;
-  border-color:#050505;
+  border-color:#000;
 }
 
-.count{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-width:20px;
-  height:20px;
-  padding:0 5px;
-  margin-left:4px;
-  background:#fff;
-  color:#000;
-  border-radius:50%;
-  font-size:11px;
-}
-
-/* ================= HERO ================= */
+/* =========================
+   HERO
+========================= */
 
 .hero{
   background:#050505;
   color:#fff;
-  position:relative;
-  overflow:hidden;
-}
-
-.hero:before{
-  content:"";
-  position:absolute;
-  width:500px;
-  height:500px;
-  border:1px solid #252525;
-  border-radius:50%;
-  right:-250px;
-  top:-270px;
-  box-shadow:
-    0 0 0 70px rgba(255,255,255,.018),
-    0 0 0 140px rgba(255,255,255,.012);
 }
 
 .hero-inner{
-  max-width:1280px;
+  max-width:1200px;
   margin:auto;
-  padding:68px 20px 62px;
-  position:relative;
-  z-index:2;
+  padding:70px 18px 65px;
 }
 
-.eyebrow{
-  color:#999;
-  text-transform:uppercase;
-  letter-spacing:3px;
-  font-size:10px;
-  font-weight:900;
+.hero-label{
+  font-size:11px;
+  letter-spacing:4px;
+  color:#aaa;
+  margin-bottom:18px;
 }
 
 .hero h1{
-  max-width:820px;
-  margin:14px 0 20px;
-  font-size:clamp(45px,8vw,82px);
-  line-height:.94;
-  letter-spacing:-5px;
+  font-size:clamp(42px,8vw,82px);
+  line-height:.92;
+  letter-spacing:-4px;
+  max-width:850px;
+  margin-bottom:25px;
 }
 
-.hero h1 span{
-  color:#999;
-}
-
-.hero-text{
+.hero p{
   max-width:650px;
   color:#bdbdbd;
-  font-size:15px;
   line-height:1.6;
-  margin-bottom:28px;
+  font-size:15px;
 }
 
-.search{
-  width:100%;
-  max-width:760px;
+.hero-search{
+  margin-top:30px;
+  max-width:720px;
   display:flex;
   background:#fff;
   padding:5px;
   border-radius:16px;
-  box-shadow:0 18px 45px rgba(0,0,0,.3);
 }
 
-.search input{
+.hero-search input{
   flex:1;
   min-width:0;
   border:0;
   outline:0;
-  background:#fff;
-  color:#111;
-  padding:14px;
-  border-radius:11px;
+  padding:15px;
+  font-size:15px;
 }
 
-.search button{
+.hero-search button{
   border:0;
-  background:#050505;
+  background:#000;
   color:#fff;
-  border-radius:11px;
-  padding:0 20px;
-  font-weight:900;
+  border-radius:12px;
+  padding:0 22px;
+  font-weight:800;
 }
 
-.hero-tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:18px;
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.container{
+  width:min(1200px,100%);
+  margin:auto;
+  padding:55px 18px;
 }
 
-.tag{
-  border:1px solid #333;
-  background:#111;
-  color:#bbb;
-  border-radius:999px;
-  padding:7px 11px;
-  font-size:11px;
-}
-
-/* ================= MAIN ================= */
-
-main{
-  width:100%;
-  max-width:1280px;
-  margin:0 auto;
-  padding:48px 20px 70px;
-  flex:1;
-}
-
-.section-head{
-  margin-bottom:20px;
-}
-
-.section-head h2{
+.section-title{
   font-size:32px;
   letter-spacing:-1.5px;
+  margin-bottom:8px;
 }
 
-.section-head p{
-  margin-top:5px;
+.section-subtitle{
   color:#777;
-  font-size:13px;
+  font-size:14px;
+  margin-bottom:28px;
 }
 
-/* ================= BRANCHES ================= */
+/* =========================
+   BRANCHES
+========================= */
 
 .branch-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:15px;
+  gap:16px;
 }
 
 .branch{
-  min-height:185px;
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  padding:20px;
   position:relative;
   overflow:hidden;
-  transition:.2s ease;
-  cursor:pointer;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:25px 20px;
+  min-height:190px;
+  transition:.25s ease;
 }
 
 .branch:hover{
-  transform:translateY(-5px);
-  box-shadow:var(--shadow);
+  transform:translateY(-4px);
+  box-shadow:0 14px 35px rgba(0,0,0,.08);
   border-color:#ccc;
 }
 
-.branch:after{
-  content:"→";
-  position:absolute;
-  right:17px;
-  bottom:17px;
-  width:32px;
-  height:32px;
-  border-radius:50%;
-  background:#050505;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
 .branch-icon{
-  width:53px;
-  height:53px;
-  border-radius:17px;
-  background:#f0f0ee;
+  width:55px;
+  height:55px;
+  border-radius:16px;
+  background:#f4f4f4;
   display:flex;
   align-items:center;
   justify-content:center;
   font-size:28px;
-  margin-bottom:25px;
-}
-
-.branch h3{
-  font-size:17px;
-  letter-spacing:-.2px;
-}
-
-.branch p{
-  color:#777;
-  font-size:12px;
-  margin-top:5px;
-  max-width:190px;
-}
-
-/* ================= FEATURE STRIP ================= */
-
-.features{
-  margin-top:45px;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-}
-
-.feature{
-  background:#111;
-  color:#fff;
-  border-radius:20px;
-  padding:20px;
-  display:flex;
-  gap:13px;
-  align-items:flex-start;
-}
-
-.feature-icon{
-  width:43px;
-  height:43px;
-  flex:none;
-  border-radius:13px;
-  background:#252525;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:20px;
-}
-
-.feature strong{
-  font-size:14px;
-}
-
-.feature p{
-  color:#999;
-  font-size:11px;
-  margin-top:4px;
-}
-
-/* ================= CATALOG ================= */
-
-.catalog{
-  display:none;
-}
-
-.catalog-head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
   margin-bottom:22px;
 }
 
-.catalog-title small{
-  color:#999;
-  font-size:10px;
-  letter-spacing:3px;
-  font-weight:900;
+.branch h3{
+  font-size:18px;
+  margin-bottom:8px;
 }
 
-.catalog-title h2{
-  font-size:34px;
-  letter-spacing:-1.6px;
-  margin-top:4px;
+.branch p{
+  color:#888;
+  font-size:13px;
+  line-height:1.5;
 }
 
-.back{
-  border:0;
-  background:#050505;
+.branch-arrow{
+  position:absolute;
+  right:18px;
+  bottom:18px;
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background:#000;
   color:#fff;
-  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* =========================
+   PRODUCT AREA
+========================= */
+
+.products-section{
+  background:#f7f7f7;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+.branch-heading{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:15px;
+  margin-bottom:25px;
+}
+
+.branch-heading h2{
+  font-size:32px;
+  letter-spacing:-1.5px;
+}
+
+.back-btn{
+  background:#fff;
+  border:1px solid #ddd;
   padding:11px 16px;
-  font-weight:850;
+  border-radius:999px;
+  font-weight:700;
 }
 
 .product-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:15px;
+  gap:16px;
 }
 
 .product{
   background:#fff;
-  border:1px solid var(--line);
+  border:1px solid #e7e7e7;
   border-radius:20px;
   overflow:hidden;
   transition:.2s;
 }
 
 .product:hover{
-  transform:translateY(-4px);
-  box-shadow:var(--shadow);
+  transform:translateY(-3px);
+  box-shadow:0 12px 30px rgba(0,0,0,.07);
 }
 
-.product-img{
-  height:165px;
-  background:linear-gradient(135deg,#eeeeec,#fafafa);
+.product-image{
+  height:180px;
+  background:#f5f5f5;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:60px;
+  font-size:70px;
 }
 
-.product-body{
-  padding:15px;
+.product-info{
+  padding:18px;
 }
 
-.product small{
+.product-category{
   color:#999;
-  font-size:10px;
+  font-size:11px;
   text-transform:uppercase;
   letter-spacing:1px;
+  margin-bottom:7px;
 }
 
-.product h4{
-  font-size:15px;
-  margin:6px 0;
+.product h3{
+  font-size:16px;
+  margin-bottom:7px;
+}
+
+.product-description{
+  color:#888;
+  font-size:12px;
+  min-height:35px;
+}
+
+.product-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-top:16px;
 }
 
 .price{
+  font-weight:900;
   font-size:18px;
-  font-weight:950;
-  margin:8px 0 12px;
 }
 
-.add{
-  width:100%;
+.add-btn{
   border:0;
-  background:#050505;
+  background:#000;
   color:#fff;
-  padding:11px;
-  border-radius:11px;
+  border-radius:12px;
+  padding:10px 13px;
+  font-weight:800;
+}
+
+/* =========================
+   BENEFITS
+========================= */
+
+.benefits{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:25px;
+}
+
+.benefit{
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:25px;
+}
+
+.benefit-icon{
+  font-size:25px;
+  margin-bottom:15px;
+}
+
+.benefit h3{
+  margin-bottom:8px;
+}
+
+.benefit p{
+  color:#777;
+  font-size:13px;
+  line-height:1.6;
+}
+
+/* =========================
+   CART DRAWER
+========================= */
+
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  z-index:2000;
+  display:none;
+}
+
+.overlay.show{
+  display:block;
+}
+
+.cart-drawer{
+  position:fixed;
+  top:0;
+  right:-450px;
+  width:min(430px,100%);
+  height:100vh;
+  background:#fff;
+  z-index:2100;
+  transition:.3s ease;
+  display:flex;
+  flex-direction:column;
+}
+
+.cart-drawer.open{
+  right:0;
+}
+
+.cart-header{
+  padding:20px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.close-btn{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  border:1px solid #ddd;
+  background:#fff;
+}
+
+.cart-items{
+  flex:1;
+  overflow:auto;
+  padding:20px;
+}
+
+.empty-cart{
+  text-align:center;
+  color:#888;
+  padding:60px 20px;
+}
+
+.cart-item{
+  display:flex;
+  gap:12px;
+  padding:15px 0;
+  border-bottom:1px solid #eee;
+}
+
+.cart-item-image{
+  width:60px;
+  height:60px;
+  background:#f4f4f4;
+  border-radius:13px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+  flex:none;
+}
+
+.cart-item-info{
+  flex:1;
+}
+
+.cart-item-name{
+  font-weight:800;
+  font-size:14px;
+}
+
+.cart-item-price{
+  margin-top:5px;
+  font-size:13px;
+  color:#777;
+}
+
+.qty{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:8px;
+}
+
+.qty button{
+  width:27px;
+  height:27px;
+  border:1px solid #ddd;
+  background:#fff;
+  border-radius:8px;
+}
+
+.cart-footer{
+  border-top:1px solid var(--line);
+  padding:20px;
+}
+
+.summary-row{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:10px;
+  font-size:14px;
+}
+
+.summary-row.total{
+  font-size:20px;
+  font-weight:900;
+  padding-top:10px;
+  border-top:1px solid #eee;
+}
+
+.checkout-btn{
+  width:100%;
+  margin-top:18px;
+  padding:15px;
+  border:0;
+  border-radius:14px;
+  background:#000;
+  color:#fff;
   font-weight:900;
 }
 
-/* ================= FOOTER ================= */
+/* =========================
+   MODAL
+========================= */
 
-footer{
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  z-index:3000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-card{
+  width:min(600px,100%);
+  max-height:90vh;
+  overflow:auto;
+  background:#fff;
+  border-radius:24px;
+  padding:25px;
+}
+
+.modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+
+.field.full{
+  grid-column:1/-1;
+}
+
+.field label{
+  font-size:12px;
+  font-weight:800;
+}
+
+.field input,
+.field textarea,
+.field select{
+  width:100%;
+  border:1px solid #ddd;
+  border-radius:12px;
+  padding:13px;
+  outline:none;
+  background:#fff;
+}
+
+.field textarea{
+  min-height:90px;
+  resize:vertical;
+}
+
+.payment-options{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.payment{
+  border:1px solid #ddd;
+  border-radius:12px;
+  padding:13px;
+  cursor:pointer;
+}
+
+.payment input{
+  margin-right:7px;
+}
+
+.submit-btn{
+  width:100%;
+  margin-top:18px;
+  border:0;
+  border-radius:14px;
+  padding:15px;
+  background:#000;
+  color:#fff;
+  font-weight:900;
+}
+
+/* =========================
+   TRACKING
+========================= */
+
+.tracking-box{
+  background:#f7f7f7;
+  border-radius:20px;
+  padding:20px;
+  margin-top:15px;
+}
+
+.track-search{
+  display:flex;
+  gap:8px;
+}
+
+.track-search input{
+  flex:1;
+  min-width:0;
+  border:1px solid #ddd;
+  padding:13px;
+  border-radius:12px;
+}
+
+.track-search button{
+  background:#000;
+  color:#fff;
+  border:0;
+  border-radius:12px;
+  padding:0 18px;
+  font-weight:800;
+}
+
+.status{
+  margin-top:25px;
+}
+
+.status-step{
+  position:relative;
+  padding:0 0 22px 38px;
+}
+
+.status-step::before{
+  content:"";
+  position:absolute;
+  left:10px;
+  top:3px;
+  width:15px;
+  height:15px;
+  border-radius:50%;
+  background:#ddd;
+}
+
+.status-step::after{
+  content:"";
+  position:absolute;
+  left:16px;
+  top:18px;
+  width:2px;
+  height:100%;
+  background:#ddd;
+}
+
+.status-step:last-child::after{
+  display:none;
+}
+
+.status-step.active::before{
+  background:#000;
+}
+
+.status-step.active strong{
+  color:#000;
+}
+
+.status-step strong{
+  color:#999;
+}
+
+.status-step p{
+  color:#888;
+  font-size:12px;
+  margin-top:4px;
+}
+
+/* =========================
+   DELIVERY PORTAL
+========================= */
+
+.portal{
+  margin-top:25px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:22px;
+}
+
+.portal h3{
+  margin-bottom:15px;
+}
+
+.portal-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.portal button{
+  background:#000;
+  color:#fff;
+  border:0;
+  border-radius:12px;
+  padding:13px;
+  font-weight:800;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
   background:#050505;
   color:#fff;
   margin-top:auto;
 }
 
 .footer-inner{
-  width:100%;
-  max-width:1280px;
+  width:min(1200px,100%);
   margin:auto;
-  padding:42px 20px 28px;
-}
-
-.footer-main{
+  padding:35px 18px;
   display:flex;
+  align-items:center;
   justify-content:space-between;
   gap:30px;
-  flex-wrap:wrap;
-  padding-bottom:30px;
-  border-bottom:1px solid #252525;
 }
 
-.footer-brand strong{
-  font-size:23px;
-  letter-spacing:-1px;
+.footer-logo{
+  font-weight:900;
+  font-size:18px;
 }
 
-.footer-brand p{
+.footer-text{
   color:#999;
   font-size:12px;
-  margin-top:5px;
+  margin-top:7px;
+  line-height:1.6;
 }
 
 .footer-actions{
   display:flex;
   gap:8px;
   flex-wrap:wrap;
+  justify-content:flex-end;
 }
 
-.footer-actions button{
+.footer-btn{
   border:1px solid #333;
   background:#111;
   color:#fff;
+  padding:12px 15px;
   border-radius:999px;
-  padding:10px 14px;
 }
 
-.footer-bottom{
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-  flex-wrap:wrap;
-  padding-top:20px;
-  color:#666;
-  font-size:11px;
-}
+/* =========================
+   TOAST
+========================= */
 
-/* ================= MODALS ================= */
-
-.overlay{
-  display:none;
+.toast{
   position:fixed;
-  inset:0;
-  z-index:3000;
-  padding:14px;
-  background:rgba(0,0,0,.65);
-  backdrop-filter:blur(5px);
-  overflow:auto;
-}
-
-.modal{
-  width:min(570px,100%);
-  max-height:92vh;
-  overflow:auto;
-  margin:3vh auto;
-  background:#fff;
-  border-radius:25px;
-  padding:25px;
-  position:relative;
-  box-shadow:0 30px 90px rgba(0,0,0,.35);
-}
-
-.close{
-  position:absolute;
-  right:15px;
-  top:15px;
-  width:36px;
-  height:36px;
-  border:0;
-  border-radius:50%;
-  background:#eee;
-  font-size:21px;
-}
-
-.modal h2{
-  margin:0 45px 20px 0;
-  font-size:28px;
-  letter-spacing:-1px;
-}
-
-.field{
-  margin-bottom:13px;
-}
-
-.field label{
-  display:block;
-  font-size:10px;
-  font-weight:900;
-  text-transform:uppercase;
-  letter-spacing:.8px;
-  margin-bottom:6px;
-}
-
-.field input,
-.field select,
-.field textarea{
-  width:100%;
-  border:1px solid #ddd;
-  border-radius:11px;
-  padding:12px;
-  outline:0;
-  background:#fff;
-  color:#111;
-}
-
-.field textarea{
-  min-height:80px;
-  resize:vertical;
-}
-
-.primary,
-.secondary{
-  width:100%;
-  border-radius:12px;
-  padding:13px;
-  font-weight:900;
-  margin-top:8px;
-}
-
-.primary{
-  border:0;
-  background:#050505;
+  left:50%;
+  bottom:25px;
+  transform:translate(-50%,120px);
+  background:#000;
   color:#fff;
-}
-
-.secondary{
-  border:1px solid #ddd;
-  background:#fff;
-  color:#111;
-}
-
-.summary{
-  border-top:1px solid #eee;
-  margin-top:15px;
-  padding-top:12px;
-}
-
-.row{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:5px 0;
-}
-
-.row.total{
-  font-size:20px;
-  font-weight:950;
-  padding-top:10px;
-}
-
-.cart-item{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  padding:13px 0;
-  border-bottom:1px solid #eee;
-}
-
-.cart-item strong{
-  display:block;
-}
-
-.cart-item small{
-  color:#888;
-}
-
-.qty{
-  display:flex;
-  align-items:center;
-  gap:7px;
-}
-
-.qty button{
-  width:30px;
-  height:30px;
-  border:1px solid #ddd;
-  background:#fff;
-  border-radius:8px;
-}
-
-.empty{
-  padding:28px 18px;
-  text-align:center;
-  color:#777;
-  border:1px dashed #ccc;
-  border-radius:15px;
-}
-
-.status{
-  display:inline-flex;
-  background:#050505;
-  color:#fff;
-  padding:6px 10px;
+  padding:13px 18px;
   border-radius:999px;
-  font-size:10px;
-  font-weight:900;
-}
-
-.timeline{
-  border-left:2px solid #ddd;
-  padding-left:20px;
-  margin:21px 0;
-}
-
-.step{
-  position:relative;
-  color:#aaa;
-  margin-bottom:18px;
-  font-size:13px;
-}
-
-.step:before{
-  content:"";
-  position:absolute;
-  left:-27px;
-  top:4px;
-  width:10px;
-  height:10px;
-  border-radius:50%;
-  background:#ddd;
-}
-
-.step.done{
-  color:#111;
-  font-weight:900;
-}
-
-.step.done:before{
-  background:#050505;
-}
-
-.info{
-  background:#f3f3f1;
-  border-radius:15px;
-  padding:15px;
-  font-size:13px;
-}
-
-.info div{
-  margin:6px 0;
-}
-
-.portal-note{
-  background:#f3f3f1;
-  border-radius:13px;
-  padding:13px;
-  color:#666;
-  font-size:12px;
-  margin-bottom:15px;
-}
-
-/* ================= FIREBASE STATUS ================= */
-
-.firebase-status{
-  position:fixed;
-  left:10px;
-  bottom:10px;
-  z-index:2500;
-  background:#111;
-  color:#fff;
-  padding:7px 10px;
-  border-radius:999px;
-  font-size:9px;
-  opacity:.85;
+  z-index:5000;
   transition:.3s;
+  font-size:13px;
+  box-shadow:0 10px 30px rgba(0,0,0,.25);
 }
 
-/* ================= MOBILE ================= */
-
-@media(max-width:950px){
-  .branch-grid,
-  .product-grid{
-    grid-template-columns:repeat(3,1fr);
-  }
+.toast.show{
+  transform:translate(-50%,0);
 }
 
-@media(max-width:700px){
+/* =========================
+   MOBILE
+========================= */
 
-  .nav{
-    min-height:62px;
-    padding:9px 13px;
-  }
-
-  .logo{
-    font-size:21px;
-  }
-
-  .pill{
-    padding:9px 11px;
-    font-size:12px;
-  }
-
-  .hero-inner{
-    padding:50px 15px 48px;
-  }
-
-  .hero h1{
-    font-size:47px;
-    letter-spacing:-3px;
-  }
-
-  .hero-text{
-    font-size:14px;
-  }
-
-  main{
-    padding:36px 14px 55px;
-  }
-
-  .section-head h2{
-    font-size:27px;
-  }
+@media(max-width:900px){
 
   .branch-grid,
   .product-grid{
     grid-template-columns:repeat(2,1fr);
+  }
+
+  .benefits{
+    grid-template-columns:1fr;
+  }
+
+  .hero-inner{
+    padding:55px 16px;
+  }
+
+  .hero h1{
+    letter-spacing:-2.5px;
+  }
+}
+
+@media(max-width:600px){
+
+  .header-inner{
+    height:62px;
+    padding:0 12px;
+  }
+
+  .logo{
+    font-size:17px;
+  }
+
+  .header-btn{
+    padding:8px 11px;
+    font-size:12px;
+  }
+
+  .hero-inner{
+    padding:48px 14px 45px;
+  }
+
+  .hero-label{
+    font-size:9px;
+    letter-spacing:3px;
+  }
+
+  .hero h1{
+    font-size:44px;
+    line-height:.93;
+  }
+
+  .hero p{
+    font-size:13px;
+  }
+
+  .hero-search{
+    width:100%;
+  }
+
+  .hero-search input{
+    padding:13px 10px;
+    font-size:13px;
+  }
+
+  .hero-search button{
+    padding:0 15px;
+    font-size:12px;
+  }
+
+  .container{
+    padding:40px 13px;
+  }
+
+  .section-title{
+    font-size:27px;
+  }
+
+  .branch-grid{
+    grid-template-columns:1fr 1fr;
     gap:10px;
   }
 
   .branch{
-    min-height:160px;
-    padding:16px;
+    min-height:165px;
+    padding:17px;
     border-radius:17px;
   }
 
   .branch-icon{
-    width:47px;
-    height:47px;
-    font-size:24px;
-    margin-bottom:22px;
+    width:45px;
+    height:45px;
+    font-size:23px;
+    margin-bottom:15px;
   }
 
   .branch h3{
@@ -817,85 +943,68 @@ footer{
     font-size:11px;
   }
 
-  .features{
-    grid-template-columns:1fr;
-    margin-top:35px;
-  }
-
-  .product-img{
-    height:135px;
-    font-size:50px;
-  }
-
-  .product-body{
-    padding:11px;
-  }
-
-  .product h4{
-    font-size:13px;
-  }
-
-  .price{
-    font-size:16px;
-  }
-
-  .catalog-title h2{
-    font-size:28px;
-  }
-
-  .footer-main{
-    flex-direction:column;
-  }
-
-  .footer-actions{
-    width:100%;
-  }
-}
-
-@media(max-width:430px){
-
-  .nav-actions .pill:first-child{
-    display:none;
-  }
-
-  .hero h1{
-    font-size:42px;
-    letter-spacing:-2.5px;
-  }
-
-  .search button{
-    padding:0 14px;
-  }
-
-  .tag{
-    font-size:10px;
-  }
-
-  .modal{
-    margin:1vh auto;
-    padding:20px;
-    border-radius:20px;
-  }
-}
-
-@media(max-width:360px){
-
-  .branch-grid,
   .product-grid{
-    gap:8px;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
   }
 
-  .branch{
-    min-height:150px;
+  .product{
+    border-radius:16px;
+  }
+
+  .product-image{
+    height:135px;
+    font-size:55px;
+  }
+
+  .product-info{
     padding:13px;
   }
 
-  .branch h3{
+  .product h3{
     font-size:13px;
   }
 
-  .hero h1{
-    font-size:38px;
+  .product-description{
+    font-size:10px;
+  }
+
+  .price{
+    font-size:15px;
+  }
+
+  .add-btn{
+    font-size:11px;
+    padding:9px;
+  }
+
+  .branch-heading{
+    align-items:center;
+  }
+
+  .branch-heading h2{
+    font-size:25px;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .field.full{
+    grid-column:auto;
+  }
+
+  .portal-grid{
+    grid-template-columns:1fr;
+  }
+
+  .footer-inner{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .footer-actions{
+    justify-content:flex-start;
   }
 }
 </style>
@@ -903,51 +1012,54 @@ footer{
 
 <body>
 
-<!-- ================= HEADER ================= -->
+<div class="page">
 
-<header>
-  <div class="nav">
+<header class="header">
+  <div class="header-inner">
 
     <div class="logo">
-      AERO<span>ZONE</span>
+      AEROZONE
+      <span>SHOP • ORDER • DELIVER</span>
     </div>
 
-    <div class="nav-actions">
-      <button class="pill" onclick="openTracking()">
+    <div class="header-actions">
+      <button class="header-btn" onclick="openTracking()">
         Track
       </button>
 
-      <button class="pill dark" onclick="openCart()">
-        Cart
-        <span class="count" id="cartCount">0</span>
+      <button class="header-btn cart" onclick="openCart()">
+        Cart <span id="cartCount">0</span>
       </button>
     </div>
 
   </div>
 </header>
 
-<!-- ================= HERO ================= -->
+
+<main>
+
+<!-- HERO -->
 
 <section class="hero">
 
   <div class="hero-inner">
 
-    <div class="eyebrow">
-      Shop • Order • Delivered
+    <div class="hero-label">
+      AEROZONE DELIVERY
     </div>
 
     <h1>
-      Everything you need,
-      <span>delivered.</span>
+      Everything you need.<br>
+      Delivered.
     </h1>
 
-    <p class="hero-text">
-      Shop groceries, meals, pharmacy essentials, fresh produce,
-      bakery items, meat and household products — all in one place.
+    <p>
+      Shop everyday essentials from supermarkets, pharmacies,
+      restaurants, bakeries, fresh produce, butchers and more.
+      Order from AeroZone and get it delivered.
     </p>
 
-    <div class="search">
-
+    <div class="hero-search">
       <input
         id="searchInput"
         type="search"
@@ -958,172 +1070,315 @@ footer{
       <button onclick="searchProducts()">
         Search
       </button>
-
-    </div>
-
-    <div class="hero-tags">
-      <span class="tag">Groceries</span>
-      <span class="tag">Food</span>
-      <span class="tag">Pharmacy</span>
-      <span class="tag">Fresh Produce</span>
-      <span class="tag">Home</span>
     </div>
 
   </div>
 
 </section>
 
-<!-- ================= MAIN ================= -->
 
-<main>
+<!-- BRANCHES -->
 
-  <!-- BRANCHES -->
+<section class="container">
 
-  <section id="branchesSection">
+  <h2 class="section-title">
+    Shop by branch
+  </h2>
 
-    <div class="section-head">
+  <p class="section-subtitle">
+    Choose a category to see products available from AeroZone.
+  </p>
 
-      <h2>
-        Shop by branch
-      </h2>
+  <div class="branch-grid">
 
-      <p>
-        Choose a branch to see the products inside.
-      </p>
+    <button class="branch" onclick="showBranch('supermarket')">
+      <div class="branch-icon">🛒</div>
+      <h3>Supermarket</h3>
+      <p>Everyday groceries and essentials.</p>
+      <div class="branch-arrow">→</div>
+    </button>
 
-    </div>
+    <button class="branch" onclick="showBranch('pharmacy')">
+      <div class="branch-icon">💊</div>
+      <h3>Pharmacy & Health</h3>
+      <p>Health, personal care and wellness.</p>
+      <div class="branch-arrow">→</div>
+    </button>
 
-    <div
-      class="branch-grid"
-      id="branchGrid">
-    </div>
+    <button class="branch" onclick="showBranch('restaurant')">
+      <div class="branch-icon">🍽️</div>
+      <h3>Restaurants</h3>
+      <p>Restaurant meals and favourites.</p>
+      <div class="branch-arrow">→</div>
+    </button>
 
-    <div class="features">
+    <button class="branch" onclick="showBranch('fastfood')">
+      <div class="branch-icon">🍔</div>
+      <h3>Fast Food</h3>
+      <p>Quick meals and snacks.</p>
+      <div class="branch-arrow">→</div>
+    </button>
 
-      <div class="feature">
-        <div class="feature-icon">🛒</div>
-        <div>
-          <strong>Easy shopping</strong>
-          <p>
-            Browse products and add everything to one cart.
-          </p>
-        </div>
-      </div>
+    <button class="branch" onclick="showBranch('butchery')">
+      <div class="branch-icon">🥩</div>
+      <h3>Butchery</h3>
+      <p>Fresh meat and poultry.</p>
+      <div class="branch-arrow">→</div>
+    </button>
 
-      <div class="feature">
-        <div class="feature-icon">📍</div>
-        <div>
-          <strong>Delivery to you</strong>
-          <p>
-            Enter your address and choose your delivery time.
-          </p>
-        </div>
-      </div>
+    <button class="branch" onclick="showBranch('bakery')">
+      <div class="branch-icon">🥐</div>
+      <h3>Bakery</h3>
+      <p>Fresh bread and baked goods.</p>
+      <div class="branch-arrow">→</div>
+    </button>
 
-      <div class="feature">
-        <div class="feature-icon">⚡</div>
-        <div>
-          <strong>Live tracking</strong>
-          <p>
-            Follow your order updates through Firebase.
-          </p>
-        </div>
-      </div>
+    <button class="branch" onclick="showBranch('fruitveg')">
+      <div class="branch-icon">🥦</div>
+      <h3>Fruit & Veg</h3>
+      <p>Fresh fruit and vegetables.</p>
+      <div class="branch-arrow">→</div>
+    </button>
 
-    </div>
+    <button class="branch" onclick="showBranch('home')">
+      <div class="branch-icon">🧹</div>
+      <h3>Home & Cleaning</h3>
+      <p>Household and cleaning products.</p>
+      <div class="branch-arrow">→</div>
+    </button>
 
-  </section>
+  </div>
 
-  <!-- PRODUCTS -->
+</section>
 
-  <section
-    class="catalog"
-    id="catalog">
 
-    <div class="catalog-head">
+<!-- PRODUCTS -->
 
-      <div class="catalog-title">
+<section id="productsSection" class="products-section" style="display:none;">
 
-        <small id="catalogEyebrow">
-          AEROZONE
-        </small>
+  <div class="container">
 
-        <h2 id="catalogTitle">
+    <div class="branch-heading">
+
+      <div>
+        <h2 id="branchTitle">
           Products
         </h2>
 
+        <p id="branchDescription" class="section-subtitle">
+          Browse products.
+        </p>
       </div>
 
-      <button
-        class="back"
-        onclick="showBranches()">
-
+      <button class="back-btn" onclick="hideProducts()">
         ← Branches
-
       </button>
 
     </div>
 
-    <div
-      class="product-grid"
-      id="productGrid">
+    <div id="productGrid" class="product-grid"></div>
+
+  </div>
+
+</section>
+
+
+<!-- BENEFITS -->
+
+<section class="container">
+
+  <h2 class="section-title">
+    Why AeroZone?
+  </h2>
+
+  <p class="section-subtitle">
+    Simple shopping. Easy ordering. Convenient delivery.
+  </p>
+
+  <div class="benefits">
+
+    <div class="benefit">
+      <div class="benefit-icon">🛍️</div>
+      <h3>Shop easily</h3>
+      <p>
+        Browse products by category and add everything
+        you need to one cart.
+      </p>
     </div>
 
-  </section>
+    <div class="benefit">
+      <div class="benefit-icon">📦</div>
+      <h3>One order</h3>
+      <p>
+        Your selected products are combined into one
+        convenient AeroZone order.
+      </p>
+    </div>
+
+    <div class="benefit">
+      <div class="benefit-icon">🚚</div>
+      <h3>Track delivery</h3>
+      <p>
+        Follow your order status and delivery updates
+        from your phone.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- TRACKING AREA -->
+
+<section id="trackingSection" class="container" style="display:none;">
+
+  <h2 class="section-title">
+    Track your order
+  </h2>
+
+  <p class="section-subtitle">
+    Enter your AeroZone order number.
+  </p>
+
+  <div class="tracking-box">
+
+    <div class="track-search">
+
+      <input
+        id="trackNumber"
+        placeholder="Example: AZ123456"
+      >
+
+      <button onclick="trackOrder()">
+        Track
+      </button>
+
+    </div>
+
+    <div id="trackingResult"></div>
+
+  </div>
+
+</section>
+
+
+<!-- DELIVERY PORTAL -->
+
+<section id="deliverySection" class="container" style="display:none;">
+
+  <h2 class="section-title">
+    Delivery Portal
+  </h2>
+
+  <p class="section-subtitle">
+    Update a customer's delivery status.
+  </p>
+
+  <div class="portal">
+
+    <h3>Find order</h3>
+
+    <div class="track-search">
+
+      <input
+        id="driverOrderNumber"
+        placeholder="Order number"
+      >
+
+      <button onclick="loadDriverOrder()">
+        Load
+      </button>
+
+    </div>
+
+    <div id="driverForm" style="display:none;margin-top:20px;">
+
+      <div class="portal-grid">
+
+        <input id="driverName"
+          placeholder="Driver name">
+
+        <input id="driverPhone"
+          placeholder="Driver phone">
+
+        <input id="vehicle"
+          placeholder="Vehicle">
+
+        <input id="eta"
+          placeholder="Estimated delivery time">
+
+        <select id="driverStatus">
+          <option>Order received</option>
+          <option>Order confirmed</option>
+          <option>Preparing order</option>
+          <option>Driver assigned</option>
+          <option>Out for delivery</option>
+          <option>Delivered</option>
+        </select>
+
+        <input id="recipientName"
+          placeholder="Recipient name">
+
+      </div>
+
+      <textarea
+        id="deliveryNote"
+        placeholder="Delivery note"
+        style="width:100%;margin-top:12px;border:1px solid #ddd;border-radius:12px;padding:13px;min-height:90px;"
+      ></textarea>
+
+      <button
+        onclick="saveDriverUpdate()"
+        style="width:100%;margin-top:12px;"
+      >
+        Save Delivery Update
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
 
 </main>
 
-<!-- ================= FOOTER ================= -->
 
-<footer>
+<!-- FOOTER -->
+
+<footer class="footer">
 
   <div class="footer-inner">
 
-    <div class="footer-main">
+    <div>
 
-      <div class="footer-brand">
-
-        <strong>
-          AEROZONE
-        </strong>
-
-        <p>
-          Shop online. Order easily. Get delivered.
-        </p>
-
-        <p>
-          WhatsApp: 068 868 5355
-        </p>
-
+      <div class="footer-logo">
+        AEROZONE
       </div>
 
-      <div class="footer-actions">
-
-        <button onclick="openTracking()">
-          Track Order
-        </button>
-
-        <button onclick="openDeliveryPortal()">
-          Delivery Portal
-        </button>
-
-        <button onclick="openCart()">
-          Cart
-        </button>
-
+      <div class="footer-text">
+        Shop online. Order easily. Get delivered.<br>
+        WhatsApp: 068 868 5355
       </div>
 
     </div>
 
-    <div class="footer-bottom">
+    <div class="footer-actions">
 
-      <span>
-        © 2026 AeroZone
-      </span>
+      <button class="footer-btn"
+        onclick="openTracking()">
+        Track Order
+      </button>
 
-      <span>
-        South Africa • Online shopping & delivery
-      </span>
+      <button class="footer-btn"
+        onclick="openDeliveryPortal()">
+        Delivery Portal
+      </button>
+
+      <button class="footer-btn"
+        onclick="openCart()">
+        Cart
+      </button>
 
     </div>
 
@@ -1131,264 +1386,557 @@ footer{
 
 </footer>
 
-<!-- FIREBASE STATUS -->
-
-<div
-  class="firebase-status"
-  id="firebaseStatus">
-  Connecting...
 </div>
 
-<!-- ================= CART ================= -->
+
+<!-- OVERLAY -->
 
 <div
+  id="overlay"
   class="overlay"
-  id="cartOverlay">
+  onclick="closeAll()">
+</div>
 
-  <div class="modal">
+
+<!-- CART -->
+
+<aside id="cartDrawer" class="cart-drawer">
+
+  <div class="cart-header">
+
+    <h2>Your Cart</h2>
 
     <button
-      class="close"
-      onclick="closeOverlay('cartOverlay')">
+      class="close-btn"
+      onclick="closeCart()">
       ×
     </button>
 
-    <h2>
-      Your Cart
-    </h2>
+  </div>
 
-    <div id="cartItems"></div>
+  <div id="cartItems" class="cart-items"></div>
 
-    <div
-      class="summary"
-      id="cartSummary">
+  <div class="cart-footer">
+
+    <div class="summary-row">
+      <span>Subtotal</span>
+      <strong id="subtotal">R0.00</strong>
+    </div>
+
+    <div class="summary-row">
+      <span>Delivery</span>
+      <strong id="deliveryFee">R0.00</strong>
+    </div>
+
+    <div class="summary-row total">
+      <span>Total</span>
+      <strong id="cartTotal">R0.00</strong>
     </div>
 
     <button
-      class="primary"
+      class="checkout-btn"
       onclick="openCheckout()">
       Continue to Checkout
     </button>
 
-    <button
-      class="secondary"
-      onclick="closeOverlay('cartOverlay')">
-      Continue Shopping
-    </button>
-
   </div>
 
-</div>
+</aside>
 
-<!-- ================= CHECKOUT ================= -->
 
-<div
-  class="overlay"
-  id="checkoutOverlay">
+<!-- CHECKOUT MODAL -->
 
-  <div class="modal">
+<div id="checkoutModal" class="modal">
 
-    <button
-      class="close"
-      onclick="closeOverlay('checkoutOverlay')">
-      ×
-    </button>
+  <div class="modal-card">
 
-    <h2>
-      Checkout
-    </h2>
+    <div class="modal-head">
 
-    <div class="field">
-      <label>Full Name</label>
-      <input
-        id="customerName"
-        placeholder="Your full name">
-    </div>
-
-    <div class="field">
-      <label>Phone Number</label>
-      <input
-        id="customerPhone"
-        placeholder="068 868 5355"
-        inputmode="tel">
-    </div>
-
-    <div class="field">
-      <label>Delivery Address</label>
-      <textarea
-        id="customerAddress"
-        placeholder="House number, street, suburb, city">
-      </textarea>
-    </div>
-
-    <div class="field">
-      <label>Delivery Date</label>
-      <input
-        id="deliveryDate"
-        type="date">
-    </div>
-
-    <div class="field">
-      <label>Preferred Time</label>
-      <input
-        id="deliveryTime"
-        type="time">
-    </div>
-
-    <div class="field">
-      <label>Payment</label>
-
-      <select id="paymentMethod">
-
-        <option>
-          Cash on Delivery
-        </option>
-
-        <option>
-          EFT / Bank Transfer
-        </option>
-
-        <option>
-          WhatsApp Payment Arrangement
-        </option>
-
-      </select>
-
-    </div>
-
-    <div class="field">
-
-      <label>
-        Order Notes
-      </label>
-
-      <textarea
-        id="orderNotes"
-        placeholder="Anything we should know?">
-      </textarea>
-
-    </div>
-
-    <div
-      class="summary"
-      id="checkoutSummary">
-    </div>
-
-    <button
-      class="primary"
-      id="placeOrderButton"
-      onclick="placeOrder()">
-
-      Place Order
-
-    </button>
-
-  </div>
-
-</div>
-
-<!-- ================= TRACKING ================= -->
-
-<div
-  class="overlay"
-  id="trackingOverlay">
-
-  <div class="modal">
-
-    <button
-      class="close"
-      onclick="closeOverlay('trackingOverlay')">
-      ×
-    </button>
-
-    <h2>
-      Track Your Order
-    </h2>
-
-    <div class="field">
-
-      <label>
-        Order Number
-      </label>
-
-      <input
-        id="trackingNumber"
-        placeholder="Example: AZABC1234567890">
-
-    </div>
-
-    <button
-      class="primary"
-      onclick="trackOrder()">
-
-      Track Order
-
-    </button>
-
-    <div
-      id="trackingResult"
-      style="margin-top:20px">
-    </div>
-
-  </div>
-
-</div>
-
-<!-- ================= DRIVER PORTAL ================= -->
-
-<div
-  class="overlay"
-  id="deliveryOverlay">
-
-  <div class="modal">
-
-    <button
-      class="close"
-      onclick="closeOverlay('deliveryOverlay')">
-      ×
-    </button>
-
-    <h2>
-      Delivery Portal
-    </h2>
-
-    <!-- DRIVER LOGIN -->
-
-    <div id="driverLoginArea">
-
-      <div class="portal-note">
-
-        Driver access only.
-        Sign in with your authorized Firebase driver account.
-
-      </div>
-
-      <div class="field">
-
-        <label>
-          Driver Email
-        </label>
-
-        <input
-          id="driverEmail"
-          type="email"
-          placeholder="driver@example.com">
-
-      </div>
-
-      <div class="field">
-
-        <label>
-          Password
-        </label>
-
-        <input
-          id="driverPassword"
-          type="password"
-          placeholder="Password">
-
+      <div>
+        <h2>Checkout</h2>
+        <p style="color:#888;font-size:13px;margin-top:4px;">
+          Enter your delivery details.
+        </p>
       </div>
 
       <button
-        class="primary"
-        onclick="driver
+        class="close-btn"
+        onclick="closeCheckout()">
+        ×
+      </button>
+
+    </div>
+
+    <form id="checkoutForm">
+
+      <div class="form-grid">
+
+        <div class="field">
+          <label>Full Name</label>
+          <input id="customerName" required>
+        </div>
+
+        <div class="field">
+          <label>Phone Number</label>
+          <input
+            id="customerPhone"
+            type="tel"
+            required
+            placeholder="06..."
+          >
+        </div>
+
+        <div class="field full">
+          <label>Delivery Address</label>
+          <input
+            id="customerAddress"
+            required
+            placeholder="House number, street, area"
+          >
+        </div>
+
+        <div class="field">
+          <label>Delivery Date</label>
+          <input id="deliveryDate" type="date">
+        </div>
+
+        <div class="field">
+          <label>Preferred Time</label>
+          <input id="deliveryTime" type="time">
+        </div>
+
+        <div class="field full">
+          <label>Payment</label>
+
+          <div class="payment-options">
+
+            <label class="payment">
+              <input
+                type="radio"
+                name="payment"
+                value="Cash on delivery"
+                checked
+              >
+              Cash on delivery
+            </label>
+
+            <label class="payment">
+              <input
+                type="radio"
+                name="payment"
+                value="WhatsApp payment"
+              >
+              Payment arranged on WhatsApp
+            </label>
+
+          </div>
+
+        </div>
+
+        <div class="field full">
+          <label>Special Instructions</label>
+
+          <textarea
+            id="orderNotes"
+            placeholder="Anything the driver should know?"
+          ></textarea>
+
+        </div>
+
+      </div>
+
+      <button class="submit-btn" type="submit">
+        Place Order
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div id="toast" class="toast"></div>
+
+
+<script type="module">
+
+/* ============================================================
+   FIREBASE
+============================================================ */
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+import {
+  getDatabase,
+  ref,
+  set,
+  get,
+  update,
+  onValue
+}
+from "https://www.gstatic.com/firebasejs/12.18.0/firebase-database.js";
+
+
+const firebaseConfig = {
+
+  apiKey:
+    "AIzaSyAJyg588sAeCJlxvhfjFrnYeQfHfGOOhY0",
+
+  authDomain:
+    "aerozone-e516a.firebaseapp.com",
+
+  databaseURL:
+    "https://aerozone-e516a-default-rtdb.firebaseio.com",
+
+  projectId:
+    "aerozone-e516a",
+
+  storageBucket:
+    "aerozone-e516a.firebasestorage.app",
+
+  messagingSenderId:
+    "512229141027",
+
+  appId:
+    "1:512229141027:web:8fde8bbf9788fdc6d35f96",
+
+  measurementId:
+    "G-2N43M83NC8"
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const db = getDatabase(app);
+
+
+/* ============================================================
+   PRODUCTS
+============================================================ */
+
+const products = {
+
+supermarket: [
+
+{
+name:"Full Cream Milk 2L",
+price:32.99,
+emoji:"🥛",
+description:"Fresh full cream milk",
+category:"Dairy"
+},
+
+{
+name:"White Bread",
+price:18.99,
+emoji:"🍞",
+description:"Fresh sliced bread",
+category:"Bakery"
+},
+
+{
+name:"Long Grain Rice 2kg",
+price:39.99,
+emoji:"🍚",
+description:"Everyday rice",
+category:"Pantry"
+},
+
+{
+name:"Sunflower Oil 2L",
+price:54.99,
+emoji:"🫗",
+description:"Cooking oil",
+category:"Pantry"
+},
+
+{
+name:"White Sugar 2kg",
+price:39.99,
+emoji:"🧂",
+description:"Household sugar",
+category:"Pantry"
+},
+
+{
+name:"Breakfast Cereal",
+price:49.99,
+emoji:"🥣",
+description:"Family breakfast cereal",
+category:"Breakfast"
+},
+
+{
+name:"Eggs 18 Pack",
+price:64.99,
+emoji:"🥚",
+description:"Fresh eggs",
+category:"Dairy"
+},
+
+{
+name:"Bottled Water 6 Pack",
+price:39.99,
+emoji:"💧",
+description:"Still drinking water",
+category:"Drinks"
+}
+
+],
+
+pharmacy:[
+
+{
+name:"Hand Sanitiser",
+price:29.99,
+emoji:"🧴",
+description:"Alcohol hand sanitiser",
+category:"Personal Care"
+},
+
+{
+name:"Toothpaste",
+price:34.99,
+emoji:"🪥",
+description:"Daily dental care",
+category:"Dental"
+},
+
+{
+name:"Shampoo",
+price:49.99,
+emoji:"🧴",
+description:"Everyday shampoo",
+category:"Hair Care"
+},
+
+{
+name:"Body Lotion",
+price:44.99,
+emoji:"🧴",
+description:"Moisturising lotion",
+category:"Body Care"
+},
+
+{
+name:"Face Wash",
+price:59.99,
+emoji:"🧼",
+description:"Daily face cleanser",
+category:"Skin Care"
+},
+
+{
+name:"Baby Wipes",
+price:39.99,
+emoji:"🧻",
+description:"Gentle baby wipes",
+category:"Baby Care"
+}
+
+],
+
+restaurant:[
+
+{
+name:"Chicken & Chips",
+price:79.99,
+emoji:"🍗",
+description:"Chicken meal with chips",
+category:"Meals"
+},
+
+{
+name:"Beef Burger Meal",
+price:89.99,
+emoji:"🍔",
+description:"Burger, chips and drink",
+category:"Meals"
+},
+
+{
+name:"Grilled Chicken",
+price:99.99,
+emoji:"🍗",
+description:"Grilled chicken meal",
+category:"Meals"
+},
+
+{
+name:"Pizza",
+price:119.99,
+emoji:"🍕",
+description:"Freshly prepared pizza",
+category:"Pizza"
+},
+
+{
+name:"Pasta",
+price:89.99,
+emoji:"🍝",
+description:"Fresh pasta meal",
+category:"Meals"
+},
+
+{
+name:"Family Meal",
+price:199.99,
+emoji:"🍱",
+description:"Family sharing meal",
+category:"Family"
+}
+
+],
+
+fastfood:[
+
+{
+name:"Classic Burger",
+price:49.99,
+emoji:"🍔",
+description:"Classic beef burger",
+category:"Burgers"
+},
+
+{
+name:"Chicken Burger",
+price:54.99,
+emoji:"🍔",
+description:"Crispy chicken burger",
+category:"Burgers"
+},
+
+{
+name:"Large Chips",
+price:34.99,
+emoji:"🍟",
+description:"Crispy chips",
+category:"Sides"
+},
+
+{
+name:"Chicken Wings",
+price:69.99,
+emoji:"🍗",
+description:"Crispy chicken wings",
+category:"Chicken"
+},
+
+{
+name:"Hotdog",
+price:44.99,
+emoji:"🌭",
+description:"Classic hotdog",
+category:"Fast Food"
+},
+
+{
+name:"Soft Drink",
+price:19.99,
+emoji:"🥤",
+description:"Cold soft drink",
+category:"Drinks"
+}
+
+],
+
+butchery:[
+
+{
+name:"Beef Steak 1kg",
+price:159.99,
+emoji:"🥩",
+description:"Fresh beef steak",
+category:"Beef"
+},
+
+{
+name:"Beef Mince 1kg",
+price:109.99,
+emoji:"🥩",
+description:"Fresh beef mince",
+category:"Beef"
+},
+
+{
+name:"Chicken Portions",
+price:79.99,
+emoji:"🍗",
+description:"Fresh chicken portions",
+category:"Chicken"
+},
+
+{
+name:"Boerewors 1kg",
+price:119.99,
+emoji:"🌭",
+description:"Traditional boerewors",
+category:"Sausage"
+},
+
+{
+name:"Lamb Chops",
+price:179.99,
+emoji:"🥩",
+description:"Fresh lamb chops",
+category:"Lamb"
+},
+
+{
+name:"Chicken Wings 1kg",
+price:89.99,
+emoji:"🍗",
+description:"Fresh chicken wings",
+category:"Chicken"
+}
+
+],
+
+bakery:[
+
+{
+name:"White Loaf",
+price:18.99,
+emoji:"🍞",
+description:"Fresh baked bread",
+category:"Bread"
+},
+
+{
+name:"Brown Bread",
+price:19.99,
+emoji:"🍞",
+description:"Fresh brown bread",
+category:"Bread"
+},
+
+{
+name:"Croissant",
+price:24.99,
+emoji:"🥐",
+description:"Fresh butter croissant",
+category:"Pastry"
+},
+
+{
+name:"Muffin",
+price:22.99,
+emoji:"🧁",
+description:"Fresh baked muffin",
+category:"Pastry"
+},
+
+{
+name:"Doughnuts",
+price:39.99,
+emoji:"🍩",
+description:"Box of doughnuts",
+category:"Sweet"
+},
+
+{
+name:"Birthday Cake
