@@ -4,17 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AeroZone | Premium Shopping & Delivery</title>
+<title>AeroZone | Food, Groceries & Shopping</title>
 
 <meta name="description"
-content="AeroZone - premium groceries, food, drinks, beauty and everyday essentials delivered in South Africa.">
+content="AeroZone - food, groceries, drinks, beauty, household and pet products delivered to your door in South Africa.">
 
 <meta name="theme-color" content="#050505">
 
 <style>
+
 /* =========================================================
-   AEROZONE PREMIUM SHOPPING APP
-   COMPLETE SINGLE-FILE VERSION
+   AEROZONE MARKETPLACE
 ========================================================= */
 
 *{
@@ -61,14 +61,14 @@ header{
     z-index:1000;
     background:#050505;
     color:#fff;
-    box-shadow:0 4px 25px rgba(0,0,0,.2);
+    box-shadow:0 4px 25px rgba(0,0,0,.25);
 }
 
 .header{
-    max-width:1350px;
+    max-width:1400px;
     margin:auto;
-    padding:12px 20px;
     min-height:72px;
+    padding:12px 20px;
     display:flex;
     align-items:center;
     gap:18px;
@@ -114,23 +114,23 @@ header{
 }
 
 .search:focus{
-    border-color:#aaa;
+    border-color:#999;
 }
 
 .search-icon{
     position:absolute;
     left:17px;
     top:10px;
-    font-size:20px;
     color:#555;
+    font-size:20px;
 }
 
 .cart-btn{
     background:#fff;
     color:#111;
+    padding:11px 18px;
     border-radius:25px;
-    padding:11px 19px;
-    font-weight:800;
+    font-weight:900;
     white-space:nowrap;
 }
 
@@ -139,7 +139,7 @@ header{
 }
 
 /* =========================================================
-   QUICK NAV
+   NAV
 ========================================================= */
 
 .quick{
@@ -147,8 +147,8 @@ header{
     border-bottom:1px solid #e5e5e5;
     display:flex;
     gap:8px;
-    overflow-x:auto;
     padding:10px 18px;
+    overflow-x:auto;
     scrollbar-width:none;
 }
 
@@ -160,10 +160,10 @@ header{
     background:#f2f2f2;
     color:#111;
     padding:9px 17px;
-    border-radius:20px;
+    border-radius:22px;
     white-space:nowrap;
     font-size:13px;
-    font-weight:600;
+    font-weight:700;
 }
 
 .quick button:hover,
@@ -177,10 +177,10 @@ header{
 ========================================================= */
 
 .hero{
-    max-width:1350px;
-    margin:20px auto;
-    min-height:430px;
-    padding:60px 45px;
+    max-width:1400px;
+    margin:18px auto;
+    min-height:420px;
+    padding:58px 45px;
     border-radius:24px;
     background:#050505;
     color:#fff;
@@ -191,10 +191,10 @@ header{
 .hero:before{
     content:"";
     position:absolute;
-    width:500px;
-    height:500px;
-    right:-200px;
-    top:-220px;
+    width:520px;
+    height:520px;
+    right:-210px;
+    top:-230px;
     border:1px solid #333;
     border-radius:50%;
 }
@@ -202,10 +202,10 @@ header{
 .hero:after{
     content:"";
     position:absolute;
-    width:300px;
-    height:300px;
-    right:60px;
-    bottom:-210px;
+    width:310px;
+    height:310px;
+    right:80px;
+    bottom:-220px;
     border:1px solid #333;
     border-radius:50%;
 }
@@ -213,7 +213,7 @@ header{
 .hero-content{
     position:relative;
     z-index:2;
-    max-width:800px;
+    max-width:820px;
 }
 
 .badge{
@@ -221,14 +221,14 @@ header{
     border:1px solid #444;
     border-radius:20px;
     padding:7px 14px;
-    font-size:12px;
     color:#ccc;
-    margin-bottom:20px;
+    font-size:12px;
+    margin-bottom:19px;
 }
 
 .hero h1{
-    font-size:52px;
-    line-height:1.04;
+    font-size:53px;
+    line-height:1.03;
     letter-spacing:-2.5px;
     margin-bottom:17px;
 }
@@ -238,8 +238,8 @@ header{
 }
 
 .hero p{
+    color:#c7c7c7;
     font-size:17px;
-    color:#c8c8c8;
     max-width:700px;
     margin-bottom:28px;
 }
@@ -247,13 +247,13 @@ header{
 .delivery-box{
     display:flex;
     gap:9px;
-    max-width:700px;
+    max-width:720px;
 }
 
 .delivery-box input{
     flex:1;
     height:50px;
-    border:none;
+    border:0;
     border-radius:8px;
     padding:0 16px;
     outline:none;
@@ -263,20 +263,16 @@ header{
     height:50px;
     background:#fff;
     color:#111;
+    padding:0 22px;
     border-radius:8px;
-    padding:0 21px;
-    font-weight:800;
-}
-
-.delivery-box button:hover{
-    background:#ddd;
+    font-weight:900;
 }
 
 .hero-features{
     display:flex;
+    flex-wrap:wrap;
     gap:28px;
     margin-top:30px;
-    flex-wrap:wrap;
 }
 
 .hero-feature{
@@ -293,7 +289,7 @@ header{
 ========================================================= */
 
 .container{
-    max-width:1350px;
+    max-width:1400px;
     margin:auto;
     padding:0 20px;
 }
@@ -319,7 +315,7 @@ header{
 }
 
 /* =========================================================
-   STORES
+   STORE CARDS
 ========================================================= */
 
 .stores{
@@ -329,9 +325,9 @@ header{
 }
 
 .store{
-    background:#fff;
-    border:1px solid #e4e4e4;
+    border:1px solid #e2e2e2;
     border-radius:17px;
+    background:#fff;
     padding:23px 15px;
     text-align:center;
     transition:.2s;
@@ -339,7 +335,7 @@ header{
 
 .store:hover{
     transform:translateY(-4px);
-    box-shadow:0 12px 30px rgba(0,0,0,.09);
+    box-shadow:0 12px 30px rgba(0,0,0,.1);
 }
 
 .store-icon{
@@ -357,13 +353,18 @@ header{
 
 .store-name{
     font-size:17px;
-    font-weight:800;
+    font-weight:900;
+}
+
+.store-rating{
+    font-size:12px;
+    margin:4px 0;
 }
 
 .store-text{
-    font-size:13px;
     color:#777;
-    margin:5px 0 15px;
+    font-size:12px;
+    margin-bottom:13px;
 }
 
 .store button{
@@ -371,8 +372,8 @@ header{
     color:#fff;
     border-radius:7px;
     padding:9px 18px;
-    font-size:13px;
-    font-weight:bold;
+    font-weight:800;
+    font-size:12px;
 }
 
 /* =========================================================
@@ -381,7 +382,7 @@ header{
 
 .categories{
     display:flex;
-    gap:8px;
+    gap:9px;
     overflow-x:auto;
     padding-bottom:5px;
     scrollbar-width:none;
@@ -394,9 +395,11 @@ header{
 .categories button{
     background:#fff;
     border:1px solid #ddd;
-    padding:10px 17px;
     border-radius:22px;
+    padding:10px 17px;
     white-space:nowrap;
+    font-size:13px;
+    font-weight:700;
 }
 
 .categories button:hover,
@@ -407,36 +410,104 @@ header{
 }
 
 /* =========================================================
-   PRODUCTS
+   DEALS
+========================================================= */
+
+.deals{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.deal-card{
+    background:#111;
+    color:#fff;
+    border-radius:16px;
+    padding:24px;
+    min-height:150px;
+    position:relative;
+    overflow:hidden;
+}
+
+.deal-card:after{
+    content:"";
+    position:absolute;
+    width:150px;
+    height:150px;
+    border:1px solid #333;
+    border-radius:50%;
+    right:-60px;
+    bottom:-70px;
+}
+
+.deal-card small{
+    color:#aaa;
+    font-size:11px;
+}
+
+.deal-card h3{
+    margin:7px 0;
+    font-size:20px;
+}
+
+.deal-card p{
+    color:#aaa;
+    font-size:12px;
+}
+
+.deal-card button{
+    margin-top:14px;
+    background:#fff;
+    color:#111;
+    padding:9px 14px;
+    border-radius:7px;
+    font-weight:800;
+    font-size:12px;
+}
+
+/* =========================================================
+   PRODUCT GRID
 ========================================================= */
 
 .products{
     display:grid;
     grid-template-columns:repeat(5,1fr);
     gap:15px;
-    padding-bottom:30px;
 }
 
 .product{
-    background:#fff;
     border:1px solid #e5e5e5;
     border-radius:15px;
+    background:#fff;
     overflow:hidden;
     transition:.2s;
 }
 
 .product:hover{
     transform:translateY(-4px);
-    box-shadow:0 12px 30px rgba(0,0,0,.10);
+    box-shadow:0 12px 30px rgba(0,0,0,.1);
 }
 
 .product-image{
-    height:175px;
+    height:170px;
     background:#f3f3f3;
     display:flex;
-    align-items:center;
     justify-content:center;
-    font-size:62px;
+    align-items:center;
+    font-size:61px;
+    position:relative;
+}
+
+.product-badge{
+    position:absolute;
+    top:9px;
+    left:9px;
+    background:#111;
+    color:#fff;
+    padding:5px 8px;
+    border-radius:5px;
+    font-size:9px;
+    font-weight:900;
 }
 
 .product-info{
@@ -444,30 +515,48 @@ header{
 }
 
 .product-name{
-    font-weight:800;
-    font-size:15px;
+    font-weight:900;
+    font-size:14px;
     min-height:42px;
 }
 
 .product-store{
-    font-size:12px;
     color:#777;
-    margin:4px 0;
+    font-size:11px;
+    margin-top:3px;
+}
+
+.product-rating{
+    font-size:11px;
+    margin-top:4px;
+}
+
+.product-price-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:8px;
 }
 
 .price{
-    font-size:20px;
+    font-size:19px;
     font-weight:900;
-    margin:8px 0;
+}
+
+.old-price{
+    color:#999;
+    text-decoration:line-through;
+    font-size:11px;
+    margin-left:4px;
 }
 
 .add{
-    width:100%;
     background:#111;
     color:#fff;
-    padding:11px;
     border-radius:7px;
-    font-weight:800;
+    padding:9px 11px;
+    font-weight:900;
+    font-size:12px;
 }
 
 .add:hover{
@@ -477,44 +566,45 @@ header{
 .no-products{
     grid-column:1/-1;
     text-align:center;
-    padding:50px;
+    padding:60px 20px;
     color:#777;
     border:1px dashed #ddd;
     border-radius:15px;
 }
 
 /* =========================================================
-   DEAL
+   INFO BAR
 ========================================================= */
 
-.deal{
-    margin:15px 0 35px;
-    border-radius:18px;
-    background:#111;
-    color:#fff;
-    padding:30px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
+.info-bar{
+    margin:40px 0;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
 }
 
-.deal h2{
-    font-size:26px;
-    margin-bottom:5px;
+.info{
+    border:1px solid #e4e4e4;
+    border-radius:14px;
+    padding:18px;
+    text-align:center;
 }
 
-.deal p{
+.info-icon{
+    font-size:27px;
+    margin-bottom:7px;
+}
+
+.info strong{
+    display:block;
     font-size:14px;
-    color:#aaa;
 }
 
-.deal button{
-    background:#fff;
-    color:#111;
-    padding:12px 20px;
-    border-radius:8px;
-    font-weight:bold;
+.info span{
+    display:block;
+    color:#777;
+    font-size:11px;
+    margin-top:3px;
 }
 
 /* =========================================================
@@ -534,7 +624,6 @@ header{
 
 .contact-info h2{
     font-size:20px;
-    margin-bottom:4px;
 }
 
 .contact-info p{
@@ -547,16 +636,11 @@ header{
     color:#fff;
     padding:12px 18px;
     border-radius:8px;
-    font-weight:bold;
-    white-space:nowrap;
-}
-
-.whatsapp-link:hover{
-    background:#333;
+    font-weight:900;
 }
 
 /* =========================================================
-   CART OVERLAY
+   CART
 ========================================================= */
 
 .cart-overlay{
@@ -571,22 +655,18 @@ header{
     display:block;
 }
 
-/* =========================================================
-   CART
-========================================================= */
-
 .cart{
     position:fixed;
-    right:-500px;
     top:0;
-    width:470px;
+    right:-510px;
+    width:480px;
     max-width:96%;
     height:100vh;
     background:#fff;
     z-index:2000;
     display:flex;
     flex-direction:column;
-    box-shadow:-12px 0 40px rgba(0,0,0,.25);
+    box-shadow:-15px 0 40px rgba(0,0,0,.3);
     transition:right .25s ease;
 }
 
@@ -613,7 +693,7 @@ header{
     border-radius:50%;
     background:#fff;
     color:#111;
-    font-weight:bold;
+    font-weight:900;
 }
 
 .cart-items{
@@ -625,7 +705,7 @@ header{
 .empty-cart{
     text-align:center;
     color:#777;
-    padding:60px 20px;
+    padding:65px 20px;
 }
 
 .empty-cart-icon{
@@ -643,13 +723,13 @@ header{
 .cart-icon{
     width:58px;
     height:58px;
+    flex-shrink:0;
     background:#f2f2f2;
     border-radius:9px;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:28px;
-    flex-shrink:0;
+    font-size:27px;
 }
 
 .cart-details{
@@ -658,12 +738,16 @@ header{
 
 .cart-name{
     font-size:14px;
-    font-weight:bold;
+    font-weight:900;
+}
+
+.cart-store{
+    color:#777;
+    font-size:10px;
 }
 
 .cart-price{
     font-size:13px;
-    color:#666;
     margin-top:3px;
 }
 
@@ -677,21 +761,20 @@ header{
 .qty button{
     width:27px;
     height:27px;
-    background:#eee;
     border-radius:5px;
+    background:#eee;
 }
 
 .qty span{
     min-width:18px;
     text-align:center;
-    font-weight:bold;
+    font-weight:900;
 }
 
 .remove{
     background:none;
     color:#888;
     font-size:11px;
-    padding:3px;
     margin-top:4px;
 }
 
@@ -702,7 +785,7 @@ header{
 .checkout{
     border-top:1px solid #ddd;
     padding:15px;
-    max-height:52vh;
+    max-height:58vh;
     overflow-y:auto;
 }
 
@@ -718,58 +801,51 @@ header{
     border:1px solid #ddd;
     border-radius:7px;
     padding:11px 12px;
-    outline:none;
     margin-bottom:8px;
+    outline:none;
     background:#fff;
 }
 
 .checkout textarea{
-    min-height:70px;
+    min-height:65px;
     resize:vertical;
-}
-
-.checkout input:focus,
-.checkout select:focus,
-.checkout textarea:focus{
-    border-color:#111;
 }
 
 .payment-title{
     font-size:14px;
-    font-weight:800;
+    font-weight:900;
     margin:8px 0;
 }
 
 .payment-options{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:8px;
-    margin-bottom:10px;
+    gap:7px;
 }
 
 .payment-option{
     border:1px solid #ddd;
+    background:#fff;
     border-radius:8px;
     padding:10px;
-    font-size:12px;
-    font-weight:bold;
-    background:#fff;
+    font-size:11px;
+    font-weight:900;
     text-align:left;
 }
 
-.payment-option:hover,
 .payment-option.selected{
+    background:#111;
+    color:#fff;
     border-color:#111;
-    background:#f5f5f5;
 }
 
 .payment-note{
     display:none;
-    background:#f6f6f6;
+    background:#f4f4f4;
     border-radius:8px;
-    padding:11px;
-    font-size:12px;
-    margin-bottom:9px;
+    padding:10px;
+    margin:8px 0;
+    font-size:11px;
     color:#555;
 }
 
@@ -781,13 +857,13 @@ header{
     display:flex;
     justify-content:space-between;
     margin:7px 0;
-    font-size:14px;
+    font-size:13px;
 }
 
 .total{
-    font-size:22px;
+    font-size:21px;
     font-weight:900;
-    margin:10px 0 12px;
+    margin:10px 0;
 }
 
 .checkout-btn{
@@ -795,7 +871,7 @@ header{
     background:#111;
     color:#fff;
     padding:14px;
-    border-radius:7px;
+    border-radius:8px;
     font-weight:900;
 }
 
@@ -820,7 +896,6 @@ header{
     opacity:0;
     transition:.25s;
     font-size:13px;
-    box-shadow:0 8px 30px rgba(0,0,0,.2);
 }
 
 .toast.show{
@@ -835,12 +910,11 @@ header{
 footer{
     background:#050505;
     color:#fff;
-    margin-top:10px;
     padding:45px 20px 28px;
 }
 
 .footer-inner{
-    max-width:1350px;
+    max-width:1400px;
     margin:auto;
     display:grid;
     grid-template-columns:2fr 1fr 1fr 1fr;
@@ -853,15 +927,15 @@ footer{
 }
 
 .footer-brand p{
-    font-size:13px;
     color:#999;
-    max-width:430px;
+    font-size:13px;
+    max-width:440px;
 }
 
 .footer-contact{
     margin-top:15px;
-    font-weight:bold;
     font-size:14px;
+    font-weight:900;
 }
 
 .footer-contact a{
@@ -875,36 +949,40 @@ footer h3{
 
 footer a{
     display:block;
-    font-size:13px;
     color:#aaa;
+    font-size:13px;
     margin:7px 0;
 }
 
-footer a:hover{
-    color:#fff;
-}
-
 .footer-bottom{
-    max-width:1350px;
+    max-width:1400px;
     margin:30px auto 0;
     padding-top:20px;
     border-top:1px solid #222;
     text-align:center;
-    font-size:12px;
     color:#777;
+    font-size:12px;
 }
 
 /* =========================================================
-   MOBILE
+   RESPONSIVE
 ========================================================= */
 
-@media(max-width:1050px){
+@media(max-width:1100px){
 
     .products{
         grid-template-columns:repeat(4,1fr);
     }
 
     .stores{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .deals{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .info-bar{
         grid-template-columns:repeat(2,1fr);
     }
 
@@ -949,7 +1027,7 @@ footer a:hover{
 
     .hero h1{
         font-size:34px;
-        letter-spacing:-1.4px;
+        letter-spacing:-1.5px;
     }
 
     .hero p{
@@ -1003,12 +1081,16 @@ footer a:hover{
     }
 
     .store-text{
-        font-size:11px;
+        font-size:10px;
     }
 
     .store button{
-        font-size:11px;
+        font-size:10px;
         padding:8px 11px;
+    }
+
+    .deals{
+        grid-template-columns:1fr;
     }
 
     .products{
@@ -1018,7 +1100,7 @@ footer a:hover{
 
     .product-image{
         height:125px;
-        font-size:48px;
+        font-size:47px;
     }
 
     .product-info{
@@ -1026,30 +1108,49 @@ footer a:hover{
     }
 
     .product-name{
-        font-size:13px;
+        font-size:12px;
     }
 
     .product-store{
-        font-size:10px;
+        font-size:9px;
+    }
+
+    .product-rating{
+        font-size:9px;
     }
 
     .price{
-        font-size:17px;
+        font-size:16px;
+    }
+
+    .old-price{
+        display:none;
     }
 
     .add{
+        padding:9px 7px;
+        font-size:10px;
+    }
+
+    .info-bar{
+        grid-template-columns:1fr 1fr;
+        gap:8px;
+    }
+
+    .info{
+        padding:13px 7px;
+    }
+
+    .info-icon{
+        font-size:22px;
+    }
+
+    .info strong{
         font-size:12px;
-        padding:10px 5px;
     }
 
-    .deal{
-        padding:22px 17px;
-        flex-direction:column;
-        align-items:flex-start;
-    }
-
-    .deal h2{
-        font-size:21px;
+    .info span{
+        font-size:9px;
     }
 
     .contact-strip{
@@ -1071,14 +1172,14 @@ footer a:hover{
         grid-column:1/-1;
     }
 
-    .payment-options{
-        grid-template-columns:1fr 1fr;
-    }
 }
+
 </style>
 </head>
 
+
 <body>
+
 
 <!-- =========================================================
      HEADER
@@ -1088,28 +1189,35 @@ footer a:hover{
 
 <div class="header">
 
-    <div class="logo">
-        Aero<span>Zone</span>
-        <span class="logo-mark">◈</span>
-    </div>
+<div class="logo">
+Aero<span>Zone</span>
+<span class="logo-mark">◈</span>
+</div>
 
-    <div class="search-wrap">
 
-        <span class="search-icon">⌕</span>
+<div class="search-wrap">
 
-        <input
-            id="search"
-            class="search"
-            type="search"
-            placeholder="Search groceries, food, beauty..."
-            autocomplete="off"
-        >
+<span class="search-icon">⌕</span>
 
-    </div>
+<input
+id="search"
+class="search"
+type="search"
+placeholder="Search food, groceries, drinks..."
+autocomplete="off"
+>
 
-    <button class="cart-btn" onclick="openCart()">
-        🛒 Cart (<span id="cartCount">0</span>)
-    </button>
+</div>
+
+
+<button
+class="cart-btn"
+onclick="openCart()">
+
+🛒 Cart
+(<span id="cartCount">0</span>)
+
+</button>
 
 </div>
 
@@ -1117,37 +1225,43 @@ footer a:hover{
 
 
 <!-- =========================================================
-     QUICK NAVIGATION
+     NAVIGATION
 ========================================================= -->
 
 <nav class="quick">
 
-<button class="active" onclick="showCategory('all',this)">
-    All
-</button>
-
-<button onclick="showCategory('grocery',this)">
-    🛒 Groceries
+<button
+class="active"
+onclick="showCategory('all',this)">
+All
 </button>
 
 <button onclick="showCategory('food',this)">
-    🍔 Food
+🍔 Food
+</button>
+
+<button onclick="showCategory('grocery',this)">
+🛒 Groceries
 </button>
 
 <button onclick="showCategory('drinks',this)">
-    🥤 Drinks
+🥤 Drinks
 </button>
 
 <button onclick="showCategory('beauty',this)">
-    💄 Beauty
+💄 Beauty
 </button>
 
 <button onclick="showCategory('household',this)">
-    🏠 Household
+🏠 Household
 </button>
 
 <button onclick="showCategory('pet',this)">
-    🐾 Pet
+🐾 Pet
+</button>
+
+<button onclick="showCategory('snacks',this)">
+🍫 Snacks
 </button>
 
 </nav>
@@ -1161,54 +1275,56 @@ footer a:hover{
 
 <div class="hero-content">
 
-    <div class="badge">
-        PREMIUM DELIVERY • SOUTH AFRICA
-    </div>
+<div class="badge">
+AEROZONE MARKETPLACE • SOUTH AFRICA
+</div>
 
-    <h1>
-        Everything you need.<br>
-        <span>Delivered to your door.</span>
-    </h1>
+<h1>
+Your everyday shopping.
+<br>
+<span>Delivered to your door.</span>
+</h1>
 
-    <p>
-        Shop groceries, meals, drinks, beauty products
-        and everyday essentials from one convenient
-        AeroZone platform.
-    </p>
+<p>
+Order food, groceries, drinks, beauty products,
+household essentials and pet supplies from AeroZone.
+</p>
 
-    <div class="delivery-box">
 
-        <input
-            id="heroAddress"
-            type="text"
-            placeholder="Enter your delivery address"
-        >
+<div class="delivery-box">
 
-        <button onclick="saveAddress()">
-            Check Delivery
-        </button>
+<input
+id="heroAddress"
+type="text"
+placeholder="Enter your delivery address"
+>
 
-    </div>
+<button onclick="saveAddress()">
+Check Delivery
+</button>
 
-    <div class="hero-features">
+</div>
 
-        <div class="hero-feature">
-            <strong>✓ Fast</strong> delivery
-        </div>
 
-        <div class="hero-feature">
-            <strong>✓ Easy</strong> ordering
-        </div>
+<div class="hero-features">
 
-        <div class="hero-feature">
-            <strong>✓ Flexible</strong> payment
-        </div>
+<div class="hero-feature">
+<strong>✓ Fast</strong> delivery
+</div>
 
-        <div class="hero-feature">
-            <strong>✓ Local</strong> delivery
-        </div>
+<div class="hero-feature">
+<strong>✓ 60+</strong> products
+</div>
 
-    </div>
+<div class="hero-feature">
+<strong>✓ Easy</strong> ordering
+</div>
+
+<div class="hero-feature">
+<strong>✓ South Africa</strong>
+</div>
+
+</div>
 
 </div>
 
@@ -1226,11 +1342,13 @@ footer a:hover{
 
 <div class="section-title">
 
-    <h2>Shop by store</h2>
+<h2>
+Popular stores
+</h2>
 
-    <span>
-        Popular stores
-    </span>
+<span>
+Shop by store
+</span>
 
 </div>
 
@@ -1240,84 +1358,100 @@ footer a:hover{
 
 <div class="store">
 
-    <div class="store-icon">
-        🛒
-    </div>
+<div class="store-icon">
+🍔
+</div>
 
-    <div class="store-name">
-        Checkers
-    </div>
+<div class="store-name">
+Mr Food
+</div>
 
-    <div class="store-text">
-        Groceries & everyday essentials
-    </div>
+<div class="store-rating">
+⭐ 4.8 • 25-40 min
+</div>
 
-    <button onclick="storeFilter('Checkers')">
-        Shop now
-    </button>
+<div class="store-text">
+Burgers, pizza, chicken & meals
+</div>
+
+<button onclick="storeFilter('Mr Food')">
+View menu
+</button>
 
 </div>
 
 
 <div class="store">
 
-    <div class="store-icon">
-        💊
-    </div>
+<div class="store-icon">
+🛒
+</div>
 
-    <div class="store-name">
-        Clicks
-    </div>
+<div class="store-name">
+Checkers
+</div>
 
-    <div class="store-text">
-        Health, beauty & personal care
-    </div>
+<div class="store-rating">
+⭐ 4.7 • 30-50 min
+</div>
 
-    <button onclick="storeFilter('Clicks')">
-        Shop now
-    </button>
+<div class="store-text">
+Groceries & everyday essentials
+</div>
+
+<button onclick="storeFilter('Checkers')">
+Shop groceries
+</button>
 
 </div>
 
 
 <div class="store">
 
-    <div class="store-icon">
-        🍔
-    </div>
+<div class="store-icon">
+💊
+</div>
 
-    <div class="store-name">
-        Mr Food
-    </div>
+<div class="store-name">
+Clicks
+</div>
 
-    <div class="store-text">
-        Meals, takeaways & fast food
-    </div>
+<div class="store-rating">
+⭐ 4.6 • 35-55 min
+</div>
 
-    <button onclick="storeFilter('Mr Food')">
-        Order food
-    </button>
+<div class="store-text">
+Beauty, personal care & health
+</div>
+
+<button onclick="storeFilter('Clicks')">
+Shop beauty
+</button>
 
 </div>
 
 
 <div class="store">
 
-    <div class="store-icon">
-        ⚡
-    </div>
+<div class="store-icon">
+⚡
+</div>
 
-    <div class="store-name">
-        AeroZone
-    </div>
+<div class="store-name">
+AeroZone Market
+</div>
 
-    <div class="store-text">
-        Everything in one place
-    </div>
+<div class="store-rating">
+⭐ 4.9 • Fast delivery
+</div>
 
-    <button onclick="showCategory('all')">
-        Explore
-    </button>
+<div class="store-text">
+Popular products & daily deals
+</div>
+
+<button onclick="showCategory('all')">
+Explore
+</button>
 
 </div>
 
@@ -1335,46 +1469,142 @@ footer a:hover{
 
 <div class="section-title">
 
-    <h2>
-        Browse categories
-    </h2>
+<h2>
+What are you looking for?
+</h2>
 
-    <span>
-        What are you looking for?
-    </span>
+<span>
+Browse categories
+</span>
 
 </div>
 
 
 <div class="categories">
 
-<button class="active" onclick="showCategory('all',this)">
-    All
-</button>
-
-<button onclick="showCategory('grocery',this)">
-    🥬 Groceries
+<button
+class="active"
+onclick="showCategory('all',this)">
+All
 </button>
 
 <button onclick="showCategory('food',this)">
-    🍕 Food
+🍔 Food
+</button>
+
+<button onclick="showCategory('grocery',this)">
+🥬 Groceries
 </button>
 
 <button onclick="showCategory('drinks',this)">
-    🥤 Drinks
+🥤 Drinks
 </button>
 
 <button onclick="showCategory('beauty',this)">
-    💄 Beauty
+💄 Beauty
 </button>
 
 <button onclick="showCategory('household',this)">
-    🧹 Household
+🧹 Household
 </button>
 
 <button onclick="showCategory('pet',this)">
-    🐶 Pet
+🐶 Pet
 </button>
+
+<button onclick="showCategory('snacks',this)">
+🍫 Snacks
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     DEALS
+========================================================= -->
+
+<section class="section">
+
+<div class="section-title">
+
+<h2>
+🔥 Deals & specials
+</h2>
+
+<span>
+Limited offers
+</span>
+
+</div>
+
+
+<div class="deals">
+
+
+<div class="deal-card">
+
+<small>
+FOOD DEAL
+</small>
+
+<h3>
+Burger + Chips
+</h3>
+
+<p>
+AeroZone food special from R79.99
+</p>
+
+<button onclick="searchProduct('Burger')">
+Shop deal
+</button>
+
+</div>
+
+
+<div class="deal-card">
+
+<small>
+GROCERY DEAL
+</small>
+
+<h3>
+Breakfast Essentials
+</h3>
+
+<p>
+Bread, milk and eggs from R99.99
+</p>
+
+<button onclick="showCategory('grocery')">
+Shop groceries
+</button>
+
+</div>
+
+
+<div class="deal-card">
+
+<small>
+FREE DELIVERY
+</small>
+
+<h3>
+Spend R500+
+</h3>
+
+<p>
+Delivery promotion can be configured here.
+</p>
+
+<button onclick="showCategory('all')">
+Start shopping
+</button>
+
+</div>
+
 
 </div>
 
@@ -1385,47 +1615,109 @@ footer a:hover{
      PRODUCTS
 ========================================================= -->
 
-<section class="section">
+<section
+class="section"
+id="productsSection">
 
 <div class="section-title">
 
-    <h2>
-        Popular products
-    </h2>
+<h2>
+Popular products
+</h2>
 
-    <span id="productCount">
-        20 products
-    </span>
+<span id="productCount">
+60 products
+</span>
 
 </div>
 
-<div id="products" class="products"></div>
+
+<div
+id="products"
+class="products">
+</div>
 
 </section>
 
 
 <!-- =========================================================
-     PROMOTION
+     BENEFITS
 ========================================================= -->
 
-<section class="deal">
+<section class="section">
 
-<div>
+<div class="info-bar">
 
-    <h2>
-        Premium delivery made simple.
-    </h2>
 
-    <p>
-        Find what you need, add it to your cart
-        and order in minutes.
-    </p>
+<div class="info">
+
+<div class="info-icon">
+🚴
+</div>
+
+<strong>
+Door-to-door
+</strong>
+
+<span>
+Convenient local delivery
+</span>
 
 </div>
 
-<button onclick="openCart()">
-    View my cart →
-</button>
+
+<div class="info">
+
+<div class="info-icon">
+🛒
+</div>
+
+<strong>
+60+ products
+</strong>
+
+<span>
+Food & everyday essentials
+</span>
+
+</div>
+
+
+<div class="info">
+
+<div class="info-icon">
+📲
+</div>
+
+<strong>
+Easy ordering
+</strong>
+
+<span>
+Order directly from your phone
+</span>
+
+</div>
+
+
+<div class="info">
+
+<div class="info-icon">
+🇿🇦
+</div>
+
+<strong>
+South Africa
+</strong>
+
+<span>
+Built for local customers
+</span>
+
+</div>
+
+
+</div>
 
 </section>
 
@@ -1434,31 +1726,37 @@ footer a:hover{
      CONTACT
 ========================================================= -->
 
-<section id="contact" class="contact-strip">
+<section
+id="contact"
+class="contact-strip">
 
 <div class="contact-info">
 
-    <h2>
-        Need help with your order?
-    </h2>
+<h2>
+Need help with your order?
+</h2>
 
-    <p>
-        Contact AeroZone directly on WhatsApp.
-    </p>
+<p>
+Contact AeroZone directly on WhatsApp.
+</p>
 
-    <p style="margin-top:6px;font-weight:bold;color:#111;">
-        📞 068 868 5355
-    </p>
+<p
+style="margin-top:6px;font-weight:900;color:#111;">
+
+📞 068 868 5355
+
+</p>
 
 </div>
 
 
 <a
-    class="whatsapp-link"
-    href="https://wa.me/27688685355"
-    target="_blank"
->
-    💬 WhatsApp 068 868 5355
+class="whatsapp-link"
+href="https://wa.me/27688685355"
+target="_blank">
+
+💬 WhatsApp AeroZone
+
 </a>
 
 </section>
@@ -1472,9 +1770,9 @@ footer a:hover{
 ========================================================= -->
 
 <div
-    id="cartOverlay"
-    class="cart-overlay"
-    onclick="closeCart()">
+id="cartOverlay"
+class="cart-overlay"
+onclick="closeCart()">
 </div>
 
 
@@ -1482,35 +1780,47 @@ footer a:hover{
      CART
 ========================================================= -->
 
-<aside id="cart" class="cart">
+<aside
+id="cart"
+class="cart">
 
 
 <div class="cart-header">
 
-    <h2>
-        Your Cart
-    </h2>
+<h2>
+Your Cart
+</h2>
 
-    <button
-        class="close"
-        onclick="closeCart()">
-        ×
-    </button>
+<button
+class="close"
+onclick="closeCart()">
+
+×
+
+</button>
 
 </div>
 
 
-<div id="cartItems" class="cart-items">
+<div
+id="cartItems"
+class="cart-items">
 
-    <div class="empty-cart">
+<div class="empty-cart">
 
-        <div class="empty-cart-icon">
-            🛒
-        </div>
+<div class="empty-cart-icon">
+🛒
+</div>
 
-        Your cart is empty.
+Your cart is empty.
 
-    </div>
+<br>
+
+<span style="font-size:12px;">
+Add products to start shopping.
+</span>
+
+</div>
 
 </div>
 
@@ -1522,158 +1832,211 @@ footer a:hover{
 <div class="checkout">
 
 <h3>
-    Checkout
+Checkout
 </h3>
 
 
 <input
-    id="checkoutName"
-    type="text"
-    placeholder="Full name"
+id="checkoutName"
+type="text"
+placeholder="Full name"
 >
 
 
 <input
-    id="checkoutPhone"
-    type="tel"
-    placeholder="Phone number"
+id="checkoutPhone"
+type="tel"
+placeholder="Phone number"
 >
 
 
 <input
-    id="checkoutEmail"
-    type="email"
-    placeholder="Email address"
+id="checkoutEmail"
+type="email"
+placeholder="Email address (optional)"
 >
 
 
 <input
-    id="checkoutAddress"
-    type="text"
-    placeholder="Delivery address"
+id="checkoutAddress"
+type="text"
+placeholder="Delivery address"
 >
+
+
+<select id="deliveryArea">
+
+<option value="">
+Select delivery area
+</option>
+
+<option>
+Johannesburg
+</option>
+
+<option>
+Pretoria
+</option>
+
+<option>
+Midrand
+</option>
+
+<option>
+Centurion
+</option>
+
+<option>
+Tembisa
+</option>
+
+<option>
+Other South African area
+</option>
+
+</select>
 
 
 <textarea
-    id="checkoutNotes"
-    placeholder="Special instructions (optional)">
+id="checkoutNotes"
+placeholder="Special instructions (optional)">
 </textarea>
 
 
 <div class="payment-title">
-    Choose payment method
+Choose payment method
 </div>
 
 
 <div class="payment-options">
 
+
 <button
-    id="payWhatsapp"
-    class="payment-option selected"
-    onclick="selectPayment('WhatsApp',this)"
->
-    📲 WhatsApp Order
+class="payment-option selected"
+onclick="selectPayment('WhatsApp',this)">
+
+📲 WhatsApp Order
+
 </button>
 
 
 <button
-    class="payment-option"
-    onclick="selectPayment('EFT',this)"
->
-    🏦 EFT
+class="payment-option"
+onclick="selectPayment('EFT',this)">
+
+🏦 EFT
+
 </button>
 
 
 <button
-    class="payment-option"
-    onclick="selectPayment('Pay on Delivery',this)"
->
-    💵 Pay on Delivery
+class="payment-option"
+onclick="selectPayment('Pay on Delivery',this)">
+
+💵 Pay on Delivery
+
 </button>
 
 
 <button
-    class="payment-option"
-    onclick="selectPayment('Online Payment',this)"
->
-    💳 Online Payment
+class="payment-option"
+onclick="selectPayment('Online Payment',this)">
+
+💳 Online Payment
+
 </button>
+
 
 </div>
 
 
 <div
-    id="paymentNote"
-    class="payment-note show">
-    Your order will be sent to AeroZone WhatsApp for confirmation.
+id="whatsappNote"
+class="payment-note show">
+
+Your order details will be sent to AeroZone
+on WhatsApp for confirmation.
+
 </div>
 
 
 <div
-    id="eftNote"
-    class="payment-note">
-    EFT payment details will be provided by AeroZone after your order is confirmed.
+id="eftNote"
+class="payment-note">
+
+EFT payment instructions can be provided
+after your order is confirmed.
+
 </div>
 
 
 <div
-    id="deliveryNote"
-    class="payment-note">
-    Pay on delivery is subject to delivery-area availability.
+id="deliveryNote"
+class="payment-note">
+
+Pay on delivery is subject to your
+delivery area's availability.
+
 </div>
 
 
 <div
-    id="onlineNote"
-    class="payment-note">
-    Online payment is ready for connection to your payment provider such as Yoco or PayFast. Do not enter card details here.
+id="onlineNote"
+class="payment-note">
+
+Online payment needs to be connected to
+your actual payment provider such as Yoco
+or PayFast. No card details are collected
+by this page.
+
 </div>
 
 
 <div class="row">
 
-    <span>
-        Subtotal
-    </span>
+<span>
+Subtotal
+</span>
 
-    <strong>
-        R<span id="subtotal">0.00</span>
-    </strong>
+<strong>
+R<span id="subtotal">0.00</span>
+</strong>
 
 </div>
 
 
 <div class="row">
 
-    <span>
-        Delivery
-    </span>
+<span>
+Delivery
+</span>
 
-    <strong>
-        R<span id="deliveryFee">0.00</span>
-    </strong>
+<strong>
+R<span id="deliveryFee">0.00</span>
+</strong>
 
 </div>
 
 
 <div class="row total">
 
-    <span>
-        Total
-    </span>
+<span>
+Total
+</span>
 
-    <strong>
-        R<span id="total">0.00</span>
-    </strong>
+<strong>
+R<span id="total">0.00</span>
+</strong>
 
 </div>
 
 
 <button
-    class="checkout-btn"
-    onclick="placeOrder()"
->
-    Place Order
+class="checkout-btn"
+onclick="placeOrder()">
+
+📲 Place Order
+
 </button>
 
 
@@ -1687,8 +2050,8 @@ footer a:hover{
 ========================================================= -->
 
 <div
-    id="toast"
-    class="toast">
+id="toast"
+class="toast">
 </div>
 
 
@@ -1704,108 +2067,113 @@ footer a:hover{
 
 <div class="footer-brand">
 
-    <h2>
-        AeroZone ◈
-    </h2>
+<h2>
+AeroZone ◈
+</h2>
 
-    <p>
-        Premium shopping and delivery made simple.
-        Shop groceries, food, drinks, beauty and
-        everyday essentials from one convenient platform.
-    </p>
+<p>
+AeroZone is a local shopping and delivery
+platform for food, groceries, drinks, beauty,
+household and pet essentials.
+</p>
 
-    <div class="footer-contact">
 
-        📞
-        <a href="tel:0688685355">
-            068 868 5355
-        </a>
+<div class="footer-contact">
 
-        <br>
+📞
 
-        💬
-        <a
-            href="https://wa.me/27688685355"
-            target="_blank">
-            WhatsApp: 068 868 5355
-        </a>
+<a href="tel:0688685355">
+068 868 5355
+</a>
 
-    </div>
+<br>
+
+💬
+
+<a
+href="https://wa.me/27688685355"
+target="_blank">
+
+WhatsApp: 068 868 5355
+
+</a>
+
+</div>
 
 </div>
 
 
 <div>
 
-    <h3>
-        Shop
-    </h3>
+<h3>
+Shop
+</h3>
 
-    <a href="#products">
-        Groceries
-    </a>
+<a href="#productsSection">
+Food
+</a>
 
-    <a href="#products">
-        Food
-    </a>
+<a href="#productsSection">
+Groceries
+</a>
 
-    <a href="#products">
-        Drinks
-    </a>
+<a href="#productsSection">
+Drinks
+</a>
 
-    <a href="#products">
-        Beauty
-    </a>
-
-</div>
-
-
-<div>
-
-    <h3>
-        AeroZone
-    </h3>
-
-    <a href="#">
-        About us
-    </a>
-
-    <a href="#contact">
-        Contact
-    </a>
-
-    <a href="#">
-        Delivery
-    </a>
-
-    <a href="#">
-        Help
-    </a>
+<a href="#productsSection">
+Beauty
+</a>
 
 </div>
 
 
 <div>
 
-    <h3>
-        Customer
-    </h3>
+<h3>
+AeroZone
+</h3>
 
-    <a href="#">
-        My account
-    </a>
+<a href="#">
+About us
+</a>
 
-    <a href="#">
-        Orders
-    </a>
+<a href="#contact">
+Contact
+</a>
 
-    <a href="#">
-        Terms
-    </a>
+<a href="#">
+Delivery
+</a>
 
-    <a href="#">
-        Privacy
-    </a>
+<a href="#">
+Help
+</a>
+
+</div>
+
+
+<div>
+
+<h3>
+Customer
+</h3>
+
+<a href="#">
+My account
+</a>
+
+<a href="#">
+Orders
+</a>
+
+<a href="#">
+Terms
+</a>
+
+<a href="#">
+Privacy
+</a>
 
 </div>
 
@@ -1815,14 +2183,19 @@ footer a:hover{
 
 <div class="footer-bottom">
 
-    © 2026 AeroZone. All rights reserved.
-    • South Africa •
+© 2026 AeroZone.
+All rights reserved.
+•
+South Africa
+•
 
-    <a
-        href="https://wa.me/27688685355"
-        target="_blank">
-        WhatsApp 068 868 5355
-    </a>
+<a
+href="https://wa.me/27688685355"
+target="_blank">
+
+WhatsApp 068 868 5355
+
+</a>
 
 </div>
 
@@ -1833,189 +2206,647 @@ footer a:hover{
 <script>
 
 /* =========================================================
-   PRODUCT DATABASE
+   60+ AEROZONE PRODUCTS
 ========================================================= */
 
 const products = [
 
+/* FOOD */
+
 {
-    id:1,
-    name:"White Bread 700g",
-    store:"Checkers",
-    price:18.99,
-    category:"grocery",
-    icon:"🍞"
+id:1,
+name:"Cheese Burger",
+store:"Mr Food",
+price:69.99,
+oldPrice:79.99,
+category:"food",
+icon:"🍔",
+rating:"⭐ 4.8"
 },
 
 {
-    id:2,
-    name:"Full Cream Milk 2L",
-    store:"Checkers",
-    price:34.99,
-    category:"grocery",
-    icon:"🥛"
+id:2,
+name:"Double Beef Burger",
+store:"Mr Food",
+price:89.99,
+oldPrice:99.99,
+category:"food",
+icon:"🍔",
+rating:"⭐ 4.9"
 },
 
 {
-    id:3,
-    name:"Large Eggs 18 Pack",
-    store:"Checkers",
-    price:59.99,
-    category:"grocery",
-    icon:"🥚"
+id:3,
+name:"Chicken Burger",
+store:"Mr Food",
+price:74.99,
+category:"food",
+icon:"🍔",
+rating:"⭐ 4.7"
 },
 
 {
-    id:4,
-    name:"Rice 2kg",
-    store:"Checkers",
-    price:39.99,
-    category:"grocery",
-    icon:"🍚"
+id:4,
+name:"Large Pizza",
+store:"Mr Food",
+price:119.99,
+oldPrice:139.99,
+category:"food",
+icon:"🍕",
+rating:"⭐ 4.8"
 },
 
 {
-    id:5,
-    name:"Chicken Breasts 1kg",
-    store:"Checkers",
-    price:89.99,
-    category:"grocery",
-    icon:"🍗"
+id:5,
+name:"Pepperoni Pizza",
+store:"Mr Food",
+price:129.99,
+category:"food",
+icon:"🍕",
+rating:"⭐ 4.8"
 },
 
 {
-    id:6,
-    name:"Cheese Burger",
-    store:"Mr Food",
-    price:69.99,
-    category:"food",
-    icon:"🍔"
+id:6,
+name:"Chicken Wings",
+store:"Mr Food",
+price:79.99,
+category:"food",
+icon:"🍗",
+rating:"⭐ 4.7"
 },
 
 {
-    id:7,
-    name:"Large Pizza",
-    store:"Mr Food",
-    price:119.99,
-    category:"food",
-    icon:"🍕"
+id:7,
+name:"Chicken Meal",
+store:"Mr Food",
+price:89.99,
+category:"food",
+icon:"🍱",
+rating:"⭐ 4.8"
 },
 
 {
-    id:8,
-    name:"Chicken Wings",
-    store:"Mr Food",
-    price:79.99,
-    category:"food",
-    icon:"🍗"
+id:8,
+name:"French Fries",
+store:"Mr Food",
+price:39.99,
+category:"food",
+icon:"🍟",
+rating:"⭐ 4.6"
 },
 
 {
-    id:9,
-    name:"French Fries",
-    store:"Mr Food",
-    price:39.99,
-    category:"food",
-    icon:"🍟"
+id:9,
+name:"Chicken Wrap",
+store:"Mr Food",
+price:69.99,
+category:"food",
+icon:"🌯",
+rating:"⭐ 4.7"
 },
 
 {
-    id:10,
-    name:"Chicken Meal",
-    store:"Mr Food",
-    price:89.99,
-    category:"food",
-    icon:"🍱"
+id:10,
+name:"Fish & Chips",
+store:"Mr Food",
+price:94.99,
+category:"food",
+icon:"🐟",
+rating:"⭐ 4.6"
+},
+
+/* GROCERIES */
+
+{
+id:11,
+name:"White Bread 700g",
+store:"Checkers",
+price:18.99,
+category:"grocery",
+icon:"🍞",
+rating:"⭐ 4.7"
 },
 
 {
-    id:11,
-    name:"Coca-Cola 2L",
-    store:"Checkers",
-    price:22.99,
-    category:"drinks",
-    icon:"🥤"
+id:12,
+name:"Full Cream Milk 2L",
+store:"Checkers",
+price:34.99,
+category:"grocery",
+icon:"🥛",
+rating:"⭐ 4.8"
 },
 
 {
-    id:12,
-    name:"Fruit Juice 1L",
-    store:"Checkers",
-    price:25.99,
-    category:"drinks",
-    icon:"🧃"
+id:13,
+name:"Large Eggs 18 Pack",
+store:"Checkers",
+price:59.99,
+category:"grocery",
+icon:"🥚",
+rating:"⭐ 4.8"
 },
 
 {
-    id:13,
-    name:"Energy Drink",
-    store:"Checkers",
-    price:19.99,
-    category:"drinks",
-    icon:"⚡"
+id:14,
+name:"Rice 2kg",
+store:"Checkers",
+price:39.99,
+category:"grocery",
+icon:"🍚",
+rating:"⭐ 4.7"
 },
 
 {
-    id:14,
-    name:"Shampoo 400ml",
-    store:"Clicks",
-    price:49.99,
-    category:"beauty",
-    icon:"🧴"
+id:15,
+name:"Chicken Breasts 1kg",
+store:"Checkers",
+price:89.99,
+category:"grocery",
+icon:"🍗",
+rating:"⭐ 4.8"
 },
 
 {
-    id:15,
-    name:"Body Lotion",
-    store:"Clicks",
-    price:59.99,
-    category:"beauty",
-    icon:"🧴"
+id:16,
+name:"Beef Mince 500g",
+store:"Checkers",
+price:74.99,
+category:"grocery",
+icon:"🥩",
+rating:"⭐ 4.6"
 },
 
 {
-    id:16,
-    name:"Toothpaste",
-    store:"Clicks",
-    price:29.99,
-    category:"beauty",
-    icon:"🪥"
+id:17,
+name:"Cooking Oil 2L",
+store:"Checkers",
+price:59.99,
+category:"grocery",
+icon:"🫗",
+rating:"⭐ 4.6"
 },
 
 {
-    id:17,
-    name:"Washing Powder",
-    store:"Checkers",
-    price:69.99,
-    category:"household",
-    icon:"🧺"
+id:18,
+name:"Sugar 2kg",
+store:"Checkers",
+price:39.99,
+category:"grocery",
+icon:"🧂",
+rating:"⭐ 4.7"
 },
 
 {
-    id:18,
-    name:"Dishwashing Liquid",
-    store:"Checkers",
-    price:29.99,
-    category:"household",
-    icon:"🧼"
+id:19,
+name:"Maize Meal 5kg",
+store:"Checkers",
+price:69.99,
+category:"grocery",
+icon:"🌽",
+rating:"⭐ 4.8"
 },
 
 {
-    id:19,
-    name:"Dog Food 2kg",
-    store:"Checkers",
-    price:64.99,
-    category:"pet",
-    icon:"🐶"
+id:20,
+name:"Potatoes 2kg",
+store:"Checkers",
+price:39.99,
+category:"grocery",
+icon:"🥔",
+rating:"⭐ 4.7"
 },
 
 {
-    id:20,
-    name:"Cat Food",
-    store:"Checkers",
-    price:49.99,
-    category:"pet",
-    icon:"🐱"
+id:21,
+name:"Tomatoes 1kg",
+store:"Checkers",
+price:29.99,
+category:"grocery",
+icon:"🍅",
+rating:"⭐ 4.6"
+},
+
+{
+id:22,
+name:"Onions 1kg",
+store:"Checkers",
+price:24.99,
+category:"grocery",
+icon:"🧅",
+rating:"⭐ 4.6"
+},
+
+{
+id:23,
+name:"Bananas 1kg",
+store:"Checkers",
+price:26.99,
+category:"grocery",
+icon:"🍌",
+rating:"⭐ 4.8"
+},
+
+{
+id:24,
+name:"Apples 1kg",
+store:"Checkers",
+price:34.99,
+category:"grocery",
+icon:"🍎",
+rating:"⭐ 4.7"
+},
+
+{
+id:25,
+name:"Cheddar Cheese 500g",
+store:"Checkers",
+price:69.99,
+category:"grocery",
+icon:"🧀",
+rating:"⭐ 4.8"
+},
+
+/* DRINKS */
+
+{
+id:26,
+name:"Coca-Cola 2L",
+store:"Checkers",
+price:22.99,
+category:"drinks",
+icon:"🥤",
+rating:"⭐ 4.8"
+},
+
+{
+id:27,
+name:"Pepsi 2L",
+store:"Checkers",
+price:21.99,
+category:"drinks",
+icon:"🥤",
+rating:"⭐ 4.7"
+},
+
+{
+id:28,
+name:"Fruit Juice 1L",
+store:"Checkers",
+price:25.99,
+category:"drinks",
+icon:"🧃",
+rating:"⭐ 4.6"
+},
+
+{
+id:29,
+name:"Energy Drink",
+store:"Checkers",
+price:19.99,
+category:"drinks",
+icon:"⚡",
+rating:"⭐ 4.7"
+},
+
+{
+id:30,
+name:"Bottled Water 1.5L",
+store:"Checkers",
+price:12.99,
+category:"drinks",
+icon:"💧",
+rating:"⭐ 4.8"
+},
+
+{
+id:31,
+name:"Ice Tea 1.5L",
+store:"Checkers",
+price:23.99,
+category:"drinks",
+icon:"🧋",
+rating:"⭐ 4.6"
+},
+
+{
+id:32,
+name:"Sparkling Water",
+store:"AeroZone Market",
+price:16.99,
+category:"drinks",
+icon:"💦",
+rating:"⭐ 4.5"
+},
+
+{
+id:33,
+name:"Chocolate Milk 1L",
+store:"Checkers",
+price:24.99,
+category:"drinks",
+icon:"🥛",
+rating:"⭐ 4.7"
+},
+
+/* BEAUTY */
+
+{
+id:34,
+name:"Shampoo 400ml",
+store:"Clicks",
+price:49.99,
+category:"beauty",
+icon:"🧴",
+rating:"⭐ 4.7"
+},
+
+{
+id:35,
+name:"Body Lotion",
+store:"Clicks",
+price:59.99,
+category:"beauty",
+icon:"🧴",
+rating:"⭐ 4.8"
+},
+
+{
+id:36,
+name:"Toothpaste",
+store:"Clicks",
+price:29.99,
+category:"beauty",
+icon:"🪥",
+rating:"⭐ 4.7"
+},
+
+{
+id:37,
+name:"Toothbrush",
+store:"Clicks",
+price:24.99,
+category:"beauty",
+icon:"🪥",
+rating:"⭐ 4.6"
+},
+
+{
+id:38,
+name:"Deodorant",
+store:"Clicks",
+price:39.99,
+category:"beauty",
+icon:"🧴",
+rating:"⭐ 4.8"
+},
+
+{
+id:39,
+name:"Face Wash",
+store:"Clicks",
+price:69.99,
+category:"beauty",
+icon:"🧼",
+rating:"⭐ 4.6"
+},
+
+{
+id:40,
+name:"Hand Cream",
+store:"Clicks",
+price:44.99,
+category:"beauty",
+icon:"🧴",
+rating:"⭐ 4.7"
+},
+
+{
+id:41,
+name:"Bath Soap Pack",
+store:"Clicks",
+price:34.99,
+category:"beauty",
+icon:"🧼",
+rating:"⭐ 4.7"
+},
+
+/* HOUSEHOLD */
+
+{
+id:42,
+name:"Washing Powder",
+store:"Checkers",
+price:69.99,
+category:"household",
+icon:"🧺",
+rating:"⭐ 4.8"
+},
+
+{
+id:43,
+name:"Dishwashing Liquid",
+store:"Checkers",
+price:29.99,
+category:"household",
+icon:"🧼",
+rating:"⭐ 4.7"
+},
+
+{
+id:44,
+name:"Toilet Paper 18 Pack",
+store:"Checkers",
+price:99.99,
+oldPrice:119.99,
+category:"household",
+icon:"🧻",
+rating:"⭐ 4.8"
+},
+
+{
+id:45,
+name:"Paper Towels",
+store:"Checkers",
+price:39.99,
+category:"household",
+icon:"🧻",
+rating:"⭐ 4.6"
+},
+
+{
+id:46,
+name:"Bleach 2L",
+store:"Checkers",
+price:29.99,
+category:"household",
+icon:"🧴",
+rating:"⭐ 4.7"
+},
+
+{
+id:47,
+name:"Multi-Purpose Cleaner",
+store:"Checkers",
+price:34.99,
+category:"household",
+icon:"🧽",
+rating:"⭐ 4.7"
+},
+
+{
+id:48,
+name:"Refuse Bags",
+store:"Checkers",
+price:39.99,
+category:"household",
+icon:"🗑️",
+rating:"⭐ 4.6"
+},
+
+{
+id:49,
+name:"Sponges Pack",
+store:"Checkers",
+price:24.99,
+category:"household",
+icon:"🧽",
+rating:"⭐ 4.5"
+},
+
+/* PET */
+
+{
+id:50,
+name:"Dog Food 2kg",
+store:"Checkers",
+price:64.99,
+category:"pet",
+icon:"🐶",
+rating:"⭐ 4.8"
+},
+
+{
+id:51,
+name:"Cat Food",
+store:"Checkers",
+price:49.99,
+category:"pet",
+icon:"🐱",
+rating:"⭐ 4.7"
+},
+
+{
+id:52,
+name:"Dog Treats",
+store:"Checkers",
+price:39.99,
+category:"pet",
+icon:"🦴",
+rating:"⭐ 4.8"
+},
+
+{
+id:53,
+name:"Cat Treats",
+store:"Checkers",
+price:34.99,
+category:"pet",
+icon:"🐱",
+rating:"⭐ 4.7"
+},
+
+{
+id:54,
+name:"Pet Shampoo",
+store:"AeroZone Market",
+price:59.99,
+category:"pet",
+icon:"🧴",
+rating:"⭐ 4.6"
+},
+
+/* SNACKS */
+
+{
+id:55,
+name:"Potato Chips",
+store:"Checkers",
+price:19.99,
+category:"snacks",
+icon:"🥔",
+rating:"⭐ 4.8"
+},
+
+{
+id:56,
+name:"Chocolate Bar",
+store:"Checkers",
+price:16.99,
+category:"snacks",
+icon:"🍫",
+rating:"⭐ 4.9"
+},
+
+{
+id:57,
+name:"Biscuits",
+store:"Checkers",
+price:24.99,
+category:"snacks",
+icon:"🍪",
+rating:"⭐ 4.7"
+},
+
+{
+id:58,
+name:"Popcorn",
+store:"AeroZone Market",
+price:22.99,
+category:"snacks",
+icon:"🍿",
+rating:"⭐ 4.6"
+},
+
+{
+id:59,
+name:"Mixed Nuts",
+store:"AeroZone Market",
+price:39.99,
+category:"snacks",
+icon:"🥜",
+rating:"⭐ 4.7"
+},
+
+{
+id:60,
+name:"Cupcakes",
+store:"Mr Food",
+price:49.99,
+category:"snacks",
+icon:"🧁",
+rating:"⭐ 4.8"
+},
+
+{
+id:61,
+name:"Ice Cream",
+store:"Checkers",
+price:54.99,
+category:"snacks",
+icon:"🍦",
+rating:"⭐ 4.8"
+},
+
+{
+id:62,
+name:"Donuts",
+store:"Mr Food",
+price:44.99,
+category:"snacks",
+icon:"🍩",
+rating:"⭐ 4.7"
 }
 
 ];
@@ -2045,27 +2876,32 @@ function displayProducts(){
 
     container.innerHTML = "";
 
-    const filtered = products.filter(product => {
 
-        const categoryMatch =
-            currentCategory === "all" ||
-            product.category === currentCategory;
+    const filtered =
+        products.filter(product => {
 
-        const searchMatch =
-            product.name
+            const categoryMatch =
+                currentCategory === "all" ||
+                product.category === currentCategory;
+
+
+            const searchMatch =
+                product.name
                 .toLowerCase()
                 .includes(searchTerm) ||
 
-            product.store
+                product.store
                 .toLowerCase()
                 .includes(searchTerm);
 
-        return categoryMatch && searchMatch;
 
-    });
+            return categoryMatch && searchMatch;
+
+        });
 
 
-    document.getElementById("productCount").textContent =
+    document.getElementById("productCount")
+        .textContent =
         filtered.length + " products";
 
 
@@ -2075,9 +2911,13 @@ function displayProducts(){
 
             <div class="no-products">
 
-                🔎<br><br>
+                🔎
 
-                No products found.<br>
+                <br><br>
+
+                No products found.
+
+                <br>
 
                 Try another search.
 
@@ -2086,6 +2926,7 @@ function displayProducts(){
         `;
 
         return;
+
     }
 
 
@@ -2097,13 +2938,28 @@ function displayProducts(){
         card.className = "product";
 
 
+        const badge =
+            product.oldPrice
+            ? `<div class="product-badge">SPECIAL</div>`
+            : "";
+
+
+        const oldPrice =
+            product.oldPrice
+            ? `<span class="old-price">R${product.oldPrice.toFixed(2)}</span>`
+            : "";
+
+
         card.innerHTML = `
 
             <div class="product-image">
 
+                ${badge}
+
                 ${product.icon}
 
             </div>
+
 
             <div class="product-info">
 
@@ -2113,25 +2969,45 @@ function displayProducts(){
 
                 </div>
 
+
                 <div class="product-store">
 
                     ${product.store}
 
                 </div>
 
-                <div class="price">
 
-                    R${product.price.toFixed(2)}
+                <div class="product-rating">
+
+                    ${product.rating}
 
                 </div>
 
-                <button
-                    class="add"
-                    onclick="addToCart(${product.id})">
 
-                    + Add to cart
+                <div class="product-price-row">
 
-                </button>
+                    <div>
+
+                        <span class="price">
+
+                            R${product.price.toFixed(2)}
+
+                        </span>
+
+                        ${oldPrice}
+
+                    </div>
+
+
+                    <button
+                        class="add"
+                        onclick="addToCart(${product.id})">
+
+                        + Add
+
+                    </button>
+
+                </div>
 
             </div>
 
@@ -2151,16 +3027,44 @@ function displayProducts(){
 
 document
 .getElementById("search")
-.addEventListener("input",function(){
+.addEventListener(
+    "input",
+    function(){
+
+        searchTerm =
+            this.value
+            .toLowerCase()
+            .trim();
+
+        displayProducts();
+
+    }
+);
+
+
+/* =========================================================
+   SEARCH PRODUCT
+========================================================= */
+
+function searchProduct(text){
 
     searchTerm =
-        this.value
-        .toLowerCase()
-        .trim();
+        text.toLowerCase();
+
+    document.getElementById("search")
+        .value = text;
+
+    currentCategory = "all";
 
     displayProducts();
 
-});
+    document
+    .getElementById("productsSection")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
 
 
 /* =========================================================
@@ -2170,6 +3074,12 @@ document
 function showCategory(category,button){
 
     currentCategory = category;
+
+    searchTerm = "";
+
+    document.getElementById("search")
+        .value = "";
+
 
     document
     .querySelectorAll(
@@ -2190,17 +3100,12 @@ function showCategory(category,button){
     displayProducts();
 
 
-    const productsSection =
-        document.getElementById("products");
-
-    if(productsSection){
-
-        productsSection.scrollIntoView({
-            behavior:"smooth",
-            block:"start"
-        });
-
-    }
+    document
+    .getElementById("productsSection")
+    .scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
 
 }
 
@@ -2211,22 +3116,31 @@ function showCategory(category,button){
 
 function storeFilter(store){
 
+    currentCategory = "all";
+
     searchTerm =
         store.toLowerCase();
 
-    document.getElementById("search").value =
-        store;
+    document.getElementById("search")
+        .value = store;
 
-    currentCategory = "all";
+
+    document
+    .querySelectorAll(
+        ".categories button,.quick button"
+    )
+    .forEach(btn =>
+        btn.classList.remove("active")
+    );
+
 
     displayProducts();
 
 
     document
-    .getElementById("products")
+    .getElementById("productsSection")
     .scrollIntoView({
-        behavior:"smooth",
-        block:"start"
+        behavior:"smooth"
     });
 
 }
@@ -2239,10 +3153,15 @@ function storeFilter(store){
 function addToCart(id){
 
     const product =
-        products.find(p => p.id === id);
+        products.find(
+            p => p.id === id
+        );
+
 
     const existing =
-        cart.find(item => item.id === id);
+        cart.find(
+            item => item.id === id
+        );
 
 
     if(existing){
@@ -2261,8 +3180,10 @@ function addToCart(id){
 
     updateCart();
 
+
     showToast(
-        product.name + " added to cart"
+        product.name +
+        " added to cart"
     );
 
 }
@@ -2302,6 +3223,12 @@ function updateCart(){
 
                 Your cart is empty.
 
+                <br>
+
+                <span style="font-size:12px;">
+                    Add products to start shopping.
+                </span>
+
             </div>
 
         `;
@@ -2316,6 +3243,7 @@ function updateCart(){
             const div =
                 document.createElement("div");
 
+
             div.className =
                 "cart-item";
 
@@ -2328,6 +3256,7 @@ function updateCart(){
 
                 </div>
 
+
                 <div class="cart-details">
 
                     <div class="cart-name">
@@ -2336,11 +3265,20 @@ function updateCart(){
 
                     </div>
 
+
+                    <div class="cart-store">
+
+                        ${item.store}
+
+                    </div>
+
+
                     <div class="cart-price">
 
                         R${item.price.toFixed(2)}
 
                     </div>
+
 
                     <div class="qty">
 
@@ -2351,11 +3289,13 @@ function updateCart(){
 
                         </button>
 
+
                         <span>
 
                             ${item.qty}
 
                         </span>
+
 
                         <button
                             onclick="changeQty(${item.id},1)">
@@ -2365,6 +3305,7 @@ function updateCart(){
                         </button>
 
                     </div>
+
 
                     <button
                         class="remove"
@@ -2398,7 +3339,10 @@ function updateCart(){
 function changeQty(id,change){
 
     const item =
-        cart.find(item => item.id === id);
+        cart.find(
+            item => item.id === id
+        );
+
 
     if(!item){
         return;
@@ -2434,13 +3378,14 @@ function removeItem(id){
             item => item.id !== id
         );
 
+
     updateCart();
 
 }
 
 
 /* =========================================================
-   TOTALS
+   TOTAL
 ========================================================= */
 
 function calculateTotals(){
@@ -2448,14 +3393,15 @@ function calculateTotals(){
     const subtotal =
         cart.reduce(
             (sum,item) =>
-            sum + (item.price * item.qty),
+            sum + item.price * item.qty,
             0
         );
 
 
     /*
-       Current standard delivery fee.
-       Change this number later if you want.
+       Delivery fee:
+       R35 for normal orders.
+       R0 when cart is empty.
     */
 
     const delivery =
@@ -2559,7 +3505,7 @@ function saveAddress(){
 
 
 /* =========================================================
-   PAYMENT METHOD
+   PAYMENT
 ========================================================= */
 
 function selectPayment(payment,button){
@@ -2587,7 +3533,7 @@ function selectPayment(payment,button){
     if(payment === "WhatsApp"){
 
         document
-        .getElementById("paymentNote")
+        .getElementById("whatsappNote")
         .classList.add("show");
 
     }
@@ -2667,6 +3613,12 @@ function placeOrder(){
         .trim();
 
 
+    const area =
+        document
+        .getElementById("deliveryArea")
+        .value;
+
+
     const notes =
         document
         .getElementById("checkoutNotes")
@@ -2707,21 +3659,28 @@ function placeOrder(){
     }
 
 
+    if(!area){
+
+        showToast(
+            "Please select your delivery area"
+        );
+
+        return;
+
+    }
+
+
     /*
-       ONLINE PAYMENT
+       Real online payments must be connected
+       to your actual payment provider.
 
-       This button is intentionally not pretending
-       to be a live payment gateway.
-
-       Connect your actual Yoco / PayFast merchant
-       checkout here when your payment credentials
-       and server-side integration are ready.
+       This page does NOT collect card details.
     */
 
     if(selectedPayment === "Online Payment"){
 
         showToast(
-            "Online payment needs to be connected to your payment provider"
+            "Online payment still needs to be connected"
         );
 
         return;
@@ -2737,37 +3696,50 @@ function placeOrder(){
         );
 
 
-    const delivery =
-        subtotal > 0 ? 35 : 0;
-
+    const delivery = 35;
 
     const total =
         subtotal + delivery;
 
 
     /*
-       BUILD ORDER MESSAGE
+       CREATE ORDER MESSAGE
     */
 
     let message =
         "Hello AeroZone!\n\n";
 
-    message +=
-        "🛒 NEW ORDER\n\n";
 
     message +=
-        "Customer: " + name + "\n";
+        "🛒 NEW AEROZONE ORDER\n\n";
+
 
     message +=
-        "Phone: " + phone + "\n";
+        "Customer: " +
+        name +
+        "\n";
+
+
+    message +=
+        "Phone: " +
+        phone +
+        "\n";
 
 
     if(email){
 
         message +=
-            "Email: " + email + "\n";
+            "Email: " +
+            email +
+            "\n";
 
     }
+
+
+    message +=
+        "Delivery Area: " +
+        area +
+        "\n";
 
 
     message +=
@@ -2785,7 +3757,7 @@ function placeOrder(){
     if(notes){
 
         message +=
-            "Special Instructions: " +
+            "Instructions: " +
             notes +
             "\n";
 
@@ -2803,7 +3775,10 @@ function placeOrder(){
             " x " +
             item.name +
             " - R" +
-            (item.price * item.qty).toFixed(2) +
+            (
+                item.price *
+                item.qty
+            ).toFixed(2) +
             "\n";
 
     });
@@ -2825,11 +3800,11 @@ function placeOrder(){
 
 
     message +=
-        "\n\nPlease confirm my AeroZone order.";
+        "\n\nPlease confirm my order.";
 
 
     /*
-       YOUR AEROZONE WHATSAPP NUMBER
+       AEROZONE WHATSAPP
     */
 
     const whatsappNumber =
@@ -2879,7 +3854,7 @@ function showToast(message){
 
 
 /* =========================================================
-   START APP
+   START
 ========================================================= */
 
 displayProducts();
