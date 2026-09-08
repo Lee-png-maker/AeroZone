@@ -1,667 +1,1859 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AeroZone | Premium Shopping & Delivery</title>
-
-<style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AeroZone | Premium Shopping & Delivery</title><meta name="description" content="AeroZone premium grocery, food, pharmacy and everyday shopping delivery."><style>
 *{
-box-sizing:border-box;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 html{
-scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-margin:0;
-font-family:Arial,Helvetica,sans-serif;
-background:#fff;
-color:#111;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#fff;
+    color:#111;
+    line-height:1.5;
 }
 
 button,
 input{
-font:inherit;
+    font:inherit;
 }
 
 button{
-cursor:pointer;
-border:0;
+    cursor:pointer;
+    border:none;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
 }
 
 /* ================= HEADER ================= */
 
 header{
-background:#050505;
-color:#fff;
-position:sticky;
-top:0;
-z-index:100;
-box-shadow:0 3px 15px rgba(0,0,0,.18);
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#050505;
+    color:#fff;
+    box-shadow:0 4px 20px rgba(0,0,0,.18);
 }
 
 .header{
-max-width:1250px;
-margin:auto;
-padding:14px 18px;
-display:flex;
-align-items:center;
-gap:14px;
+    max-width:1280px;
+    margin:auto;
+    min-height:72px;
+    padding:12px 20px;
+    display:flex;
+    align-items:center;
+    gap:18px;
 }
 
 .logo{
-font-size:25px;
-font-weight:900;
-letter-spacing:-1px;
-white-space:nowrap;
+    font-size:27px;
+    font-weight:900;
+    letter-spacing:-1.5px;
+    white-space:nowrap;
 }
 
 .logo span{
-font-weight:400;
+    font-weight:400;
+}
+
+.logo-mark{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:27px;
+    height:27px;
+    margin-left:3px;
+    border:2px solid #fff;
+    border-radius:50%;
+    font-size:13px;
+}
+
+.search-wrap{
+    flex:1;
+    position:relative;
 }
 
 .search{
-flex:1;
-height:42px;
-border:1px solid #333;
-border-radius:24px;
-padding:0 18px;
-outline:none;
-background:#fff;
-color:#111;
+    width:100%;
+    height:44px;
+    border-radius:25px;
+    border:1px solid #333;
+    outline:none;
+    padding:0 18px 0 45px;
+    background:#fff;
+    color:#111;
 }
 
 .search:focus{
-border-color:#aaa;
+    border-color:#aaa;
+}
+
+.search-icon{
+    position:absolute;
+    left:17px;
+    top:11px;
+    color:#555;
+    font-size:18px;
 }
 
 .cart-btn{
-background:#fff;
-color:#111;
-border-radius:24px;
-padding:11px 18px;
-font-weight:bold;
-white-space:nowrap;
+    background:#fff;
+    color:#111;
+    border-radius:25px;
+    padding:11px 18px;
+    font-weight:800;
+    white-space:nowrap;
 }
 
-/* ================= QUICK MENU ================= */
+.cart-btn:hover{
+    background:#ddd;
+}
+
+/* ================= NAV ================= */
 
 .quick{
-background:#fff;
-border-bottom:1px solid #e5e5e5;
-padding:9px 15px;
-display:flex;
-gap:8px;
-overflow-x:auto;
-white-space:nowrap;
+    background:#fff;
+    border-bottom:1px solid #e8e8e8;
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    padding:10px 18px;
+    scrollbar-width:none;
+}
+
+.quick::-webkit-scrollbar{
+    display:none;
 }
 
 .quick button{
-background:#f3f3f3;
-color:#111;
-padding:9px 16px;
-border-radius:20px;
-font-size:13px;
+    background:#f2f2f2;
+    color:#111;
+    border-radius:20px;
+    padding:9px 17px;
+    white-space:nowrap;
+    font-size:13px;
+    font-weight:600;
 }
 
 .quick button:hover,
 .quick button.active{
-background:#111;
-color:#fff;
+    background:#111;
+    color:#fff;
 }
 
 /* ================= HERO ================= */
 
 .hero{
-max-width:1250px;
-margin:18px auto;
-padding:48px 28px;
-border-radius:18px;
-background:#080808;
-color:#fff;
-position:relative;
-overflow:hidden;
+    max-width:1280px;
+    margin:20px auto;
+    min-height:390px;
+    border-radius:22px;
+    background:#050505;
+    color:#fff;
+    padding:55px 42px;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero:before{
+    content:"";
+    position:absolute;
+    width:430px;
+    height:430px;
+    right:-180px;
+    top:-170px;
+    border:1px solid #333;
+    border-radius:50%;
 }
 
 .hero:after{
-content:"";
-position:absolute;
-right:-100px;
-top:-100px;
-width:300px;
-height:300px;
-border:1px solid #444;
-border-radius:50%;
+    content:"";
+    position:absolute;
+    width:260px;
+    height:260px;
+    right:50px;
+    bottom:-180px;
+    border:1px solid #333;
+    border-radius:50%;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:760px;
+}
+
+.badge{
+    display:inline-block;
+    border:1px solid #444;
+    border-radius:20px;
+    padding:7px 13px;
+    font-size:12px;
+    margin-bottom:18px;
+    color:#ddd;
 }
 
 .hero h1{
-font-size:42px;
-margin:0 0 10px;
-letter-spacing:-1px;
+    font-size:48px;
+    line-height:1.05;
+    letter-spacing:-2px;
+    margin-bottom:15px;
+}
+
+.hero h1 span{
+    color:#bbb;
 }
 
 .hero p{
-color:#ccc;
-font-size:17px;
-margin-bottom:24px;
+    color:#c8c8c8;
+    font-size:17px;
+    max-width:650px;
+    margin-bottom:27px;
 }
 
 .delivery-box{
-display:flex;
-gap:8px;
-max-width:680px;
-position:relative;
-z-index:2;
+    display:flex;
+    gap:9px;
+    max-width:650px;
 }
 
 .delivery-box input{
-flex:1;
-height:45px;
-padding:0 15px;
-border-radius:8px;
-border:0;
-outline:none;
+    flex:1;
+    height:48px;
+    border-radius:8px;
+    border:none;
+    outline:none;
+    padding:0 16px;
 }
 
 .delivery-box button{
-background:#fff;
-color:#111;
-padding:0 20px;
-border-radius:8px;
-font-weight:bold;
+    height:48px;
+    background:#fff;
+    color:#111;
+    border-radius:8px;
+    padding:0 20px;
+    font-weight:800;
+}
+
+.delivery-box button:hover{
+    background:#ddd;
+}
+
+.hero-features{
+    display:flex;
+    gap:25px;
+    margin-top:28px;
+    flex-wrap:wrap;
+}
+
+.hero-feature{
+    color:#bbb;
+    font-size:13px;
+}
+
+.hero-feature strong{
+    color:#fff;
 }
 
 /* ================= CONTAINER ================= */
 
 .container{
-max-width:1250px;
-margin:auto;
-padding:0 18px;
+    max-width:1280px;
+    margin:auto;
+    padding:0 20px;
+}
+
+.section{
+    margin-top:34px;
 }
 
 .section-title{
-display:flex;
-align-items:center;
-justify-content:space-between;
-margin:28px 0 14px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
 }
 
 .section-title h2{
-margin:0;
-font-size:22px;
+    font-size:23px;
+    letter-spacing:-.5px;
 }
 
 .section-title span{
-font-size:13px;
-color:#777;
+    color:#777;
+    font-size:13px;
 }
 
-/* ================= STORES ================= */
+/* ================= STORE CARDS ================= */
 
 .stores{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:15px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
 }
 
 .store{
-background:#fff;
-border:1px solid #e5e5e5;
-border-radius:14px;
-padding:20px;
-text-align:center;
-transition:.2s;
+    border:1px solid #e4e4e4;
+    border-radius:16px;
+    padding:22px 15px;
+    text-align:center;
+    background:#fff;
+    transition:.2s;
 }
 
 .store:hover{
-transform:translateY(-3px);
-box-shadow:0 8px 25px rgba(0,0,0,.08);
+    transform:translateY(-4px);
+    box-shadow:0 12px 30px rgba(0,0,0,.09);
 }
 
 .store-icon{
-width:65px;
-height:65px;
-margin:auto auto 10px;
-border-radius:50%;
-background:#111;
-color:#fff;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:30px;
+    width:70px;
+    height:70px;
+    margin:0 auto 12px;
+    background:#111;
+    color:#fff;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:31px;
 }
 
 .store-name{
-font-size:17px;
-font-weight:bold;
+    font-size:17px;
+    font-weight:800;
 }
 
 .store-text{
-font-size:13px;
-color:#777;
-margin:6px 0 13px;
+    color:#777;
+    font-size:13px;
+    margin:5px 0 14px;
 }
 
 .store button{
-background:#111;
-color:#fff;
-padding:9px 18px;
-border-radius:7px;
-font-size:13px;
+    background:#111;
+    color:#fff;
+    border-radius:7px;
+    padding:9px 17px;
+    font-size:13px;
+    font-weight:bold;
 }
 
-/* ================= CATEGORIES ================= */
+/* ================= CATEGORY ================= */
 
 .categories{
-display:flex;
-gap:8px;
-overflow-x:auto;
-padding-bottom:5px;
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    padding-bottom:5px;
+    scrollbar-width:none;
+}
+
+.categories::-webkit-scrollbar{
+    display:none;
 }
 
 .categories button{
-background:#fff;
-border:1px solid #ddd;
-padding:10px 16px;
-border-radius:22px;
-white-space:nowrap;
+    border:1px solid #ddd;
+    background:#fff;
+    border-radius:22px;
+    padding:10px 17px;
+    white-space:nowrap;
+    font-size:13px;
 }
 
-.categories button.active,
-.categories button:hover{
-background:#111;
-color:#fff;
-border-color:#111;
+.categories button:hover,
+.categories button.active{
+    background:#111;
+    color:#fff;
+    border-color:#111;
 }
 
 /* ================= PRODUCTS ================= */
 
 .products{
-display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:16px;
-padding-bottom:35px;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:15px;
+    padding-bottom:35px;
 }
 
 .product{
-background:#fff;
-border:1px solid #e5e5e5;
-border-radius:13px;
-overflow:hidden;
-transition:.2s;
-position:relative;
+    border:1px solid #e5e5e5;
+    border-radius:15px;
+    overflow:hidden;
+    background:#fff;
+    transition:.2s;
 }
 
 .product:hover{
-transform:translateY(-4px);
-box-shadow:0 10px 28px rgba(0,0,0,.10);
+    transform:translateY(-4px);
+    box-shadow:0 12px 30px rgba(0,0,0,.10);
 }
 
 .product-image{
-height:155px;
-background:#f3f3f3;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:58px;
+    height:170px;
+    background:#f3f3f3;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:62px;
 }
 
 .product-info{
-padding:13px;
+    padding:13px;
 }
 
 .product-name{
-font-weight:bold;
-font-size:15px;
-min-height:38px;
+    font-weight:800;
+    font-size:15px;
+    min-height:42px;
 }
 
 .product-store{
-font-size:12px;
-color:#777;
-margin:5px 0;
+    color:#777;
+    font-size:12px;
+    margin:4px 0;
 }
 
 .price{
-font-size:20px;
-font-weight:900;
-margin:8px 0;
+    font-size:20px;
+    font-weight:900;
+    margin:8px 0;
 }
 
 .add{
-width:100%;
-background:#111;
-color:#fff;
-padding:11px;
-border-radius:7px;
-font-weight:bold;
+    width:100%;
+    background:#111;
+    color:#fff;
+    border-radius:7px;
+    padding:11px;
+    font-weight:800;
 }
 
 .add:hover{
-background:#333;
+    background:#333;
 }
 
-.empty{
-grid-column:1/-1;
-padding:40px;
-text-align:center;
-border:1px solid #ddd;
-border-radius:12px;
-color:#777;
+/* ================= DEAL BANNER ================= */
+
+.deal{
+    margin:15px 0 35px;
+    border-radius:18px;
+    background:#111;
+    color:#fff;
+    padding:28px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.deal h2{
+    font-size:25px;
+    margin-bottom:5px;
+}
+
+.deal p{
+    color:#bbb;
+    font-size:14px;
+}
+
+.deal button{
+    background:#fff;
+    color:#111;
+    padding:12px 20px;
+    border-radius:8px;
+    font-weight:bold;
+    white-space:nowrap;
 }
 
 /* ================= CART ================= */
 
+.cart-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    z-index:1999;
+    display:none;
+}
+
+.cart-overlay.show{
+    display:block;
+}
+
 .cart{
-position:fixed;
-right:-440px;
-top:0;
-width:420px;
-max-width:95%;
-height:100vh;
-background:#fff;
-z-index:200;
-box-shadow:-10px 0 35px rgba(0,0,0,.25);
-transition:right .25s ease;
-display:flex;
-flex-direction:column;
+    position:fixed;
+    right:-460px;
+    top:0;
+    width:430px;
+    max-width:95%;
+    height:100vh;
+    background:#fff;
+    z-index:2000;
+    display:flex;
+    flex-direction:column;
+    box-shadow:-12px 0 40px rgba(0,0,0,.25);
+    transition:right .25s ease;
 }
 
 .cart.open{
-right:0;
+    right:0;
 }
 
 .cart-header{
-background:#050505;
-color:#fff;
-padding:16px;
-display:flex;
-align-items:center;
-justify-content:space-between;
+    background:#050505;
+    color:#fff;
+    padding:17px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
 .cart-header h2{
-margin:0;
-font-size:20px;
+    font-size:20px;
 }
 
 .close{
-background:#fff;
-color:#111;
-width:35px;
-height:35px;
-border-radius:50%;
-font-weight:bold;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    background:#fff;
+    color:#111;
+    font-weight:bold;
 }
 
 .cart-items{
-flex:1;
-overflow:auto;
-padding:15px;
+    flex:1;
+    overflow-y:auto;
+    padding:15px;
+}
+
+.empty-cart{
+    text-align:center;
+    color:#777;
+    padding:60px 20px;
+}
+
+.empty-cart-icon{
+    font-size:50px;
+    margin-bottom:10px;
 }
 
 .cart-item{
-display:flex;
-gap:10px;
-padding:13px 0;
-border-bottom:1px solid #eee;
+    display:flex;
+    gap:11px;
+    padding:13px 0;
+    border-bottom:1px solid #eee;
 }
 
 .cart-icon{
-width:55px;
-height:55px;
-background:#f2f2f2;
-border-radius:8px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:27px;
-flex-shrink:0;
+    width:58px;
+    height:58px;
+    flex-shrink:0;
+    border-radius:9px;
+    background:#f2f2f2;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:28px;
 }
 
 .cart-details{
-flex:1;
+    flex:1;
+}
+
+.cart-name{
+    font-weight:bold;
+    font-size:14px;
+}
+
+.cart-price{
+    font-size:13px;
+    color:#666;
+    margin-top:3px;
 }
 
 .qty{
-display:flex;
-align-items:center;
-gap:8px;
-margin-top:8px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-top:7px;
 }
 
 .qty button{
-width:28px;
-height:28px;
-border-radius:5px;
-background:#eee;
+    width:27px;
+    height:27px;
+    background:#eee;
+    border-radius:5px;
+}
+
+.qty span{
+    min-width:18px;
+    text-align:center;
+    font-weight:bold;
 }
 
 .remove{
-background:none;
-color:#777;
-font-size:12px;
-padding:3px;
+    background:none;
+    color:#888;
+    font-size:11px;
+    padding:3px;
+    margin-top:4px;
 }
 
 .checkout{
-padding:15px;
-border-top:1px solid #ddd;
-background:#fff;
+    border-top:1px solid #ddd;
+    padding:15px;
+}
+
+.checkout input{
+    width:100%;
+    height:44px;
+    border:1px solid #ddd;
+    border-radius:7px;
+    padding:0 12px;
+    outline:none;
+    margin-bottom:8px;
 }
 
 .row{
-display:flex;
-justify-content:space-between;
-margin:8px 0;
+    display:flex;
+    justify-content:space-between;
+    margin:7px 0;
 }
 
 .total{
-font-size:22px;
-font-weight:bold;
+    font-size:22px;
+    font-weight:900;
+    margin:8px 0 12px;
 }
 
-.checkout-address{
-width:100%;
-height:44px;
-padding:0 12px;
-border:1px solid #ddd;
-border-radius:7px;
-outline:none;
-margin:9px 0;
+.checkout-btn{
+    width:100%;
+    background:#111;
+    color:#fff;
+    padding:13px;
+    border-radius:7px;
+    font-weight:900;
 }
 
-.whatsapp{
-width:100%;
-background:#111;
-color:#fff;
-padding:13px;
-border-radius:7px;
-font-weight:bold;
+.checkout-btn:hover{
+    background:#333;
 }
 
-.whatsapp:hover{
-background:#333;
+/* ================= TOAST ================= */
+
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:25px;
+    transform:translateX(-50%) translateY(100px);
+    background:#111;
+    color:#fff;
+    padding:12px 18px;
+    border-radius:25px;
+    z-index:3000;
+    opacity:0;
+    transition:.25s;
+    font-size:13px;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
 }
 
 /* ================= FOOTER ================= */
 
 footer{
-background:#050505;
-color:#fff;
-padding:40px 20px;
-margin-top:10px;
-text-align:center;
+    background:#050505;
+    color:#fff;
+    margin-top:10px;
+    padding:42px 20px 28px;
 }
 
-footer h2{
-margin:0 0 8px;
+.footer-inner{
+    max-width:1280px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:30px;
 }
 
-footer p{
-color:#aaa;
-font-size:13px;
+.footer-brand h2{
+    font-size:25px;
+    margin-bottom:8px;
+}
+
+.footer-brand p{
+    color:#999;
+    max-width:400px;
+    font-size:13px;
+}
+
+footer h3{
+    font-size:14px;
+    margin-bottom:12px;
+}
+
+footer a{
+    display:block;
+    color:#aaa;
+    font-size:13px;
+    margin:7px 0;
+}
+
+footer a:hover{
+    color:#fff;
+}
+
+.footer-bottom{
+    max-width:1280px;
+    margin:30px auto 0;
+    padding-top:20px;
+    border-top:1px solid #222;
+    color:#777;
+    font-size:12px;
+    text-align:center;
 }
 
 /* ================= MOBILE ================= */
 
 @media(max-width:1050px){
 
-.products{
-grid-template-columns:repeat(4,1fr);
-}
+    .products{
+        grid-template-columns:repeat(4,1fr);
+    }
 
-.stores{
-grid-template-columns:repeat(2,1fr);
-}
+    .stores{
+        grid-template-columns:repeat(2,1fr);
+    }
 
+    .footer-inner{
+        grid-template-columns:repeat(2,1fr);
+    }
 }
 
 @media(max-width:700px){
 
-.header{
-flex-wrap:wrap;
-padding:10px;
+    .header{
+        flex-wrap:wrap;
+        padding:10px;
+        gap:9px;
+    }
+
+    .logo{
+        font-size:22px;
+    }
+
+    .cart-btn{
+        margin-left:auto;
+        padding:9px 13px;
+        font-size:12px;
+    }
+
+    .search-wrap{
+        flex-basis:100%;
+        order:3;
+    }
+
+    .search{
+        height:41px;
+    }
+
+    .hero{
+        margin:12px;
+        padding:35px 19px;
+        min-height:390px;
+        border-radius:17px;
+    }
+
+    .hero h1{
+        font-size:33px;
+        letter-spacing:-1.3px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .delivery-box{
+        flex-direction:column;
+    }
+
+    .delivery-box input,
+    .delivery-box button{
+        width:100%;
+        height:44px;
+    }
+
+    .hero-features{
+        gap:10px;
+        flex-direction:column;
+    }
+
+    .container{
+        padding:0 12px;
+    }
+
+    .section{
+        margin-top:27px;
+    }
+
+    .section-title h2{
+        font-size:19px;
+    }
+
+    .stores{
+        grid-template-columns:repeat(2,1fr);
+        gap:9px;
+    }
+
+    .store{
+        padding:15px 8px;
+    }
+
+    .store-icon{
+        width:52px;
+        height:52px;
+        font-size:23px;
+    }
+
+    .store-name{
+        font-size:14px;
+    }
+
+    .store-text{
+        font-size:11px;
+    }
+
+    .store button{
+        font-size:11px;
+        padding:8px 11px;
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+        gap:9px;
+    }
+
+    .product-image{
+        height:125px;
+        font-size:48px;
+    }
+
+    .product-info{
+        padding:9px;
+    }
+
+    .product-name{
+        font-size:13px;
+    }
+
+    .product-store{
+        font-size:10px;
+    }
+
+    .price{
+        font-size:17px;
+    }
+
+    .add{
+        font-size:12px;
+        padding:10px 5px;
+    }
+
+    .deal{
+        padding:22px 17px;
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .deal h2{
+        font-size:21px;
+    }
+
+    .footer-inner{
+        grid-template-columns:1fr 1fr;
+        gap:25px 15px;
+    }
+
+    .footer-brand{
+        grid-column:1/-1;
+    }
+
+    .cart{
+        width:390px;
+    }
 }
 
-.logo{
-font-size:21px;
+@media(max-width:400px){
+
+    .products{
+        gap:7px;
+    }
+
+    .product-image{
+        height:115px;
+    }
+
+    .store-icon{
+        width:47px;
+        height:47px;
+    }
 }
-
-.search{
-order:3;
-flex-basis:100%;
-}
-
-.hero{
-margin:12px;
-padding:32px 18px;
-}
-
-.hero h1{
-font-size:30px;
-}
-
-.hero p{
-font-size:14px;
-}
-
-.delivery-box{
-flex-direction:column;
-}
-
-.delivery-box input,
-.delivery-box button{
-height:43px;
-}
-
-.stores{
-grid-template-columns:repeat(2,1fr);
-gap:9px;
-}
-
-.store{
-padding:15px 8px;
-}
-
-.store-icon{
-width:50px;
-height:50px;
-font-size:24px;
-}
-
-.store-name{
-font-size:14px;
-}
-
-.store-text{
-font-size:11px;
-}
-
-.store button{
-font-size:11px;
-padding:8px 12px;
-}
-
-.products{
-grid-template-columns:repeat(2,1fr);
-gap:10px;
-}
-
-.product-image{
-height:125px;
-font-size:48px;
-}
-
-.product-info{
-padding:9px;
-}
-
-.product-name{
-font-size:13px;
-}
-
-.product-store{
-font-size:11px;
-}
-
-.price{
-font-size:17px;
-}
-
-.add{
-font-size:12px;
-padding:10px 5px;
-}
-
-.section-title h2{
-font-size:19px;
-}
-
-.cart{
-width:390px;
-}
-
-}
-</style>
-</head>
-
-<body>
-
-<!-- HEADER -->
-
-<header>
-
-<div class="header">
-
-<div class="logo">
-Aero<span>Zone</span> ◈
-</div>
+</style></head><body><!-- ================= HEADER ================= --><header><div class="header"><div class="logo">
+Aero<span>Zone</span>
+<span class="logo-mark">◈</span>
+</div><div class="search-wrap"><span class="search-icon">⌕</span>
 
 <input
 id="search"
 class="search"
 type="search"
-placeholder="Search products, food and stores..."
+placeholder="Search groceries, food, pharmacy..."
 autocomplete="off">
 
-<button
-class="cart-btn"
-onclick="openCart()">
-
+</div><button class="cart-btn" onclick="openCart()">
 🛒 Cart (<span id="cartCount">0</span>)
+</button></div></header><!-- ================= QUICK MENU ================= --><nav class="quick"><button class="active" onclick="showCategory('all',this)">All</button>
+
+<button onclick="showCategory('grocery',this)">
+🛒 Groceries
+</button><button onclick="showCategory('food',this)">
+🍔 Food
+</button><button onclick="showCategory('drinks',this)">
+🥤 Drinks
+</button><button onclick="showCategory('beauty',this)">
+💄 Beauty
+</button><button onclick="showCategory('household',this)">
+🏠 Household
+</button><button onclick="showCategory('pet',this)">
+🐾 Pet
+</button></nav><!-- ================= HERO ================= --><section class="hero"><div class="hero-content"><div class="badge">
+PREMIUM DELIVERY • SOUTH AFRICA
+</div><h1>
+Everything you need.<br>
+<span>Delivered to your door.</span>
+</h1><p>
+Shop groceries, meals, drinks, beauty products and everyday essentials from your favourite stores — all in one place.
+</p><div class="delivery-box"><input
+id="heroAddress"
+type="text"
+placeholder="Enter your delivery address">
+
+<button onclick="saveAddress()">
+Check Delivery
+</button></div><div class="hero-features"><div class="hero-feature">
+<strong>✓ Fast</strong> delivery
+</div><div class="hero-feature">
+<strong>✓ Easy</strong> ordering
+</div><div class="hero-feature">
+<strong>✓ Secure</strong> checkout
+</div><div class="hero-feature">
+<strong>✓ Local</strong> delivery
+</div></div></div></section><!-- ================= MAIN ================= --><main class="container"><!-- STORES --><section class="section"><div class="section-title"><h2>
+Shop by store
+</h2><span>
+Popular stores
+</span></div><div class="stores"><div class="store"><div class="store-icon">
+🛒
+</div><div class="store-name">
+Checkers
+</div><div class="store-text">
+Groceries & everyday essentials
+</div><button onclick="storeFilter('Checkers')">
+Shop now
+</button></div><div class="store"><div class="store-icon">
+💊
+</div><div class="store-name">
+Clicks
+</div><div class="store-text">
+Health, beauty & pharmacy
+</div><button onclick="storeFilter('Clicks')">
+Shop now
+</button></div><div class="store"><div class="store-icon">
+🍔
+</div><div class="store-name">
+Mr Food
+</div><div class="store-text">
+Meals, takeaways & fast food
+</div><button onclick="storeFilter('Mr Food')">
+Order food
+</button></div><div class="store"><div class="store-icon">
+⚡
+</div><div class="store-name">
+AeroZone
+</div><div class="store-text">
+One place for everything
+</div><button onclick="showCategory('all')">
+Explore
+</button></div></div></section><!-- CATEGORIES --><section class="section"><div class="section-title"><h2>
+Browse categories
+</h2><span>
+Choose what you need
+</span></div><div class="categories"><button class="active" onclick="showCategory('all',this)">
+All
+</button><button onclick="showCategory('grocery',this)">
+🥬 Groceries
+</button><button onclick="showCategory('food',this)">
+🍕 Food
+</button><button onclick="showCategory('drinks',this)">
+🥤 Drinks
+</button><button onclick="showCategory('beauty',this)">
+💄 Beauty
+</button><button onclick="showCategory('household',this)">
+🧹 Household
+</button><button onclick="showCategory('pet',this)">
+🐶 Pet
+</button></div></section><!-- PRODUCTS --><section class="section"><div class="section-title"><h2>
+Popular products
+</h2><span id="productCount">
+20 products
+</span></div><div id="products" class="products"></div></section><!-- DEAL --><section class="deal"><div><h2>
+Premium delivery made simple.
+</h2><p>
+Find what you need, add it to your cart and order in minutes.
+</p></div><button onclick="openCart()">
+View my cart →
+</button></section></main><!-- ================= CART OVERLAY ================= --><div
+id="cartOverlay"
+class="cart-overlay"
+onclick="closeCart()">
+</div><!-- ================= CART ================= --><aside id="cart" class="cart"><div class="cart-header"><h2>
+Your Cart
+</h2><button class="close" onclick="closeCart()">
+×
+</button></div><div id="cartItems" class="cart-items"><div class="empty-cart"><div class="empty-cart-icon">
+🛒
+</div>Your cart is empty.
+
+</div></div><div class="checkout"><input
+id="checkoutName"
+type="text"
+placeholder="Your name">
+
+<input
+id="checkoutPhone"
+type="tel"
+placeholder="Your phone number">
+
+<input
+id="checkoutAddress"
+type="text"
+placeholder="Delivery address">
+
+<div class="row"><span>Subtotal</span>
+
+<strong>
+R<span id="subtotal">0.00</span>
+</strong></div><div class="row"><span>Delivery</span>
+
+<strong>
+R<span id="deliveryFee">35.00</span>
+</strong></div><div class="row total"><span>Total</span>
+
+<strong>
+R<span id="total">35.00</span>
+</strong></div><button
+class="checkout-btn"
+onclick="checkoutWhatsApp()">
+
+📲 Order via WhatsApp
+
+</button></div></aside><!-- ================= TOAST ================= --><div id="toast" class="toast">
+Added to cart
+</div><!-- ================= FOOTER ================= --><footer><div class="footer-inner"><div class="footer-brand"><h2>
+AeroZone ◈
+</h2><p>
+Premium shopping and delivery made simple. Shop groceries, food, drinks, beauty and everyday essentials from one convenient platform.
+</p></div><div><h3>
+Shop
+</h3><a href="#products">
+Groceries
+</a><a href="#products">
+Food
+</a><a href="#products">
+Beauty
+</a><a href="#products">
+Household
+</a></div><div><h3>
+AeroZone
+</h3><a href="#">
+About us
+</a><a href="#">
+Contact
+</a><a href="#">
+Delivery
+</a><a href="#">
+Help
+</a></div><div><h3>
+Customer
+</h3><a href="#">
+My account
+</a><a href="#">
+Orders
+</a><a href="#">
+Terms
+</a><a href="#">
+Privacy
+</a></div></div><div class="footer-bottom">© 2026 AeroZone. All rights reserved.
+
+</div></footer><script>
+
+/* ================= PRODUCTS ================= */
+
+const products = [
+
+{
+id:1,
+name:"White Bread 700g",
+store:"Checkers",
+price:18.99,
+category:"grocery",
+icon:"🍞"
+},
+
+{
+id:2,
+name:"Full Cream Milk 2L",
+store:"Checkers",
+price:34.99,
+category:"grocery",
+icon:"🥛"
+},
+
+{
+id:3,
+name:"Large Eggs 18 Pack",
+store:"Checkers",
+price:59.99,
+category:"grocery",
+icon:"🥚"
+},
+
+{
+id:4,
+name:"Rice 2kg",
+store:"Checkers",
+price:39.99,
+category:"grocery",
+icon:"🍚"
+},
+
+{
+id:5,
+name:"Chicken Breasts 1kg",
+store:"Checkers",
+price:89.99,
+category:"grocery",
+icon:"🍗"
+},
+
+{
+id:6,
+name:"Cheese Burger",
+store:"Mr Food",
+price:69.99,
+category:"food",
+icon:"🍔"
+},
+
+{
+id:7,
+name:"Large Pizza",
+store:"Mr Food",
+price:119.99,
+category:"food",
+icon:"🍕"
+},
+
+{
+id:8,
+name:"Chicken Wings",
+store:"Mr Food",
+price:79.99,
+category:"food",
+icon:"🍗"
+},
+
+{
+id:9,
+name:"French Fries",
+store:"Mr Food",
+price:39.99,
+category:"food",
+icon:"🍟"
+},
+
+{
+id:10,
+name:"Chicken Meal",
+store:"Mr Food",
+price:89.99,
+category:"food",
+icon:"🍱"
+},
+
+{
+id:11,
+name:"Coca-Cola 2L",
+store:"Checkers",
+price:22.99,
+category:"drinks",
+icon:"🥤"
+},
+
+{
+id:12,
+name:"Fruit Juice 1L",
+store:"Checkers",
+price:25.99,
+category:"drinks",
+icon:"🧃"
+},
+
+{
+id:13,
+name:"Energy Drink",
+store:"Checkers",
+price:19.99,
+category:"drinks",
+icon:"⚡"
+},
+
+{
+id:14,
+name:"Shampoo 400ml",
+store:"Clicks",
+price:49.99,
+category:"beauty",
+icon:"🧴"
+},
+
+{
+id:15,
+name:"Body Lotion",
+store:"Clicks",
+price:59.99,
+category:"beauty",
+icon:"🧴"
+},
+
+{
+id:16,
+name:"Toothpaste",
+store:"Clicks",
+price:29.99,
+category:"beauty",
+icon:"🪥"
+},
+
+{
+id:17,
+name:"Washing Powder",
+store:"Checkers",
+price:69.99,
+category:"household",
+icon:"🧺"
+},
+
+{
+id:18,
+name:"Dishwashing Liquid",
+store:"Checkers",
+price:29.99,
+category:"household",
+icon:"🧼"
+},
+
+{
+id:19,
+name:"Dog Food 2kg",
+store:"Checkers",
+price:64.99,
+category:"pet",
+icon:"🐶"
+},
+
+{
+id:20,
+name:"Cat Food",
+store:"Checkers",
+price:49.99,
+category:"pet",
+icon:"🐱"
+}
+
+];
+
+
+/* ================= CART ================= */
+
+let cart = [];
+
+let currentCategory = "all";
+
+let searchTerm = "";
+
+
+/* ================= DISPLAY PRODUCTS ================= */
+
+function displayProducts(){
+
+const container =
+document.getElementById("products");
+
+container.innerHTML = "";
+
+let filtered = products.filter(product => {
+
+const categoryMatch =
+currentCategory === "all" ||
+product.category === currentCategory;
+
+const searchMatch =
+product.name.toLowerCase().includes(searchTerm) ||
+product.store.toLowerCase().includes(searchTerm);
+
+return categoryMatch && searchMatch;
+
+});
+
+
+document.getElementById("productCount").textContent =
+filtered.length + " products";
+
+
+if(filtered.length === 0){
+
+container.innerHTML = `
+<div class="empty">
+No products found.<br>
+Try another search.
+</div>
+`;
+
+return;
+
+}
+
+
+filtered.forEach(product => {
+
+const card = document.createElement("div");
+
+card.className = "product";
+
+card.innerHTML = `
+
+<div class="product-image">
+${product.icon}
+</div>
+
+<div class="product-info">
+
+<div class="product-name">
+${product.name}
+</div>
+
+<div class="product-store">
+${product.store}
+</div>
+
+<div class="price">
+R${product.price.toFixed(2)}
+</div>
+
+<button class="add" onclick="addToCart(${product.id})">
++ Add to cart
+</button>
+
+</div>
+
+`;
+
+container.appendChild(card);
+
+});
+
+}
+
+
+/* ================= SEARCH ================= */
+
+document
+.getElementById("search")
+.addEventListener("input",function(){
+
+searchTerm =
+this.value.toLowerCase().trim();
+
+displayProducts();
+
+});
+
+
+/* ================= CATEGORY ================= */
+
+function showCategory(category,button){
+
+currentCategory = category;
+
+document
+.querySelectorAll(".categories button,.quick button")
+.forEach(btn => btn.classList.remove("active"));
+
+if(button){
+button.classList.add("active");
+}
+
+displayProducts();
+
+document
+.getElementById("products")
+.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+
+}
+
+
+/* ================= STORE ================= */
+
+function storeFilter(store){
+
+searchTerm = store.toLowerCase();
+
+document.getElementById("search").value = store;
+
+currentCategory = "all";
+
+displayProducts();
+
+document.getElementById("products")
+.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+
+}
+
+
+/* ================= ADD CART ================= */
+
+function addToCart(id){
+
+const product =
+products.find(p => p.id === id);
+
+const existing =
+cart.find(item => item.id === id);
+
+if(existing){
+
+existing.qty++;
+
+}else{
+
+cart.push({
+...product,
+qty:1
+});
+
+}
+
+updateCart();
+
+showToast(product.name + " added to cart");
+
+}
+
+
+/* ================= UPDATE CART ================= */
+
+function updateCart(){
+
+const items =
+document.getElementById("cartItems");
+
+const count =
+cart.reduce((sum,item) => sum + item.qty,0);
+
+document.getElementById("cartCount")
+.textContent = count;
+
+
+if(cart.length === 0){
+
+items.innerHTML = `
+
+<div class="empty-cart">
+
+<div class="empty-cart-icon">
+🛒
+</div>
+
+Your cart is empty.
+
+</div>
+
+`;
+
+}else{
+
+items.innerHTML = "";
+
+cart.forEach(item => {
+
+const div =
+document.createElement("div");
+
+div.className = "cart-item";
+
+div.innerHTML = `
+
+<div class="cart-icon">
+${item.icon}
+</div>
+
+<div class="cart-details">
+
+<div class="cart-name">
+${item.name}
+</div>
+
+<div class="cart-price">
+R${item.price.toFixed(2)}
+</div>
+
+<div class="qty">
+
+<button onclick="changeQty(${item.id},-1)">
+−
+</button>
+
+<span>
+${item.qty}
+</span>
+
+<button onclick="changeQty(${item.id},1)">
++
+</button>
+
+</div>
+
+<button
+class="remove"
+onclick="removeItem(${item.id})">
+
+Remove
 
 </button>
 
 </div>
 
-</header>
+`;
+
+items.appendChild(div);
+
+});
+
+}
 
 
-<!-- MAIN MENU -->
+calculateTotals();
 
-<div class="quick">
+}
 
-<button class="
+
+/* ================= QUANTITY ================= */
+
+function changeQty(id,change){
+
+const item =
+cart.find(item => item.id === id);
+
+if(!item) return;
+
+item.qty += change;
+
+if(item.qty <= 0){
+
+cart =
+cart.filter(item => item.id !== id);
+
+}
+
+updateCart();
+
+}
+
+
+/* ================= REMOVE ================= */
+
+function removeItem(id){
+
+cart =
+cart.filter(item => item.id !== id);
+
+updateCart();
+
+}
+
+
+/* ================= TOTALS ================= */
+
+function calculateTotals(){
+
+const subtotal =
+cart.reduce(
+(sum,item) => sum + item.price * item.qty,
+0
+);
+
+const delivery =
+subtotal > 0 ? 35 : 0;
+
+const total =
+subtotal + delivery;
+
+document.getElementById("subtotal")
+.textContent = subtotal.toFixed(2);
+
+document.getElementById("deliveryFee")
+.textContent = delivery.toFixed(2);
+
+document.getElementById("total")
+.textContent = total.toFixed(2);
+
+}
+
+
+/* ================= OPEN CART ================= */
+
+function openCart(){
+
+document
+.getElementById("cart")
+.classList.add("open");
+
+document
+.getElementById("cartOverlay")
+.classList.add("show");
+
+}
+
+
+/* ================= CLOSE CART ================= */
+
+function closeCart(){
+
+document
+.getElementById("cart")
+.classList.remove("open");
+
+document
+.getElementById("cartOverlay")
+.classList.remove("show");
+
+}
+
+
+/* ================= ADDRESS ================= */
+
+function saveAddress(){
+
+const address =
+document.getElementById("heroAddress")
+.value.trim();
+
+if(!address){
+
+showToast("Please enter your delivery address");
+
+return;
+
+}
+
+document
+.getElementById("checkoutAddress")
+.value = address;
+
+showToast("Delivery address saved");
+
+openCart();
+
+}
+
+
+/* ================= WHATSAPP ================= */
+
+function checkoutWhatsApp(){
+
+if(cart.length === 0){
+
+showToast("Your cart is empty");
+
+return;
+
+}
+
+const name =
+document.getElementById("checkoutName")
+.value.trim();
+
+const phone =
+document.getElementById("checkoutPhone")
+.value.trim();
+
+const address =
+document.getElementById("checkoutAddress")
+.value.trim();
+
+if(!name){
+
+showToast("Please enter your name");
+
+return;
+
+}
+
+if(!phone){
+
+showToast("Please enter your phone number");
+
+return;
+
+}
+
+if(!address){
+
+showToast("Please enter your delivery address");
+
+return;
+
+}
+
+
+let message =
+"Hello AeroZone!%0A%0A";
+
+message +=
+"🛒 *New Order*%0A%0A";
+
+message +=
+"Name: " + encodeURIComponent(name) + "%0A";
+
+message +=
+"Phone: " + encodeURIComponent(phone) + "%0A";
+
+message +=
+"Address: " + encodeURIComponent(address) + "%0A%0A";
+
+message +=
+"*Items:*%0A";
+
+
+cart.forEach(item => {
+
+message +=
+encodeURIComponent(
+item.qty + " x " +
+item.name +
+" - R" +
+(item.price * item.qty).toFixed(2)
+) + "%0A";
+
+});
+
+
+const subtotal =
+cart.reduce(
+(sum,item) => sum + item.price * item.qty,
+0
+);
+
+const total =
+subtotal + 35;
+
+
+message += "%0A";
+
+message +=
+"Subtotal: R" +
+subtotal.toFixed(2) +
+"%0A";
+
+message +=
+"Delivery: R35.00%0A";
+
+message +=
+"*Total: R" +
+total.toFixed(2) +
+"*%0A%0A";
+
+message +=
+"Please confirm my order.";
+
+
+/*
+IMPORTANT:
+Replace 27820000000 with
+your AeroZone WhatsApp number.
+*/
+
+const whatsappNumber =
+"27820000000";
+
+window.open(
+"https://wa.me/" +
+whatsappNumber +
+"?text=" +
+message,
+"_blank"
+);
+
+}
+
+
+/* ================= TOAST ================= */
+
+function showToast(message){
+
+const toast =
+document.getElementById("toast");
+
+toast.textContent = message;
+
+toast.classList.add("show");
+
+setTimeout(() => {
+
+toast.classList.remove("show");
+
+},2200);
+
+}
+
+
+/* ================= INITIAL LOAD ================= */
+
+displayProducts();
+
+updateCart();
+
+</script></body>
+</html>
