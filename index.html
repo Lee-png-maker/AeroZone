@@ -2,1435 +2,294 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AeroZone | Online Store</title>
-
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#f5f6f8;
-  color:#222;
-}
-header{
-  background:#111827;
-  color:white;
-  position:sticky;
-  top:0;
-  z-index:1000;
-}
-.top{
-  max-width:1200px;
-  margin:auto;
-  padding:15px 20px;
-  display:flex;
-  align-items:center;
-  gap:20px;
-}
-.logo{
-  font-size:25px;
-  font-weight:bold;
-  white-space:nowrap;
-}
-.logo span{color:#38bdf8}
-.search{
-  flex:1;
-}
-.search input{
-  width:100%;
-  padding:12px 16px;
-  border:0;
-  border-radius:8px;
-  font-size:15px;
-  outline:none;
-}
-.cartBtn{
-  background:#38bdf8;
-  color:#111827;
-  border:0;
-  padding:11px 16px;
-  border-radius:8px;
-  font-weight:bold;
-  cursor:pointer;
-}
-nav{
-  background:white;
-  border-bottom:1px solid #ddd;
-  overflow-x:auto;
-}
-.categories{
-  max-width:1200px;
-  margin:auto;
-  display:flex;
-  gap:8px;
-  padding:10px 20px;
-}
-.categories button{
-  border:1px solid #ddd;
-  background:white;
-  padding:9px 15px;
-  border-radius:20px;
-  cursor:pointer;
-  white-space:nowrap;
-}
-.categories button.active,
-.categories button:hover{
-  background:#111827;
-  color:white;
-}
-.hero{
-  max-width:1200px;
-  margin:20px auto;
-  padding:45px 25px;
-  border-radius:15px;
-  background:linear-gradient(135deg,#111827,#2563eb);
-  color:white;
-}
-.hero h1{
-  font-size:42px;
-  margin-bottom:10px;
-}
-.hero p{
-  font-size:18px;
-  opacity:.9;
-}
-main{
-  max-width:1200px;
-  margin:auto;
-  padding:10px 20px 50px;
-}
-.products{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
-}
-.card{
-  background:white;
-  border-radius:12px;
-  overflow:hidden;
-  box-shadow:0 2px 10px rgba(0,0,0,.08);
-  transition:.2s;
-}
-.card:hover{
-  transform:translateY(-3px);
-  box-shadow:0 5px 18px rgba(0,0,0,.13);
-}
-.productImage{
-  width:100%;
-  height:210px;
-  object-fit:cover;
-  background:#eee;
-}
-.info{
-  padding:14px;
-}
-.category{
-  color:#777;
-  font-size:12px;
-  margin-bottom:7px;
-}
-.name{
-  font-size:16px;
-  font-weight:bold;
-  min-height:40px;
-}
-.price{
-  font-size:21px;
-  font-weight:bold;
-  margin:10px 0;
-}
-.add{
-  width:100%;
-  border:0;
-  background:#111827;
-  color:white;
-  padding:11px;
-  border-radius:7px;
-  cursor:pointer;
-  font-weight:bold;
-}
-.add:hover{background:#2563eb}
-.empty{
-  text-align:center;
-  padding:50px;
-  grid-column:1/-1;
-}
-.cart{
-  position:fixed;
-  right:-420px;
-  top:0;
-  width:390px;
-  max-width:95%;
-  height:100vh;
-  background:white;
-  z-index:2000;
-  box-shadow:-5px 0 20px rgba(0,0,0,.2);
-  transition:.3s;
-  display:flex;
-  flex-direction:column;
-}
-.cart.open{right:0}
-.cartHead{
-  padding:18px;
-  border-bottom:1px solid #ddd;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.close{
-  border:0;
-  background:none;
-  font-size:25px;
-  cursor:pointer;
-}
-.cartItems{
-  flex:1;
-  overflow:auto;
-  padding:15px;
-}
-.cartItem{
-  display:flex;
-  gap:10px;
-  border-bottom:1px solid #eee;
-  padding:12px 0;
-}
-.cartItem img{
-  width:65px;
-  height:65px;
-  object-fit:cover;
-  border-radius:7px;
-}
-.cartInfo{flex:1}
-.qty{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  margin-top:7px;
-}
-.qty button{
-  width:27px;
-  height:27px;
-  border:1px solid #ddd;
-  background:white;
-  cursor:pointer;
-}
-.remove{
-  color:#dc2626;
-  border:0;
-  background:none;
-  cursor:pointer;
-  margin-left:8px;
-}
-.cartBottom{
-  padding:18px;
-  border-top:1px solid #ddd;
-}
-.total{
-  display:flex;
-  justify-content:space-between;
-  font-size:20px;
-  font-weight:bold;
-  margin-bottom:15px;
-}
-.whatsapp{
-  display:block;
-  width:100%;
-  text-align:center;
-  padding:13px;
-  border-radius:8px;
-  background:#25D366;
-  color:white;
-  text-decoration:none;
-  font-weight:bold;
-}
-footer{
-  background:#111827;
-  color:white;
-  text-align:center;
-  padding:30px 20px;
-}
-@media(max-width:900px){
-  .products{grid-template-columns:repeat(3,1fr)}
-}
-@media(max-width:650px){
-  .top{flex-wrap:wrap}
-  .logo{width:100%}
-  .search{order:3;flex-basis:100%}
-  .products{grid-template-columns:repeat(2,1fr);gap:10px}
-  .productImage{height:170px}
-  .hero h1{font-size:30px}
-  .hero{padding:30px 20px}
-}
-@media(max-width:400px){
-  .products{grid-template-columns:1fr 1fr}
-  .productImage{height:145px}
-  .name{font-size:14px}
-  .price{font-size:18px}
-}
+*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#f5f5f5;color:#111}
+header{background:#111827;color:white;padding:15px;position:sticky;top:0;z-index:10}
+.top{max-width:1200px;margin:auto;display:flex;gap:12px;align-items:center}
+.logo{font-size:25px;font-weight:bold}.search{flex:1;padding:12px;border:0;border-radius:7px}
+button{cursor:pointer;border:0;border-radius:7px;padding:10px}
+.cartBtn{background:#f59e0b;font-weight:bold}
+nav{background:white;padding:10px;overflow:auto;white-space:nowrap}
+nav button{margin:3px;background:#eee}
+nav button:hover{background:#111827;color:white}
+.hero{max-width:1200px;margin:20px auto;padding:40px 20px;background:#1f2937;color:white;border-radius:12px}
+.hero h1{font-size:38px;margin:0 0 10px}
+.container{max-width:1200px;margin:auto;padding:10px 15px}
+.products{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}
+.card{background:white;border-radius:10px;overflow:hidden;box-shadow:0 2px 7px #ddd}
+.card img{width:100%;height:180px;object-fit:cover;background:#eee}
+.info{padding:12px}.cat{font-size:12px;color:#777}.name{height:40px;font-weight:bold}
+.price{font-size:20px;font-weight:bold;margin:8px 0}
+.add{width:100%;background:#111827;color:white}.add:hover{background:#f59e0b;color:#111}
+.drawer{position:fixed;right:-400px;top:0;width:380px;max-width:95%;height:100%;background:white;z-index:20;box-shadow:-5px 0 20px #999;transition:.3s;display:flex;flex-direction:column}
+.drawer.open{right:0}.cartHead{background:#111827;color:white;padding:15px;display:flex;justify-content:space-between}
+.items{flex:1;overflow:auto;padding:15px}.item{display:flex;gap:10px;border-bottom:1px solid #ddd;padding:10px 0}
+.item img{width:60px;height:60px;object-fit:cover}.item div{flex:1}
+.bottom{padding:15px;border-top:1px solid #ddd}.checkout{width:100%;background:#16a34a;color:white;font-weight:bold}
+footer{background:#111827;color:white;text-align:center;padding:25px;margin-top:30px}
+@media(max-width:1000px){.products{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:700px){.products{grid-template-columns:repeat(2,1fr)}.top{flex-wrap:wrap}.search{order:3;flex-basis:100%}}
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="top">
-    <div class="logo">Aero<span>Zone</span></div>
-
-    <div class="search">
-      <input
-        type="search"
-        id="search"
-        placeholder="Search products..."
-        oninput="displayProducts()">
-    </div>
-
-    <button class="cartBtn" onclick="openCart()">
-      🛒 Cart (<span id="cartCount">0</span>)
-    </button>
-  </div>
+<div class="top">
+<div class="logo">AeroZone</div>
+<input id="search" class="search" placeholder="Search products...">
+<button class="cartBtn" onclick="openCart()">🛒 Cart (<span id="count">0</span>)</button>
+</div>
 </header>
 
 <nav>
-  <div class="categories" id="categories"></div>
+<button onclick="filter('All')">All</button>
+<button onclick="filter('Electronics')">Electronics</button>
+<button onclick="filter('Home')">Home</button>
+<button onclick="filter('Automotive')">Automotive</button>
+<button onclick="filter('Kitchen')">Kitchen</button>
+<button onclick="filter('Beauty')">Beauty</button>
+<button onclick="filter('Pets')">Pets</button>
+<button onclick="filter('Outdoor')">Outdoor</button>
+<button onclick="filter('Travel')">Travel</button>
 </nav>
 
 <section class="hero">
-  <h1>Shop Smart. Shop AeroZone.</h1>
-  <p>Discover great products at affordable South African prices.</p>
+<h1>Shop Smart with AeroZone</h1>
+<p>Trending products at great prices.</p>
 </section>
 
-<main>
-  <div class="products" id="products"></div>
+<main class="container">
+<h2>Products</h2>
+<div id="products" class="products"></div>
 </main>
 
-<!-- CART -->
-<div class="cart" id="cart">
-
-  <div class="cartHead">
-    <h2>Your Cart</h2>
-    <button class="close" onclick="closeCart()">×</button>
-  </div>
-
-  <div class="cartItems" id="cartItems"></div>
-
-  <div class="cartBottom">
-    <div class="total">
-      <span>Total</span>
-      <span>R<span id="cartTotal">0</span></span>
-    </div>
-
-    <a
-      id="whatsappOrder"
-      class="whatsapp"
-      href="#"
-      target="_blank">
-      Order on WhatsApp
-    </a>
-  </div>
-
+<div id="drawer" class="drawer">
+<div class="cartHead">
+<h2>🛒 Your Cart</h2>
+<button onclick="closeCart()">✕</button>
+</div>
+<div id="items" class="items"></div>
+<div class="bottom">
+<h2>Total: R<span id="total">0.00</span></h2>
+<button class="checkout" onclick="checkout()">Order on WhatsApp</button>
+</div>
 </div>
 
 <footer>
-  <p><strong>AeroZone</strong></p>
-  <p>Online shopping made simple.</p>
-  <br>
-  <p>© 2026 AeroZone. All rights reserved.</p>
+<h2>AeroZone</h2>
+<p>Online shopping made simple.</p>
+<p>© 2026 AeroZone</p>
 </footer>
 
 <script>
 
-/* =========================================================
-   AEROZONE PRODUCT LIST
-   =========================================================
-
-   THIS IS THE ONLY MAIN AREA YOU NEED TO EDIT.
-
-   Format:
-
-   {
-     name: "Product Name",
-     price: 299,
-     category: "Electronics",
-     image: "images/product.jpg"
-   }
-
-   To add a product, copy one item and change the information.
-
-========================================================= */
-
-const products = [
-
-/* ================= ELECTRONICS ================= */
-
-{
- name:"Wireless Bluetooth Earbuds",
- price:299,
- category:"Electronics",
- image:"images/product-1.jpg"
-},
-
-{
- name:"Smart Fitness Watch",
- price:499,
- category:"Electronics",
- image:"images/product-2.jpg"
-},
-
-{
- name:"Wireless Charging Pad",
- price:199,
- category:"Electronics",
- image:"images/product-3.jpg"
-},
-
-{
- name:"USB-C Fast Charging Cable",
- price:99,
- category:"Electronics",
- image:"images/product-4.jpg"
-},
-
-{
- name:"20W USB-C Charger",
- price:149,
- category:"Electronics",
- image:"images/product-5.jpg"
-},
-
-{
- name:"Bluetooth Speaker",
- price:399,
- category:"Electronics",
- image:"images/product-6.jpg"
-},
-
-{
- name:"Mini Power Bank",
- price:249,
- category:"Electronics",
- image:"images/product-7.jpg"
-},
-
-{
- name:"10,000mAh Power Bank",
- price:349,
- category:"Electronics",
- image:"images/product-8.jpg"
-},
-
-{
- name:"LED Ring Light",
- price:279,
- category:"Electronics",
- image:"images/product-9.jpg"
-},
-
-{
- name:"Phone Tripod Stand",
- price:229,
- category:"Electronics",
- image:"images/product-10.jpg"
-},
-
-{
- name:"Magnetic Phone Holder",
- price:149,
- category:"Electronics",
- image:"images/product-11.jpg"
-},
-
-{
- name:"Bluetooth Selfie Stick",
- price:179,
- category:"Electronics",
- image:"images/product-12.jpg"
-},
-
-{
- name:"Wireless Keyboard",
- price:399,
- category:"Electronics",
- image:"images/product-13.jpg"
-},
-
-{
- name:"Wireless Mouse",
- price:199,
- category:"Electronics",
- image:"images/product-14.jpg"
-},
-
-{
- name:"Laptop Cooling Stand",
- price:329,
- category:"Electronics",
- image:"images/product-15.jpg"
-},
-
-{
- name:"4-Port USB Hub",
- price:249,
- category:"Electronics",
- image:"images/product-16.jpg"
-},
-
-{
- name:"LED Desk Lamp",
- price:299,
- category:"Home",
- image:"images/product-17.jpg"
-},
-
-{
- name:"Mini Projector",
- price:999,
- category:"Electronics",
- image:"images/product-18.jpg"
-},
-
-{
- name:"Smart LED Bulb",
- price:149,
- category:"Home",
- image:"images/product-19.jpg"
-},
-
-{
- name:"Digital Alarm Clock",
- price:229,
- category:"Home",
- image:"images/product-20.jpg"
-},
-
-/* ================= AUTOMOTIVE ================= */
-
-{
- name:"Magnetic Car Phone Mount",
- price:179,
- category:"Automotive",
- image:"images/product-21.jpg"
-},
-
-{
- name:"Car USB Charger",
- price:129,
- category:"Automotive",
- image:"images/product-22.jpg"
-},
-
-{
- name:"Car Interior LED Lights",
- price:249,
- category:"Automotive",
- image:"images/product-23.jpg"
-},
-
-{
- name:"Car Cleaning Brush Set",
- price:199,
- category:"Automotive",
- image:"images/product-24.jpg"
-},
-
-{
- name:"Microfiber Car Towels",
- price:159,
- category:"Automotive",
- image:"images/product-25.jpg"
-},
-
-{
- name:"Portable Car Vacuum",
- price:449,
- category:"Automotive",
- image:"images/product-26.jpg"
-},
-
-{
- name:"Car Seat Organiser",
- price:299,
- category:"Automotive",
- image:"images/product-27.jpg"
-},
-
-{
- name:"Steering Wheel Cover",
- price:199,
- category:"Automotive",
- image:"images/product-28.jpg"
-},
-
-{
- name:"Car Air Freshener Set",
- price:129,
- category:"Automotive",
- image:"images/product-29.jpg"
-},
-
-{
- name:"Emergency Car Tool Kit",
- price:599,
- category:"Automotive",
- image:"images/product-30.jpg"
-},
-
-{
- name:"Digital Tyre Pressure Gauge",
- price:229,
- category:"Automotive",
- image:"images/product-31.jpg"
-},
-
-{
- name:"Car Sunshade",
- price:179,
- category:"Automotive",
- image:"images/product-32.jpg"
-},
-
-{
- name:"Car Cup Holder",
- price:159,
- category:"Automotive",
- image:"images/product-33.jpg"
-},
-
-{
- name:"Car Trash Bin",
- price:139,
- category:"Automotive",
- image:"images/product-34.jpg"
-},
-
-{
- name:"Car Seat Gap Organiser",
- price:149,
- category:"Automotive",
- image:"images/product-35.jpg"
-},
-
-/* ================= HOME ================= */
-
-{
- name:"Handheld Vacuum Cleaner",
- price:699,
- category:"Home",
- image:"images/product-36.jpg"
-},
-
-{
- name:"Microfiber Cleaning Cloth Set",
- price:129,
- category:"Home",
- image:"images/product-37.jpg"
-},
-
-{
- name:"Multi-purpose Cleaning Brush",
- price:119,
- category:"Home",
- image:"images/product-38.jpg"
-},
-
-{
- name:"Spin Mop Bucket Set",
- price:499,
- category:"Home",
- image:"images/product-39.jpg"
-},
-
-{
- name:"Window Squeegee",
- price:149,
- category:"Home",
- image:"images/product-40.jpg"
-},
-
-{
- name:"Electric Cleaning Scrubber",
- price:449,
- category:"Home",
- image:"images/product-41.jpg"
-},
-
-{
- name:"Refillable Spray Bottle Set",
- price:119,
- category:"Home",
- image:"images/product-42.jpg"
-},
-
-{
- name:"Storage Box Set",
- price:299,
- category:"Home",
- image:"images/product-43.jpg"
-},
-
-{
- name:"Laundry Basket",
- price:249,
- category:"Home",
- image:"images/product-44.jpg"
-},
-
-{
- name:"Clothes Hanger Set",
- price:159,
- category:"Home",
- image:"images/product-45.jpg"
-},
-
-{
- name:"Bathroom Organiser",
- price:229,
- category:"Home",
- image:"images/product-46.jpg"
-},
-
-{
- name:"Sink Organiser",
- price:179,
- category:"Home",
- image:"images/product-47.jpg"
-},
-
-{
- name:"Wall Hooks",
- price:99,
- category:"Home",
- image:"images/product-48.jpg"
-},
-
-{
- name:"Motion Sensor Light",
- price:199,
- category:"Home",
- image:"images/product-49.jpg"
-},
-
-{
- name:"Under Cabinet LED Light",
- price:229,
- category:"Home",
- image:"images/product-50.jpg"
-},
-
-/* ================= KITCHEN ================= */
-
-{
- name:"Digital Kitchen Scale",
- price:179,
- category:"Kitchen",
- image:"images/product-51.jpg"
-},
-
-{
- name:"Electric Milk Frother",
- price:159,
- category:"Kitchen",
- image:"images/product-52.jpg"
-},
-
-{
- name:"Portable Blender",
- price:349,
- category:"Kitchen",
- image:"images/product-53.jpg"
-},
-
-{
- name:"Mini Food Chopper",
- price:299,
- category:"Kitchen",
- image:"images/product-54.jpg"
-},
-
-{
- name:"Reusable Food Storage Bags",
- price:139,
- category:"Kitchen",
- image:"images/product-55.jpg"
-},
-
-{
- name:"Silicone Kitchen Utensil Set",
- price:249,
- category:"Kitchen",
- image:"images/product-56.jpg"
-},
-
-{
- name:"Non-Stick Frying Pan",
- price:399,
- category:"Kitchen",
- image:"images/product-57.jpg"
-},
-
-{
- name:"Kitchen Knife Set",
- price:449,
- category:"Kitchen",
- image:"images/product-58.jpg"
-},
-
-{
- name:"Automatic Soap Dispenser",
- price:249,
- category:"Kitchen",
- image:"images/product-59.jpg"
-},
-
-{
- name:"Filter Water Bottle",
- price:199,
- category:"Kitchen",
- image:"images/product-60.jpg"
-},
-
-/* ================= BEAUTY ================= */
-
-{
- name:"Facial Cleansing Brush",
- price:229,
- category:"Beauty",
- image:"images/product-61.jpg"
-},
-
-{
- name:"LED Makeup Mirror",
- price:399,
- category:"Beauty",
- image:"images/product-62.jpg"
-},
-
-{
- name:"Hair Straightener",
- price:399,
- category:"Beauty",
- image:"images/product-63.jpg"
-},
-
-{
- name:"Curling Wand",
- price:449,
- category:"Beauty",
- image:"images/product-64.jpg"
-},
-
-{
- name:"Electric Hair Trimmer",
- price:299,
- category:"Beauty",
- image:"images/product-65.jpg"
-},
-
-{
- name:"Makeup Brush Set",
- price:249,
- category:"Beauty",
- image:"images/product-66.jpg"
-},
-
-{
- name:"Cosmetic Travel Bag",
- price:199,
- category:"Beauty",
- image:"images/product-67.jpg"
-},
-
-{
- name:"Perfume Atomizer",
- price:99,
- category:"Beauty",
- image:"images/product-68.jpg"
-},
-
-{
- name:"Silk Sleep Mask",
- price:129,
- category:"Beauty",
- image:"images/product-69.jpg"
-},
-
-{
- name:"Reusable Beauty Water Bottle",
- price:179,
- category:"Beauty",
- image:"images/product-70.jpg"
-},
-
-/* ================= PETS ================= */
-
-{
- name:"Interactive Dog Toy",
- price:179,
- category:"Pets",
- image:"images/product-71.jpg"
-},
-
-{
- name:"Pet Grooming Brush",
- price:149,
- category:"Pets",
- image:"images/product-72.jpg"
-},
-
-{
- name:"Automatic Pet Feeder",
- price:699,
- category:"Pets",
- image:"images/product-73.jpg"
-},
-
-{
- name:"Pet Water Bottle",
- price:159,
- category:"Pets",
- image:"images/product-74.jpg"
-},
-
-{
- name:"Dog Collar & Leash",
- price:229,
- category:"Pets",
- image:"images/product-75.jpg"
-},
-
-{
- name:"Pet Travel Carrier",
- price:599,
- category:"Pets",
- image:"images/product-76.jpg"
-},
-
-{
- name:"Cat Scratching Toy",
- price:249,
- category:"Pets",
- image:"images/product-77.jpg"
-},
-
-{
- name:"Pet Feeding Mat",
- price:149,
- category:"Pets",
- image:"images/product-78.jpg"
-},
-
-{
- name:"Dog Waste Bag Dispenser",
- price:99,
- category:"Pets",
- image:"images/product-79.jpg"
-},
-
-{
- name:"Pet Cooling Mat",
- price:299,
- category:"Pets",
- image:"images/product-80.jpg"
-},
-
-/* ================= OUTDOOR ================= */
-
-{
- name:"Camping Lantern",
- price:299,
- category:"Outdoor",
- image:"images/product-81.jpg"
-},
-
-{
- name:"Camping Stove",
- price:499,
- category:"Outdoor",
- image:"images/product-82.jpg"
-},
-
-{
- name:"Rechargeable Headlamp",
- price:179,
- category:"Outdoor",
- image:"images/product-83.jpg"
-},
-
-{
- name:"Folding Camping Chair",
- price:499,
- category:"Outdoor",
- image:"images/product-84.jpg"
-},
-
-{
- name:"Picnic Blanket",
- price:299,
- category:"Outdoor",
- image:"images/product-85.jpg"
-},
-
-{
- name:"Cooler Bag",
- price:349,
- category:"Outdoor",
- image:"images/product-86.jpg"
-},
-
-{
- name:"Portable Hammock",
- price:399,
- category:"Outdoor",
- image:"images/product-87.jpg"
-},
-
-{
- name:"Solar Garden Lights",
- price:199,
- category:"Outdoor",
- image:"images/product-88.jpg"
-},
-
-{
- name:"Folding Outdoor Table",
- price:599,
- category:"Outdoor",
- image:"images/product-89.jpg"
-},
-
-{
- name:"Waterproof Dry Bag",
- price:249,
- category:"Outdoor",
- image:"images/product-90.jpg"
-},
-
-/* ================= TRAVEL ================= */
-
-{
- name:"Travel Neck Pillow",
- price:179,
- category:"Travel",
- image:"images/product-91.jpg"
-},
-
-{
- name:"Luggage Organiser Set",
- price:249,
- category:"Travel",
- image:"images/product-92.jpg"
-},
-
-{
- name:"Digital Luggage Scale",
- price:159,
- category:"Travel",
- image:"images/product-93.jpg"
-},
-
-{
- name:"Universal Travel Adapter",
- price:299,
- category:"Travel",
- image:"images/product-94.jpg"
-},
-
-{
- name:"Passport Holder",
- price:149,
- category:"Travel",
- image:"images/product-95.jpg"
-},
-
-{
- name:"Anti-Theft Backpack",
- price:599,
- category:"Travel",
- image:"images/product-96.jpg"
-},
-
-{
- name:"Travel Toiletry Bag",
- price:199,
- category:"Travel",
- image:"images/product-97.jpg"
-},
-
-{
- name:"Travel Duffel Bag",
- price:299,
- category:"Travel",
- image:"images/product-98.jpg"
-},
-
-{
- name:"Portable Travel Door Lock",
- price:179,
- category:"Travel",
- image:"images/product-99.jpg"
-},
-
-{
- name:"Compression Travel Bags",
- price:149,
- category:"Travel",
- image:"images/product-100.jpg"
-}
-
+/* =========================
+   ONLY EDIT PRODUCTS HERE
+========================= */
+
+const products=[
+["Wireless Bluetooth Earbuds",299,"Electronics"],
+["Smart Fitness Watch",499,"Electronics"],
+["Wireless Charging Pad",199,"Electronics"],
+["USB-C Fast Charging Cable",99,"Electronics"],
+["20W USB-C Charger",149,"Electronics"],
+["Bluetooth Speaker",399,"Electronics"],
+["Mini Power Bank",249,"Electronics"],
+["10,000mAh Power Bank",349,"Electronics"],
+["LED Ring Light",279,"Electronics"],
+["Phone Tripod Stand",229,"Electronics"],
+["Magnetic Phone Holder",149,"Electronics"],
+["Bluetooth Selfie Stick",179,"Electronics"],
+["Wireless Keyboard",399,"Electronics"],
+["Wireless Mouse",199,"Electronics"],
+["Laptop Cooling Stand",329,"Electronics"],
+["4-Port USB Hub",249,"Electronics"],
+["LED Desk Lamp",299,"Home"],
+["Mini Projector",999,"Electronics"],
+["Smart LED Bulb",149,"Home"],
+["Digital Alarm Clock",229,"Home"],
+["Magnetic Car Phone Mount",179,"Automotive"],
+["Car USB Charger",129,"Automotive"],
+["Car Interior LED Lights",249,"Automotive"],
+["Car Cleaning Brush Set",199,"Automotive"],
+["Microfiber Car Towels",159,"Automotive"],
+["Portable Car Vacuum",449,"Automotive"],
+["Car Seat Organiser",299,"Automotive"],
+["Steering Wheel Cover",199,"Automotive"],
+["Car Air Freshener Set",129,"Automotive"],
+["Emergency Car Tool Kit",599,"Automotive"],
+["Digital Tyre Pressure Gauge",229,"Automotive"],
+["Car Sunshade",179,"Automotive"],
+["Car Cup Holder",159,"Automotive"],
+["Car Trash Bin",139,"Automotive"],
+["Car Seat Gap Organiser",149,"Automotive"],
+["Handheld Vacuum Cleaner",699,"Home"],
+["Microfiber Cleaning Cloth Set",129,"Home"],
+["Multi-purpose Cleaning Brush",119,"Home"],
+["Spin Mop Bucket Set",499,"Home"],
+["Window Squeegee",149,"Home"],
+["Electric Cleaning Scrubber",449,"Home"],
+["Refillable Spray Bottle Set",119,"Home"],
+["Storage Box Set",299,"Home"],
+["Laundry Basket",249,"Home"],
+["Clothes Hanger Set",159,"Home"],
+["Bathroom Organiser",229,"Home"],
+["Sink Organiser",179,"Home"],
+["Wall Hooks",99,"Home"],
+["Motion Sensor Light",199,"Home"],
+["Under Cabinet LED Light",229,"Home"],
+["Digital Kitchen Scale",179,"Kitchen"],
+["Electric Milk Frother",159,"Kitchen"],
+["Portable Blender",349,"Kitchen"],
+["Mini Food Chopper",299,"Kitchen"],
+["Reusable Food Storage Bags",139,"Kitchen"],
+["Silicone Kitchen Utensil Set",249,"Kitchen"],
+["Non-Stick Frying Pan",399,"Kitchen"],
+["Kitchen Knife Set",449,"Kitchen"],
+["Automatic Soap Dispenser",249,"Kitchen"],
+["Filter Water Bottle",199,"Kitchen"],
+["Facial Cleansing Brush",229,"Beauty"],
+["LED Makeup Mirror",399,"Beauty"],
+["Hair Straightener",399,"Beauty"],
+["Curling Wand",449,"Beauty"],
+["Electric Hair Trimmer",299,"Beauty"],
+["Makeup Brush Set",249,"Beauty"],
+["Cosmetic Travel Bag",199,"Beauty"],
+["Perfume Atomizer",99,"Beauty"],
+["Silk Sleep Mask",129,"Beauty"],
+["Reusable Beauty Water Bottle",179,"Beauty"],
+["Interactive Dog Toy",179,"Pets"],
+["Pet Grooming Brush",149,"Pets"],
+["Automatic Pet Feeder",699,"Pets"],
+["Pet Water Bottle",159,"Pets"],
+["Dog Collar & Leash",229,"Pets"],
+["Pet Travel Carrier",599,"Pets"],
+["Cat Scratching Toy",249,"Pets"],
+["Pet Feeding Mat",149,"Pets"],
+["Dog Waste Bag Dispenser",99,"Pets"],
+["Pet Cooling Mat",299,"Pets"],
+["Camping Lantern",299,"Outdoor"],
+["Camping Stove",499,"Outdoor"],
+["Rechargeable Headlamp",179,"Outdoor"],
+["Folding Camping Chair",499,"Outdoor"],
+["Picnic Blanket",299,"Outdoor"],
+["Cooler Bag",349,"Outdoor"],
+["Portable Hammock",399,"Outdoor"],
+["Solar Garden Lights",199,"Outdoor"],
+["Folding Outdoor Table",599,"Outdoor"],
+["Waterproof Dry Bag",249,"Outdoor"],
+["Travel Neck Pillow",179,"Travel"],
+["Luggage Organiser Set",249,"Travel"],
+["Digital Luggage Scale",159,"Travel"],
+["Universal Travel Adapter",299,"Travel"],
+["Passport Holder",149,"Travel"],
+["Anti-Theft Backpack",599,"Travel"],
+["Travel Toiletry Bag",199,"Travel"],
+["Travel Duffel Bag",299,"Travel"],
+["Portable Travel Door Lock",179,"Travel"],
+["Compression Travel Bags",149,"Travel"]
 ];
 
-/* =========================================================
-   STORE FUNCTIONS
-========================================================= */
+/* =========================
+   AUTOMATIC IMAGE NAME
+========================= */
 
-let selectedCategory = "All";
-
-let cart = JSON.parse(localStorage.getItem("aerozoneCart")) || [];
-
-
-/* CREATE CATEGORY BUTTONS */
-
-function createCategories(){
-
-  const container = document.getElementById("categories");
-
-  const categories = [
-    "All",
-    ...new Set(products.map(p => p.category))
-  ];
-
-  container.innerHTML = categories.map(category => `
-    <button
-      class="${category === selectedCategory ? "active" : ""}"
-      onclick="selectCategory('${category}')">
-      ${category}
-    </button>
-  `).join("");
+function imageName(name){
+return "images/"+name
+.toLowerCase()
+.replace(/&/g,"and")
+.replace(/[^a-z0-9]+/g,"-")
+.replace(/^-|-$/g,"")+".jpg";
 }
 
+let cart=[];
+let category="All";
 
-/* SELECT CATEGORY */
-
-function selectCategory(category){
-
-  selectedCategory = category;
-
-  createCategories();
-
-  displayProducts();
+function show(list){
+document.getElementById("products").innerHTML=list.map((p,i)=>`
+<div class="card">
+<img src="${imageName(p[0])}" alt="${p[0]}"
+onerror="this.src='images/no-image.jpg'">
+<div class="info">
+<div class="cat">${p[2]}</div>
+<div class="name">${p[0]}</div>
+<div class="price">R${p[1].toFixed(2)}</div>
+<button class="add" onclick="add(${i})">Add to Cart</button>
+</div>
+</div>`).join("");
 }
 
-
-/* DISPLAY PRODUCTS */
-
-function displayProducts(){
-
-  const container = document.getElementById("products");
-
-  const search =
-    document.getElementById("search").value
-    .toLowerCase()
-    .trim();
-
-  let filtered = products.filter(product => {
-
-    const matchesCategory =
-      selectedCategory === "All" ||
-      product.category === selectedCategory;
-
-    const matchesSearch =
-      product.name.toLowerCase().includes(search);
-
-    return matchesCategory && matchesSearch;
-
-  });
-
-  if(filtered.length === 0){
-
-    container.innerHTML = `
-      <div class="empty">
-        <h2>No products found</h2>
-        <p>Try another search.</p>
-      </div>
-    `;
-
-    return;
-  }
-
-  container.innerHTML = filtered.map((product,index) => `
-
-    <div class="card">
-
-      <img
-        class="productImage"
-        src="${product.image}"
-        alt="${product.name}"
-        onerror="this.src='https://placehold.co/600x600?text=AeroZone'">
-
-      <div class="info">
-
-        <div class="category">
-          ${product.category}
-        </div>
-
-        <div class="name">
-          ${product.name}
-        </div>
-
-        <div class="price">
-          R${product.price}
-        </div>
-
-        <button
-          class="add"
-          onclick="addToCart('${product.name}')">
-          Add to Cart
-        </button>
-
-      </div>
-
-    </div>
-
-  `).join("");
+function filter(c){
+category=c;
+search();
 }
 
-
-/* ADD TO CART */
-
-function addToCart(name){
-
-  const product = products.find(p => p.name === name);
-
-  if(!product) return;
-
-  const existing = cart.find(item => item.name === name);
-
-  if(existing){
-
-    existing.qty++;
-
-  }else{
-
-    cart.push({
-      ...product,
-      qty:1
-    });
-
-  }
-
-  saveCart();
-
-  updateCart();
-
-  openCart();
+function search(){
+let q=document.getElementById("search").value.toLowerCase();
+let list=products.map((p,i)=>[...p,i])
+.filter(p=>
+(category=="All"||p[2]==category)&&
+p[0].toLowerCase().includes(q)
+);
+show(list.map(p=>products[p[3]]));
 }
 
+document.getElementById("search").oninput=search;
 
-/* REMOVE PRODUCT */
-
-function removeFromCart(name){
-
-  cart = cart.filter(item => item.name !== name);
-
-  saveCart();
-
-  updateCart();
+function add(i){
+cart.push(i);
+update();
+openCart();
 }
 
-
-/* CHANGE QUANTITY */
-
-function changeQty(name, amount){
-
-  const item = cart.find(item => item.name === name);
-
-  if(!item) return;
-
-  item.qty += amount;
-
-  if(item.qty <= 0){
-
-    removeFromCart(name);
-
-    return;
-  }
-
-  saveCart();
-
-  updateCart();
+function update(){
+let total=0;
+document.getElementById("items").innerHTML=cart.map((i,n)=>{
+let p=products[i];total+=p[1];
+return `<div class="item">
+<img src="${imageName(p[0])}">
+<div><b>${p[0]}</b><br>R${p[1]}
+<button onclick="removeItem(${n})">Remove</button></div>
+</div>`;
+}).join("");
+document.getElementById("count").textContent=cart.length;
+document.getElementById("total").textContent=total.toFixed(2);
 }
 
-
-/* SAVE CART */
-
-function saveCart(){
-
-  localStorage.setItem(
-    "aerozoneCart",
-    JSON.stringify(cart)
-  );
-
+function removeItem(n){
+cart.splice(n,1);
+update();
 }
-
-
-/* UPDATE CART */
-
-function updateCart(){
-
-  const container =
-    document.getElementById("cartItems");
-
-  if(cart.length === 0){
-
-    container.innerHTML = `
-      <div style="text-align:center;padding:40px 10px">
-        <h3>Your cart is empty</h3>
-        <p>Add products to your cart.</p>
-      </div>
-    `;
-
-  }else{
-
-    container.innerHTML = cart.map(item => `
-
-      <div class="cartItem">
-
-        <img
-          src="${item.image}"
-          onerror="this.src='https://placehold.co/100x100?text=Product'">
-
-        <div class="cartInfo">
-
-          <strong>${item.name}</strong>
-
-          <div>
-            R${item.price}
-          </div>
-
-          <div class="qty">
-
-            <button
-              onclick="changeQty('${item.name}',-1)">
-              −
-            </button>
-
-            <span>${item.qty}</span>
-
-            <button
-              onclick="changeQty('${item.name}',1)">
-              +
-            </button>
-
-            <button
-              class="remove"
-              onclick="removeFromCart('${item.name}')">
-              Remove
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    `).join("");
-
-  }
-
-
-  let total = 0;
-  let count = 0;
-
-  cart.forEach(item => {
-
-    total += item.price * item.qty;
-
-    count += item.qty;
-
-  });
-
-
-  document.getElementById("cartTotal").textContent =
-    total.toLocaleString("en-ZA");
-
-  document.getElementById("cartCount").textContent =
-    count;
-
-
-  createWhatsAppLink();
-
-}
-
-
-/* WHATSAPP ORDER */
-
-function createWhatsAppLink(){
-
-  const phone = "27000000000";
-
-  if(cart.length === 0){
-
-    document.getElementById("whatsappOrder").href = "#";
-
-    return;
-
-  }
-
-  let message =
-    "Hello AeroZone, I would like to order:%0A%0A";
-
-  let total = 0;
-
-  cart.forEach(item => {
-
-    const subtotal = item.price * item.qty;
-
-    total += subtotal;
-
-    message +=
-      `${item.name} x${item.qty} - R${subtotal}%0A`;
-
-  });
-
-  message +=
-    `%0ATotal: R${total}`;
-
-  document.getElementById("whatsappOrder").href =
-    `https://wa.me/${phone}?text=${message}`;
-
-}
-
-
-/* OPEN CART */
 
 function openCart(){
-
-  document
-    .getElementById("cart")
-    .classList.add("open");
-
+document.getElementById("drawer").classList.add("open");
 }
-
-
-/* CLOSE CART */
 
 function closeCart(){
-
-  document
-    .getElementById("cart")
-    .classList.remove("open");
-
+document.getElementById("drawer").classList.remove("open");
 }
 
+function checkout(){
+if(!cart.length)return alert("Your cart is empty.");
 
-/* START STORE */
+let phone="27000000000";
+let msg="Hello AeroZone, I want to order:%0A%0A";
 
-createCategories();
+cart.forEach(i=>{
+let p=products[i];
+msg+=p[0]+" - R"+p[1]+"%0A";
+});
 
-displayProducts();
+msg+="%0ATotal: R"+cart.reduce((s,i)=>s+products[i][1],0).toFixed(2);
 
-updateCart();
+window.open("https://wa.me/"+phone+"?text="+msg,"_blank");
+}
+
+show(products);
 
 </script>
-
 </body>
 </html>
