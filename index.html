@@ -1,1358 +1,2309 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#000000">
-<title>AeroZone | Shop & Delivery</title><style>
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{width:100%;min-height:100%;font-family:Arial,Helvetica,sans-serif;background:#fff;color:#111}
-body{min-height:100vh}
-button,input,select,textarea{font:inherit}
-button{cursor:pointer}
+<meta name="description" content="AeroZone - Shop groceries, food, pharmacy, bakery and more with delivery.">
+
+<title>AeroZone | Shop & Delivery</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f7f7f7;
+    color:#111;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+button,
+input,
+textarea,
+select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+/* ================= HEADER ================= */
 
 header{
-position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.97);
-border-bottom:1px solid #e8e8e8;backdrop-filter:blur(15px)
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#fff;
+    border-bottom:1px solid #e9e9e9;
 }
+
 .nav{
-max-width:1200px;margin:auto;padding:14px 18px;display:flex;
-align-items:center;justify-content:space-between
+    max-width:1250px;
+    margin:auto;
+    padding:13px 18px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
 }
-.logo{font-size:25px;font-weight:900;letter-spacing:-1.5px}
-.logo span{font-weight:400}
-.nav-buttons{display:flex;gap:8px}
+
+.logo{
+    font-size:27px;
+    font-weight:950;
+    letter-spacing:-1.5px;
+}
+
+.logo span{
+    font-weight:400;
+}
+
+.nav-actions{
+    display:flex;
+    gap:8px;
+}
+
 .nav-btn{
-border:1px solid #ddd;background:#fff;color:#111;padding:9px 14px;
-border-radius:30px;font-weight:800
-}
-.nav-btn.black{background:#000;color:#fff;border-color:#000}
-.cart-number{
-display:inline-flex;align-items:center;justify-content:center;width:21px;height:21px;
-border-radius:50%;background:#fff;color:#000;font-size:11px;margin-left:4px
+    border:1px solid #ddd;
+    background:#fff;
+    color:#111;
+    padding:10px 14px;
+    border-radius:25px;
+    font-weight:800;
 }
 
-.hero{background:#000;color:#fff;position:relative;overflow:hidden}
-.hero:after{
-content:"";position:absolute;width:500px;height:500px;border:1px solid #333;
-border-radius:50%;right:-220px;top:-250px
+.nav-btn.black{
+    background:#000;
+    color:#fff;
+    border-color:#000;
 }
-.hero-content{
-max-width:1200px;margin:auto;padding:65px 18px 60px;position:relative;z-index:2
+
+.cart-count{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:21px;
+    height:21px;
+    padding:0 5px;
+    background:#fff;
+    color:#000;
+    border-radius:50%;
+    font-size:11px;
+    margin-left:4px;
 }
-.eyebrow{
-font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:800;color:#999
+
+/* ================= HERO ================= */
+
+.hero{
+    background:#000;
+    color:#fff;
 }
+
+.hero-inner{
+    max-width:1250px;
+    margin:auto;
+    padding:38px 18px 34px;
+}
+
+.location{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#bbb;
+    font-size:13px;
+    margin-bottom:22px;
+}
+
+.location strong{
+    color:#fff;
+}
+
 .hero h1{
-max-width:800px;margin:14px 0 18px;font-size:clamp(42px,8vw,82px);
-line-height:.92;letter-spacing:-5px
-}
-.hero p{max-width:650px;color:#cfcfcf;line-height:1.6;margin-bottom:28px}
-.search-box{
-max-width:720px;display:flex;background:#fff;padding:5px;border-radius:16px
-}
-.search-box input{
-flex:1;min-width:0;border:0;outline:0;padding:14px;border-radius:12px;color:#111
-}
-.search-box button{
-border:0;background:#000;color:#fff;padding:0 22px;border-radius:12px;font-weight:900
+    font-size:clamp(36px,7vw,68px);
+    line-height:.95;
+    letter-spacing:-4px;
+    max-width:800px;
+    margin-bottom:17px;
 }
 
-main{max-width:1200px;margin:auto;padding:45px 18px 55px}
-.section-title{margin-bottom:22px}
-.section-title h2{font-size:32px;letter-spacing:-1.5px;margin-bottom:6px}
-.section-title p{color:#777;font-size:14px}
+.hero p{
+    color:#bbb;
+    max-width:600px;
+    line-height:1.55;
+    font-size:14px;
+    margin-bottom:25px;
+}
 
-.branch-grid{
-display:grid;grid-template-columns:repeat(4,1fr);gap:16px
+.search{
+    background:#fff;
+    border-radius:15px;
+    padding:5px;
+    max-width:780px;
+    display:flex;
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
 }
-.branch-card{
-min-height:185px;padding:20px;border:1px solid #e5e5e5;border-radius:22px;
-background:linear-gradient(145deg,#fff,#f7f7f7);display:flex;
-flex-direction:column;justify-content:space-between;transition:.2s;
-user-select:none;cursor:pointer
-}
-.branch-card:hover{
-transform:translateY(-5px);box-shadow:0 18px 40px rgba(0,0,0,.10)
-}
-.branch-card:active{transform:scale(.98)}
-.branch-icon{
-width:52px;height:52px;border-radius:16px;background:#111;color:#fff;
-display:flex;align-items:center;justify-content:center;font-size:27px
-}
-.branch-card h3{font-size:18px;margin:16px 0 5px}
-.branch-card p{color:#777;font-size:12px;line-height:1.5}
-.shop-now{margin-top:15px;font-size:12px;font-weight:900}
 
-#catalog{display:none}
-.catalog-header{
-display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:25px
+.search input{
+    flex:1;
+    min-width:0;
+    border:0;
+    outline:0;
+    padding:14px;
+    background:transparent;
+    color:#111;
 }
-.catalog-header h2{font-size:34px;letter-spacing:-1.5px;margin-top:5px}
-.back-button{
-background:#000;color:#fff;border:0;padding:11px 17px;border-radius:30px;font-weight:800
+
+.search button{
+    border:0;
+    background:#000;
+    color:#fff;
+    padding:0 20px;
+    border-radius:11px;
+    font-weight:900;
+}
+
+/* ================= MAIN ================= */
+
+main{
+    max-width:1250px;
+    width:100%;
+    margin:auto;
+    padding:27px 18px 30px;
+}
+
+/* ================= CATEGORY STRIP ================= */
+
+.category-strip{
+    display:flex;
+    gap:10px;
+    overflow-x:auto;
+    padding:2px 0 15px;
+    scrollbar-width:none;
+}
+
+.category-strip::-webkit-scrollbar{
+    display:none;
+}
+
+.category-pill{
+    flex:0 0 auto;
+    border:1px solid #ddd;
+    background:#fff;
+    border-radius:25px;
+    padding:10px 15px;
+    font-size:12px;
+    font-weight:800;
+    white-space:nowrap;
+}
+
+.category-pill.active{
+    background:#000;
+    color:#fff;
+    border-color:#000;
+}
+
+/* ================= SECTION ================= */
+
+.section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    margin:10px 0 16px;
+}
+
+.section-head h2{
+    font-size:27px;
+    letter-spacing:-1.2px;
+}
+
+.section-head p{
+    color:#777;
+    font-size:12px;
+    margin-top:4px;
+}
+
+.view-all{
+    border:0;
+    background:none;
+    font-size:12px;
+    font-weight:900;
+}
+
+/* ================= STORE CARDS ================= */
+
+.store-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.store-card{
+    background:#fff;
+    border:1px solid #e6e6e6;
+    border-radius:20px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.store-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 35px rgba(0,0,0,.1);
+}
+
+.store-card:active{
+    transform:scale(.98);
+}
+
+.store-cover{
+    height:125px;
+    background:#111;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:52px;
+    position:relative;
+}
+
+.store-cover:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg,transparent,rgba(255,255,255,.08));
+}
+
+.store-content{
+    padding:14px;
+}
+
+.store-name{
+    font-size:16px;
+    font-weight:900;
+}
+
+.store-type{
+    color:#777;
+    font-size:11px;
+    margin-top:4px;
+}
+
+.store-meta{
+    display:flex;
+    justify-content:space-between;
+    margin-top:11px;
+    font-size:11px;
+    color:#555;
+}
+
+.rating{
+    font-weight:900;
+    color:#111;
+}
+
+/* ================= CATALOG ================= */
+
+#catalog{
+    display:none;
+}
+
+.catalog-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:20px;
+}
+
+.back-btn{
+    border:1px solid #ddd;
+    background:#fff;
+    border-radius:25px;
+    padding:10px 15px;
+    font-weight:900;
+}
+
+.catalog-title h2{
+    font-size:29px;
+    letter-spacing:-1.3px;
+}
+
+.catalog-title p{
+    color:#777;
+    font-size:12px;
+    margin-top:4px;
 }
 
 .product-grid{
-display:grid;grid-template-columns:repeat(4,1fr);gap:16px
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
 }
+
 .product{
-border:1px solid #e6e6e6;border-radius:19px;overflow:hidden;background:#fff;transition:.2s
+    background:#fff;
+    border:1px solid #e6e6e6;
+    border-radius:17px;
+    overflow:hidden;
+    transition:.2s;
 }
+
 .product:hover{
-transform:translateY(-4px);box-shadow:0 15px 35px rgba(0,0,0,.08)
+    transform:translateY(-3px);
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
 }
-.product-image{
-height:155px;background:#f4f4f4;display:flex;justify-content:center;
-align-items:center;font-size:60px
+
+.product-img{
+    height:150px;
+    background:#f1f1f1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:60px;
 }
-.product-content{padding:14px}
+
+.product-info{
+    padding:13px;
+}
+
 .product-category{
-color:#999;font-size:10px;text-transform:uppercase;letter-spacing:1px
+    font-size:9px;
+    color:#999;
+    text-transform:uppercase;
+    letter-spacing:1px;
 }
-.product h3{font-size:15px;margin:6px 0}
-.product-price{font-size:18px;font-weight:900;margin:10px 0}
-.add-button{
-width:100%;border:0;background:#000;color:#fff;padding:11px;
-border-radius:11px;font-weight:900
+
+.product-name{
+    font-size:14px;
+    font-weight:800;
+    margin:5px 0;
 }
+
+.product-price{
+    font-size:18px;
+    font-weight:950;
+    margin:9px 0 11px;
+}
+
+.add-btn{
+    width:100%;
+    border:0;
+    background:#000;
+    color:#fff;
+    padding:11px;
+    border-radius:10px;
+    font-weight:900;
+}
+
+.add-btn:active{
+    transform:scale(.97);
+}
+
+/* ================= BENEFITS ================= */
 
 .benefits{
-margin-top:45px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px
+    margin-top:28px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:11px;
 }
-.benefit{padding:18px;background:#f7f7f7;border-radius:16px}
-.benefit strong{display:block;margin-bottom:5px}
-.benefit span{color:#777;font-size:12px}
 
-footer{background:#000;color:#fff}
+.benefit{
+    background:#fff;
+    border:1px solid #e8e8e8;
+    border-radius:15px;
+    padding:17px;
+}
+
+.benefit-icon{
+    font-size:22px;
+    margin-bottom:9px;
+}
+
+.benefit strong{
+    display:block;
+    font-size:13px;
+    margin-bottom:4px;
+}
+
+.benefit span{
+    color:#777;
+    font-size:11px;
+    line-height:1.4;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#000;
+    color:#fff;
+    margin-top:25px;
+}
+
 .footer-inner{
-max-width:1200px;margin:auto;padding:32px 18px;display:flex;
-justify-content:space-between;gap:25px
-}
-.footer-title{font-size:20px;font-weight:900}
-.footer-inner p{color:#999;font-size:12px;margin-top:7px}
-.footer-actions{display:flex;gap:8px;flex-wrap:wrap}
-.footer-actions button{
-background:#111;border:1px solid #333;color:#fff;padding:10px 14px;
-border-radius:25px;font-size:12px
+    max-width:1250px;
+    margin:auto;
+    padding:28px 18px;
 }
 
-.modal-background{
-display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.7);
-padding:15px;overflow:auto
+.footer-top{
+    display:flex;
+    justify-content:space-between;
+    gap:25px;
 }
+
+.footer-logo{
+    font-size:22px;
+    font-weight:950;
+}
+
+.footer-text{
+    color:#999;
+    font-size:11px;
+    margin-top:7px;
+    max-width:400px;
+    line-height:1.5;
+}
+
+.footer-buttons{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.footer-buttons button{
+    border:1px solid #333;
+    background:#111;
+    color:#fff;
+    padding:9px 13px;
+    border-radius:20px;
+    font-size:11px;
+}
+
+.footer-bottom{
+    border-top:1px solid #222;
+    margin-top:22px;
+    padding-top:15px;
+    color:#777;
+    font-size:10px;
+    display:flex;
+    justify-content:space-between;
+}
+
+/* ================= MODAL ================= */
+
+.modal-bg{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:3000;
+    background:rgba(0,0,0,.7);
+    padding:15px;
+    overflow:auto;
+}
+
 .modal{
-width:min(560px,100%);background:#fff;border-radius:23px;margin:4vh auto;
-padding:24px;position:relative
+    width:min(570px,100%);
+    background:#fff;
+    border-radius:22px;
+    margin:3vh auto;
+    padding:23px;
+    position:relative;
 }
+
 .close{
-position:absolute;right:15px;top:15px;width:35px;height:35px;
-border:0;border-radius:50%;background:#eee;font-size:20px
+    position:absolute;
+    right:14px;
+    top:14px;
+    width:35px;
+    height:35px;
+    border:0;
+    border-radius:50%;
+    background:#eee;
+    font-size:20px;
 }
-.modal h2{margin-right:45px;margin-bottom:20px}
-.field{margin-bottom:13px}
-.field label{display:block;font-size:11px;font-weight:900;margin-bottom:5px}
-.field input,.field select,.field textarea{
-width:100%;padding:12px;border:1px solid #ddd;border-radius:11px;outline:0
+
+.modal h2{
+    margin-right:45px;
+    margin-bottom:18px;
 }
-.field textarea{min-height:80px;resize:vertical}
-.primary-button{
-width:100%;border:0;background:#000;color:#fff;padding:14px;
-border-radius:12px;font-weight:900;margin-top:5px
+
+.field{
+    margin-bottom:12px;
 }
-.secondary-button{
-width:100%;border:1px solid #ddd;background:#fff;padding:13px;
-border-radius:12px;font-weight:900;margin-top:8px
+
+.field label{
+    display:block;
+    font-size:10px;
+    font-weight:900;
+    margin-bottom:5px;
 }
+
+.field input,
+.field textarea,
+.field select{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    outline:none;
+}
+
+.field textarea{
+    min-height:75px;
+    resize:vertical;
+}
+
+.primary{
+    width:100%;
+    background:#000;
+    color:#fff;
+    border:0;
+    padding:14px;
+    border-radius:11px;
+    font-weight:900;
+}
+
+.secondary{
+    width:100%;
+    background:#fff;
+    color:#111;
+    border:1px solid #ddd;
+    padding:13px;
+    border-radius:11px;
+    font-weight:900;
+    margin-top:8px;
+}
+
+/* ================= CART ================= */
 
 .cart-item{
-display:flex;align-items:center;justify-content:space-between;gap:10px;
-border-bottom:1px solid #eee;padding:13px 0
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    padding:13px 0;
+    border-bottom:1px solid #eee;
 }
-.qty{display:flex;align-items:center;gap:7px}
+
+.cart-name{
+    font-size:13px;
+    font-weight:800;
+}
+
+.cart-price{
+    font-size:12px;
+    color:#666;
+    margin-top:3px;
+}
+
+.qty{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
 .qty button{
-width:29px;height:29px;border:1px solid #ddd;background:#fff;border-radius:7px
+    width:29px;
+    height:29px;
+    border:1px solid #ddd;
+    background:#fff;
+    border-radius:7px;
 }
-.summary{border-top:1px solid #eee;margin-top:15px;padding-top:13px}
-.summary-row{display:flex;justify-content:space-between;padding:5px 0}
-.summary-total{font-size:20px;font-weight:900;margin-top:7px}
+
+.summary{
+    border-top:1px solid #eee;
+    margin-top:14px;
+    padding-top:12px;
+}
+
+.summary-row{
+    display:flex;
+    justify-content:space-between;
+    padding:5px 0;
+    font-size:13px;
+}
+
+.total{
+    font-size:20px;
+    font-weight:950;
+    margin-top:6px;
+}
+
 .empty{
-padding:25px;text-align:center;color:#777;border:1px dashed #ccc;border-radius:14px
+    text-align:center;
+    padding:30px 10px;
+    color:#777;
+    font-size:13px;
 }
 
-.status{
-display:inline-block;background:#000;color:#fff;border-radius:20px;
-padding:7px 10px;font-size:11px;font-weight:900
-}
-.timeline{margin:22px 0;border-left:2px solid #ddd;padding-left:20px}
-.timeline-step{position:relative;margin-bottom:19px;color:#aaa}
-.timeline-step:before{
-content:"";position:absolute;width:10px;height:10px;border-radius:50%;
-background:#ddd;left:-26px;top:3px
-}
-.timeline-step.active{color:#111;font-weight:900}
-.timeline-step.active:before{background:#000}
+/* ================= TRACKING ================= */
 
-@media(max-width:900px){
-.branch-grid,.product-grid{grid-template-columns:repeat(2,1fr)}
-.benefits{grid-template-columns:repeat(2,1fr)}
+.order-number{
+    background:#f5f5f5;
+    padding:13px;
+    border-radius:11px;
+    font-weight:900;
+    margin-bottom:18px;
 }
-@media(max-width:600px){
-.nav{padding:12px}
-.logo{font-size:21px}
-.nav-btn{padding:8px 10px}
-.hero-content{padding:45px 15px 42px}
-.hero h1{font-size:44px;letter-spacing:-3px}
-.hero p{font-size:13px}
-.search-box{width:100%}
-.search-box button{padding:0 14px}
-main{padding:32px 13px 40px}
-.section-title h2{font-size:27px}
-.branch-grid,.product-grid{grid-template-columns:repeat(2,1fr);gap:10px}
-.branch-card{min-height:155px;padding:15px;border-radius:17px}
-.branch-icon{width:43px;height:43px;font-size:22px}
-.branch-card h3{font-size:15px}
-.product-image{height:115px;font-size:45px}
-.product-content{padding:11px}
-.product h3{font-size:13px}
-.product-price{font-size:16px}
-.catalog-header h2{font-size:27px}
-.footer-inner{flex-direction:column}
-.benefits{grid-template-columns:1fr 1fr}
+
+.timeline{
+    border-left:2px solid #ddd;
+    padding-left:22px;
+    margin-left:8px;
 }
+
+.step{
+    position:relative;
+    margin-bottom:22px;
+    color:#aaa;
+}
+
+.step:before{
+    content:"";
+    position:absolute;
+    left:-29px;
+    top:2px;
+    width:11px;
+    height:11px;
+    background:#ddd;
+    border-radius:50%;
+}
+
+.step.active{
+    color:#111;
+    font-weight:900;
+}
+
+.step.active:before{
+    background:#000;
+}
+
+/* ================= SEARCH RESULTS ================= */
+
+.search-results{
+    display:none;
+    margin-top:10px;
+}
+
+.no-results{
+    padding:35px 15px;
+    text-align:center;
+    background:#fff;
+    border-radius:15px;
+    color:#777;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:950px){
+
+    .store-grid,
+    .product-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .benefits{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:650px){
+
+    .nav{
+        padding:11px 12px;
+    }
+
+    .logo{
+        font-size:22px;
+    }
+
+    .nav-btn{
+        padding:8px 10px;
+        font-size:11px;
+    }
+
+    .hero-inner{
+        padding:30px 13px 28px;
+    }
+
+    .hero h1{
+        font-size:43px;
+        letter-spacing:-3px;
+    }
+
+    .hero p{
+        font-size:12px;
+    }
+
+    main{
+        padding:20px 12px 20px;
+    }
+
+    .section-head h2{
+        font-size:23px;
+    }
+
+    .store-grid,
+    .product-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:9px;
+    }
+
+    .store-cover{
+        height:105px;
+        font-size:42px;
+    }
+
+    .store-content{
+        padding:11px;
+    }
+
+    .store-name{
+        font-size:14px;
+    }
+
+    .store-meta{
+        font-size:10px;
+    }
+
+    .product-img{
+        height:120px;
+        font-size:46px;
+    }
+
+    .product-info{
+        padding:10px;
+    }
+
+    .product-name{
+        font-size:12px;
+    }
+
+    .product-price{
+        font-size:16px;
+    }
+
+    .add-btn{
+        padding:10px;
+        font-size:11px;
+    }
+
+    .benefits{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .footer-top{
+        flex-direction:column;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+        gap:5px;
+    }
+}
+
 @media(max-width:380px){
-.branch-grid,.product-grid{grid-template-columns:1fr}
-.benefits{grid-template-columns:1fr}
+
+    .store-grid,
+    .product-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .benefits{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:39px;
+    }
 }
-</style></head><body><header>
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
 <div class="nav">
-<div class="logo">AERO<span>ZONE</span></div><div class="nav-buttons">
-<button class="nav-btn" id="trackButton">Track</button>
-<button class="nav-btn black" id="cartButton">
-Cart <span class="cart-number" id="cartCount">0</span>
+
+    <div class="logo">
+        Aero<span>Zone</span>
+    </div>
+
+    <div class="nav-actions">
+
+        <button class="nav-btn" onclick="openTracking()">
+            📦 Track
+        </button>
+
+        <button class="nav-btn black" onclick="openCart()">
+            🛒 Cart
+            <span class="cart-count" id="cartCount">0</span>
+        </button>
+
+    </div>
+
+</div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="hero-inner">
+
+    <div class="location">
+        📍
+        <span>Delivering around</span>
+        <strong>South Africa</strong>
+    </div>
+
+    <h1>
+        Everything you need.
+        Delivered.
+    </h1>
+
+    <p>
+        Shop groceries, meals, pharmacy essentials, bakery items,
+        meat, fruit & vegetables and more from AeroZone.
+    </p>
+
+    <div class="search">
+
+        <input
+            id="searchInput"
+            type="search"
+            placeholder="Search for products..."
+            oninput="searchProducts()"
+        >
+
+        <button onclick="searchProducts()">
+            Search
+        </button>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= MAIN ================= -->
+
+<main>
+
+
+<!-- CATEGORY NAV -->
+
+<div class="category-strip">
+
+    <button class="category-pill active" onclick="showStores()">
+        All
+    </button>
+
+    <button class="category-pill" onclick="openBranch('supermarket')">
+        🛒 Supermarket
+    </button>
+
+    <button class="category-pill" onclick="openBranch('pharmacy')">
+        💊 Pharmacy
+    </button>
+
+    <button class="category-pill" onclick="openBranch('restaurant')">
+        🍽️ Restaurants
+    </button>
+
+    <button class="category-pill" onclick="openBranch('fastfood')">
+        🍔 Fast Food
+    </button>
+
+    <button class="category-pill" onclick="openBranch('butchery')">
+        🥩 Butchery
+    </button>
+
+    <button class="category-pill" onclick="openBranch('bakery')">
+        🥐 Bakery
+    </button>
+
+    <button class="category-pill" onclick="openBranch('fruitveg')">
+        🥬 Fruit & Veg
+    </button>
+
+    <button class="category-pill" onclick="openBranch('home')">
+        🧽 Home
+    </button>
+
+</div>
+
+
+<!-- ================= STORE SECTION ================= -->
+
+<section id="storesSection">
+
+<div class="section-head">
+
+    <div>
+        <h2>Shop by category</h2>
+        <p>Choose a store to start shopping</p>
+    </div>
+
+</div>
+
+<div class="store-grid">
+
+    <div class="store-card" onclick="openBranch('supermarket')">
+        <div class="store-cover">🛒</div>
+        <div class="store-content">
+            <div class="store-name">Supermarket</div>
+            <div class="store-type">Groceries & household</div>
+            <div class="store-meta">
+                <span>🚚 Delivery</span>
+                <span class="rating">★ 4.8</span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="store-card" onclick="openBranch('pharmacy')">
+        <div class="store-cover">💊</div>
+        <div class="store-content">
+            <div class="store-name">Pharmacy & Health</div>
+            <div class="store-type">Health & personal care</div>
+            <div class="store-meta">
+                <span>🚚 Delivery</span>
+                <span class="rating">★ 4.7</span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="store-card" onclick="openBranch('restaurant')">
+        <div class="store-cover">🍽️</div>
+        <div class="store-content">
+            <div class="store-name">Restaurants</div>
+            <div class="store-type">Meals & dining</div>
+            <div class="store-meta">
+                <span>🚚 Delivery</span>
+                <span class="rating">★ 4.9</span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="store-card" onclick="openBranch('fastfood')">
+        <div class="store-cover">🍔</div>
+        <div class="store-content">
+            <div class="store-name">Fast Food</div>
+            <div class="store-type">Quick meals & snacks</div>
+            <div class="store-meta">
+                <span>⚡ Fast</span>
+                <span class="rating">★ 4.8</span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="store-card" onclick="openBranch('butchery')">
+        <div class="store-cover">🥩</div>
+        <div class="store-content">
+            <div class="store-name">Butchery</div>
+            <div class="store-type">Fresh meat</div>
+            <div class="store-meta">
+                <span>🥩 Fresh</span>
+                <span class="rating">★ 4.8</span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="store-card" onclick="openBranch('bakery')">
+        <div class="store-cover">🥐</div>
+        <div class="store-content">
+            <div class="store-name">Bakery</div>
+            <div class="store-type">Fresh baked goods</div>
+            <div class="store-meta">
+                <span>🔥 Fresh</span>
+                <span class="rating">★ 4.9</span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="store-card" onclick="openBranch('fruitveg')">
+        <div class="store-cover">🥬</div>
+        <div class="store-content">
+            <div class="store-name">Fruit & Veg</div>
+            <div class="store-type">Fresh produce</div>
+            <div class="store-meta">
+                <span>🥬 Fresh</span>
+                <span class="rating">★ 4.8</span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="store-card" onclick="openBranch('home')">
+        <div class="store-cover">🧽</div>
+        <div class="store-content">
+            <div class="store-name">Home & Cleaning</div>
+            <div class="store-type">Home essentials</div>
+            <div class="store-meta">
+                <span>🚚 Delivery</span>
+                <span class="rating">★ 4.7</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SEARCH RESULTS ================= -->
+
+<section id="searchResults" class="search-results">
+
+    <div class="section-head">
+        <div>
+            <h2>Search results</h2>
+            <p>Products matching your search</p>
+        </div>
+    </div>
+
+    <div id="searchProductGrid" class="product-grid"></div>
+
+</section>
+
+
+<!-- ================= CATALOG ================= -->
+
+<section id="catalog">
+
+<div class="catalog-top">
+
+    <button class="back-btn" onclick="showStores()">
+        ← Back
+    </button>
+
+    <div class="catalog-title">
+        <h2 id="catalogTitle">Store</h2>
+        <p id="catalogSubtitle">Products</p>
+    </div>
+
+</div>
+
+<div id="productGrid" class="product-grid"></div>
+
+</section>
+
+
+<!-- ================= BENEFITS ================= -->
+
+<section class="benefits">
+
+    <div class="benefit">
+        <div class="benefit-icon">🚚</div>
+        <strong>Fast Delivery</strong>
+        <span>Get your order delivered to your door.</span>
+    </div>
+
+    <div class="benefit">
+        <div class="benefit-icon">🛒</div>
+        <strong>Shop Everything</strong>
+        <span>Groceries, meals, health and more.</span>
+    </div>
+
+    <div class="benefit">
+        <div class="benefit-icon">📲</div>
+        <strong>Easy Ordering</strong>
+        <span>Checkout quickly using WhatsApp.</span>
+    </div>
+
+    <div class="benefit">
+        <div class="benefit-icon">📦</div>
+        <strong>Track Your Order</strong>
+        <span>Keep up with your order status.</span>
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="footer-inner">
+
+    <div class="footer-top">
+
+        <div>
+            <div class="footer-logo">AeroZone</div>
+
+            <div class="footer-text">
+                Your everyday shopping and delivery platform.
+                Shop products from different categories and order
+                conveniently from your phone.
+            </div>
+        </div>
+
+        <div class="footer-buttons">
+
+            <button onclick="openTracking()">
+                Track Order
+            </button>
+
+            <button onclick="openCart()">
+                View Cart
+            </button>
+
+            <button onclick="openWhatsApp()">
+                WhatsApp
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <span>© 2026 AeroZone</span>
+
+        <span>Shop • Order • Delivered</span>
+
+    </div>
+
+</div>
+
+</footer>
+
+
+<!-- ================= CART MODAL ================= -->
+
+<div class="modal-bg" id="cartModal">
+
+<div class="modal">
+
+<button class="close" onclick="closeModal('cartModal')">×</button>
+
+<h2>Your Cart</h2>
+
+<div id="cartItems"></div>
+
+<div class="summary">
+
+    <div class="summary-row">
+        <span>Subtotal</span>
+        <strong id="subtotal">R0</strong>
+    </div>
+
+    <div class="summary-row">
+        <span>Delivery</span>
+        <strong id="delivery">R0</strong>
+    </div>
+
+    <div class="summary-row total">
+        <span>Total</span>
+        <span id="total">R0</span>
+    </div>
+
+</div>
+
+<button class="primary" onclick="openCheckout()">
+    Continue to Checkout
 </button>
+
+<button class="secondary" onclick="closeModal('cartModal')">
+    Continue Shopping
+</button>
+
 </div>
+
 </div>
-</header><section class="hero">
-<div class="hero-content">
-<div class="eyebrow">Shop • Order • Delivered</div><h1>Everything you need, delivered.</h1><p>
-Shop groceries, meals, pharmacy essentials, fresh produce,
-bakery items, meat and household products from one convenient
-AeroZone marketplace.
-</p><div class="search-box">
-<input type="text" id="searchInput" placeholder="Search products...">
-<button id="searchButton">Search</button>
+
+
+<!-- ================= CHECKOUT MODAL ================= -->
+
+<div class="modal-bg" id="checkoutModal">
+
+<div class="modal">
+
+<button class="close" onclick="closeModal('checkoutModal')">×</button>
+
+<h2>Checkout</h2>
+
+<div class="field">
+    <label>FULL NAME</label>
+    <input id="customerName" type="text" placeholder="Your full name">
 </div>
+
+<div class="field">
+    <label>PHONE NUMBER</label>
+    <input id="customerPhone" type="tel" placeholder="e.g. 068 868 5355">
 </div>
-</section><main><section id="branchesSection"><div class="section-title">
-<h2>Shop by branch</h2>
-<p>Choose a branch to see products available.</p>
-</div><div class="branch-grid" id="branchGrid"></div></section><section id="catalog"><div class="catalog-header"><div>
-<div class="eyebrow" id="catalogEyebrow">AEROZONE</div>
-<h2 id="catalogTitle">Products</h2>
-</div><button class="back-button" id="backButton">← Branches</button>
 
-</div><div class="product-grid" id="productGrid"></div></section><section class="benefits"><div class="benefit">
-<strong>🚚 Local Delivery</strong>
-<span>Get your order delivered to your address.</span>
-</div><div class="benefit">
-<strong>🔒 Secure Orders</strong>
-<span>Your order information is protected.</span>
-</div><div class="benefit">
-<strong>📍 Live Tracking</strong>
-<span>Track your delivery status.</span>
-</div><div class="benefit">
-<strong>💬 WhatsApp Support</strong>
-<span>Easy communication about your order.</span>
-</div></section></main><footer><div class="footer-inner"><div>
-<div class="footer-title">AEROZONE</div>
-<p>Shop online. Order easily. Get delivered.</p>
-<p>WhatsApp: 068 868 5355</p>
-</div><div class="footer-actions">
-<button id="footerTrack">Track Order</button>
-<button id="footerCart">Cart</button>
-</div></div></footer><!-- CART --><div class="modal-background" id="cartModal"><div class="modal"><button class="close" data-close="cartModal">×</button>
+<div class="field">
+    <label>DELIVERY ADDRESS</label>
+    <textarea id="customerAddress" placeholder="Where should we deliver?"></textarea>
+</div>
 
-<h2>Your Cart</h2><div id="cartItems"></div><div class="summary" id="cartSummary"></div><button class="primary-button" id="checkoutButton">
-Continue to Checkout
-</button><button class="secondary-button" data-close="cartModal">
-Continue Shopping
-</button></div>
-</div><!-- CHECKOUT --><div class="modal-background" id="checkoutModal"><div class="modal"><button class="close" data-close="checkoutModal">×</button>
+<div class="field">
+    <label>ORDER NOTES</label>
+    <textarea id="customerNotes" placeholder="Optional instructions"></textarea>
+</div>
 
-<h2>Checkout</h2><div class="field">
-<label>Full Name</label>
-<input id="customerName" type="text" placeholder="Your full name">
-</div><div class="field">
-<label>Phone Number</label>
-<input id="customerPhone" type="tel" placeholder="068 868 5355">
-</div><div class="field">
-<label>Delivery Address</label>
-<textarea id="customerAddress" placeholder="House number, street, suburb, city"></textarea>
-</div><div class="field">
-<label>Delivery Date</label>
-<input id="deliveryDate" type="date">
-</div><div class="field">
-<label>Preferred Time</label>
-<input id="deliveryTime" type="time">
-</div><div class="field">
-<label>Payment Method</label><select id="paymentMethod">
-<option>Cash on Delivery</option>
-<option>EFT / Bank Transfer</option>
-<option>WhatsApp Payment Arrangement</option>
-</select></div><div class="field">
-<label>Order Notes</label>
-<textarea id="orderNotes" placeholder="Anything we should know?"></textarea>
-</div><div class="summary" id="checkoutSummary"></div><button class="primary-button" id="placeOrderButton">
-Place Order
-</button></div>
-</div><!-- TRACKING --><div class="modal-background" id="trackingModal"><div class="modal"><button class="close" data-close="trackingModal">×</button>
+<button class="primary" onclick="placeOrder()">
+    📲 Order via WhatsApp
+</button>
 
-<h2>Track Your Order</h2><div class="field">
-<label>Order Number</label>
-<input id="trackingNumber" placeholder="Example: AZ123456">
-</div><button class="primary-button" id="trackOrderButton">
-Track Order
-</button><div id="trackingResult" style="margin-top:20px"></div></div>
-</div><script>
+</div>
 
-/* =====================================================
-   AEROZONE PRODUCTS
-===================================================== */
+</div>
+
+
+<!-- ================= TRACKING MODAL ================= -->
+
+<div class="modal-bg" id="trackingModal">
+
+<div class="modal">
+
+<button class="close" onclick="closeModal('trackingModal')">×</button>
+
+<h2>Track Your Order</h2>
+
+<div id="trackingContent"></div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   AEROZONE PRODUCT DATABASE
+========================================================= */
 
 const branches = {
 
-supermarket:{
-name:"Supermarket",
-icon:"🛒",
-description:"Groceries and everyday essentials",
-products:[
-["White Bread",18,"🍞"],
-["Milk 2L",32,"🥛"],
-["Brown Bread",18,"🍞"],
-["Large Eggs 18 Pack",55,"🥚"],
-["Rice 2kg",38,"🍚"],
-["Sugar 2kg",36,"🧂"],
-["Cooking Oil 2L",48,"🫗"],
-["Corn Flakes",42,"🥣"],
-["Coffee 200g",65,"☕"],
-["Tea Bags 100 Pack",45,"🍵"]
-]
-},
+    supermarket:{
+        name:"Supermarket",
+        subtitle:"Groceries & everyday essentials",
+        icon:"🛒",
+        products:[
+            ["Milk 2L","R38.99","🥛","Dairy"],
+            ["Brown Bread","R18.99","🍞","Bakery"],
+            ["White Sugar 2kg","R39.99","🧂","Pantry"],
+            ["Rice 2kg","R42.99","🍚","Pantry"],
+            ["Cooking Oil 2L","R59.99","🫗","Pantry"],
+            ["Eggs 18 Pack","R54.99","🥚","Dairy"],
+            ["Cereal 500g","R49.99","🥣","Breakfast"],
+            ["Coffee 200g","R69.99","☕","Drinks"],
+            ["Tea 100 Bags","R44.99","🍵","Drinks"],
+            ["Cold Drink 2L","R24.99","🥤","Drinks"],
+            ["Water 6 Pack","R39.99","💧","Drinks"],
+            ["Toilet Paper 18 Pack","R89.99","🧻","Household"]
+        ]
+    },
 
-pharmacy:{
-name:"Pharmacy & Health",
-icon:"💊",
-description:"Health and personal care essentials",
-products:[
-["Paracetamol",25,"💊"],
-["Vitamin C",45,"🍊"],
-["Multivitamins",65,"💊"],
-["Toothpaste",25,"🪥"],
-["Toothbrush",20,"🪥"],
-["Hand Sanitizer",30,"🧴"],
-["Body Lotion",55,"🧴"],
-["Shampoo",60,"🧴"],
-["Deodorant",45,"🧼"],
-["Baby Wipes",35,"🧻"]
-]
-},
+    pharmacy:{
+        name:"Pharmacy & Health",
+        subtitle:"Health, beauty & personal care",
+        icon:"💊",
+        products:[
+            ["Paracetamol","R29.99","💊","Health"],
+            ["Vitamin C","R69.99","🍊","Vitamins"],
+            ["Multivitamins","R99.99","💊","Vitamins"],
+            ["Toothpaste","R32.99","🪥","Personal Care"],
+            ["Toothbrush","R19.99","🪥","Personal Care"],
+            ["Body Lotion","R59.99","🧴","Beauty"],
+            ["Shampoo","R69.99","🧴","Beauty"],
+            ["Deodorant","R39.99","🧴","Personal Care"],
+            ["Hand Sanitizer","R29.99","🧴","Health"],
+            ["Face Wash","R74.99","🧖","Beauty"]
+        ]
+    },
 
-restaurants:{
-name:"Restaurants",
-icon:"🍽️",
-description:"Meals from local restaurants",
-products:[
-["Chicken Burger",75,"🍔"],
-["Beef Burger",85,"🍔"],
-["Chicken & Chips",90,"🍗"],
-["Beef Steak",130,"🥩"],
-["Chicken Pasta",95,"🍝"],
-["Beef Pasta",105,"🍝"],
-["Fish & Chips",95,"🐟"],
-["Pizza Medium",110,"🍕"],
-["Chicken Salad",70,"🥗"],
-["Family Meal",220,"🍗"]
-]
-},
+    restaurant:{
+        name:"Restaurants",
+        subtitle:"Fresh meals delivered",
+        icon:"🍽️",
+        products:[
+            ["Chicken Burger Meal","R89.99","🍔","Meals"],
+            ["Beef Burger Meal","R99.99","🍔","Meals"],
+            ["Chicken Wrap","R69.99","🌯","Meals"],
+            ["Grilled Chicken","R119.99","🍗","Meals"],
+            ["Fish & Chips","R99.99","🐟","Meals"],
+            ["Chicken Pasta","R109.99","🍝","Meals"],
+            ["Beef Pasta","R119.99","🍝","Meals"],
+            ["Pizza Medium","R129.99","🍕","Pizza"],
+            ["Pizza Large","R169.99","🍕","Pizza"],
+            ["Greek Salad","R69.99","🥗","Salads"]
+        ]
+    },
 
-fastfood:{
-name:"Fast Food",
-icon:"🍔",
-description:"Quick meals and snacks",
-products:[
-["Cheeseburger",55,"🍔"],
-["Chicken Burger",60,"🍔"],
-["Chicken Wings",70,"🍗"],
-["Chips",30,"🍟"],
-["Large Chips",45,"🍟"],
-["Chicken Wrap",55,"🌯"],
-["Beef Wrap",60,"🌯"],
-["Hot Dog",45,"🌭"],
-["Milkshake",40,"🥤"],
-["Combo Meal",95,"🍔"]
-]
-},
+    fastfood:{
+        name:"Fast Food",
+        subtitle:"Quick meals & snacks",
+        icon:"🍔",
+        products:[
+            ["Chicken Burger","R49.99","🍔","Burger"],
+            ["Cheese Burger","R54.99","🍔","Burger"],
+            ["Chicken Wings","R69.99","🍗","Chicken"],
+            ["Large Chips","R39.99","🍟","Sides"],
+            ["Chicken Nuggets","R59.99","🍗","Chicken"],
+            ["Hot Dog","R44.99","🌭","Fast Food"],
+            ["Milkshake","R39.99","🥤","Drinks"],
+            ["Ice Cream","R29.99","🍦","Dessert"],
+            ["Chicken Combo","R89.99","🍗","Combo"]
+        ]
+    },
 
-butchery:{
-name:"Butchery",
-icon:"🥩",
-description:"Fresh meat and poultry",
-products:[
-["Chicken Breasts 1kg",75,"🍗"],
-["Chicken Wings 1kg",70,"🍗"],
-["Beef Mince 1kg",110,"🥩"],
-["Beef Steak 1kg",150,"🥩"],
-["Boerewors 1kg",120,"🌭"],
-["Pork Chops 1kg",105,"🥩"],
-["Lamb Chops 1kg",180,"🥩"],
-["Beef Sausages",95,"🌭"],
-["Chicken Drumsticks 1kg",70,"🍗"],
-["Mixed Grill Pack",220,"🥩"]
-]
-},
+    butchery:{
+        name:"Butchery",
+        subtitle:"Fresh meat & poultry",
+        icon:"🥩",
+        products:[
+            ["Beef Steak 500g","R89.99","🥩","Beef"],
+            ["Beef Mince 500g","R69.99","🥩","Beef"],
+            ["Chicken Breasts 1kg","R79.99","🍗","Chicken"],
+            ["Chicken Wings 1kg","R69.99","🍗","Chicken"],
+            ["Boerewors 1kg","R99.99","🌭","Sausage"],
+            ["Pork Chops 1kg","R89.99","🥩","Pork"],
+            ["Lamb Chops 500g","R109.99","🥩","Lamb"],
+            ["Beef Short Ribs 1kg","R119.99","🥩","Beef"]
+        ]
+    },
 
-bakery:{
-name:"Bakery",
-icon:"🥐",
-description:"Fresh bread and baked goods",
-products:[
-["White Bread",18,"🍞"],
-["Brown Bread",18,"🍞"],
-["Rolls 6 Pack",25,"🥖"],
-["Croissants",35,"🥐"],
-["Muffins 4 Pack",40,"🧁"],
-["Chocolate Cake",120,"🍰"],
-["Vanilla Cake",110,"🍰"],
-["Doughnuts 6 Pack",45,"🍩"],
-["Vetkoek",25,"🥯"],
-["Fresh Buns",30,"🥖"]
-]
-},
+    bakery:{
+        name:"Bakery",
+        subtitle:"Freshly baked every day",
+        icon:"🥐",
+        products:[
+            ["Fresh Bread","R18.99","🍞","Bread"],
+            ["Brown Bread","R19.99","🍞","Bread"],
+            ["Croissant","R14.99","🥐","Pastry"],
+            ["Muffin","R16.99","🧁","Pastry"],
+            ["Doughnut","R12.99","🍩","Pastry"],
+            ["Chocolate Cake","R149.99","🍰","Cake"],
+            ["Birthday Cake","R199.99","🎂","Cake"],
+            ["Vetkoek","R12.99","🥯","Bakery"]
+        ]
+    },
 
-fruitveg:{
-name:"Fruit & Veg",
-icon:"🥦",
-description:"Fresh fruit and vegetables",
-products:[
-["Potatoes 2kg",30,"🥔"],
-["Onions 1kg",25,"🧅"],
-["Tomatoes 1kg",30,"🍅"],
-["Carrots 1kg",25,"🥕"],
-["Cabbage",20,"🥬"],
-["Spinach",18,"🥬"],
-["Apples 1kg",35,"🍎"],
-["Bananas 1kg",28,"🍌"],
-["Oranges 1kg",32,"🍊"],
-["Avocados 4 Pack",45,"🥑"]
-]
-},
+    fruitveg:{
+        name:"Fruit & Veg",
+        subtitle:"Fresh fruit & vegetables",
+        icon:"🥬",
+        products:[
+            ["Bananas 1kg","R24.99","🍌","Fruit"],
+            ["Apples 1kg","R34.99","🍎","Fruit"],
+            ["Oranges 1kg","R29.99","🍊","Fruit"],
+            ["Avocado Pack","R39.99","🥑","Fruit"],
+            ["Potatoes 2kg","R34.99","🥔","Vegetables"],
+            ["Tomatoes 1kg","R29.99","🍅","Vegetables"],
+            ["Onions 1kg","R24.99","🧅","Vegetables"],
+            ["Spinach","R14.99","🥬","Vegetables"],
+            ["Carrots 1kg","R24.99","🥕","Vegetables"],
+            ["Cabbage","R19.99","🥬","Vegetables"]
+        ]
+    },
 
-homecleaning:{
-name:"Home & Cleaning",
-icon:"🧹",
-description:"Cleaning and household products",
-products:[
-["Washing Powder 2kg",55,"🧺"],
-["Dishwashing Liquid",30,"🧴"],
-["Bleach 2L",28,"🧴"],
-["Toilet Cleaner",32,"🚽"],
-["Multi-Purpose Cleaner",35,"🧽"],
-["Toilet Paper 18 Pack",85,"🧻"],
-["Paper Towels",35,"🧻"],
-["Bin Bags",40,"🗑️"],
-["Sponges",25,"🧽"],
-["Air Freshener",35,"🌸"]
-]
-}
+    home:{
+        name:"Home & Cleaning",
+        subtitle:"Cleaning & household essentials",
+        icon:"🧽",
+        products:[
+            ["Dishwashing Liquid","R29.99","🧴","Cleaning"],
+            ["Laundry Powder 2kg","R59.99","🧼","Laundry"],
+            ["Bleach 2L","R24.99","🧴","Cleaning"],
+            ["Floor Cleaner","R34.99","🧹","Cleaning"],
+            ["Sponges Pack","R19.99","🧽","Cleaning"],
+            ["Bin Bags","R29.99","🗑️","Household"],
+            ["Paper Towels","R39.99","🧻","Household"],
+            ["Air Freshener","R29.99","🌸","Home"],
+            ["Washing Gloves","R19.99","🧤","Cleaning"]
+        ]
+    }
 
 };
 
 
-/* =====================================================
-   VARIABLES
-===================================================== */
+/* =========================================================
+   CART
+========================================================= */
 
 let cart = [];
-let currentBranch = null;
 
-const branchGrid = document.getElementById("branchGrid");
-const productGrid = document.getElementById("productGrid");
-const branchesSection = document.getElementById("branchesSection");
-const catalog = document.getElementById("catalog");
+try{
+    cart = JSON.parse(localStorage.getItem("aerozoneCart")) || [];
+}catch(e){
+    cart=[];
+}
 
 
-/* =====================================================
-   MONEY
-===================================================== */
+/* =========================================================
+   HELPERS
+========================================================= */
 
 function money(value){
-return Number(value).toFixed(2);
-}
 
-
-/* =====================================================
-   SHOW MESSAGE
-===================================================== */
-
-function showMessage(message){
-
-const old = document.getElementById("aeroMessage");
-
-if(old){
-old.remove();
-}
-
-const box = document.createElement("div");
-
-box.id = "aeroMessage";
-
-box.textContent = message;
-
-box.style.position = "fixed";
-box.style.bottom = "25px";
-box.style.left = "50%";
-box.style.transform = "translateX(-50%)";
-box.style.background = "#000";
-box.style.color = "#fff";
-box.style.padding = "13px 20px";
-box.style.borderRadius = "30px";
-box.style.fontWeight = "800";
-box.style.zIndex = "9999";
-box.style.boxShadow = "0 10px 30px rgba(0,0,0,.3)";
-
-document.body.appendChild(box);
-
-setTimeout(function(){
-box.remove();
-},2200);
+    return "R" + Number(value).toFixed(2);
 
 }
 
 
-/* =====================================================
-   RENDER BRANCHES
-===================================================== */
+function priceNumber(price){
 
-function renderBranches(){
-
-branchGrid.innerHTML = "";
-
-Object.keys(branches).forEach(function(key){
-
-const branch = branches[key];
-
-const card = document.createElement("button");
-
-card.type = "button";
-
-card.className = "branch-card";
-
-card.innerHTML = `
-
-<div>
-
-<div class="branch-icon">
-${branch.icon}
-</div>
-
-<h3>
-${branch.name}
-</h3>
-
-<p>
-${branch.description}
-</p>
-
-</div>
-
-<div class="shop-now">
-SHOP NOW →
-</div>
-
-`;
-
-card.addEventListener("click",function(event){
-
-event.preventDefault();
-event.stopPropagation();
-
-openBranch(key);
-
-});
-
-branchGrid.appendChild(card);
-
-});
+    return Number(
+        String(price)
+        .replace("R","")
+        .replace(",","")
+    );
 
 }
 
 
-/* =====================================================
+/* =========================================================
+   SHOW STORES
+========================================================= */
+
+function showStores(){
+
+    document.getElementById("storesSection").style.display="block";
+
+    document.getElementById("catalog").style.display="none";
+
+    document.getElementById("searchResults").style.display="none";
+
+    document.getElementById("searchInput").value="";
+
+    window.scrollTo({
+        top:document.querySelector("main").offsetTop-70,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================================
    OPEN BRANCH
-===================================================== */
+========================================================= */
 
 function openBranch(key){
 
-if(!branches[key]){
-console.error("Branch not found:",key);
-return;
-}
+    const branch=branches[key];
 
-currentBranch = key;
+    if(!branch){
+        return;
+    }
 
-const branch = branches[key];
+    document.getElementById("storesSection").style.display="none";
 
-branchesSection.style.display = "none";
-catalog.style.display = "block";
+    document.getElementById("searchResults").style.display="none";
 
-document.getElementById("catalogEyebrow").textContent =
-branch.name.toUpperCase();
+    document.getElementById("catalog").style.display="block";
 
-document.getElementById("catalogTitle").textContent =
-branch.name;
+    document.getElementById("catalogTitle").textContent =
+        branch.icon+" "+branch.name;
 
-renderProducts(key);
+    document.getElementById("catalogSubtitle").textContent =
+        branch.subtitle;
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+    renderProducts(key);
 
-}
-
-
-/* =====================================================
-   BACK BUTTON
-===================================================== */
-
-document.getElementById("backButton").addEventListener("click",function(){
-
-catalog.style.display = "none";
-branchesSection.style.display = "block";
-
-currentBranch = null;
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-});
-
-
-/* =====================================================
-   PRODUCTS
-===================================================== */
-
-function renderProducts(branchKey){
-
-const branch = branches[branchKey];
-
-productGrid.innerHTML = "";
-
-branch.products.forEach(function(product,index){
-
-const card = document.createElement("div");
-
-card.className = "product";
-
-card.innerHTML = `
-
-<div class="product-image">
-${product[2]}
-</div>
-
-<div class="product-content">
-
-<div class="product-category">
-${branch.name}
-</div>
-
-<h3>
-${product[0]}
-</h3>
-
-<div class="product-price">
-R${money(product[1])}
-</div>
-
-<button class="add-button" type="button">
-Add to Cart
-</button>
-
-</div>
-
-`;
-
-card.querySelector(".add-button").addEventListener("click",function(event){
-
-event.stopPropagation();
-
-addToCart(branchKey,index);
-
-});
-
-productGrid.appendChild(card);
-
-});
+    window.scrollTo({
+        top:document.querySelector("main").offsetTop-70,
+        behavior:"smooth"
+    });
 
 }
 
 
-/* =====================================================
+/* =========================================================
+   RENDER PRODUCTS
+========================================================= */
+
+function renderProducts(key){
+
+    const branch=branches[key];
+
+    const grid=document.getElementById("productGrid");
+
+    grid.innerHTML="";
+
+    branch.products.forEach((product,index)=>{
+
+        const name=product[0];
+        const price=product[1];
+        const image=product[2];
+        const category=product[3];
+
+        const card=document.createElement("div");
+
+        card.className="product";
+
+        card.innerHTML=`
+
+            <div class="product-img">
+                ${image}
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    ${category}
+                </div>
+
+                <div class="product-name">
+                    ${name}
+                </div>
+
+                <div class="product-price">
+                    ${price}
+                </div>
+
+                <button class="add-btn">
+                    + Add
+                </button>
+
+            </div>
+        `;
+
+        card.querySelector(".add-btn").addEventListener(
+            "click",
+            function(){
+
+                addToCart(
+                    name,
+                    price,
+                    image,
+                    branch.name
+                );
+
+            }
+        );
+
+        grid.appendChild(card);
+
+    });
+
+}
+
+
+/* =========================================================
    ADD TO CART
-===================================================== */
+========================================================= */
 
-function addToCart(branchKey,index){
+function addToCart(name,price,image,store){
 
-const product = branches[branchKey].products[index];
+    const existing=cart.find(
+        item=>item.name===name && item.store===store
+    );
 
-const existing = cart.find(function(item){
+    if(existing){
 
-return item.name === product[0] &&
-item.branchKey === branchKey;
+        existing.qty++;
 
-});
+    }else{
 
-if(existing){
+        cart.push({
+            name:name,
+            price:price,
+            image:image,
+            store:store,
+            qty:1
+        });
 
-existing.quantity++;
+    }
 
-}else{
+    saveCart();
 
-cart.push({
+    updateCart();
 
-name:product[0],
-price:product[1],
-image:product[2],
-branch:branches[branchKey].name,
-branchKey:branchKey,
-quantity:1
-
-});
-
-}
-
-updateCart();
-
-showMessage(product[0] + " added to cart");
+    showAdded(name);
 
 }
 
 
-/* =====================================================
-   CART
-===================================================== */
+/* =========================================================
+   CART SAVE
+========================================================= */
+
+function saveCart(){
+
+    localStorage.setItem(
+        "aerozoneCart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+/* =========================================================
+   UPDATE CART
+========================================================= */
 
 function updateCart(){
 
-let count = 0;
+    const count=cart.reduce(
+        (total,item)=>total+item.qty,
+        0
+    );
 
-cart.forEach(function(item){
-count += item.quantity;
-});
-
-document.getElementById("cartCount").textContent = count;
-
-renderCart();
+    document.getElementById("cartCount").textContent=count;
 
 }
 
 
-function subtotal(){
+/* =========================================================
+   SHOW ADDED
+========================================================= */
 
-return cart.reduce(function(total,item){
+function showAdded(name){
 
-return total + item.price * item.quantity;
+    const button=document.querySelector(".nav-btn.black");
 
-},0);
+    if(!button){
+        return;
+    }
 
-}
+    const original=button.innerHTML;
 
+    button.innerHTML="✓ Added";
 
-function deliveryFee(){
-
-if(cart.length === 0){
-return 0;
-}
-
-if(subtotal() >= 500){
-return 0;
-}
-
-return 35;
+    setTimeout(()=>{
+        button.innerHTML=original;
+    },900);
 
 }
 
 
-function total(){
+/* =========================================================
+   CART TOTALS
+========================================================= */
 
-return subtotal() + deliveryFee();
+function getSubtotal(){
+
+    return cart.reduce(
+        (total,item)=>{
+            return total + priceNumber(item.price)*item.qty;
+        },
+        0
+    );
 
 }
 
+
+function getDelivery(){
+
+    const subtotal=getSubtotal();
+
+    if(subtotal===0){
+        return 0;
+    }
+
+    if(subtotal>=500){
+        return 0;
+    }
+
+    return 35;
+
+}
+
+
+function getTotal(){
+
+    return getSubtotal()+getDelivery();
+
+}
+
+
+/* =========================================================
+   OPEN CART
+========================================================= */
+
+function openCart(){
+
+    renderCart();
+
+    openModal("cartModal");
+
+}
+
+
+/* =========================================================
+   RENDER CART
+========================================================= */
 
 function renderCart(){
 
-const box = document.getElementById("cartItems");
-const summary = document.getElementById("cartSummary");
+    const container=document.getElementById("cartItems");
 
-if(cart.length === 0){
+    if(cart.length===0){
 
-box.innerHTML = `
-<div class="empty">
-Your cart is empty.
-</div>
-`;
+        container.innerHTML=`
+            <div class="empty">
+                🛒<br><br>
+                Your cart is empty.<br>
+                Start shopping to add products.
+            </div>
+        `;
 
-summary.innerHTML = "";
+    }else{
 
-return;
+        container.innerHTML="";
 
-}
+        cart.forEach((item,index)=>{
 
-box.innerHTML = "";
+            const row=document.createElement("div");
 
-cart.forEach(function(item,index){
+            row.className="cart-item";
 
-const row = document.createElement("div");
+            row.innerHTML=`
 
-row.className = "cart-item";
+                <div>
+                    <div class="cart-name">
+                        ${item.image} ${item.name}
+                    </div>
 
-row.innerHTML = `
+                    <div class="cart-price">
+                        ${item.store} · ${item.price}
+                    </div>
+                </div>
 
-<div>
+                <div class="qty">
 
-<strong>
-${item.image} ${item.name}
-</strong>
+                    <button onclick="changeQuantity(${index},-1)">
+                        −
+                    </button>
 
-<br>
+                    <strong>
+                        ${item.qty}
+                    </strong>
 
-<small>
-${item.branch} • R${money(item.price)} each
-</small>
+                    <button onclick="changeQuantity(${index},1)">
+                        +
+                    </button>
 
-</div>
+                </div>
+            `;
 
-<div class="qty">
+            container.appendChild(row);
 
-<button type="button" class="minus">
-−
-</button>
+        });
 
-<strong>
-${item.quantity}
-</strong>
+    }
 
-<button type="button" class="plus">
-+
-</button>
+    document.getElementById("subtotal").textContent =
+        money(getSubtotal());
 
-</div>
+    document.getElementById("delivery").textContent =
+        getDelivery()===0
+        ? (getSubtotal()>0 ? "FREE" : "R0.00")
+        : money(getDelivery());
 
-`;
-
-row.querySelector(".minus").addEventListener("click",function(){
-changeQuantity(index,-1);
-});
-
-row.querySelector(".plus").addEventListener("click",function(){
-changeQuantity(index,1);
-});
-
-box.appendChild(row);
-
-});
-
-summary.innerHTML = `
-
-<div class="summary-row">
-<span>Subtotal</span>
-<strong>R${money(subtotal())}</strong>
-</div>
-
-<div class="summary-row">
-<span>Delivery</span>
-<strong>
-${deliveryFee() === 0 ? "FREE" : "R"+money(deliveryFee())}
-</strong>
-</div>
-
-<div class="summary-row summary-total">
-<span>Total</span>
-<strong>R${money(total())}</strong>
-</div>
-
-`;
+    document.getElementById("total").textContent =
+        money(getTotal());
 
 }
 
 
-function changeQuantity(index,change){
+/* =========================================================
+   QUANTITY
+========================================================= */
 
-if(!cart[index]){
-return;
+function changeQuantity(index,amount){
+
+    cart[index].qty += amount;
+
+    if(cart[index].qty<=0){
+
+        cart.splice(index,1);
+
+    }
+
+    saveCart();
+
+    updateCart();
+
+    renderCart();
+
 }
 
-cart[index].quantity += change;
 
-if(cart[index].quantity <= 0){
-cart.splice(index,1);
+/* =========================================================
+   CHECKOUT
+========================================================= */
+
+function openCheckout(){
+
+    if(cart.length===0){
+
+        alert("Your cart is empty.");
+
+        return;
+
+    }
+
+    closeModal("cartModal");
+
+    openModal("checkoutModal");
+
 }
 
-updateCart();
+
+/* =========================================================
+   PLACE ORDER
+========================================================= */
+
+function placeOrder(){
+
+    if(cart.length===0){
+
+        alert("Your cart is empty.");
+
+        return;
+
+    }
+
+    const name=document
+        .getElementById("customerName")
+        .value
+        .trim();
+
+    const phone=document
+        .getElementById("customerPhone")
+        .value
+        .trim();
+
+    const address=document
+        .getElementById("customerAddress")
+        .value
+        .trim();
+
+    const notes=document
+        .getElementById("customerNotes")
+        .value
+        .trim();
+
+
+    if(!name || !phone || !address){
+
+        alert(
+            "Please enter your name, phone number and delivery address."
+        );
+
+        return;
+
+    }
+
+
+    const orderNumber =
+        "AZ"+Math.floor(100000+Math.random()*900000);
+
+
+    const items=cart.map(item=>{
+
+        return (
+            item.name+
+            " x"+item.qty+
+            " - "+
+            item.price
+        );
+
+    }).join("\n");
+
+
+    const message=
+`*AEROZONE ORDER*
+
+Order: ${orderNumber}
+
+Customer:
+${name}
+
+Phone:
+${phone}
+
+Delivery Address:
+${address}
+
+Items:
+${items}
+
+Subtotal:
+${money(getSubtotal())}
+
+Delivery:
+${getDelivery()===0 ? "FREE" : money(getDelivery())}
+
+TOTAL:
+${money(getTotal())}
+
+Notes:
+${notes || "None"}
+
+Please confirm my order.`;
+
+
+
+    localStorage.setItem(
+        "aerozoneLastOrder",
+        JSON.stringify({
+            orderNumber:orderNumber,
+            name:name,
+            total:getTotal(),
+            status:"Order received",
+            date:new Date().toLocaleString()
+        })
+    );
+
+
+    cart=[];
+
+    saveCart();
+
+    updateCart();
+
+
+    document.getElementById("customerName").value="";
+    document.getElementById("customerPhone").value="";
+    document.getElementById("customerAddress").value="";
+    document.getElementById("customerNotes").value="";
+
+
+    const url=
+        "https://wa.me/27688685355?text="+
+        encodeURIComponent(message);
+
+
+    window.open(url,"_blank");
+
+
+    closeModal("checkoutModal");
+
+
+    setTimeout(()=>{
+
+        openTracking();
+
+    },500);
 
 }
 
 
-/* =====================================================
+/* =========================================================
+   SEARCH
+========================================================= */
+
+function searchProducts(){
+
+    const query=document
+        .getElementById("searchInput")
+        .value
+        .trim()
+        .toLowerCase();
+
+
+    if(!query){
+
+        showStores();
+
+        return;
+
+    }
+
+
+    const results=[];
+
+
+    Object.values(branches).forEach(branch=>{
+
+        branch.products.forEach(product=>{
+
+            if(
+                product[0].toLowerCase().includes(query) ||
+                product[3].toLowerCase().includes(query) ||
+                branch.name.toLowerCase().includes(query)
+            ){
+
+                results.push({
+                    product:product,
+                    store:branch.name
+                });
+
+            }
+
+        });
+
+    });
+
+
+    document.getElementById("storesSection").style.display="none";
+
+    document.getElementById("catalog").style.display="none";
+
+    document.getElementById("searchResults").style.display="block";
+
+
+    const grid=document.getElementById("searchProductGrid");
+
+    grid.innerHTML="";
+
+
+    if(results.length===0){
+
+        grid.innerHTML=`
+            <div class="no-results">
+                🔍<br><br>
+                No products found for "<strong>${query}</strong>"
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    results.forEach(result=>{
+
+        const product=result.product;
+
+        const card=document.createElement("div");
+
+        card.className="product";
+
+        card.innerHTML=`
+
+            <div class="product-img">
+                ${product[2]}
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    ${result.store}
+                </div>
+
+                <div class="product-name">
+                    ${product[0]}
+                </div>
+
+                <div class="product-price">
+                    ${product[1]}
+                </div>
+
+                <button class="add-btn">
+                    + Add
+                </button>
+
+            </div>
+        `;
+
+
+        card.querySelector(".add-btn")
+            .addEventListener("click",()=>{
+
+                addToCart(
+                    product[0],
+                    product[1],
+                    product[2],
+                    result.store
+                );
+
+            });
+
+
+        grid.appendChild(card);
+
+    });
+
+}
+
+
+/* =========================================================
    MODALS
-===================================================== */
+========================================================= */
 
 function openModal(id){
 
-const modal = document.getElementById(id);
-
-if(modal){
-modal.style.display = "block";
-}
+    document.getElementById(id).style.display="block";
 
 }
 
 
 function closeModal(id){
 
-const modal = document.getElementById(id);
-
-if(modal){
-modal.style.display = "none";
-}
+    document.getElementById(id).style.display="none";
 
 }
 
 
-/* =====================================================
-   CLOSE BUTTONS
-===================================================== */
+document.querySelectorAll(".modal-bg")
+.forEach(bg=>{
 
-document.querySelectorAll("[data-close]").forEach(function(button){
+    bg.addEventListener("click",function(e){
 
-button.addEventListener("click",function(){
+        if(e.target===bg){
 
-closeModal(button.dataset.close);
+            bg.style.display="none";
 
-});
+        }
 
-});
-
-
-/* =====================================================
-   CLICK OUTSIDE MODAL
-===================================================== */
-
-document.querySelectorAll(".modal-background").forEach(function(background){
-
-background.addEventListener("click",function(event){
-
-if(event.target === background){
-
-background.style.display = "none";
-
-}
-
-});
+    });
 
 });
 
 
-/* =====================================================
-   CART BUTTONS
-===================================================== */
+document.addEventListener("keydown",function(e){
 
-document.getElementById("cartButton").addEventListener("click",function(){
+    if(e.key==="Escape"){
 
-renderCart();
-openModal("cartModal");
+        document.querySelectorAll(".modal-bg")
+        .forEach(modal=>{
+            modal.style.display="none";
+        });
 
-});
-
-document.getElementById("footerCart").addEventListener("click",function(){
-
-renderCart();
-openModal("cartModal");
+    }
 
 });
 
 
-/* =====================================================
-   CHECKOUT
-===================================================== */
-
-document.getElementById("checkoutButton").addEventListener("click",function(){
-
-if(cart.length === 0){
-
-showMessage("Your cart is empty");
-
-return;
-
-}
-
-document.getElementById("checkoutSummary").innerHTML = `
-
-<div class="summary-row">
-<span>Items</span>
-<strong>${cart.reduce((n,i)=>n+i.quantity,0)}</strong>
-</div>
-
-<div class="summary-row">
-<span>Subtotal</span>
-<strong>R${money(subtotal())}</strong>
-</div>
-
-<div class="summary-row">
-<span>Delivery</span>
-<strong>
-${deliveryFee() === 0 ? "FREE" : "R"+money(deliveryFee())}
-</strong>
-</div>
-
-<div class="summary-row summary-total">
-<span>Total</span>
-<strong>R${money(total())}</strong>
-</div>
-
-`;
-
-closeModal("cartModal");
-openModal("checkoutModal");
-
-});
-
-
-/* =====================================================
-   PLACE ORDER
-===================================================== */
-
-document.getElementById("placeOrderButton").addEventListener("click",function(){
-
-const name = document.getElementById("customerName").value.trim();
-const phone = document.getElementById("customerPhone").value.trim();
-const address = document.getElementById("customerAddress").value.trim();
-const date = document.getElementById("deliveryDate").value;
-const time = document.getElementById("deliveryTime").value;
-const payment = document.getElementById("paymentMethod").value;
-const notes = document.getElementById("orderNotes").value.trim();
-
-if(!name){
-
-showMessage("Please enter your name");
-return;
-
-}
-
-if(!phone){
-
-showMessage("Please enter your phone number");
-return;
-
-}
-
-if(!address){
-
-showMessage("Please enter your delivery address");
-return;
-
-}
-
-const orderNumber =
-"AZ" + Math.floor(100000 + Math.random() * 900000);
-
-let message =
-"Hello AeroZone!%0A%0A" +
-"NEW ORDER: " + orderNumber + "%0A%0A" +
-"Customer: " + encodeURIComponent(name) + "%0A" +
-"Phone: " + encodeURIComponent(phone) + "%0A" +
-"Address: " + encodeURIComponent(address) + "%0A" +
-"Delivery Date: " + encodeURIComponent(date || "Not specified") + "%0A" +
-"Delivery Time: " + encodeURIComponent(time || "Not specified") + "%0A" +
-"Payment: " + encodeURIComponent(payment) + "%0A%0A" +
-"ITEMS:%0A";
-
-cart.forEach(function(item){
-
-message +=
-encodeURIComponent(item.quantity + " x " + item.name) +
-" - R" +
-money(item.price * item.quantity) +
-"%0A";
-
-});
-
-message +=
-"%0ASubtotal: R" + money(subtotal()) +
-"%0ADelivery: " +
-(deliveryFee() === 0 ? "FREE" : "R"+money(deliveryFee())) +
-"%0ATOTAL: R" + money(total());
-
-if(notes){
-
-message +=
-"%0A%0ANotes: " +
-encodeURIComponent(notes);
-
-}
-
-message +=
-"%0A%0AOrder number: " +
-orderNumber;
-
-const whatsappURL =
-"https://wa.me/27688685355?text=" + message;
-
-localStorage.setItem("aerozone_last_order",orderNumber);
-
-window.open(whatsappURL,"_blank");
-
-showMessage("Order created: " + orderNumber);
-
-cart = [];
-
-updateCart();
-
-closeModal("checkoutModal");
-
-});
-
-
-/* =====================================================
+/* =========================================================
    TRACKING
-===================================================== */
+========================================================= */
 
 function openTracking(){
 
-openModal("trackingModal");
+    const container=
+        document.getElementById("trackingContent");
+
+
+    let order=null;
+
+    try{
+
+        order=JSON.parse(
+            localStorage.getItem("aerozoneLastOrder")
+        );
+
+    }catch(e){
+
+        order=null;
+
+    }
+
+
+    if(!order){
+
+        container.innerHTML=`
+
+            <div class="empty">
+
+                📦<br><br>
+
+                No recent order found.
+
+                <br><br>
+
+                Place an order and you will be able
+                to see its tracking information here.
+
+            </div>
+        `;
+
+    }else{
+
+        container.innerHTML=`
+
+            <div class="order-number">
+                Order ${order.orderNumber}<br>
+                <small>${order.date}</small>
+            </div>
+
+            <div class="timeline">
+
+                <div class="step active">
+                    ✓ Order received
+                </div>
+
+                <div class="step active">
+                    ✓ Order being prepared
+                </div>
+
+                <div class="step">
+                    🚚 Driver collecting order
+                </div>
+
+                <div class="step">
+                    📍 On the way
+                </div>
+
+                <div class="step">
+                    🏠 Delivered
+                </div>
+
+            </div>
+
+            <button
+                class="primary"
+                onclick="openWhatsApp()"
+            >
+                📲 Contact AeroZone
+            </button>
+        `;
+
+    }
+
+
+    openModal("trackingModal");
 
 }
 
 
-document.getElementById("trackButton").addEventListener("click",openTracking);
+/* =========================================================
+   WHATSAPP
+========================================================= */
 
-document.getElementById("footerTrack").addEventListener("click",openTracking);
+function openWhatsApp(){
 
-
-document.getElementById("trackOrderButton").addEventListener("click",function(){
-
-const number =
-document.getElementById("trackingNumber").value.trim();
-
-const result =
-document.getElementById("trackingResult");
-
-if(!number){
-
-result.innerHTML = `
-<div class="empty">
-Please enter your order number.
-</div>
-`;
-
-return;
+    window.open(
+        "https://wa.me/27688685355?text="+
+        encodeURIComponent(
+            "Hello AeroZone, I need assistance with my order."
+        ),
+        "_blank"
+    );
 
 }
 
-result.innerHTML = `
 
-<div>
-
-<strong>Order ${number}</strong>
-
-<p style="margin-top:8px;color:#777">
-Your order has been received. For the latest delivery update,
-please contact AeroZone on WhatsApp.
-</p>
-
-<div class="timeline">
-
-<div class="timeline-step active">
-Order received
-</div>
-
-<div class="timeline-step">
-Preparing your order
-</div>
-
-<div class="timeline-step">
-Out for delivery
-</div>
-
-<div class="timeline-step">
-Delivered
-</div>
-
-</div>
-
-</div>
-
-`;
-
-});
-
-
-/* =====================================================
-   SEARCH
-===================================================== */
-
-function searchProducts(){
-
-const query =
-document.getElementById("searchInput").value
-.trim()
-.toLowerCase();
-
-if(!query){
-
-showMessage("Type a product to search");
-
-return;
-
-}
-
-let results = [];
-
-Object.keys(branches).forEach(function(key){
-
-const branch = branches[key];
-
-branch.products.forEach(function(product,index){
-
-if(product[0].toLowerCase().includes(query)){
-
-results.push({
-branchKey:key,
-branch:branch,
-product:product,
-index:index
-});
-
-}
-
-});
-
-});
-
-branchesSection.style.display = "none";
-catalog.style.display = "block";
-
-document.getElementById("catalogEyebrow").textContent =
-"SEARCH RESULTS";
-
-document.getElementById("catalogTitle").textContent =
-results.length + " product" + (results.length === 1 ? "" : "s");
-
-productGrid.innerHTML = "";
-
-if(results.length === 0){
-
-productGrid.innerHTML = `
-<div class="empty" style="grid-column:1/-1">
-No products found for "${query}".
-</div>
-`;
-
-return;
-
-}
-
-results.forEach(function(item){
-
-const product = item.product;
-
-const card = document.createElement("div");
-
-card.className = "product";
-
-card.innerHTML = `
-
-<div class="product-image">
-${product[2]}
-</div>
-
-<div class="product-content">
-
-<div class="product-category">
-${item.branch.name}
-</div>
-
-<h3>${product[0]}</h3>
-
-<div class="product-price">
-R${money(product[1])}
-</div>
-
-<button class="add-button" type="button">
-Add to Cart
-</button>
-
-</div>
-
-`;
-
-card.querySelector(".add-button").addEventListener("click",function(){
-
-addToCart(item.branchKey,item.index);
-
-});
-
-productGrid.appendChild(card);
-
-});
-
-}
-
-
-document.getElementById("searchButton").addEventListener("click",searchProducts);
-
-document.getElementById("searchInput").addEventListener("keydown",function(event){
-
-if(event.key === "Enter"){
-
-searchProducts();
-
-}
-
-});
-
-
-/* =====================================================
-   ESCAPE KEY
-===================================================== */
-
-document.addEventListener("keydown",function(event){
-
-if(event.key === "Escape"){
-
-document.querySelectorAll(".modal-background").forEach(function(modal){
-
-modal.style.display = "none";
-
-});
-
-}
-
-});
-
-
-/* =====================================================
-   START AEROZONE
-===================================================== */
-
-renderBranches();
+/* =========================================================
+   INITIALISE
+========================================================= */
 
 updateCart();
 
-console.log("AeroZone website loaded successfully.");
+console.log("AeroZone shopping app loaded successfully.");
 
-</script></body>
+</script>
+
+</body>
 </html>
