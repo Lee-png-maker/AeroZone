@@ -3,14 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AeroZone | Online Store</title>
+<title>AeroZone | Supermarket & Food Delivery</title>
 
 <style>
 *{box-sizing:border-box}
-
-html{
-scroll-behavior:smooth;
-}
 
 body{
 margin:0;
@@ -19,21 +15,31 @@ background:#f5f5f5;
 color:#111;
 }
 
+button,input{
+font:inherit;
+}
+
+button{
+cursor:pointer;
+border:0;
+}
+
 header{
 background:#111827;
 color:white;
-padding:15px;
 position:sticky;
 top:0;
-z-index:10;
+z-index:50;
+box-shadow:0 2px 10px #999;
 }
 
-.top{
+.header{
 max-width:1200px;
 margin:auto;
+padding:13px 16px;
 display:flex;
-gap:12px;
 align-items:center;
+gap:12px;
 }
 
 .logo{
@@ -42,54 +48,55 @@ font-weight:bold;
 white-space:nowrap;
 }
 
-.search{
-flex:1;
-padding:12px;
-border:0;
-border-radius:7px;
-font-size:15px;
-outline:none;
+.logo span{
+color:#f59e0b;
 }
 
-button{
-cursor:pointer;
+.search{
+flex:1;
+padding:12px 16px;
 border:0;
-border-radius:7px;
-padding:10px;
+border-radius:25px;
+outline:none;
 }
 
 .cartBtn{
 background:#f59e0b;
+padding:11px 16px;
+border-radius:25px;
 font-weight:bold;
 white-space:nowrap;
 }
 
-nav{
+.quick{
 background:white;
 padding:10px;
+display:flex;
+gap:8px;
 overflow:auto;
 white-space:nowrap;
-box-shadow:0 1px 4px #ddd;
+border-bottom:1px solid #ddd;
 }
 
-nav button{
-margin:3px;
+.quick button{
 background:#eee;
+padding:10px 16px;
+border-radius:22px;
 }
 
-nav button:hover,
-nav button.active{
+.quick button.active,
+.quick button:hover{
 background:#111827;
 color:white;
 }
 
 .hero{
 max-width:1200px;
-margin:20px auto;
-padding:40px 20px;
-background:#1f2937;
+margin:18px auto;
+padding:40px 22px;
+border-radius:15px;
+background:linear-gradient(135deg,#111827,#374151);
 color:white;
-border-radius:12px;
 }
 
 .hero h1{
@@ -97,49 +104,129 @@ font-size:38px;
 margin:0 0 10px;
 }
 
+.hero p{
+font-size:17px;
+}
+
+.address{
+display:flex;
+gap:8px;
+max-width:650px;
+}
+
+.address input{
+flex:1;
+padding:13px;
+border:0;
+border-radius:8px;
+outline:none;
+}
+
+.address button{
+background:#f59e0b;
+padding:13px 18px;
+border-radius:8px;
+font-weight:bold;
+}
+
 .container{
 max-width:1200px;
 margin:auto;
+padding:0 15px;
+}
+
+h2{
+margin-top:25px;
+}
+
+.stores{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+}
+
+.store{
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 2px 7px #ddd;
+text-align:center;
+}
+
+.storeIcon{
+font-size:45px;
+margin-bottom:8px;
+}
+
+.storeName{
+font-weight:bold;
+font-size:18px;
+}
+
+.store button{
+margin-top:10px;
+background:#111827;
+color:white;
+padding:9px 16px;
+border-radius:7px;
+}
+
+.categories{
+display:flex;
+gap:8px;
+overflow:auto;
+padding:8px 0 15px;
+}
+
+.categories button{
+background:white;
+border:1px solid #ddd;
 padding:10px 15px;
+border-radius:22px;
+white-space:nowrap;
+}
+
+.categories button.active{
+background:#111827;
+color:white;
 }
 
 .products{
 display:grid;
 grid-template-columns:repeat(5,1fr);
 gap:15px;
-min-height:200px;
 }
 
-.card{
+.product{
 background:white;
-border-radius:10px;
+border-radius:12px;
 overflow:hidden;
 box-shadow:0 2px 7px #ddd;
-contain:layout;
 }
 
-.card img{
-display:block;
-width:100%;
-height:180px;
-object-fit:cover;
+.productImage{
+height:150px;
 background:#eee;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:60px;
 }
 
-.info{
+.productInfo{
 padding:12px;
 }
 
-.cat{
-font-size:12px;
-color:#777;
-margin-bottom:5px;
+.productName{
+font-weight:bold;
+min-height:40px;
 }
 
-.name{
-min-height:40px;
-font-weight:bold;
-line-height:20px;
+.productDesc{
+font-size:12px;
+color:#666;
+min-height:30px;
+margin:5px 0;
 }
 
 .price{
@@ -152,7 +239,8 @@ margin:8px 0;
 width:100%;
 background:#111827;
 color:white;
-font-weight:bold;
+padding:11px;
+border-radius:7px;
 }
 
 .add:hover{
@@ -168,22 +256,22 @@ text-align:center;
 border-radius:10px;
 }
 
-.drawer{
+.cart{
 position:fixed;
-right:-400px;
+right:-430px;
 top:0;
-width:380px;
+width:410px;
 max-width:95%;
 height:100%;
 background:white;
-z-index:20;
-box-shadow:-5px 0 20px #999;
+z-index:100;
+box-shadow:-5px 0 20px #777;
 transition:right .25s ease;
 display:flex;
 flex-direction:column;
 }
 
-.drawer.open{
+.cart.open{
 right:0;
 }
 
@@ -192,81 +280,125 @@ background:#111827;
 color:white;
 padding:15px;
 display:flex;
-justify-content:space-between;
 align-items:center;
+justify-content:space-between;
 }
 
 .cartHead h2{
 margin:0;
 }
 
-.items{
+.close{
+width:35px;
+height:35px;
+border-radius:50%;
+}
+
+.cartItems{
 flex:1;
 overflow:auto;
 padding:15px;
 }
 
-.item{
+.cartItem{
 display:flex;
 gap:10px;
+padding:12px 0;
 border-bottom:1px solid #ddd;
-padding:10px 0;
 }
 
-.item img{
-width:60px;
-height:60px;
-object-fit:cover;
+.cartIcon{
+width:55px;
+height:55px;
 background:#eee;
-flex-shrink:0;
+border-radius:8px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:27px;
 }
 
-.item div{
+.cartDetails{
 flex:1;
 }
 
-.remove{
+.qty{
+display:flex;
+align-items:center;
+gap:7px;
 margin-top:7px;
+}
+
+.qty button{
+width:28px;
+height:28px;
+border-radius:5px;
 background:#eee;
+}
+
+.remove{
+color:#d00;
+background:none;
 font-size:12px;
 }
 
-.bottom{
+.checkout{
 padding:15px;
 border-top:1px solid #ddd;
 }
 
-.checkout{
+.checkoutAddress{
 width:100%;
+padding:12px;
+border:1px solid #ddd;
+border-radius:7px;
+margin:8px 0;
+outline:none;
+}
+
+.row{
+display:flex;
+justify-content:space-between;
+margin:8px 0;
+}
+
+.total{
+font-size:21px;
+font-weight:bold;
+}
+
+.whatsapp{
+width:100%;
+padding:13px;
 background:#16a34a;
 color:white;
 font-weight:bold;
-font-size:16px;
+border-radius:7px;
 }
 
 footer{
+margin-top:40px;
+padding:30px;
 background:#111827;
 color:white;
 text-align:center;
-padding:25px;
-margin-top:30px;
 }
 
-/* TABLET */
 @media(max-width:1000px){
-.products{
-grid-template-columns:repeat(4,1fr);
-}
+
+.stores{
+grid-template-columns:repeat(2,1fr);
 }
 
-/* PHONE */
+.products{
+grid-template-columns:repeat(3,1fr);
+}
+
+}
+
 @media(max-width:700px){
 
-header{
-padding:10px;
-}
-
-.top{
+.header{
 flex-wrap:wrap;
 }
 
@@ -277,7 +409,6 @@ font-size:22px;
 .search{
 order:3;
 flex-basis:100%;
-width:100%;
 }
 
 .hero{
@@ -289,25 +420,35 @@ padding:30px 18px;
 font-size:28px;
 }
 
+.address{
+flex-direction:column;
+}
+
+.stores{
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+}
+
 .products{
 grid-template-columns:repeat(2,1fr);
 gap:10px;
 }
 
-.card img{
-height:150px;
+.productImage{
+height:120px;
+font-size:48px;
 }
 
-.info{
+.productInfo{
 padding:9px;
 }
 
-.name{
+.productName{
 font-size:14px;
 }
 
 .price{
-font-size:18px;
+font-size:17px;
 }
 
 }
@@ -318,23 +459,22 @@ font-size:18px;
 
 <header>
 
-<div class="top">
+<div class="header">
 
 <div class="logo">
-AeroZone
+Aero<span>Zone</span> 🛒
 </div>
 
 <input
 id="search"
 class="search"
-type="search"
-placeholder="Search products..."
-autocomplete="off">
+placeholder="Search products, food and stores..."
+type="search">
 
 <button
 class="cartBtn"
 onclick="openCart()">
-🛒 Cart (<span id="count">0</span>)
+🛒 Cart (<span id="cartCount">0</span>)
 </button>
 
 </div>
@@ -342,64 +482,213 @@ onclick="openCart()">
 </header>
 
 
-<nav id="categoryNav">
+<div class="quick">
 
-<button class="active" onclick="filterCategory('All',this)">
-All
+<button class="active"
+onclick="selectStore('All',this)">
+🏠 All
 </button>
 
-<button onclick="filterCategory('Electronics',this)">
-Electronics
+<button
+onclick="selectStore('Supermarket',this)">
+🛒 Supermarket
 </button>
 
-<button onclick="filterCategory('Home',this)">
-Home
+<button
+onclick="selectStore('Health & Beauty',this)">
+💄 Health & Beauty
 </button>
 
-<button onclick="filterCategory('Automotive',this)">
-Automotive
+<button
+onclick="selectStore('Food',this)">
+🍔 Food
 </button>
 
-<button onclick="filterCategory('Kitchen',this)">
-Kitchen
+<button
+onclick="selectStore('Drinks',this)">
+🥤 Drinks
 </button>
 
-<button onclick="filterCategory('Beauty',this)">
-Beauty
+<button
+onclick="selectStore('Household',this)">
+🏠 Household
 </button>
 
-<button onclick="filterCategory('Pets',this)">
-Pets
-</button>
-
-<button onclick="filterCategory('Outdoor',this)">
-Outdoor
-</button>
-
-<button onclick="filterCategory('Travel',this)">
-Travel
-</button>
-
-</nav>
+</div>
 
 
 <section class="hero">
 
 <h1>
-Shop Smart with AeroZone
+Everything you need, delivered.
 </h1>
 
 <p>
-Trending products at great prices.
+Shop groceries, household products, beauty items and food with AeroZone.
 </p>
+
+<div class="address">
+
+<input
+id="address"
+placeholder="Enter your delivery address">
+
+<button onclick="saveAddress()">
+📍 Save
+</button>
+
+</div>
 
 </section>
 
 
 <main class="container">
 
+
 <h2>
-Products
+🏪 Shop by Store
+</h2>
+
+<div class="stores">
+
+
+<div class="store">
+
+<div class="storeIcon">
+🛒
+</div>
+
+<div class="storeName">
+Aero Supermarket
+</div>
+
+<p>
+Groceries & essentials
+</p>
+
+<button onclick="selectStoreByName('Supermarket')">
+Shop Now
+</button>
+
+</div>
+
+
+<div class="store">
+
+<div class="storeIcon">
+💄
+</div>
+
+<div class="storeName">
+Aero Beauty
+</div>
+
+<p>
+Beauty & personal care
+</p>
+
+<button onclick="selectStoreByName('Health & Beauty')">
+Shop Now
+</button>
+
+</div>
+
+
+<div class="store">
+
+<div class="storeIcon">
+🍔
+</div>
+
+<div class="storeName">
+Aero Food
+</div>
+
+<p>
+Meals & fast food
+</p>
+
+<button onclick="selectStoreByName('Food')">
+Order Food
+</button>
+
+</div>
+
+
+<div class="store">
+
+<div class="storeIcon">
+🏠
+</div>
+
+<div class="storeName">
+Aero Home
+</div>
+
+<p>
+Household essentials
+</p>
+
+<button onclick="selectStoreByName('Household')">
+Shop Now
+</button>
+
+</div>
+
+</div>
+
+
+<h2>
+📦 Categories
+</h2>
+
+<div class="categories">
+
+<button class="active"
+onclick="selectCategory('All',this)">
+All
+</button>
+
+<button
+onclick="selectCategory('Groceries',this)">
+🥦 Groceries
+</button>
+
+<button
+onclick="selectCategory('Bakery',this)">
+🍞 Bakery
+</button>
+
+<button
+onclick="selectCategory('Meat',this)">
+🥩 Meat
+</button>
+
+<button
+onclick="selectCategory('Drinks',this)">
+🥤 Drinks
+</button>
+
+<button
+onclick="selectCategory('Beauty',this)">
+💄 Beauty
+</button>
+
+<button
+onclick="selectCategory('Household',this)">
+🧹 Household
+</button>
+
+<button
+onclick="selectCategory('Food',this)">
+🍔 Food
+</button>
+
+</div>
+
+
+<h2>
+🔥 Popular Products
 </h2>
 
 <div
@@ -407,14 +696,15 @@ id="products"
 class="products">
 </div>
 
+
 </main>
 
 
 <!-- CART -->
 
 <div
-id="drawer"
-class="drawer">
+id="cart"
+class="cart">
 
 <div class="cartHead">
 
@@ -422,7 +712,9 @@ class="drawer">
 🛒 Your Cart
 </h2>
 
-<button onclick="closeCart()">
+<button
+class="close"
+onclick="closeCart()">
 ✕
 </button>
 
@@ -430,605 +722,18 @@ class="drawer">
 
 
 <div
-id="items"
-class="items">
+id="cartItems"
+class="cartItems">
 </div>
 
 
-<div class="bottom">
+<div class="checkout">
 
-<h2>
-Total: R<span id="total">0.00</span>
-</h2>
-
-<button
-class="checkout"
-onclick="checkout()">
-Order on WhatsApp
-</button>
-
+<div class="row">
+<span>Subtotal</span>
+<span>R<span id="subtotal">0.00</span></span>
 </div>
 
-</div>
-
-
-<footer>
-
-<h2>
-AeroZone
-</h2>
-
-<p>
-Online shopping made simple.
-</p>
-
-<p>
-© 2026 AeroZone
-</p>
-
-</footer>
-
-
-<script>
-
-/* =====================================================
-   AEROZONE PRODUCTS
-   ONLY EDIT THIS LIST TO ADD OR CHANGE PRODUCTS
-===================================================== */
-
-const products = [
-
-["Wireless Bluetooth Earbuds",299,"Electronics"],
-["Smart Fitness Watch",499,"Electronics"],
-["Wireless Charging Pad",199,"Electronics"],
-["USB-C Fast Charging Cable",99,"Electronics"],
-["20W USB-C Charger",149,"Electronics"],
-["Bluetooth Speaker",399,"Electronics"],
-["Mini Power Bank",249,"Electronics"],
-["10,000mAh Power Bank",349,"Electronics"],
-["LED Ring Light",279,"Electronics"],
-["Phone Tripod Stand",229,"Electronics"],
-["Magnetic Phone Holder",149,"Electronics"],
-["Bluetooth Selfie Stick",179,"Electronics"],
-["Wireless Keyboard",399,"Electronics"],
-["Wireless Mouse",199,"Electronics"],
-["Laptop Cooling Stand",329,"Electronics"],
-["4-Port USB Hub",249,"Electronics"],
-["LED Desk Lamp",299,"Home"],
-["Mini Projector",999,"Electronics"],
-["Smart LED Bulb",149,"Home"],
-["Digital Alarm Clock",229,"Home"],
-
-["Magnetic Car Phone Mount",179,"Automotive"],
-["Car USB Charger",129,"Automotive"],
-["Car Interior LED Lights",249,"Automotive"],
-["Car Cleaning Brush Set",199,"Automotive"],
-["Microfiber Car Towels",159,"Automotive"],
-["Portable Car Vacuum",449,"Automotive"],
-["Car Seat Organiser",299,"Automotive"],
-["Steering Wheel Cover",199,"Automotive"],
-["Car Air Freshener Set",129,"Automotive"],
-["Emergency Car Tool Kit",599,"Automotive"],
-["Digital Tyre Pressure Gauge",229,"Automotive"],
-["Car Sunshade",179,"Automotive"],
-["Car Cup Holder",159,"Automotive"],
-["Car Trash Bin",139,"Automotive"],
-["Car Seat Gap Organiser",149,"Automotive"],
-
-["Handheld Vacuum Cleaner",699,"Home"],
-["Microfiber Cleaning Cloth Set",129,"Home"],
-["Multi-purpose Cleaning Brush",119,"Home"],
-["Spin Mop Bucket Set",499,"Home"],
-["Window Squeegee",149,"Home"],
-["Electric Cleaning Scrubber",449,"Home"],
-["Refillable Spray Bottle Set",119,"Home"],
-["Storage Box Set",299,"Home"],
-["Laundry Basket",249,"Home"],
-["Clothes Hanger Set",159,"Home"],
-["Bathroom Organiser",229,"Home"],
-["Sink Organiser",179,"Home"],
-["Wall Hooks",99,"Home"],
-["Motion Sensor Light",199,"Home"],
-["Under Cabinet LED Light",229,"Home"],
-
-["Digital Kitchen Scale",179,"Kitchen"],
-["Electric Milk Frother",159,"Kitchen"],
-["Portable Blender",349,"Kitchen"],
-["Mini Food Chopper",299,"Kitchen"],
-["Reusable Food Storage Bags",139,"Kitchen"],
-["Silicone Kitchen Utensil Set",249,"Kitchen"],
-["Non-Stick Frying Pan",399,"Kitchen"],
-["Kitchen Knife Set",449,"Kitchen"],
-["Automatic Soap Dispenser",249,"Kitchen"],
-["Filter Water Bottle",199,"Kitchen"],
-
-["Facial Cleansing Brush",229,"Beauty"],
-["LED Makeup Mirror",399,"Beauty"],
-["Hair Straightener",399,"Beauty"],
-["Curling Wand",449,"Beauty"],
-["Electric Hair Trimmer",299,"Beauty"],
-["Makeup Brush Set",249,"Beauty"],
-["Cosmetic Travel Bag",199,"Beauty"],
-["Perfume Atomizer",99,"Beauty"],
-["Silk Sleep Mask",129,"Beauty"],
-["Reusable Beauty Water Bottle",179,"Beauty"],
-
-["Interactive Dog Toy",179,"Pets"],
-["Pet Grooming Brush",149,"Pets"],
-["Automatic Pet Feeder",699,"Pets"],
-["Pet Water Bottle",159,"Pets"],
-["Dog Collar & Leash",229,"Pets"],
-["Pet Travel Carrier",599,"Pets"],
-["Cat Scratching Toy",249,"Pets"],
-["Pet Feeding Mat",149,"Pets"],
-["Dog Waste Bag Dispenser",99,"Pets"],
-["Pet Cooling Mat",299,"Pets"],
-
-["Camping Lantern",299,"Outdoor"],
-["Camping Stove",499,"Outdoor"],
-["Rechargeable Headlamp",179,"Outdoor"],
-["Folding Camping Chair",499,"Outdoor"],
-["Picnic Blanket",299,"Outdoor"],
-["Cooler Bag",349,"Outdoor"],
-["Portable Hammock",399,"Outdoor"],
-["Solar Garden Lights",199,"Outdoor"],
-["Folding Outdoor Table",599,"Outdoor"],
-["Waterproof Dry Bag",249,"Outdoor"],
-
-["Travel Neck Pillow",179,"Travel"],
-["Luggage Organiser Set",249,"Travel"],
-["Digital Luggage Scale",159,"Travel"],
-["Universal Travel Adapter",299,"Travel"],
-["Passport Holder",149,"Travel"],
-["Anti-Theft Backpack",599,"Travel"],
-["Travel Toiletry Bag",199,"Travel"],
-["Travel Duffel Bag",299,"Travel"],
-["Portable Travel Door Lock",179,"Travel"],
-["Compression Travel Bags",149,"Travel"]
-
-];
-
-
-/* =====================================================
-   IMAGE FILE NAME
-===================================================== */
-
-function imageName(name){
-
-return "images/" +
-
-name
-.toLowerCase()
-.replace(/&/g,"and")
-.replace(/[^a-z0-9]+/g,"-")
-.replace(/^-|-$/g,"")
-
-+ ".jpg";
-
-}
-
-
-/* =====================================================
-   CART
-===================================================== */
-
-let cart = [];
-
-let category = "All";
-
-
-/* =====================================================
-   LOAD CART
-===================================================== */
-
-try{
-
-cart = JSON.parse(
-localStorage.getItem("aerozone-cart")
-) || [];
-
-}catch(e){
-
-cart=[];
-
-}
-
-
-/* =====================================================
-   SAVE CART
-===================================================== */
-
-function saveCart(){
-
-localStorage.setItem(
-"aerozone-cart",
-JSON.stringify(cart)
-);
-
-}
-
-
-/* =====================================================
-   SHOW PRODUCTS
-===================================================== */
-
-function show(list){
-
-const box =
-document.getElementById("products");
-
-
-if(!list.length){
-
-box.innerHTML =
-'<div class="empty">No products found.</div>';
-
-return;
-
-}
-
-
-/*
-   IMPORTANT:
-   We store the REAL product index.
-   This prevents the wrong product
-   being added after search/filter.
-*/
-
-box.innerHTML = list.map(index => {
-
-const p = products[index];
-
-return `
-
-<div class="card">
-
-<img
-src="${imageName(p[0])}"
-alt="${p[0]}"
-loading="lazy"
-onerror="this.onerror=null;this.src='images/no-image.jpg';">
-
-<div class="info">
-
-<div class="cat">
-${p[2]}
-</div>
-
-<div class="name">
-${p[0]}
-</div>
-
-<div class="price">
-R${Number(p[1]).toFixed(2)}
-</div>
-
-<button
-class="add"
-onclick="add(${index})">
-
-Add to Cart
-
-</button>
-
-</div>
-
-</div>
-
-`;
-
-}).join("");
-
-}
-
-
-/* =====================================================
-   FILTER + SEARCH
-===================================================== */
-
-function refreshProducts(){
-
-const q =
-document
-.getElementById("search")
-.value
-.trim()
-.toLowerCase();
-
-
-const list = [];
-
-
-products.forEach((p,index)=>{
-
-const matchesCategory =
-category === "All" ||
-p[2] === category;
-
-
-const matchesSearch =
-p[0].toLowerCase().includes(q);
-
-
-if(
-matchesCategory &&
-matchesSearch
-){
-
-list.push(index);
-
-}
-
-});
-
-
-show(list);
-
-}
-
-
-/* =====================================================
-   CATEGORY
-===================================================== */
-
-function filterCategory(c,button){
-
-category=c;
-
-
-/* remove active */
-
-document
-.querySelectorAll("#categoryNav button")
-.forEach(btn=>{
-btn.classList.remove("active");
-});
-
-
-/* add active */
-
-button.classList.add("active");
-
-
-refreshProducts();
-
-}
-
-
-/* =====================================================
-   SEARCH
-===================================================== */
-
-document
-.getElementById("search")
-.addEventListener(
-"input",
-refreshProducts
-);
-
-
-/* =====================================================
-   ADD TO CART
-===================================================== */
-
-function add(index){
-
-cart.push(index);
-
-saveCart();
-
-updateCart();
-
-openCart();
-
-}
-
-
-/* =====================================================
-   UPDATE CART
-===================================================== */
-
-function updateCart(){
-
-const items =
-document.getElementById("items");
-
-
-let total=0;
-
-
-if(!cart.length){
-
-items.innerHTML =
-"<p>Your cart is empty.</p>";
-
-}
-else{
-
-items.innerHTML =
-cart.map((index,n)=>{
-
-const p=products[index];
-
-total += Number(p[1]);
-
-
-return `
-
-<div class="item">
-
-<img
-src="${imageName(p[0])}"
-alt="${p[0]}"
-onerror="this.onerror=null;this.src='images/no-image.jpg';">
-
-<div>
-
-<b>
-${p[0]}
-</b>
-
-<br>
-
-R${Number(p[1]).toFixed(2)}
-
-<br>
-
-<button
-class="remove"
-onclick="removeItem(${n})">
-
-Remove
-
-</button>
-
-</div>
-
-</div>
-
-`;
-
-}).join("");
-
-}
-
-
-/* count */
-
-document
-.getElementById("count")
-.textContent=cart.length;
-
-
-/* total */
-
-document
-.getElementById("total")
-.textContent=total.toFixed(2);
-
-}
-
-
-/* =====================================================
-   REMOVE
-===================================================== */
-
-function removeItem(n){
-
-cart.splice(n,1);
-
-saveCart();
-
-updateCart();
-
-}
-
-
-/* =====================================================
-   OPEN CART
-===================================================== */
-
-function openCart(){
-
-document
-.getElementById("drawer")
-.classList.add("open");
-
-}
-
-
-/* =====================================================
-   CLOSE CART
-===================================================== */
-
-function closeCart(){
-
-document
-.getElementById("drawer")
-.classList.remove("open");
-
-}
-
-
-/* =====================================================
-   WHATSAPP CHECKOUT
-===================================================== */
-
-function checkout(){
-
-if(!cart.length){
-
-alert("Your cart is empty.");
-
-return;
-
-}
-
-
-/*
-   CHANGE THIS NUMBER
-   TO YOUR AEROZONE WHATSAPP NUMBER.
-
-   South Africa example:
-   27821234567
-*/
-
-const phone =
-"27000000000";
-
-
-let message =
-"Hello AeroZone, I want to order:%0A%0A";
-
-
-cart.forEach(index=>{
-
-const p=products[index];
-
-message +=
-encodeURIComponent(
-p[0] + " - R" +
-Number(p[1]).toFixed(2)
-)
-+
-"%0A";
-
-});
-
-
-const total =
-cart.reduce(
-(sum,index)=>
-sum + Number(products[index][1]),
-0
-);
-
-
-message +=
-"%0ATotal: R" +
-total.toFixed(2);
-
-
-window.open(
-"https://wa.me/" +
-phone +
-"?text=" +
-message,
-"_blank"
-);
-
-}
-
-
-/* =====================================================
-   START WEBSITE
-===================================================== */
-
-refreshProducts();
-
-updateCart();
-
-</script>
-
-</body>
-</html>
+<div class="row">
+<span>Delivery</span>
+<span>R<span id="delivery">35.00</span
