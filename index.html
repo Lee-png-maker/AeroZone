@@ -4,4279 +4,2159 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#000000">
-<meta name="description" content="AeroZone - Shop groceries, food, health, home essentials and more.">
-<title>AeroZone | Everything You Need, Delivered</title>
+<meta name="description" content="AeroZone - Shop groceries, food, pharmacy, bakery, butchery and more.">
+<title>AeroZone | Shop & Delivery</title>
 
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
 :root{
-    --black:#050505;
-    --dark:#111;
-    --grey:#666;
-    --light:#f5f5f5;
-    --white:#fff;
-    --border:#e7e7e7;
-    --green:#16863d;
-    --radius:20px;
+  --black:#050505;
+  --dark:#111;
+  --gray:#777;
+  --light:#f5f5f5;
+  --line:#e7e7e7;
+  --white:#fff;
+  --radius:18px;
 }
-
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#fff;
-    color:#111;
-    min-height:100vh;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#fff;
+  color:#111;
+  line-height:1.5;
 }
-
-button,input,select,textarea{
-    font:inherit;
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
 }
-
-button{
-    cursor:pointer;
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:14px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
 }
-
-/* HEADER */
-
-.header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:rgba(255,255,255,.96);
-    backdrop-filter:blur(15px);
-    border-bottom:1px solid #eee;
-}
-
-.header-inner{
-    max-width:1200px;
-    margin:auto;
-    padding:12px 18px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
-}
-
 .logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    cursor:pointer;
+  font-size:25px;
+  font-weight:900;
+  letter-spacing:-1px;
 }
-
-.logo-mark{
-    width:42px;
-    height:42px;
-    background:#000;
-    color:#fff;
-    border-radius:13px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:900;
+.logo span{font-weight:400}
+.nav-actions{display:flex;gap:8px}
+.icon-btn{
+  border:1px solid #ddd;
+  background:#fff;
+  color:#111;
+  border-radius:999px;
+  padding:10px 14px;
+  font-weight:700;
 }
-
-.logo-text{
-    font-size:23px;
-    font-weight:900;
-    letter-spacing:-1px;
+.icon-btn.dark{
+  background:#000;
+  color:#fff;
+  border-color:#000;
 }
-
-.logo-text span{
-    font-weight:400;
-}
-
-.header-actions{
-    display:flex;
-    align-items:center;
-    gap:8px;
-}
-
-.track-button,
-.cart-button{
-    border:0;
-    border-radius:13px;
-    padding:11px 14px;
-    font-weight:800;
-    display:flex;
-    align-items:center;
-    gap:7px;
-}
-
-.track-button{
-    background:#f1f1f1;
-    color:#111;
-}
-
-.cart-button{
-    background:#000;
-    color:#fff;
-}
-
 .cart-count{
-    background:#fff;
-    color:#000;
-    min-width:22px;
-    height:22px;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:12px;
+  display:inline-flex;
+  min-width:21px;
+  height:21px;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:#fff;
+  color:#000;
+  font-size:12px;
+  margin-left:5px;
 }
-
-/* MAIN */
-
-main{
-    max-width:1200px;
-    margin:auto;
-    padding:0 18px 100px;
-}
-
-/* HERO */
-
 .hero{
-    margin-top:20px;
-    min-height:330px;
-    border-radius:30px;
-    background:
-        radial-gradient(circle at 85% 20%,#444 0,transparent 28%),
-        linear-gradient(135deg,#050505,#202020);
-    color:#fff;
-    padding:45px 30px;
-    display:flex;
-    align-items:center;
-    position:relative;
-    overflow:hidden;
+  background:#050505;
+  color:#fff;
+  padding:55px 20px 45px;
 }
-
-.hero:after{
-    content:"";
-    position:absolute;
-    width:250px;
-    height:250px;
-    border:1px solid rgba(255,255,255,.12);
-    border-radius:50%;
-    right:-80px;
-    bottom:-100px;
+.hero-inner{
+  max-width:1200px;
+  margin:auto;
 }
-
-.hero-content{
-    max-width:700px;
-    position:relative;
-    z-index:2;
+.eyebrow{
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-size:11px;
+  color:#aaa;
+  margin-bottom:10px;
 }
-
-.badge{
-    display:inline-flex;
-    background:#fff;
-    color:#000;
-    padding:8px 13px;
-    border-radius:50px;
-    font-size:12px;
-    font-weight:800;
-    margin-bottom:18px;
-}
-
 .hero h1{
-    font-size:clamp(34px,6vw,65px);
-    line-height:.98;
-    letter-spacing:-3px;
-    margin-bottom:18px;
+  font-size:clamp(38px,8vw,76px);
+  line-height:.95;
+  letter-spacing:-4px;
+  max-width:750px;
 }
-
 .hero p{
-    color:#d2d2d2;
-    font-size:16px;
-    line-height:1.6;
-    margin-bottom:25px;
+  color:#ccc;
+  max-width:600px;
+  margin:20px 0;
+  font-size:16px;
 }
-
-.search-box{
-    background:#fff;
-    border-radius:16px;
-    display:flex;
-    align-items:center;
-    padding:5px;
-    max-width:650px;
+.search-wrap{
+  max-width:700px;
+  display:flex;
+  background:#fff;
+  border-radius:14px;
+  padding:5px;
 }
-
-.search-box span{
-    font-size:20px;
-    margin:0 8px;
+.search-wrap input{
+  flex:1;
+  min-width:0;
+  border:0;
+  outline:0;
+  padding:14px;
+  color:#111;
 }
-
-.search-box input{
-    flex:1;
-    border:0;
-    outline:0;
-    padding:14px 8px;
-    color:#111;
-    min-width:0;
+.search-wrap button{
+  background:#000;
+  color:#fff;
+  border:0;
+  border-radius:10px;
+  padding:0 18px;
 }
-
-.search-box button{
-    background:#000;
-    color:#fff;
-    border:0;
-    border-radius:12px;
-    padding:13px 18px;
-    font-weight:700;
+main{
+  max-width:1200px;
+  margin:auto;
+  padding:40px 18px 100px;
 }
-
-/* LOCATION */
-
-.location-bar{
-    margin:18px 0 28px;
-    border:1px solid var(--border);
-    border-radius:17px;
-    padding:14px 16px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
+.section-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:15px;
+  margin-bottom:20px;
 }
-
-.location-left{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    min-width:0;
+.section-title h2{font-size:30px;letter-spacing:-1px}
+.section-title p{color:#777;font-size:14px}
+.branch-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
 }
-
-.location-left div{
-    overflow:hidden;
+.branch{
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:var(--radius);
+  padding:22px;
+  min-height:155px;
+  transition:.2s;
+  cursor:pointer;
 }
-
-.location-title{
-    font-size:11px;
-    color:#777;
-    text-transform:uppercase;
-    font-weight:700;
+.branch:hover{
+  transform:translateY(-3px);
+  box-shadow:0 15px 35px rgba(0,0,0,.08);
 }
-
-.location-value{
-    font-weight:700;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
-}
-
-.location-bar button{
-    background:#f2f2f2;
-    border:0;
-    border-radius:10px;
-    padding:9px 12px;
-    font-weight:700;
-}
-
-/* SECTION */
-
-.section-head{
-    display:flex;
-    align-items:end;
-    justify-content:space-between;
-    margin:30px 0 17px;
-}
-
-.section-head h2{
-    font-size:27px;
-    letter-spacing:-1px;
-}
-
-.section-head p{
-    color:#777;
-    font-size:13px;
-    margin-top:5px;
-}
-
-/* BRANCHES */
-
-.branches{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:16px;
-}
-
-.branch-card{
-    min-height:205px;
-    border-radius:22px;
-    border:1px solid #e5e5e5;
-    background:#fff;
-    padding:20px;
-    position:relative;
-    overflow:hidden;
-    transition:.2s ease;
-    box-shadow:0 8px 25px rgba(0,0,0,.04);
-    cursor:pointer;
-}
-
-.branch-card:hover{
-    transform:translateY(-4px);
-    box-shadow:0 15px 35px rgba(0,0,0,.1);
-}
-
 .branch-icon{
-    width:55px;
-    height:55px;
-    border-radius:17px;
-    background:#000;
-    color:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:27px;
-    margin-bottom:25px;
+  font-size:34px;
+  margin-bottom:22px;
 }
-
-.branch-card h3{
-    font-size:19px;
-    margin-bottom:7px;
+.branch h3{font-size:18px}
+.branch p{font-size:13px;color:#777;margin-top:5px}
+#catalog{
+  display:none;
+  margin-top:45px;
 }
-
-.branch-card p{
-    color:#777;
-    font-size:13px;
-    line-height:1.4;
+.catalog-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  margin-bottom:20px;
 }
-
-.branch-count{
-    position:absolute;
-    bottom:18px;
-    left:20px;
-    font-size:11px;
-    font-weight:800;
-    color:#777;
+.back-btn{
+  background:#000;
+  color:#fff;
+  border:0;
+  border-radius:999px;
+  padding:10px 15px;
+  font-weight:700;
 }
-
-.arrow{
-    position:absolute;
-    right:18px;
-    bottom:16px;
-    width:35px;
-    height:35px;
-    border-radius:50%;
-    background:#f2f2f2;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-weight:900;
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
 }
-
-/* FEATURES */
-
-.features{
-    margin-top:35px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:14px;
-}
-
-.feature{
-    background:#f7f7f7;
-    border-radius:18px;
-    padding:20px;
-}
-
-.feature strong{
-    display:block;
-    margin-bottom:7px;
-}
-
-.feature p{
-    font-size:13px;
-    color:#777;
-    line-height:1.5;
-}
-
-/* TRACK CARD */
-
-.track-home{
-    margin-top:35px;
-    background:#000;
-    color:#fff;
-    border-radius:24px;
-    padding:25px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
-}
-
-.track-home h2{
-    margin-bottom:7px;
-}
-
-.track-home p{
-    color:#aaa;
-    font-size:13px;
-}
-
-.track-home button{
-    border:0;
-    background:#fff;
-    color:#000;
-    padding:13px 18px;
-    border-radius:12px;
-    font-weight:900;
-}
-
-/* CATALOGUE */
-
-#catalogueView{
-    display:none;
-}
-
-.catalogue-top{
-    padding-top:25px;
-}
-
-.back-button{
-    border:0;
-    background:#f1f1f1;
-    border-radius:12px;
-    padding:10px 15px;
-    font-weight:800;
-    margin-bottom:22px;
-}
-
-.branch-banner{
-    background:#050505;
-    color:#fff;
-    border-radius:25px;
-    padding:25px;
-    display:flex;
-    align-items:center;
-    gap:18px;
-    margin-bottom:20px;
-}
-
-.branch-banner-icon{
-    width:65px;
-    height:65px;
-    background:#fff;
-    color:#000;
-    border-radius:20px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:32px;
-    flex-shrink:0;
-}
-
-.branch-banner h1{
-    font-size:30px;
-    letter-spacing:-1px;
-}
-
-.branch-banner p{
-    color:#bbb;
-    font-size:13px;
-    margin-top:6px;
-}
-
-.catalogue-tools{
-    display:flex;
-    gap:10px;
-    margin-bottom:20px;
-}
-
-.catalogue-search{
-    flex:1;
-    border:1px solid #ddd;
-    border-radius:14px;
-    padding:14px;
-    outline:none;
-}
-
-.filter-button{
-    border:1px solid #ddd;
-    background:#fff;
-    border-radius:14px;
-    padding:0 15px;
-    font-weight:700;
-}
-
-.products{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-}
-
 .product{
-    border:1px solid #e7e7e7;
-    border-radius:19px;
-    padding:14px;
-    background:#fff;
-    transition:.2s;
+  border:1px solid var(--line);
+  border-radius:17px;
+  overflow:hidden;
+  background:#fff;
 }
-
-.product:hover{
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-    transform:translateY(-2px);
+.product-img{
+  height:155px;
+  background:#f1f1f1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:60px;
 }
-
-.product-image{
-    height:145px;
-    background:#f4f4f4;
-    border-radius:15px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:55px;
-    margin-bottom:12px;
+.product-body{padding:15px}
+.product small{color:#888}
+.product h4{font-size:16px;margin:5px 0}
+.price{
+  font-size:17px;
+  font-weight:900;
+  margin:8px 0 12px;
 }
-
-.product h3{
-    font-size:15px;
-    margin-bottom:6px;
+.add{
+  width:100%;
+  border:0;
+  border-radius:10px;
+  background:#000;
+  color:#fff;
+  padding:11px;
+  font-weight:800;
 }
-
-.product-price{
-    font-weight:900;
-    font-size:17px;
-    margin-bottom:12px;
-}
-
-.add-button{
-    width:100%;
-    background:#000;
-    color:#fff;
-    border:0;
-    border-radius:11px;
-    padding:11px;
-    font-weight:800;
-}
-
 .empty{
-    grid-column:1/-1;
-    text-align:center;
-    padding:60px 20px;
-    color:#777;
+  padding:30px;
+  text-align:center;
+  color:#777;
+  border:1px dashed #ccc;
+  border-radius:15px;
 }
-
-/* CART */
-
 .overlay{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.55);
-    z-index:2000;
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  z-index:2000;
+  padding:15px;
 }
-
-.overlay.active{
-    display:block;
-}
-
-.cart-drawer{
-    position:absolute;
-    right:0;
-    top:0;
-    height:100%;
-    width:min(440px,100%);
-    background:#fff;
-    display:flex;
-    flex-direction:column;
-}
-
-.cart-head{
-    padding:20px;
-    border-bottom:1px solid #eee;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.close{
-    border:0;
-    background:#f2f2f2;
-    width:38px;
-    height:38px;
-    border-radius:50%;
-    font-size:20px;
-}
-
-.cart-items{
-    flex:1;
-    overflow:auto;
-    padding:15px 20px;
-}
-
-.cart-item{
-    display:flex;
-    gap:12px;
-    border-bottom:1px solid #eee;
-    padding:14px 0;
-}
-
-.cart-item-icon{
-    width:55px;
-    height:55px;
-    background:#f3f3f3;
-    border-radius:12px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:25px;
-    flex-shrink:0;
-}
-
-.cart-info{
-    flex:1;
-}
-
-.cart-info h4{
-    font-size:14px;
-    margin-bottom:5px;
-}
-
-.cart-price{
-    font-weight:800;
-}
-
-.qty{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    margin-top:8px;
-}
-
-.qty button{
-    border:0;
-    background:#eee;
-    width:26px;
-    height:26px;
-    border-radius:7px;
-    font-weight:900;
-}
-
-.cart-bottom{
-    padding:18px 20px;
-    border-top:1px solid #eee;
-}
-
-.total-row{
-    display:flex;
-    justify-content:space-between;
-    margin:7px 0;
-}
-
-.total-row.grand{
-    font-size:19px;
-    font-weight:900;
-    padding-top:10px;
-    border-top:1px solid #eee;
-}
-
-.checkout-button{
-    width:100%;
-    background:#000;
-    color:#fff;
-    border:0;
-    border-radius:14px;
-    padding:15px;
-    margin-top:13px;
-    font-weight:900;
-}
-
-/* MODALS */
-
-.modal-overlay{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.65);
-    z-index:3000;
-    padding:15px;
-    overflow:auto;
-}
-
-.modal-overlay.active{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
 .modal{
-    background:#fff;
-    width:min(650px,100%);
-    border-radius:25px;
-    padding:25px;
-    max-height:95vh;
-    overflow:auto;
+  max-width:560px;
+  max-height:92vh;
+  overflow:auto;
+  background:#fff;
+  border-radius:22px;
+  margin:20px auto;
+  padding:24px;
+  position:relative;
 }
-
-.modal.large{
-    width:min(750px,100%);
+.modal h2{margin-bottom:18px}
+.close{
+  position:absolute;
+  right:15px;
+  top:15px;
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  border:0;
+  background:#eee;
 }
-
-.modal-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:20px;
-}
-
-.form-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:13px;
-}
-
-.field{
-    display:flex;
-    flex-direction:column;
-    gap:6px;
-}
-
-.field.full{
-    grid-column:1/-1;
-}
-
+.field{margin-bottom:13px}
 .field label{
-    font-size:12px;
-    font-weight:800;
+  display:block;
+  font-size:12px;
+  font-weight:800;
+  margin-bottom:5px;
 }
-
-.field input,
-.field select,
-.field textarea{
-    border:1px solid #ddd;
-    border-radius:11px;
-    padding:12px;
-    outline:none;
+.field input,.field select,.field textarea{
+  width:100%;
+  padding:12px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  outline:0;
+  background:#fff;
 }
-
-.field textarea{
-    min-height:80px;
-    resize:vertical;
+.field textarea{min-height:80px;resize:vertical}
+.summary{
+  border-top:1px solid #eee;
+  margin-top:15px;
+  padding-top:15px;
 }
-
-.payment-options{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
+.summary-row{
+  display:flex;
+  justify-content:space-between;
+  padding:5px 0;
 }
-
-.payment-option{
-    border:1px solid #ddd;
-    border-radius:12px;
-    padding:12px;
+.summary-row.total{
+  font-size:20px;
+  font-weight:900;
+  padding-top:12px;
 }
-
-.payment-option input{
-    margin-right:6px;
+.primary{
+  width:100%;
+  border:0;
+  background:#000;
+  color:#fff;
+  padding:14px;
+  border-radius:12px;
+  font-weight:900;
+  margin-top:15px;
 }
-
-.confirm-button{
-    width:100%;
-    background:#000;
-    color:#fff;
-    border:0;
-    border-radius:14px;
-    padding:15px;
-    margin-top:18px;
-    font-weight:900;
+.secondary{
+  width:100%;
+  border:1px solid #ddd;
+  background:#fff;
+  color:#111;
+  padding:13px;
+  border-radius:12px;
+  font-weight:800;
+  margin-top:8px;
 }
-
-.notice{
-    background:#f5f5f5;
-    border-radius:12px;
-    padding:12px;
-    font-size:12px;
-    color:#666;
-    margin-top:12px;
-    line-height:1.5;
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:12px 0;
+  border-bottom:1px solid #eee;
 }
-
-/* TRACKING */
-
-.tracking-search{
-    display:flex;
-    gap:8px;
-    margin-bottom:20px;
+.cart-item strong{display:block}
+.qty{
+  display:flex;
+  align-items:center;
+  gap:7px;
 }
-
-.tracking-search input{
-    flex:1;
-    border:1px solid #ddd;
-    border-radius:12px;
-    padding:13px;
-    text-transform:uppercase;
+.qty button{
+  border:1px solid #ddd;
+  background:#fff;
+  border-radius:7px;
+  width:28px;
+  height:28px;
 }
-
-.tracking-search button{
-    background:#000;
-    color:#fff;
-    border:0;
-    border-radius:12px;
-    padding:0 18px;
-    font-weight:800;
+.status{
+  display:inline-block;
+  background:#111;
+  color:#fff;
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:800;
 }
-
-.tracking-result{
-    margin-top:10px;
-}
-
-.order-summary{
-    background:#f6f6f6;
-    border-radius:18px;
-    padding:18px;
-    margin-bottom:20px;
-}
-
-.order-summary-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:start;
-    gap:15px;
-}
-
-.order-number{
-    font-size:13px;
-    color:#777;
-    margin-top:4px;
-}
-
-.status-badge{
-    background:#000;
-    color:#fff;
-    border-radius:30px;
-    padding:8px 12px;
-    font-size:11px;
-    font-weight:800;
-    white-space:nowrap;
-}
-
-.status-badge.delivered{
-    background:var(--green);
-}
-
 .timeline{
-    margin-top:22px;
-    position:relative;
+  margin:20px 0;
+  border-left:2px solid #ddd;
+  padding-left:20px;
 }
-
-.timeline-item{
-    display:flex;
-    gap:13px;
-    position:relative;
-    min-height:58px;
+.step{
+  position:relative;
+  margin-bottom:18px;
+  color:#999;
 }
-
-.timeline-item:not(:last-child):after{
-    content:"";
-    position:absolute;
-    left:12px;
-    top:26px;
-    width:2px;
-    height:40px;
-    background:#ddd;
+.step:before{
+  content:"";
+  position:absolute;
+  left:-27px;
+  top:4px;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#ddd;
 }
-
-.timeline-dot{
-    width:25px;
-    height:25px;
-    border-radius:50%;
-    background:#ddd;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:#fff;
-    font-size:12px;
-    font-weight:900;
-    z-index:2;
-    flex-shrink:0;
+.step.done{color:#111;font-weight:800}
+.step.done:before{background:#000}
+.driver-box{
+  background:#f6f6f6;
+  border-radius:14px;
+  padding:15px;
+  margin-top:15px;
 }
-
-.timeline-item.done .timeline-dot{
-    background:#000;
+.driver-box div{margin:4px 0}
+.portal-note{
+  background:#f5f5f5;
+  padding:12px;
+  border-radius:12px;
+  font-size:13px;
+  color:#555;
+  margin-bottom:15px;
 }
-
-.timeline-item.current .timeline-dot{
-    background:#000;
-    box-shadow:0 0 0 5px #eee;
-}
-
-.timeline-content strong{
-    font-size:14px;
-}
-
-.timeline-content p{
-    color:#777;
-    font-size:11px;
-    margin-top:3px;
-}
-
-.driver-card{
-    margin-top:10px;
-    background:#000;
-    color:#fff;
-    border-radius:18px;
-    padding:18px;
-}
-
-.driver-card h3{
-    margin-bottom:12px;
-}
-
-.driver-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-}
-
-.driver-info{
-    background:#1b1b1b;
-    border-radius:12px;
-    padding:10px;
-}
-
-.driver-info span{
-    display:block;
-    color:#999;
-    font-size:10px;
-    margin-bottom:4px;
-}
-
-.driver-info strong{
-    font-size:13px;
-}
-
-.delivery-complete{
-    margin-top:15px;
-    border:1px solid #d9eadf;
-    background:#f3fff6;
-    border-radius:18px;
-    padding:18px;
-}
-
-.delivery-complete h3{
-    color:var(--green);
-    margin-bottom:10px;
-}
-
-.delivery-complete p{
-    font-size:13px;
-    line-height:1.5;
-    color:#555;
-}
-
-/* DELIVERY PORTAL */
-
-.delivery-tools{
-    display:grid;
-    gap:12px;
-}
-
-.delivery-status{
-    padding:13px;
-    border:1px solid #ddd;
-    border-radius:12px;
-    width:100%;
-}
-
-.delivery-actions{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-    margin-top:15px;
-}
-
-.delivery-save{
-    border:0;
-    border-radius:13px;
-    padding:14px;
-    background:#000;
-    color:#fff;
-    font-weight:900;
-}
-
-.delivered-button{
-    border:0;
-    border-radius:13px;
-    padding:14px;
-    background:var(--green);
-    color:#fff;
-    font-weight:900;
-}
-
-.driver-note{
-    background:#fff8e7;
-    border-radius:12px;
-    padding:12px;
-    color:#765d19;
-    font-size:12px;
-    line-height:1.5;
-}
-
-/* FOOTER */
-
 footer{
-    background:#050505;
-    color:#fff;
-    padding:40px 18px;
+  background:#050505;
+  color:#fff;
+  padding:40px 18px;
 }
-
 .footer-inner{
-    max-width:1200px;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    gap:30px;
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
 }
-
-.footer-brand{
-    max-width:400px;
-}
-
-.footer-brand h2{
-    margin-bottom:10px;
-}
-
-.footer-brand p{
-    color:#999;
-    font-size:13px;
-    line-height:1.6;
-}
-
+footer p{color:#aaa;font-size:13px;margin-top:7px}
 .footer-links{
-    text-align:right;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
 }
-
-.footer-links p{
-    color:#999;
-    font-size:13px;
-    margin:6px 0;
-}
-
 .footer-links button{
-    margin-top:10px;
-    background:#fff;
-    color:#000;
-    border:0;
-    border-radius:10px;
-    padding:9px 12px;
-    font-weight:800;
+  border:1px solid #333;
+  color:#fff;
+  background:#111;
+  border-radius:999px;
+  padding:9px 12px;
 }
-
-.footer-bottom{
-    max-width:1200px;
-    margin:30px auto 0;
-    padding-top:20px;
-    border-top:1px solid #222;
-    color:#777;
-    font-size:12px;
+.firebase-status{
+  position:fixed;
+  bottom:12px;
+  left:12px;
+  z-index:5000;
+  font-size:11px;
+  background:#111;
+  color:#fff;
+  padding:6px 9px;
+  border-radius:999px;
+  opacity:.8;
 }
-
-/* TOAST */
-
-.toast{
-    position:fixed;
-    left:50%;
-    bottom:25px;
-    transform:translate(-50%,100px);
-    background:#000;
-    color:#fff;
-    padding:13px 18px;
-    border-radius:12px;
-    z-index:5000;
-    transition:.3s;
-    font-size:13px;
-    font-weight:700;
-}
-
-.toast.show{
-    transform:translate(-50%,0);
-}
-
-/* MOBILE */
-
 @media(max-width:900px){
-
-    .branches{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .products{
-        grid-template-columns:repeat(3,1fr);
-    }
+  .branch-grid,.product-grid{grid-template-columns:repeat(3,1fr)}
 }
-
 @media(max-width:650px){
-
-    main{
-        padding:0 12px 90px;
-    }
-
-    .header-inner{
-        padding:10px 12px;
-    }
-
-    .logo-text{
-        font-size:20px;
-    }
-
-    .logo-mark{
-        width:38px;
-        height:38px;
-    }
-
-    .track-button{
-        padding:10px;
-    }
-
-    .track-button span:last-child{
-        display:none;
-    }
-
-    .cart-button{
-        padding:10px;
-    }
-
-    .hero{
-        margin-top:12px;
-        min-height:390px;
-        border-radius:24px;
-        padding:30px 20px;
-    }
-
-    .hero h1{
-        letter-spacing:-2px;
-    }
-
-    .search-box{
-        width:100%;
-    }
-
-    .search-box button{
-        padding:12px;
-    }
-
-    .branches{
-        grid-template-columns:repeat(2,1fr);
-        gap:10px;
-    }
-
-    .branch-card{
-        min-height:180px;
-        padding:15px;
-        border-radius:18px;
-    }
-
-    .branch-icon{
-        width:48px;
-        height:48px;
-        font-size:23px;
-        margin-bottom:18px;
-    }
-
-    .branch-card h3{
-        font-size:16px;
-    }
-
-    .branch-count{
-        left:15px;
-        bottom:14px;
-    }
-
-    .arrow{
-        right:12px;
-        bottom:11px;
-    }
-
-    .features{
-        grid-template-columns:1fr;
-    }
-
-    .track-home{
-        flex-direction:column;
-        align-items:stretch;
-    }
-
-    .track-home button{
-        width:100%;
-    }
-
-    .products{
-        grid-template-columns:repeat(2,1fr);
-        gap:10px;
-    }
-
-    .product{
-        padding:10px;
-        border-radius:16px;
-    }
-
-    .product-image{
-        height:125px;
-        font-size:45px;
-    }
-
-    .branch-banner{
-        padding:18px;
-        border-radius:20px;
-    }
-
-    .branch-banner h1{
-        font-size:24px;
-    }
-
-    .branch-banner-icon{
-        width:55px;
-        height:55px;
-        font-size:27px;
-    }
-
-    .catalogue-tools{
-        flex-direction:column;
-    }
-
-    .filter-button{
-        padding:12px;
-    }
-
-    .form-grid{
-        grid-template-columns:1fr;
-    }
-
-    .field.full{
-        grid-column:auto;
-    }
-
-    .payment-options{
-        grid-template-columns:1fr;
-    }
-
-    .tracking-search{
-        flex-direction:column;
-    }
-
-    .tracking-search button{
-        padding:13px;
-    }
-
-    .driver-grid{
-        grid-template-columns:1fr;
-    }
-
-    .delivery-actions{
-        grid-template-columns:1fr;
-    }
-
-    .footer-inner{
-        flex-direction:column;
-    }
-
-    .footer-links{
-        text-align:left;
-    }
+  .branch-grid,.product-grid{grid-template-columns:repeat(2,1fr)}
+  .hero{padding-top:40px}
+  .hero h1{letter-spacing:-2px}
+  .product-img{height:125px}
+}
+@media(max-width:430px){
+  .branch-grid{grid-template-columns:1fr 1fr}
+  .product-grid{grid-template-columns:1fr 1fr}
+  .branch{padding:15px;min-height:135px}
+  .product-body{padding:11px}
+  .product-img{height:110px;font-size:45px}
+  .nav{padding:11px}
+  .logo{font-size:21px}
 }
 </style>
 </head>
 
 <body>
 
-<header class="header">
-
-    <div class="header-inner">
-
-        <div class="logo" onclick="goHome()">
-            <div class="logo-mark">AZ</div>
-            <div class="logo-text">Aero<span>Zone</span></div>
-        </div>
-
-        <div class="header-actions">
-
-            <button class="track-button" onclick="openTracking()">
-                📦 Track
-            </button>
-
-            <button class="cart-button" onclick="openCart()">
-                🛒 Cart
-                <span class="cart-count" id="cartCount">0</span>
-            </button>
-
-        </div>
-
+<header>
+  <div class="nav">
+    <div class="logo">AERO<span>ZONE</span></div>
+    <div class="nav-actions">
+      <button class="icon-btn" onclick="openTracking()">Track</button>
+      <button class="icon-btn dark" onclick="openCart()">
+        Cart <span class="cart-count" id="cartCount">0</span>
+      </button>
     </div>
-
+  </div>
 </header>
 
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Shop • Order • Delivered</div>
+    <h1>Everything you need, delivered.</h1>
+    <p>
+      Shop groceries, pharmacy products, meals, bakery items, fresh produce,
+      household essentials and more from AeroZone.
+    </p>
+    <div class="search-wrap">
+      <input id="searchInput" type="search" placeholder="Search products..." oninput="searchProducts()">
+      <button onclick="searchProducts()">Search</button>
+    </div>
+  </div>
+</section>
 
 <main>
 
-<!-- HOME -->
-
-<section id="homeView">
-
-    <section class="hero">
-
-        <div class="hero-content">
-
-            <span class="badge">AEROZONE DELIVERY</span>
-
-            <h1>
-                Everything you need.<br>
-                Delivered.
-            </h1>
-
-            <p>
-                Shop groceries, food, health essentials, home products
-                and more — all from one simple place.
-            </p>
-
-            <div class="search-box">
-
-                <span>🔎</span>
-
-                <input
-                    id="homeSearch"
-                    type="text"
-                    placeholder="What are you looking for?"
-                    onkeydown="if(event.key==='Enter') searchAll()"
-                >
-
-                <button onclick="searchAll()">
-                    Search
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <div class="location-bar">
-
-        <div class="location-left">
-
-            <span style="font-size:22px;">📍</span>
-
-            <div>
-
-                <div class="location-title">
-                    Deliver to
-                </div>
-
-                <div class="location-value" id="locationText">
-                    Add your delivery address
-                </div>
-
-            </div>
-
-        </div>
-
-        <button onclick="setLocation()">
-            Add address
-        </button>
-
+  <section id="branchesSection">
+    <div class="section-title">
+      <div>
+        <h2>Shop by branch</h2>
+        <p>Select a branch to see its products.</p>
+      </div>
     </div>
 
+    <div class="branch-grid" id="branchGrid"></div>
+  </section>
 
-    <div class="section-head">
-
-        <div>
-
-            <h2>Main Branches</h2>
-
-            <p>
-                Choose a branch to start shopping
-            </p>
-
-        </div>
-
+  <section id="catalog">
+    <div class="catalog-head">
+      <div>
+        <div class="eyebrow" id="catalogEyebrow">AEROZONE</div>
+        <h2 id="catalogTitle">Products</h2>
+      </div>
+      <button class="back-btn" onclick="showBranches()">← Branches</button>
     </div>
 
-
-    <section class="branches" id="branches"></section>
-
-
-    <section class="features">
-
-        <div class="feature">
-
-            <strong>🚚 Delivery</strong>
-
-            <p>
-                Convenient delivery straight to your chosen address.
-            </p>
-
-        </div>
-
-        <div class="feature">
-
-            <strong>🛒 Easy Shopping</strong>
-
-            <p>
-                Browse products by branch and add what you need to your cart.
-            </p>
-
-        </div>
-
-        <div class="feature">
-
-            <strong>💬 WhatsApp Orders</strong>
-
-            <p>
-                Place your order quickly through WhatsApp.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <section class="track-home">
-
-        <div>
-
-            <h2>Track your order</h2>
-
-            <p>
-                Enter your AeroZone order number and see your delivery status.
-            </p>
-
-        </div>
-
-        <button onclick="openTracking()">
-            📦 Track My Order
-        </button>
-
-    </section>
-
-</section>
-
-
-<!-- CATALOGUE -->
-
-<section id="catalogueView">
-
-    <div class="catalogue-top">
-
-        <button class="back-button" onclick="goHome()">
-            ← All branches
-        </button>
-
-        <div class="branch-banner">
-
-            <div class="branch-banner-icon" id="catalogueIcon">
-                🛒
-            </div>
-
-            <div>
-
-                <h1 id="catalogueTitle">
-                    Supermarket
-                </h1>
-
-                <p id="catalogueDescription">
-                    Shop everyday essentials.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="catalogue-tools">
-
-            <input
-                class="catalogue-search"
-                id="branchSearch"
-                placeholder="Search products in this branch..."
-                oninput="filterProducts()"
-            >
-
-            <button
-                class="filter-button"
-                onclick="sortProducts()"
-            >
-                ↕ Sort
-            </button>
-
-        </div>
-
-
-        <div class="products" id="products"></div>
-
-    </div>
-
-</section>
+    <div class="product-grid" id="productGrid"></div>
+  </section>
 
 </main>
 
-
 <footer>
-
-    <div class="footer-inner">
-
-        <div class="footer-brand">
-
-            <h2>AeroZone</h2>
-
-            <p>
-                Your convenient online shopping and delivery destination.
-                Browse our main branches, choose your products and order
-                with ease.
-            </p>
-
-        </div>
-
-
-        <div class="footer-links">
-
-            <strong>Customer Support</strong>
-
-            <p>
-                WhatsApp: 068 868 5355
-            </p>
-
-            <p>
-                South Africa
-            </p>
-
-            <p>
-                Delivery available where supported
-            </p>
-
-            <button onclick="openTracking()">
-                Track Order
-            </button>
-
-            <button onclick="openDeliveryPortal()">
-                Delivery Portal
-            </button>
-
-        </div>
-
+  <div class="footer-inner">
+    <div>
+      <strong>AEROZONE</strong>
+      <p>Shop online. Order easily. Get delivered.</p>
+      <p>WhatsApp: 068 868 5355</p>
     </div>
 
-
-    <div class="footer-bottom">
-        © 2026 AeroZone. All rights reserved.
+    <div class="footer-links">
+      <button onclick="openTracking()">Track Order</button>
+      <button onclick="openDeliveryPortal()">Delivery Portal</button>
+      <button onclick="openCart()">Cart</button>
     </div>
-
+  </div>
 </footer>
 
+<div class="firebase-status" id="firebaseStatus">Connecting…</div>
 
 <!-- CART -->
-
-<div
-    class="overlay"
-    id="cartOverlay"
-    onclick="closeCartOutside(event)"
->
-
-    <div class="cart-drawer">
-
-        <div class="cart-head">
-
-            <h2>Your Cart</h2>
-
-            <button
-                class="close"
-                onclick="closeCart()"
-            >
-                ×
-            </button>
-
-        </div>
-
-
-        <div
-            class="cart-items"
-            id="cartItems"
-        ></div>
-
-
-        <div class="cart-bottom">
-
-            <div class="total-row">
-
-                <span>Subtotal</span>
-
-                <strong id="cartSubtotal">
-                    R0.00
-                </strong>
-
-            </div>
-
-
-            <div class="total-row">
-
-                <span>Delivery</span>
-
-                <strong id="cartDelivery">
-                    R35.00
-                </strong>
-
-            </div>
-
-
-            <div class="total-row grand">
-
-                <span>Total</span>
-
-                <strong id="cartTotal">
-                    R0.00
-                </strong>
-
-            </div>
-
-
-            <button
-                class="checkout-button"
-                onclick="openCheckout()"
-            >
-                Continue to Checkout
-            </button>
-
-        </div>
-
-    </div>
-
+<div class="overlay" id="cartOverlay">
+  <div class="modal">
+    <button class="close" onclick="closeOverlay('cartOverlay')">×</button>
+    <h2>Your Cart</h2>
+    <div id="cartItems"></div>
+    <div class="summary" id="cartSummary"></div>
+    <button class="primary" onclick="openCheckout()">Continue to Checkout</button>
+    <button class="secondary" onclick="closeOverlay('cartOverlay')">Continue Shopping</button>
+  </div>
 </div>
-
 
 <!-- CHECKOUT -->
-
-<div
-    class="modal-overlay"
-    id="checkoutOverlay"
->
-
-    <div class="modal">
-
-        <div class="modal-head">
-
-            <h2>Checkout</h2>
-
-            <button
-                class="close"
-                onclick="closeCheckout()"
-            >
-                ×
-            </button>
-
-        </div>
-
-
-        <div class="form-grid">
-
-            <div class="field">
-
-                <label>FULL NAME</label>
-
-                <input
-                    id="customerName"
-                    type="text"
-                    placeholder="Your name"
-                >
-
-            </div>
-
-
-            <div class="field">
-
-                <label>PHONE NUMBER</label>
-
-                <input
-                    id="customerPhone"
-                    type="tel"
-                    placeholder="Your phone"
-                >
-
-            </div>
-
-
-            <div class="field full">
-
-                <label>DELIVERY ADDRESS</label>
-
-                <input
-                    id="customerAddress"
-                    type="text"
-                    placeholder="House number, street, suburb, city"
-                >
-
-            </div>
-
-
-            <div class="field">
-
-                <label>DELIVERY DATE</label>
-
-                <input
-                    id="deliveryDate"
-                    type="date"
-                >
-
-            </div>
-
-
-            <div class="field">
-
-                <label>DELIVERY TIME</label>
-
-                <select id="deliveryTime">
-
-                    <option>
-                        As soon as possible
-                    </option>
-
-                    <option>
-                        09:00 - 11:00
-                    </option>
-
-                    <option>
-                        11:00 - 13:00
-                    </option>
-
-                    <option>
-                        13:00 - 15:00
-                    </option>
-
-                    <option>
-                        15:00 - 17:00
-                    </option>
-
-                    <option>
-                        17:00 - 19:00
-                    </option>
-
-                </select>
-
-            </div>
-
-
-            <div class="field full">
-
-                <label>ORDER NOTES</label>
-
-                <textarea
-                    id="orderNotes"
-                    placeholder="Any special instructions?"
-                ></textarea>
-
-            </div>
-
-
-            <div class="field full">
-
-                <label>PAYMENT METHOD</label>
-
-                <div class="payment-options">
-
-                    <label class="payment-option">
-
-                        <input
-                            type="radio"
-                            name="payment"
-                            value="WhatsApp Payment"
-                            checked
-                        >
-
-                        WhatsApp Payment
-
-                    </label>
-
-
-                    <label class="payment-option">
-
-                        <input
-                            type="radio"
-                            name="payment"
-                            value="Cash on Delivery"
-                        >
-
-                        Cash on Delivery
-
-                    </label>
-
-
-                    <label class="payment-option">
-
-                        <input
-                            type="radio"
-                            name="payment"
-                            value="Card / Yoco"
-                        >
-
-                        Card / Yoco
-
-                    </label>
-
-
-                    <label class="payment-option">
-
-                        <input
-                            type="radio"
-                            name="payment"
-                            value="EFT"
-                        >
-
-                        EFT
-
-                    </label>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="notice">
-
-            Your order will be prepared and sent to AeroZone on WhatsApp.
-            Your order number will also be saved so you can track the order
-            on this device.
-
-        </div>
-
-
-        <button
-            class="confirm-button"
-            onclick="placeOrder()"
-        >
-            💬 Send Order on WhatsApp
-        </button>
-
+<div class="overlay" id="checkoutOverlay">
+  <div class="modal">
+    <button class="close" onclick="closeOverlay('checkoutOverlay')">×</button>
+    <h2>Checkout</h2>
+
+    <div class="field">
+      <label>Full Name</label>
+      <input id="customerName" placeholder="Your full name">
     </div>
 
-</div>
-
-
-<!-- TRACKING MODAL -->
-
-<div
-    class="modal-overlay"
-    id="trackingOverlay"
->
-
-    <div class="modal large">
-
-        <div class="modal-head">
-
-            <div>
-
-                <h2>📦 Track My Order</h2>
-
-                <p style="font-size:12px;color:#777;margin-top:5px;">
-                    Follow your AeroZone delivery.
-                </p>
-
-            </div>
-
-            <button
-                class="close"
-                onclick="closeTracking()"
-            >
-                ×
-            </button>
-
-        </div>
-
-
-        <div class="tracking-search">
-
-            <input
-                id="trackingOrderNumber"
-                placeholder="Enter order number e.g. AZ123456"
-                onkeydown="if(event.key==='Enter') trackOrder()"
-            >
-
-            <button onclick="trackOrder()">
-                Track
-            </button>
-
-        </div>
-
-
-        <div
-            id="trackingResult"
-            class="tracking-result"
-        >
-
-            <div class="empty">
-
-                <div style="font-size:45px;">
-                    📦
-                </div>
-
-                <h3>
-                    Enter your order number
-                </h3>
-
-                <p>
-                    Your tracking information will appear here.
-                </p>
-
-            </div>
-
-        </div>
-
+    <div class="field">
+      <label>Phone Number</label>
+      <input id="customerPhone" placeholder="068 868 5355" inputmode="tel">
     </div>
 
+    <div class="field">
+      <label>Delivery Address</label>
+      <textarea id="customerAddress" placeholder="House number, street, suburb, city"></textarea>
+    </div>
+
+    <div class="field">
+      <label>Delivery Date</label>
+      <input id="deliveryDate" type="date">
+    </div>
+
+    <div class="field">
+      <label>Preferred Time</label>
+      <input id="deliveryTime" type="time">
+    </div>
+
+    <div class="field">
+      <label>Payment</label>
+      <select id="paymentMethod">
+        <option value="Cash on Delivery">Cash on Delivery</option>
+        <option value="EFT / Bank Transfer">EFT / Bank Transfer</option>
+        <option value="WhatsApp Payment Arrangement">WhatsApp Payment Arrangement</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Order Notes</label>
+      <textarea id="orderNotes" placeholder="Anything we should know?"></textarea>
+    </div>
+
+    <div class="summary" id="checkoutSummary"></div>
+
+    <button class="primary" onclick="placeOrder()">Place Order</button>
+  </div>
 </div>
 
+<!-- TRACKING -->
+<div class="overlay" id="trackingOverlay">
+  <div class="modal">
+    <button class="close" onclick="closeOverlay('trackingOverlay')">×</button>
+    <h2>Track Your Order</h2>
+
+    <div class="field">
+      <label>Order Number</label>
+      <input id="trackingNumber" placeholder="Example: AZ123456">
+    </div>
+
+    <button class="primary" onclick="trackOrder()">Track Order</button>
+
+    <div id="trackingResult" style="margin-top:20px"></div>
+  </div>
+</div>
 
 <!-- DELIVERY PORTAL -->
+<div class="overlay" id="deliveryOverlay">
+  <div class="modal">
+    <button class="close" onclick="closeOverlay('deliveryOverlay')">×</button>
 
-<div
-    class="modal-overlay"
-    id="deliveryOverlay"
->
+    <h2>Delivery Portal</h2>
 
-    <div class="modal">
+    <div id="driverLoginArea">
+      <div class="portal-note">
+        Driver access only. Sign in using the Firebase driver account.
+      </div>
 
-        <div class="modal-head">
+      <div class="field">
+        <label>Driver Email</label>
+        <input id="driverEmail" type="email" placeholder="driver@example.com">
+      </div>
 
-            <div>
+      <div class="field">
+        <label>Password</label>
+        <input id="driverPassword" type="password" placeholder="Password">
+      </div>
 
-                <h2>🚚 Delivery Portal</h2>
+      <button class="primary" onclick="driverLogin()">Driver Sign In</button>
 
-                <p style="font-size:12px;color:#777;margin-top:5px;">
-                    Update an AeroZone delivery.
-                </p>
+      <button class="secondary" onclick="driverLogout()">Sign Out</button>
 
-            </div>
-
-            <button
-                class="close"
-                onclick="closeDeliveryPortal()"
-            >
-                ×
-            </button>
-
-        </div>
-
-
-        <div class="driver-note">
-
-            <strong>Important:</strong>
-            This is a browser-based delivery demo. Order updates are stored
-            locally on this device. For a real driver system where customers
-            can see updates from another phone, connect this to Firebase.
-
-        </div>
-
-
-        <div
-            class="delivery-tools"
-            style="margin-top:15px;"
-        >
-
-            <div class="field">
-
-                <label>ORDER NUMBER</label>
-
-                <input
-                    id="deliveryOrderNumber"
-                    placeholder="AZ123456"
-                >
-
-            </div>
-
-
-            <button
-                class="confirm-button"
-                onclick="loadDeliveryOrder()"
-                style="margin-top:0;"
-            >
-                Find Order
-            </button>
-
-
-            <div id="deliveryForm" style="display:none;">
-
-                <div class="form-grid">
-
-                    <div class="field">
-
-                        <label>DELIVERY STATUS</label>
-
-                        <select
-                            id="deliveryStatus"
-                            class="delivery-status"
-                        >
-
-                            <option>
-                                Order received
-                            </option>
-
-                            <option>
-                                Order confirmed
-                            </option>
-
-                            <option>
-                                Preparing order
-                            </option>
-
-                            <option>
-                                Driver assigned
-                            </option>
-
-                            <option>
-                                Out for delivery
-                            </option>
-
-                            <option>
-                                Delivered
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <div class="field">
-
-                        <label>DRIVER NAME</label>
-
-                        <input
-                            id="driverName"
-                            placeholder="Driver name"
-                        >
-
-                    </div>
-
-
-                    <div class="field">
-
-                        <label>DRIVER PHONE</label>
-
-                        <input
-                            id="driverPhone"
-                            type="tel"
-                            placeholder="Driver phone"
-                        >
-
-                    </div>
-
-
-                    <div class="field">
-
-                        <label>VEHICLE</label>
-
-                        <input
-                            id="driverVehicle"
-                            placeholder="Vehicle / registration"
-                        >
-
-                    </div>
-
-
-                    <div class="field full">
-
-                        <label>ESTIMATED DELIVERY TIME</label>
-
-                        <input
-                            id="estimatedTime"
-                            placeholder="Example: 30-45 minutes"
-                        >
-
-                    </div>
-
-
-                    <div class="field full">
-
-                        <label>RECIPIENT NAME</label>
-
-                        <input
-                            id="recipientName"
-                            placeholder="Who received the order?"
-                        >
-
-                    </div>
-
-
-                    <div class="field full">
-
-                        <label>DELIVERY NOTE / PROOF</label>
-
-                        <textarea
-                            id="deliveryNote"
-                            placeholder="Example: Delivered to customer at front door."
-                        ></textarea>
-
-                    </div>
-
-
-                    <div class="field full">
-
-                        <label>DELIVERY PHOTO</label>
-
-                        <input
-                            id="deliveryPhoto"
-                            type="file"
-                            accept="image/*"
-                        >
-
-                    </div>
-
-                </div>
-
-
-                <div
-                    id="photoPreview"
-                    style="margin-top:12px;"
-                ></div>
-
-
-                <div class="delivery-actions">
-
-                    <button
-                        class="delivery-save"
-                        onclick="saveDeliveryUpdate()"
-                    >
-                        💾 Save Update
-                    </button>
-
-                    <button
-                        class="delivered-button"
-                        onclick="markDelivered()"
-                    >
-                        ✅ Mark Delivered
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
+      <div id="driverLoginMessage" style="margin-top:12px;font-size:13px"></div>
     </div>
 
+    <div id="driverPortalArea" style="display:none">
+
+      <div class="portal-note">
+        You are signed in as a driver. Search for an order and update its
+        delivery status. Updates are synchronized through Firebase.
+      </div>
+
+      <div class="field">
+        <label>Order Number</label>
+        <input id="portalOrderNumber" placeholder="AZ123456">
+      </div>
+
+      <button class="primary" onclick="loadDeliveryOrder()">Load Order</button>
+
+      <div id="deliveryOrderArea" style="margin-top:20px"></div>
+
+    </div>
+  </div>
 </div>
 
+<script type="module">
 
-<div
-    class="toast"
-    id="toast"
->
-    Added to cart
-</div>
+import { initializeApp } from
+  "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+import {
+  getDatabase,
+  ref,
+  set,
+  get,
+  update,
+  onValue,
+  serverTimestamp
+} from
+  "https://www.gstatic.com/firebasejs/12.18.0/firebase-database.js";
+
+import {
+  getAuth,
+  signInAnonymously,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged
+} from
+  "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
 
 
-<script>
+/* =========================================================
+   FIREBASE CONFIGURATION
+========================================================= */
 
-/* ==========================================================
-   AEROZONE PRODUCTS
-========================================================== */
+const firebaseConfig = {
+  apiKey: "AIzaSyAJyg588sAeCJlxvhfjFrnYeQfHfGOOhY0",
+  authDomain: "aerozone-e516a.firebaseapp.com",
+  databaseURL: "https://aerozone-e516a-default-rtdb.firebaseio.com",
+  projectId: "aerozone-e516a",
+  storageBucket: "aerozone-e516a.firebasestorage.app",
+  messagingSenderId: "512229141027",
+  appId: "1:512229141027:web:8fde8bbf9788fdc6d35f96",
+  measurementId: "G-2N43M83NC8"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const auth = getAuth(app);
+
+
+/* =========================================================
+   FIREBASE STATUS
+========================================================= */
+
+const firebaseStatus = document.getElementById("firebaseStatus");
+
+function setFirebaseStatus(text){
+  firebaseStatus.textContent = text;
+}
+
+
+/* =========================================================
+   AUTHENTICATION
+========================================================= */
+
+let currentUser = null;
+let driverUser = null;
+
+onAuthStateChanged(auth, user => {
+  currentUser = user;
+
+  if(user){
+    setFirebaseStatus("● Firebase connected");
+
+    if(driverUser){
+      document.getElementById("driverLoginArea").style.display = "none";
+      document.getElementById("driverPortalArea").style.display = "block";
+    }
+  }else{
+    setFirebaseStatus("Firebase sign-in required");
+  }
+});
+
+async function ensureCustomerAuth(){
+  if(auth.currentUser) return auth.currentUser;
+
+  try{
+    const result = await signInAnonymously(auth);
+    currentUser = result.user;
+    return result.user;
+  }catch(error){
+    console.error(error);
+    throw new Error(
+      "Firebase customer sign-in is not enabled. Enable Anonymous Authentication in Firebase."
+    );
+  }
+}
+
+
+/* =========================================================
+   PRODUCT DATA
+========================================================= */
 
 const branches = {
 
-    supermarket:{
-        name:"Supermarket",
-        icon:"🛒",
-        description:"Everyday groceries and household essentials.",
-        products:[
-            ["Fresh Milk 2L",39.99,"🥛"],
-            ["White Bread",18.99,"🍞"],
-            ["Brown Bread",19.99,"🍞"],
-            ["Eggs 18 Pack",59.99,"🥚"],
-            ["Rice 2kg",42.99,"🍚"],
-            ["Sugar 2kg",39.99,"🧂"],
-            ["Cooking Oil 2L",59.99,"🫗"],
-            ["Maize Meal 2.5kg",45.99,"🌽"],
-            ["Tea Bags 100",49.99,"🍵"],
-            ["Coffee 200g",69.99,"☕"],
-            ["Breakfast Cereal",54.99,"🥣"],
-            ["Baked Beans",16.99,"🥫"],
-            ["Tomato Sauce",29.99,"🍅"],
-            ["Peanut Butter",39.99,"🥜"],
-            ["Laundry Detergent",79.99,"🧺"]
-        ]
-    },
+  supermarket:{
+    name:"Supermarket",
+    icon:"🛒",
+    description:"Everyday groceries & essentials",
+    products:[
+      ["White Bread","R18.99","🍞"],
+      ["Full Cream Milk 2L","R34.99","🥛"],
+      ["Brown Bread","R17.99","🍞"],
+      ["Large Eggs 18 Pack","R54.99","🥚"],
+      ["Rice 2kg","R39.99","🍚"],
+      ["Sugar 2kg","R34.99","🧂"],
+      ["Cooking Oil 2L","R49.99","🫗"],
+      ["Maize Meal 5kg","R59.99","🌽"],
+      ["Baked Beans","R14.99","🥫"],
+      ["Tomatoes","R24.99","🍅"],
+      ["Cheese 500g","R59.99","🧀"],
+      ["Chicken Portions","R69.99","🍗"]
+    ]
+  },
 
-    pharmacy:{
-        name:"Pharmacy & Health",
-        icon:"💊",
-        description:"Personal care, hygiene and everyday health essentials.",
-        products:[
-            ["Toothpaste",29.99,"🪥"],
-            ["Toothbrush",24.99,"🪥"],
-            ["Shampoo",49.99,"🧴"],
-            ["Body Lotion",44.99,"🧴"],
-            ["Hand Sanitiser",29.99,"🧼"],
-            ["Face Wash",59.99,"🧴"],
-            ["Deodorant",39.99,"🧴"]
-        ]
-    },
+  pharmacy:{
+    name:"Pharmacy & Health",
+    icon:"💊",
+    description:"Health, personal care & wellness",
+    products:[
+      ["Multivitamins","R89.99","💊"],
+      ["Hand Sanitizer","R29.99","🧴"],
+      ["Toothpaste","R24.99","🪥"],
+      ["Toothbrush","R19.99","🪥"],
+      ["Shampoo","R49.99","🧴"],
+      ["Body Lotion","R54.99","🧴"],
+      ["Soap 3 Pack","R29.99","🧼"],
+      ["Tissues","R19.99","🧻"],
+      ["Face Mask Pack","R39.99","😷"],
+      ["Baby Wipes","R34.99","🧻"],
+      ["Deodorant","R44.99","🧴"],
+      ["Cotton Wool","R24.99","☁️"]
+    ]
+  },
 
-    restaurants:{
-        name:"Restaurants",
-        icon:"🍽️",
-        description:"Ready-to-enjoy meals for lunch, dinner and more.",
-        products:[
-            ["Chicken & Rice",79.99,"🍗"],
-            ["Beef Pasta",89.99,"🍝"],
-            ["Grilled Chicken",99.99,"🍗"],
-            ["Fish & Chips",89.99,"🐟"],
-            ["Breakfast Plate",69.99,"🍳"]
-        ]
-    },
+  restaurants:{
+    name:"Restaurants",
+    icon:"🍽️",
+    description:"Restaurant meals & favourites",
+    products:[
+      ["Chicken Burger Meal","R79.99","🍔"],
+      ["Beef Burger Meal","R89.99","🍔"],
+      ["Chicken Pasta","R84.99","🍝"],
+      ["Beef Pasta","R94.99","🍝"],
+      ["Chicken Wings","R74.99","🍗"],
+      ["Fish & Chips","R89.99","🐟"],
+      ["Steak Meal","R129.99","🥩"],
+      ["Chicken Wrap","R69.99","🌯"],
+      ["Pizza","R109.99","🍕"],
+      ["Family Pizza","R169.99","🍕"],
+      ["Salad Bowl","R59.99","🥗"],
+      ["Breakfast","R64.99","🍳"]
+    ]
+  },
 
-    fastfood:{
-        name:"Fast Food",
-        icon:"🍔",
-        description:"Burgers, pizza, wings, chips and combo meals.",
-        products:[
-            ["Beef Burger",59.99,"🍔"],
-            ["Chicken Burger",54.99,"🍔"],
-            ["Large Chips",34.99,"🍟"],
-            ["Pizza Margherita",89.99,"🍕"],
-            ["Chicken Pizza",109.99,"🍕"],
-            ["Chicken Wings 8pc",79.99,"🍗"],
-            ["Combo Meal",99.99,"🍔"]
-        ]
-    },
+  fastfood:{
+    name:"Fast Food",
+    icon:"🍔",
+    description:"Quick meals & snacks",
+    products:[
+      ["Cheeseburger","R39.99","🍔"],
+      ["Chicken Burger","R44.99","🍔"],
+      ["Large Chips","R29.99","🍟"],
+      ["Small Chips","R19.99","🍟"],
+      ["Chicken Nuggets","R49.99","🍗"],
+      ["Hot Dog","R34.99","🌭"],
+      ["Chicken Wrap","R44.99","🌯"],
+      ["Loaded Fries","R54.99","🍟"],
+      ["Milkshake","R34.99","🥤"],
+      ["Soft Drink","R19.99","🥤"],
+      ["Ice Cream","R29.99","🍦"],
+      ["Combo Meal","R69.99","🍔"]
+    ]
+  },
 
-    butchery:{
-        name:"Butchery",
-        icon:"🥩",
-        description:"Fresh meat and quality cuts for your meals.",
-        products:[
-            ["Beef Steak 500g",89.99,"🥩"],
-            ["Beef Mince 500g",69.99,"🥩"],
-            ["Chicken Breasts 1kg",79.99,"🍗"],
-            ["Chicken Wings 1kg",64.99,"🍗"],
-            ["Boerewors 1kg",99.99,"🌭"],
-            ["Lamb Chops 500g",109.99,"🥩"]
-        ]
-    },
+  butchery:{
+    name:"Butchery",
+    icon:"🥩",
+    description:"Fresh meat & poultry",
+    products:[
+      ["Beef Steak 1kg","R119.99","🥩"],
+      ["Beef Mince 1kg","R99.99","🥩"],
+      ["Chicken Breasts 1kg","R79.99","🍗"],
+      ["Chicken Wings 1kg","R69.99","🍗"],
+      ["Boerewors 1kg","R89.99","🌭"],
+      ["Pork Chops 1kg","R109.99","🥩"],
+      ["Lamb Chops 1kg","R159.99","🥩"],
+      ["Beef Ribs 1kg","R129.99","🥩"],
+      ["Chicken Drumsticks 1kg","R64.99","🍗"],
+      ["Burger Patties","R69.99","🍔"]
+    ]
+  },
 
-    bakery:{
-        name:"Bakery",
-        icon:"🥐",
-        description:"Fresh bread, pastries, muffins and cakes.",
-        products:[
-            ["Fresh Rolls 6 Pack",24.99,"🥖"],
-            ["Croissants 4 Pack",39.99,"🥐"],
-            ["Chocolate Muffins",34.99,"🧁"],
-            ["Chocolate Cake",119.99,"🍰"],
-            ["Birthday Cake",199.99,"🎂"]
-        ]
-    },
+  bakery:{
+    name:"Bakery",
+    icon:"🥐",
+    description:"Fresh bread & baked goods",
+    products:[
+      ["White Bread","R18.99","🍞"],
+      ["Brown Bread","R17.99","🍞"],
+      ["Hot Dog Rolls","R24.99","🥖"],
+      ["Burger Rolls","R24.99","🍔"],
+      ["Croissant","R19.99","🥐"],
+      ["Muffin","R15.99","🧁"],
+      ["Doughnut","R12.99","🍩"],
+      ["Chocolate Cake","R99.99","🎂"],
+      ["Birthday Cake","R149.99","🎂"],
+      ["Scones","R39.99","🥐"]
+    ]
+  },
 
-    fruitveg:{
-        name:"Fruit & Veg",
-        icon:"🍎",
-        description:"Fresh fruit and vegetables for every kitchen.",
-        products:[
-            ["Potatoes 2kg",29.99,"🥔"],
-            ["Onions 1kg",24.99,"🧅"],
-            ["Tomatoes 1kg",29.99,"🍅"],
-            ["Bananas 1kg",24.99,"🍌"],
-            ["Apples 1kg",34.99,"🍎"],
-            ["Oranges 1kg",29.99,"🍊"],
-            ["Spinach",14.99,"🥬"]
-        ]
-    },
+  fruitveg:{
+    name:"Fruit & Veg",
+    icon:"🥦",
+    description:"Fresh fruit & vegetables",
+    products:[
+      ["Potatoes 2kg","R29.99","🥔"],
+      ["Onions 1kg","R19.99","🧅"],
+      ["Tomatoes 1kg","R24.99","🍅"],
+      ["Carrots 1kg","R19.99","🥕"],
+      ["Spinach","R14.99","🥬"],
+      ["Cabbage","R19.99","🥬"],
+      ["Apples 1kg","R34.99","🍎"],
+      ["Bananas 1kg","R24.99","🍌"],
+      ["Oranges 1kg","R29.99","🍊"],
+      ["Avocados","R34.99","🥑"],
+      ["Grapes","R39.99","🍇"],
+      ["Watermelon","R39.99","🍉"]
+    ]
+  },
 
-    home:{
-        name:"Home & Cleaning",
-        icon:"🧹",
-        description:"Cleaning and household products for your home.",
-        products:[
-            ["Dishwashing Liquid",29.99,"🧴"],
-            ["Sponges 5 Pack",19.99,"🧽"],
-            ["Toilet Paper 18 Pack",79.99,"🧻"],
-            ["Paper Towels",34.99,"🧻"],
-            ["Bin Bags",39.99,"🗑️"],
-            ["Floor Cleaner",39.99,"🧹"]
-        ]
-    }
+  home:{
+    name:"Home & Cleaning",
+    icon:"🧹",
+    description:"Household & cleaning products",
+    products:[
+      ["Toilet Paper 18 Pack","R89.99","🧻"],
+      ["Washing Powder","R59.99","🧺"],
+      ["Dishwashing Liquid","R29.99","🧴"],
+      ["Bleach","R24.99","🧴"],
+      ["Multi-Purpose Cleaner","R34.99","🧴"],
+      ["Laundry Soap","R29.99","🧼"],
+      ["Bin Bags","R39.99","🗑️"],
+      ["Sponges","R19.99","🧽"],
+      ["Broom","R39.99","🧹"],
+      ["Mop","R59.99","🧹"],
+      ["Air Freshener","R29.99","🌸"],
+      ["Paper Towels","R34.99","🧻"]
+    ]
+  }
 
 };
 
 
-/* ==========================================================
-   STATE
-========================================================== */
+/* =========================================================
+   CART
+========================================================= */
 
-let cart =
-    JSON.parse(localStorage.getItem("aerozoneCart") || "[]");
+let cart = [];
 
-let orders =
-    JSON.parse(localStorage.getItem("aerozoneOrders") || "[]");
+function money(value){
+  return Number(value).toFixed(2);
+}
 
-let currentBranch = null;
+function priceNumber(price){
+  return Number(
+    String(price)
+      .replace("R","")
+      .replace(",","")
+      .trim()
+  );
+}
 
-let sortAscending = true;
+window.addToCart = function(branchKey,index){
 
-let deliveryEditingOrder = null;
+  const product = branches[branchKey].products[index];
+
+  const existing = cart.find(
+    item => item.name === product[0]
+  );
+
+  if(existing){
+    existing.qty++;
+  }else{
+    cart.push({
+      name:product[0],
+      price:priceNumber(product[1]),
+      image:product[2],
+      qty:1,
+      branch:branches[branchKey].name
+    });
+  }
+
+  updateCart();
+  alert(product[0] + " added to your cart.");
+};
 
 
-/* ==========================================================
-   STATUS
-========================================================== */
+window.changeQty = function(index,change){
 
-const orderStatuses = [
+  cart[index].qty += change;
+
+  if(cart[index].qty <= 0){
+    cart.splice(index,1);
+  }
+
+  updateCart();
+};
+
+
+function subtotal(){
+
+  return cart.reduce(
+    (sum,item) => sum + item.price * item.qty,
+    0
+  );
+}
+
+
+function deliveryFee(){
+
+  return subtotal() >= 500 || subtotal() === 0 ? 0 : 35;
+}
+
+
+function total(){
+
+  return subtotal() + deliveryFee();
+}
+
+
+function updateCart(){
+
+  document.getElementById("cartCount").textContent =
+    cart.reduce((sum,item)=>sum + item.qty,0);
+
+  renderCart();
+}
+
+
+function renderCart(){
+
+  const area = document.getElementById("cartItems");
+  const summary = document.getElementById("cartSummary");
+
+  if(cart.length === 0){
+
+    area.innerHTML =
+      `<div class="empty">Your cart is empty.</div>`;
+
+    summary.innerHTML = "";
+    return;
+  }
+
+  area.innerHTML = cart.map((item,index)=>`
+
+    <div class="cart-item">
+
+      <div>
+        <strong>${escapeHTML(item.name)}</strong>
+        <small>R${money(item.price)} each</small>
+      </div>
+
+      <div class="qty">
+        <button onclick="changeQty(${index},-1)">−</button>
+        <strong>${item.qty}</strong>
+        <button onclick="changeQty(${index},1)">+</button>
+      </div>
+
+    </div>
+
+  `).join("");
+
+  summary.innerHTML = `
+
+    <div class="summary-row">
+      <span>Subtotal</span>
+      <strong>R${money(subtotal())}</strong>
+    </div>
+
+    <div class="summary-row">
+      <span>Delivery</span>
+      <strong>${deliveryFee() === 0 ? "FREE" : "R"+money(deliveryFee())}</strong>
+    </div>
+
+    <div class="summary-row total">
+      <span>Total</span>
+      <strong>R${money(total())}</strong>
+    </div>
+
+  `;
+}
+
+
+window.openCart = function(){
+
+  renderCart();
+  openOverlay("cartOverlay");
+};
+
+
+window.openCheckout = function(){
+
+  if(cart.length === 0){
+    alert("Your cart is empty.");
+    return;
+  }
+
+  renderCheckoutSummary();
+
+  closeOverlay("cartOverlay");
+  openOverlay("checkoutOverlay");
+};
+
+
+function renderCheckoutSummary(){
+
+  document.getElementById("checkoutSummary").innerHTML = `
+
+    <div class="summary-row">
+      <span>Items</span>
+      <strong>${cart.reduce((s,i)=>s+i.qty,0)}</strong>
+    </div>
+
+    <div class="summary-row">
+      <span>Subtotal</span>
+      <strong>R${money(subtotal())}</strong>
+    </div>
+
+    <div class="summary-row">
+      <span>Delivery</span>
+      <strong>${deliveryFee() === 0 ? "FREE" : "R"+money(deliveryFee())}</strong>
+    </div>
+
+    <div class="summary-row total">
+      <span>Total</span>
+      <strong>R${money(total())}</strong>
+    </div>
+
+  `;
+}
+
+
+/* =========================================================
+   BRANCHES / CATALOGUE
+========================================================= */
+
+function renderBranches(){
+
+  const grid = document.getElementById("branchGrid");
+
+  grid.innerHTML = Object.entries(branches).map(
+    ([key,branch])=>`
+
+      <div class="branch" onclick="openBranch('${key}')">
+
+        <div class="branch-icon">${branch.icon}</div>
+
+        <h3>${escapeHTML(branch.name)}</h3>
+
+        <p>${escapeHTML(branch.description)}</p>
+
+      </div>
+
+    `
+  ).join("");
+}
+
+
+window.openBranch = function(key){
+
+  const branch = branches[key];
+
+  document.getElementById("branchesSection").style.display = "none";
+  document.getElementById("catalog").style.display = "block";
+
+  document.getElementById("catalogEyebrow").textContent =
+    branch.name.toUpperCase();
+
+  document.getElementById("catalogTitle").textContent =
+    branch.name;
+
+  renderProducts(key,branch.products);
+  window.scrollTo({top:0,behavior:"smooth"});
+};
+
+
+function renderProducts(key,products){
+
+  const grid = document.getElementById("productGrid");
+
+  if(!products.length){
+    grid.innerHTML =
+      `<div class="empty">No products found.</div>`;
+    return;
+  }
+
+  grid.innerHTML = products.map((product,index)=>`
+
+    <div class="product">
+
+      <div class="product-img">
+        ${product[2]}
+      </div>
+
+      <div class="product-body">
+
+        <small>${escapeHTML(branches[key].name)}</small>
+
+        <h4>${escapeHTML(product[0])}</h4>
+
+        <div class="price">${escapeHTML(product[1])}</div>
+
+        <button class="add"
+          onclick="addToCart('${key}',${index})">
+          Add to Cart
+        </button>
+
+      </div>
+
+    </div>
+
+  `).join("");
+}
+
+
+window.showBranches = function(){
+
+  document.getElementById("catalog").style.display = "none";
+  document.getElementById("branchesSection").style.display = "block";
+
+  window.scrollTo({top:0,behavior:"smooth"});
+};
+
+
+window.searchProducts = function(){
+
+  const query =
+    document.getElementById("searchInput").value
+      .trim()
+      .toLowerCase();
+
+  if(!query){
+    showBranches();
+    return;
+  }
+
+  document.getElementById("branchesSection").style.display = "none";
+  document.getElementById("catalog").style.display = "block";
+
+  document.getElementById("catalogEyebrow").textContent =
+    "SEARCH";
+
+  document.getElementById("catalogTitle").textContent =
+    `Results for "${query}"`;
+
+  const results = [];
+
+  Object.entries(branches).forEach(([key,branch])=>{
+
+    branch.products.forEach((product,index)=>{
+
+      if(
+        product[0].toLowerCase().includes(query) ||
+        branch.name.toLowerCase().includes(query)
+      ){
+        results.push({
+          key,
+          index,
+          product
+        });
+      }
+
+    });
+
+  });
+
+  const grid = document.getElementById("productGrid");
+
+  if(!results.length){
+    grid.innerHTML =
+      `<div class="empty">No products matched your search.</div>`;
+    return;
+  }
+
+  grid.innerHTML = results.map(result=>`
+
+    <div class="product">
+
+      <div class="product-img">${result.product[2]}</div>
+
+      <div class="product-body">
+
+        <small>${escapeHTML(branches[result.key].name)}</small>
+
+        <h4>${escapeHTML(result.product[0])}</h4>
+
+        <div class="price">${escapeHTML(result.product[1])}</div>
+
+        <button class="add"
+          onclick="addToCart('${result.key}',${result.index})">
+          Add to Cart
+        </button>
+
+      </div>
+
+    </div>
+
+  `).join("");
+};
+
+
+/* =========================================================
+   PLACE ORDER — FIREBASE
+========================================================= */
+
+window.placeOrder = async function(){
+
+  if(cart.length === 0){
+    alert("Your cart is empty.");
+    return;
+  }
+
+  const name =
+    document.getElementById("customerName").value.trim();
+
+  const phone =
+    document.getElementById("customerPhone").value.trim();
+
+  const address =
+    document.getElementById("customerAddress").value.trim();
+
+  if(!name || !phone || !address){
+
+    alert("Please enter your name, phone number and delivery address.");
+    return;
+  }
+
+  const button =
+    document.querySelector("#checkoutOverlay .primary");
+
+  button.disabled = true;
+  button.textContent = "Saving order...";
+
+  try{
+
+    const user = await ensureCustomerAuth();
+
+    const orderNumber =
+      createOrderNumber();
+
+    const order = {
+
+      orderNumber,
+
+      ownerUid:user.uid,
+
+      name,
+      phone,
+      address,
+
+      subtotal:subtotal(),
+      delivery:deliveryFee(),
+      total:total(),
+
+      date:
+        document.getElementById("deliveryDate").value ||
+        "As soon as possible",
+
+      deliveryTime:
+        document.getElementById("deliveryTime").value ||
+        "",
+
+      notes:
+        document.getElementById("orderNotes").value.trim(),
+
+      payment:
+        document.getElementById("paymentMethod").value,
+
+      items:JSON.parse(JSON.stringify(cart)),
+
+      status:"Order received",
+
+      driverName:"",
+      driverPhone:"",
+      vehicle:"",
+      estimatedTime:"Pending",
+
+      recipientName:"",
+      deliveryNote:"",
+      deliveryPhoto:"",
+
+      createdAt:Date.now(),
+      updatedAt:Date.now(),
+      completedAt:null
+    };
+
+
+    /*
+      Private order record.
+      Only the customer who created it or an authorized driver
+      can access it under the rules below.
+    */
+
+    await set(
+      ref(db,"orders/"+orderNumber),
+      order
+    );
+
+
+    /*
+      Public-safe tracking record.
+      DO NOT put the customer's address, phone or full order
+      contents here.
+    */
+
+    const tracking = {
+
+      orderNumber,
+
+      status:"Order received",
+
+      estimatedTime:"Pending",
+
+      driverName:"",
+
+      vehicle:"",
+
+      recipientName:"",
+
+      deliveryNote:"",
+
+      completedAt:null,
+
+      createdAt:Date.now(),
+
+      updatedAt:Date.now()
+    };
+
+    await set(
+      ref(db,"tracking/"+orderNumber),
+      tracking
+    );
+
+
+    localStorage.setItem(
+      "aerozoneLastOrder",
+      orderNumber
+    );
+
+
+    const whatsappMessage =
+
+`Hello AeroZone, I would like to place an order.
+
+Order: ${orderNumber}
+Name: ${name}
+Phone: ${phone}
+Address: ${address}
+
+Items:
+${cart.map(item =>
+  `${item.qty} x ${item.name} - R${money(item.price * item.qty)}`
+).join("\n")}
+
+Subtotal: R${money(subtotal())}
+Delivery: ${deliveryFee() === 0 ? "FREE" : "R"+money(deliveryFee())}
+Total: R${money(total())}
+
+Payment: ${document.getElementById("paymentMethod").value}
+
+Delivery date: ${order.date}
+Delivery time: ${order.deliveryTime || "Flexible"}
+
+Notes: ${order.notes || "None"}
+
+Please confirm my order.`;
+
+
+    window.open(
+      "https://wa.me/27688685355?text=" +
+      encodeURIComponent(whatsappMessage),
+      "_blank"
+    );
+
+
+    cart = [];
+    updateCart();
+
+    closeOverlay("checkoutOverlay");
+
+    document.getElementById("trackingNumber").value =
+      orderNumber;
+
+    openOverlay("trackingOverlay");
+
+    startTracking(orderNumber);
+
+    alert(
+      "Order saved successfully!\n\nYour order number is " +
+      orderNumber
+    );
+
+  }catch(error){
+
+    console.error(error);
+
+    alert(
+      "The order could not be saved to Firebase.\n\n" +
+      error.message
+    );
+
+  }finally{
+
+    button.disabled = false;
+    button.textContent = "Place Order";
+
+  }
+};
+
+
+/* =========================================================
+   ORDER NUMBER
+========================================================= */
+
+function createOrderNumber(){
+
+  const chars =
+    "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+
+  let code = "";
+
+  for(let i=0;i<8;i++){
+    code += chars.charAt(
+      Math.floor(Math.random()*chars.length)
+    );
+  }
+
+  return "AZ" + code;
+}
+
+
+/* =========================================================
+   CUSTOMER TRACKING — REAL TIME FIREBASE
+========================================================= */
+
+let stopTrackingListener = null;
+
+
+window.openTracking = function(){
+
+  const last =
+    localStorage.getItem("aerozoneLastOrder");
+
+  if(last){
+    document.getElementById("trackingNumber").value = last;
+  }
+
+  openOverlay("trackingOverlay");
+
+  if(last){
+    startTracking(last);
+  }
+};
+
+
+window.trackOrder = function(){
+
+  const number =
+    document.getElementById("trackingNumber")
+      .value
+      .trim()
+      .toUpperCase();
+
+  if(!number){
+    alert("Enter your order number.");
+    return;
+  }
+
+  startTracking(number);
+};
+
+
+function startTracking(orderNumber){
+
+  if(stopTrackingListener){
+    stopTrackingListener();
+    stopTrackingListener = null;
+  }
+
+  const trackingRef =
+    ref(db,"tracking/"+orderNumber);
+
+  document.getElementById("trackingResult").innerHTML =
+    `<div class="empty">Connecting to live tracking...</div>`;
+
+  stopTrackingListener = onValue(
+    trackingRef,
+    snapshot => {
+
+      const tracking = snapshot.val();
+
+      if(!tracking){
+
+        document.getElementById("trackingResult").innerHTML =
+          `<div class="empty">
+            Order not found.<br>
+            Check the order number and try again.
+          </div>`;
+
+        return;
+      }
+
+      renderTracking(tracking);
+    },
+    error => {
+
+      console.error(error);
+
+      document.getElementById("trackingResult").innerHTML =
+        `<div class="empty">
+          Unable to load tracking.<br>
+          ${escapeHTML(error.message)}
+        </div>`;
+    }
+  );
+}
+
+
+function renderTracking(order){
+
+  const statuses = [
     "Order received",
     "Order confirmed",
     "Preparing order",
     "Driver assigned",
     "Out for delivery",
     "Delivered"
-];
+  ];
+
+  const current =
+    statuses.indexOf(order.status);
+
+  const currentIndex =
+    current < 0 ? 0 : current;
+
+  const timeline =
+    statuses.map((status,index)=>`
+
+      <div class="step ${index <= currentIndex ? "done" : ""}">
+        ${escapeHTML(status)}
+      </div>
+
+    `).join("");
 
 
-function statusIndex(status){
+  document.getElementById("trackingResult").innerHTML = `
 
-    const index=orderStatuses.indexOf(status);
+    <div>
 
-    return index < 0 ? 0 : index;
-}
+      <div style="display:flex;justify-content:space-between;gap:10px;align-items:center">
+        <strong>${escapeHTML(order.orderNumber)}</strong>
+        <span class="status">${escapeHTML(order.status)}</span>
+      </div>
 
+      <div class="timeline">
+        ${timeline}
+      </div>
 
-/* ==========================================================
-   SECURITY / DISPLAY HELPERS
-========================================================== */
+      <div class="driver-box">
 
-function escapeHTML(value){
+        <strong>Delivery information</strong>
 
-    return String(value ?? "")
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
-}
+        <div>
+          Driver:
+          ${escapeHTML(order.driverName || "Not assigned")}
+        </div>
 
+        <div>
+          Vehicle:
+          ${escapeHTML(order.vehicle || "Not assigned")}
+        </div>
 
-function escapeString(value){
+        <div>
+          Estimated time:
+          ${escapeHTML(order.estimatedTime || "Pending")}
+        </div>
 
-    return String(value)
-        .replace(/\\/g,"\\\\")
-        .replace(/'/g,"\\'")
-        .replace(/"/g,'&quot;');
-}
+        ${
+          order.status === "Delivered"
+          ? `
+            <div>
+              Recipient:
+              ${escapeHTML(order.recipientName || "Confirmed")}
+            </div>
 
+            <div>
+              Completed:
+              ${order.completedAt
+                ? formatDate(order.completedAt)
+                : "Completed"}
+            </div>
 
-function formatDate(date){
-
-    if(!date){
-        return "Not available";
-    }
-
-    const d=new Date(date);
-
-    if(isNaN(d)){
-        return date;
-    }
-
-    return d.toLocaleString("en-ZA",{
-        dateStyle:"medium",
-        timeStyle:"short"
-    });
-}
-
-
-/* ==========================================================
-   BRANCH CARDS
-========================================================== */
-
-function renderBranches(){
-
-    const container =
-        document.getElementById("branches");
-
-    container.innerHTML =
-        Object.entries(branches).map(
-            ([id,branch])=>{
-
-                return `
-                    <div
-                        class="branch-card"
-                        onclick="openBranch('${id}')"
-                    >
-
-                        <div class="branch-icon">
-                            ${branch.icon}
-                        </div>
-
-                        <h3>
-                            ${branch.name}
-                        </h3>
-
-                        <p>
-                            ${branch.description}
-                        </p>
-
-                        <span class="branch-count">
-                            ${branch.products.length} products
-                        </span>
-
-                        <span class="arrow">
-                            →
-                        </span>
-
-                    </div>
-                `;
-
+            ${
+              order.deliveryNote
+              ? `<div>Note: ${escapeHTML(order.deliveryNote)}</div>`
+              : ""
             }
-        ).join("");
-}
-
-
-/* ==========================================================
-   OPEN BRANCH
-========================================================== */
-
-function openBranch(id){
-
-    currentBranch=id;
-
-    document.getElementById("homeView").style.display="none";
-
-    document.getElementById("catalogueView").style.display="block";
-
-    const branch=branches[id];
-
-    document.getElementById("catalogueIcon").textContent=
-        branch.icon;
-
-    document.getElementById("catalogueTitle").textContent=
-        branch.name;
-
-    document.getElementById("catalogueDescription").textContent=
-        branch.description;
-
-    document.getElementById("branchSearch").value="";
-
-    renderProducts(branch.products);
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-}
-
-
-/* ==========================================================
-   PRODUCTS
-========================================================== */
-
-function renderProducts(products){
-
-    const container =
-        document.getElementById("products");
-
-    if(!products.length){
-
-        container.innerHTML=`
-            <div class="empty">
-
-                <div style="font-size:45px;">
-                    🔎
-                </div>
-
-                <h3>
-                    No products found
-                </h3>
-
-                <p>
-                    Try another search.
-                </p>
-
-            </div>
-        `;
-
-        return;
-    }
-
-
-    container.innerHTML =
-        products.map(product=>{
-
-            const name=product[0];
-            const price=product[1];
-            const icon=product[2];
-
-            return `
-                <div class="product">
-
-                    <div class="product-image">
-                        ${icon}
-                    </div>
-
-                    <h3>
-                        ${escapeHTML(name)}
-                    </h3>
-
-                    <div class="product-price">
-                        R${price.toFixed(2)}
-                    </div>
-
-                    <button
-                        class="add-button"
-                        onclick="addToCart(
-                            '${escapeString(name)}',
-                            ${price},
-                            '${icon}',
-                            '${currentBranch}'
-                        )"
-                    >
-                        + Add to cart
-                    </button>
-
-                </div>
-            `;
-
-        }).join("");
-}
-
-
-/* ==========================================================
-   BRANCH SEARCH
-========================================================== */
-
-function filterProducts(){
-
-    if(!currentBranch){
-        return;
-    }
-
-    const search =
-        document
-        .getElementById("branchSearch")
-        .value
-        .toLowerCase()
-        .trim();
-
-    const products =
-        branches[currentBranch].products.filter(
-            product =>
-                product[0]
-                .toLowerCase()
-                .includes(search)
-        );
-
-    renderProducts(products);
-}
-
-
-/* ==========================================================
-   SORT
-========================================================== */
-
-function sortProducts(){
-
-    if(!currentBranch){
-        return;
-    }
-
-    sortAscending=!sortAscending;
-
-    const products=[
-        ...branches[currentBranch].products
-    ];
-
-    products.sort(
-        (a,b)=>
-            sortAscending
-            ? a[1]-b[1]
-            : b[1]-a[1]
-    );
-
-    renderProducts(products);
-}
-
-
-/* ==========================================================
-   SEARCH ALL
-========================================================== */
-
-function searchAll(){
-
-    const search =
-        document
-        .getElementById("homeSearch")
-        .value
-        .toLowerCase()
-        .trim();
-
-    if(!search){
-        return;
-    }
-
-    const results=[];
-
-    Object.entries(branches).forEach(
-        ([branchId,branch])=>{
-
-            branch.products.forEach(product=>{
-
-                if(
-                    product[0]
-                    .toLowerCase()
-                    .includes(search)
-                ){
-
-                    results.push({
-                        product,
-                        branch:branchId
-                    });
-
-                }
-
-            });
-
+          `
+          : ""
         }
-    );
+
+      </div>
+
+      <p style="font-size:12px;color:#888;margin-top:12px">
+        Live tracking is connected to Firebase.
+      </p>
+
+    </div>
+
+  `;
+}
 
 
-    document.getElementById("homeView").style.display="none";
+/* =========================================================
+   DRIVER LOGIN
+========================================================= */
 
-    document.getElementById("catalogueView").style.display="block";
+window.openDeliveryPortal = function(){
 
-    currentBranch=null;
+  openOverlay("deliveryOverlay");
 
-    document.getElementById("catalogueIcon").textContent="🔎";
+  if(driverUser){
 
-    document.getElementById("catalogueTitle").textContent=
-        "Search Results";
+    document.getElementById("driverLoginArea").style.display = "none";
+    document.getElementById("driverPortalArea").style.display = "block";
 
-    document.getElementById("catalogueDescription").textContent=
-        results.length+" product(s) found";
+  }else{
 
-    document.getElementById("branchSearch").value=search;
-
-
-    const container =
-        document.getElementById("products");
+    document.getElementById("driverLoginArea").style.display = "block";
+    document.getElementById("driverPortalArea").style.display = "none";
+  }
+};
 
 
-    if(!results.length){
+window.driverLogin = async function(){
 
-        container.innerHTML=`
-            <div class="empty">
+  const email =
+    document.getElementById("driverEmail").value.trim();
 
-                <div style="font-size:50px;">
-                    😕
-                </div>
+  const password =
+    document.getElementById("driverPassword").value;
 
-                <h3>
-                    No products found
-                </h3>
+  const message =
+    document.getElementById("driverLoginMessage");
 
-                <p>
-                    Try searching for something else.
-                </p>
+  if(!email || !password){
 
-            </div>
-        `;
+    message.textContent =
+      "Enter your email and password.";
 
-    }else{
+    return;
+  }
 
-        container.innerHTML =
-            results.map(item=>{
+  message.textContent = "Signing in...";
 
-                const product=item.product;
-                const branch=item.branch;
+  try{
 
-                return `
-                    <div class="product">
+    const result =
+      await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
 
-                        <div class="product-image">
-                            ${product[2]}
-                        </div>
+    driverUser = result.user;
 
-                        <h3>
-                            ${escapeHTML(product[0])}
-                        </h3>
+    /*
+      The Firebase rules check whether this UID has:
+      users/<uid>/role = "driver"
+    */
 
-                        <div
-                            style="font-size:11px;color:#777;margin-bottom:5px;"
-                        >
-                            ${escapeHTML(branches[branch].name)}
-                        </div>
+    const roleSnapshot =
+      await get(
+        ref(db,"users/"+driverUser.uid+"/role")
+      );
 
-                        <div class="product-price">
-                            R${product[1].toFixed(2)}
-                        </div>
+    if(roleSnapshot.val() !== "driver"){
 
-                        <button
-                            class="add-button"
-                            onclick="addToCart(
-                                '${escapeString(product[0])}',
-                                ${product[1]},
-                                '${product[2]}',
-                                '${branch}'
-                            )"
-                        >
-                            + Add to cart
-                        </button>
+      await signOut(auth);
+      driverUser = null;
 
-                    </div>
-                `;
+      message.textContent =
+        "This account is not authorized as a driver.";
 
-            }).join("");
-
+      return;
     }
 
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-}
+    document.getElementById("driverLoginArea").style.display =
+      "none";
+
+    document.getElementById("driverPortalArea").style.display =
+      "block";
+
+    message.textContent = "";
+
+  }catch(error){
+
+    console.error(error);
+
+    message.textContent =
+      "Login failed: " + error.message;
+  }
+};
 
 
-/* ==========================================================
-   HOME
-========================================================== */
+window.driverLogout = async function(){
 
-function goHome(){
+  try{
+    await signOut(auth);
+  }catch(error){
+    console.error(error);
+  }
 
-    currentBranch=null;
+  driverUser = null;
 
-    document.getElementById("homeView").style.display="block";
+  document.getElementById("driverLoginArea").style.display =
+    "block";
 
-    document.getElementById("catalogueView").style.display="none";
+  document.getElementById("driverPortalArea").style.display =
+    "none";
 
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-}
-
-
-/* ==========================================================
-   CART
-========================================================== */
-
-function addToCart(name,price,icon,branch){
-
-    const existing =
-        cart.find(
-            item =>
-                item.name===name &&
-                item.branch===branch
-        );
+  document.getElementById("deliveryOrderArea").innerHTML = "";
+};
 
 
-    if(existing){
+/* =========================================================
+   DRIVER ORDER PORTAL
+========================================================= */
 
-        existing.qty++;
+window.loadDeliveryOrder = async function(){
 
-    }else{
+  if(!driverUser){
 
-        cart.push({
-            name,
-            price,
-            icon,
-            branch,
-            qty:1
-        });
+    alert("Please sign in as a driver first.");
+    return;
+  }
 
+  const number =
+    document.getElementById("portalOrderNumber")
+      .value
+      .trim()
+      .toUpperCase();
+
+  if(!number){
+
+    alert("Enter an order number.");
+    return;
+  }
+
+  const area =
+    document.getElementById("deliveryOrderArea");
+
+  area.innerHTML =
+    `<div class="empty">Loading order...</div>`;
+
+  try{
+
+    const snapshot =
+      await get(ref(db,"orders/"+number));
+
+    if(!snapshot.exists()){
+
+      area.innerHTML =
+        `<div class="empty">Order not found.</div>`;
+
+      return;
     }
 
-    saveCart();
+    renderDeliveryOrder(snapshot.val());
 
-    updateCart();
+  }catch(error){
 
-    showToast(name+" added to cart");
+    console.error(error);
+
+    area.innerHTML =
+      `<div class="empty">
+        ${escapeHTML(error.message)}
+      </div>`;
+  }
+};
+
+
+function renderDeliveryOrder(order){
+
+  const area =
+    document.getElementById("deliveryOrderArea");
+
+  area.innerHTML = `
+
+    <div class="driver-box">
+
+      <strong>Order ${escapeHTML(order.orderNumber)}</strong>
+
+      <p style="margin-top:8px">
+        Customer: ${escapeHTML(order.name)}
+      </p>
+
+      <p>
+        Phone: ${escapeHTML(order.phone)}
+      </p>
+
+      <p>
+        Address: ${escapeHTML(order.address)}
+      </p>
+
+      <p>
+        Total: R${money(order.total)}
+      </p>
+
+    </div>
+
+    <div class="field" style="margin-top:15px">
+      <label>Status</label>
+
+      <select id="portalStatus">
+
+        <option>Order received</option>
+        <option>Order confirmed</option>
+        <option>Preparing order</option>
+        <option>Driver assigned</option>
+        <option>Out for delivery</option>
+        <option>Delivered</option>
+
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Driver Name</label>
+      <input id="portalDriverName"
+        value="${escapeAttribute(order.driverName || "")}">
+    </div>
+
+    <div class="field">
+      <label>Driver Phone</label>
+      <input id="portalDriverPhone"
+        value="${escapeAttribute(order.driverPhone || "")}">
+    </div>
+
+    <div class="field">
+      <label>Vehicle</label>
+      <input id="portalVehicle"
+        value="${escapeAttribute(order.vehicle || "")}"
+        placeholder="e.g. White Toyota">
+    </div>
+
+    <div class="field">
+      <label>Estimated Delivery Time</label>
+      <input id="portalETA"
+        value="${escapeAttribute(order.estimatedTime || "")}"
+        placeholder="e.g. 30 minutes">
+    </div>
+
+    <div class="field">
+      <label>Recipient Name</label>
+      <input id="portalRecipient"
+        value="${escapeAttribute(order.recipientName || "")}">
+    </div>
+
+    <div class="field">
+      <label>Delivery Note</label>
+      <textarea id="portalDeliveryNote"
+        placeholder="Delivered safely at the customer's address">${escapeHTML(order.deliveryNote || "")}</textarea>
+    </div>
+
+    <button class="primary"
+      onclick="saveDeliveryUpdate('${escapeAttribute(order.orderNumber)}')">
+      Save Firebase Update
+    </button>
+
+    <button class="secondary"
+      onclick="markDelivered('${escapeAttribute(order.orderNumber)}')">
+      Mark Delivered
+    </button>
+
+  `;
+
+  document.getElementById("portalStatus").value =
+    order.status || "Order received";
 }
 
 
-function removeFromCart(index){
+window.saveDeliveryUpdate = async function(orderNumber){
 
-    cart.splice(index,1);
+  if(!driverUser){
 
-    saveCart();
+    alert("Driver login required.");
+    return;
+  }
 
-    updateCart();
-}
+  const status =
+    document.getElementById("portalStatus").value;
 
+  const driverName =
+    document.getElementById("portalDriverName").value.trim();
 
-function changeQty(index,change){
+  const driverPhone =
+    document.getElementById("portalDriverPhone").value.trim();
 
-    if(!cart[index]){
-        return;
-    }
+  const vehicle =
+    document.getElementById("portalVehicle").value.trim();
 
-    cart[index].qty+=change;
+  const eta =
+    document.getElementById("portalETA").value.trim();
 
-    if(cart[index].qty<=0){
-        cart.splice(index,1);
-    }
+  const recipient =
+    document.getElementById("portalRecipient").value.trim();
 
-    saveCart();
+  const note =
+    document.getElementById("portalDeliveryNote").value.trim();
 
-    updateCart();
-}
+  try{
 
+    const now = Date.now();
 
-function saveCart(){
+    const orderUpdates = {
 
-    localStorage.setItem(
-        "aerozoneCart",
-        JSON.stringify(cart)
-    );
-}
+      status,
 
+      driverName,
 
-function updateCart(){
+      driverPhone,
 
-    const count =
-        cart.reduce(
-            (sum,item)=>sum+item.qty,
-            0
-        );
+      vehicle,
 
-    document.getElementById("cartCount").textContent=count;
+      estimatedTime:eta,
 
+      recipientName:recipient,
 
-    const container =
-        document.getElementById("cartItems");
+      deliveryNote:note,
 
-
-    if(!cart.length){
-
-        container.innerHTML=`
-            <div class="empty">
-
-                <div style="font-size:50px;">
-                    🛒
-                </div>
-
-                <h3>
-                    Your cart is empty
-                </h3>
-
-                <p>
-                    Browse a branch and add products.
-                </p>
-
-            </div>
-        `;
-
-    }else{
-
-        container.innerHTML =
-            cart.map((item,index)=>{
-
-                return `
-                    <div class="cart-item">
-
-                        <div class="cart-item-icon">
-                            ${item.icon}
-                        </div>
-
-                        <div class="cart-info">
-
-                            <h4>
-                                ${escapeHTML(item.name)}
-                            </h4>
-
-                            <div class="cart-price">
-                                R${(
-                                    item.price *
-                                    item.qty
-                                ).toFixed(2)}
-                            </div>
-
-                            <div class="qty">
-
-                                <button
-                                    onclick="changeQty(${index},-1)"
-                                >
-                                    −
-                                </button>
-
-                                <strong>
-                                    ${item.qty}
-                                </strong>
-
-                                <button
-                                    onclick="changeQty(${index},1)"
-                                >
-                                    +
-                                </button>
-
-                                <button
-                                    onclick="removeFromCart(${index})"
-                                    style="
-                                        margin-left:auto;
-                                        background:#111;
-                                        color:#fff;
-                                    "
-                                >
-                                    ×
-                                </button>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                `;
-
-            }).join("");
-
-    }
-
-
-    const subtotal =
-        cart.reduce(
-            (sum,item)=>
-                sum+(item.price*item.qty),
-            0
-        );
-
-    const delivery =
-        subtotal>=500
-        ? 0
-        : 35;
-
-    document.getElementById("cartSubtotal").textContent=
-        "R"+subtotal.toFixed(2);
-
-    document.getElementById("cartDelivery").textContent=
-        delivery===0
-        ? "FREE"
-        : "R"+delivery.toFixed(2);
-
-    document.getElementById("cartTotal").textContent=
-        "R"+(
-            subtotal+delivery
-        ).toFixed(2);
-}
-
-
-function openCart(){
-
-    updateCart();
-
-    document
-        .getElementById("cartOverlay")
-        .classList.add("active");
-}
-
-
-function closeCart(){
-
-    document
-        .getElementById("cartOverlay")
-        .classList.remove("active");
-}
-
-
-function closeCartOutside(event){
-
-    if(event.target.id==="cartOverlay"){
-        closeCart();
-    }
-}
-
-
-/* ==========================================================
-   CHECKOUT
-========================================================== */
-
-function openCheckout(){
-
-    if(!cart.length){
-
-        showToast("Your cart is empty");
-
-        return;
-    }
-
-    closeCart();
-
-
-    const savedLocation =
-        localStorage.getItem("aerozoneAddress") || "";
-
-
-    document.getElementById("customerAddress").value=
-        savedLocation;
-
-
-    document
-        .getElementById("checkoutOverlay")
-        .classList.add("active");
-}
-
-
-function closeCheckout(){
-
-    document
-        .getElementById("checkoutOverlay")
-        .classList.remove("active");
-}
-
-
-/* ==========================================================
-   SAVE ORDER
-========================================================== */
-
-function saveOrder(order){
-
-    orders.push(order);
-
-    localStorage.setItem(
-        "aerozoneOrders",
-        JSON.stringify(orders)
-    );
-
-    localStorage.setItem(
-        "aerozoneLastOrder",
-        JSON.stringify(order)
-    );
-}
-
-
-/* ==========================================================
-   PLACE ORDER
-========================================================== */
-
-function placeOrder(){
-
-    const name =
-        document
-        .getElementById("customerName")
-        .value.trim();
-
-
-    const phone =
-        document
-        .getElementById("customerPhone")
-        .value.trim();
-
-
-    const address =
-        document
-        .getElementById("customerAddress")
-        .value.trim();
-
-
-    const date =
-        document
-        .getElementById("deliveryDate")
-        .value;
-
-
-    const time =
-        document
-        .getElementById("deliveryTime")
-        .value;
-
-
-    const notes =
-        document
-        .getElementById("orderNotes")
-        .value.trim();
-
-
-    const payment =
-        document.querySelector(
-            'input[name="payment"]:checked'
-        )?.value ||
-        "WhatsApp Payment";
-
-
-    if(!name){
-
-        alert("Please enter your full name.");
-
-        return;
-    }
-
-
-    if(!phone){
-
-        alert("Please enter your phone number.");
-
-        return;
-    }
-
-
-    if(!address){
-
-        alert("Please enter your delivery address.");
-
-        return;
-    }
-
-
-    if(!cart.length){
-
-        alert("Your cart is empty.");
-
-        return;
-    }
-
-
-    const subtotal =
-        cart.reduce(
-            (sum,item)=>
-                sum+(item.price*item.qty),
-            0
-        );
-
-
-    const delivery =
-        subtotal>=500
-        ? 0
-        : 35;
-
-
-    const total=
-        subtotal+delivery;
-
-
-    const orderNumber =
-        "AZ"+
-        Math.floor(
-            100000+
-            Math.random()*900000
-        );
-
-
-    const order = {
-
-        orderNumber,
-
-        name,
-
-        phone,
-
-        address,
-
-        subtotal,
-
-        delivery,
-
-        total,
-
-        date:date || "As soon as possible",
-
-        deliveryTime:time,
-
-        notes,
-
-        payment,
-
-        items:JSON.parse(
-            JSON.stringify(cart)
-        ),
-
-        status:"Order received",
-
-        driverName:"Not assigned",
-
-        driverPhone:"",
-
-        vehicle:"",
-
-        estimatedTime:"Pending",
-
-        recipientName:"",
-
-        deliveryNote:"",
-
-        deliveryPhoto:"",
-
-        createdAt:new Date().toISOString(),
-
-        updatedAt:new Date().toISOString(),
-
-        completedAt:null
+      updatedAt:now
 
     };
 
+    if(status === "Delivered"){
 
-    saveOrder(order);
+      orderUpdates.completedAt = now;
+    }
 
-
-    let message =
-`AEROZONE NEW ORDER
-====================
-
-Order Number: ${orderNumber}
-
-CUSTOMER
-Name: ${name}
-Phone: ${phone}
-
-DELIVERY
-Address: ${address}
-Date: ${date || "As soon as possible"}
-Time: ${time}
-
-PAYMENT
-${payment}
-
-ITEMS
-====================
-`;
-
-
-    cart.forEach(item=>{
-
-        message +=
-`${item.qty} x ${item.name} — R${(
-            item.price*item.qty
-        ).toFixed(2)}
-`;
-
-    });
-
-
-    message +=
-`
-====================
-Subtotal: R${subtotal.toFixed(2)}
-Delivery: ${
-    delivery===0
-    ? "FREE"
-    : "R"+delivery.toFixed(2)
-}
-TOTAL: R${total.toFixed(2)}
-
-TRACKING
-Order Number: ${orderNumber}
-
-Notes:
-${notes || "None"}
-
-Please confirm my order.
-`;
-
-
-    const whatsappNumber =
-        "27688685355";
-
-
-    const url =
-        "https://wa.me/"+
-        whatsappNumber+
-        "?text="+
-        encodeURIComponent(message);
-
-
-    window.open(url,"_blank");
-
-
-    cart=[];
-
-    saveCart();
-
-    updateCart();
-
-    closeCheckout();
-
-
-    showToast(
-        "Order "+orderNumber+" created"
+    await update(
+      ref(db,"orders/"+orderNumber),
+      orderUpdates
     );
 
 
-    setTimeout(()=>{
+    const trackingUpdates = {
 
-        openTracking();
+      status,
 
-        document.getElementById(
-            "trackingOrderNumber"
-        ).value=orderNumber;
+      driverName,
 
-        trackOrder();
+      vehicle,
 
-    },500);
-}
+      estimatedTime:eta,
 
+      recipientName:recipient,
 
-/* ==========================================================
-   LOCATION
-========================================================== */
+      deliveryNote:note,
 
-function setLocation(){
+      updatedAt:now
 
-    const address =
-        prompt(
-            "Enter your delivery address:"
-        );
+    };
 
+    if(status === "Delivered"){
 
-    if(!address){
-        return;
+      trackingUpdates.completedAt = now;
     }
 
-
-    localStorage.setItem(
-        "aerozoneAddress",
-        address
+    await update(
+      ref(db,"tracking/"+orderNumber),
+      trackingUpdates
     );
 
 
-    document.getElementById(
-        "locationText"
-    ).textContent=address;
+    alert("Firebase order update saved.");
 
+    await loadDeliveryOrder();
 
-    showToast(
-        "Delivery address saved"
+  }catch(error){
+
+    console.error(error);
+
+    alert(
+      "Could not update order:\n" +
+      error.message
     );
+  }
+};
+
+
+window.markDelivered = async function(orderNumber){
+
+  if(!driverUser){
+
+    alert("Driver login required.");
+    return;
+  }
+
+  const recipient =
+    document.getElementById("portalRecipient")
+      .value.trim();
+
+  if(!recipient){
+
+    alert("Enter the recipient's name before marking delivered.");
+    return;
+  }
+
+  document.getElementById("portalStatus").value =
+    "Delivered";
+
+  await saveDeliveryUpdate(orderNumber);
+};
+
+
+/* =========================================================
+   UTILITIES
+========================================================= */
+
+function escapeHTML(value){
+
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 }
 
 
-/* ==========================================================
-   TRACKING
-========================================================== */
+function escapeAttribute(value){
 
-function openTracking(){
-
-    const last =
-        JSON.parse(
-            localStorage.getItem(
-                "aerozoneLastOrder"
-            ) || "null"
-        );
-
-
-    if(last){
-
-        document.getElementById(
-            "trackingOrderNumber"
-        ).value=last.orderNumber;
-
-        renderTracking(last);
-
-    }
-
-
-    document
-        .getElementById("trackingOverlay")
-        .classList.add("active");
+  return escapeHTML(value);
 }
 
 
-function closeTracking(){
+function formatDate(value){
 
-    document
-        .getElementById("trackingOverlay")
-        .classList.remove("active");
+  if(!value) return "";
+
+  const date = new Date(value);
+
+  if(Number.isNaN(date.getTime())){
+    return "";
+  }
+
+  return date.toLocaleString(
+    "en-ZA",
+    {
+      dateStyle:"medium",
+      timeStyle:"short"
+    }
+  );
 }
 
 
-function findOrder(orderNumber){
+window.openOverlay = function(id){
 
-    const normalized =
-        String(orderNumber)
-        .trim()
-        .toUpperCase();
+  document.getElementById(id).style.display =
+    "block";
+};
 
 
-    return orders.find(
-        order =>
-            order.orderNumber.toUpperCase()===
-            normalized
-    );
-}
+window.closeOverlay = function(id){
 
+  document.getElementById(id).style.display =
+    "none";
+};
 
-function trackOrder(){
 
-    const input =
-        document.getElementById(
-            "trackingOrderNumber"
-        );
-
-
-    const orderNumber =
-        input.value.trim().toUpperCase();
-
-
-    if(!orderNumber){
-
-        alert("Please enter your order number.");
-
-        return;
-    }
-
-
-    const order =
-        findOrder(orderNumber);
-
-
-    const result =
-        document.getElementById(
-            "trackingResult"
-        );
-
-
-    if(!order){
-
-        result.innerHTML=`
-            <div class="empty">
-
-                <div style="font-size:45px;">
-                    ❌
-                </div>
-
-                <h3>
-                    Order not found
-                </h3>
-
-                <p>
-                    Check your order number and try again.
-                </p>
-
-            </div>
-        `;
-
-        return;
-    }
-
-
-    renderTracking(order);
-}
-
-
-function renderTracking(order){
-
-    const result =
-        document.getElementById(
-            "trackingResult"
-        );
-
-
-    const current =
-        statusIndex(order.status);
-
-
-    const delivered =
-        order.status==="Delivered";
-
-
-    let timeline="";
-
-
-    orderStatuses.forEach(
-        (status,index)=>{
-
-            const done =
-                index<=current;
-
-
-            const isCurrent =
-                index===current;
-
-
-            let detail="";
-
-            if(isCurrent){
-
-                detail =
-                    order.status==="Delivered"
-                    ? "Delivery completed"
-                    : "Current status";
-
-            }
-
-
-            timeline +=`
-
-                <div class="
-                    timeline-item
-                    ${done ? "done" : ""}
-                    ${isCurrent ? "current" : ""}
-                ">
-
-                    <div class="timeline-dot">
-                        ${done ? "✓" : ""}
-                    </div>
-
-                    <div class="timeline-content">
-
-                        <strong>
-                            ${status}
-                        </strong>
-
-                        ${
-                            detail
-                            ? `<p>${detail}</p>`
-                            : ""
-                        }
-
-                    </div>
-
-                </div>
-
-            `;
-
-        }
-    ).join("");
-
-
-    let driverHTML="";
-
-
-    if(
-        order.driverName &&
-        order.driverName!=="Not assigned"
-    ){
-
-        driverHTML=`
-
-            <div class="driver-card">
-
-                <h3>
-                    🚚 Your Driver
-                </h3>
-
-                <div class="driver-grid">
-
-                    <div class="driver-info">
-
-                        <span>
-                            DRIVER
-                        </span>
-
-                        <strong>
-                            ${escapeHTML(order.driverName)}
-                        </strong>
-
-                    </div>
-
-
-                    <div class="driver-info">
-
-                        <span>
-                            PHONE
-                        </span>
-
-                        <strong>
-                            ${escapeHTML(
-                                order.driverPhone || "Not provided"
-                            )}
-                        </strong>
-
-                    </div>
-
-
-                    <div class="driver-info">
-
-                        <span>
-                            VEHICLE
-                        </span>
-
-                        <strong>
-                            ${escapeHTML(
-                                order.vehicle || "Not provided"
-                            )}
-                        </strong>
-
-                    </div>
-
-
-                    <div class="driver-info">
-
-                        <span>
-                            ESTIMATE
-                        </span>
-
-                        <strong>
-                            ${escapeHTML(
-                                order.estimatedTime || "Pending"
-                            )}
-                        </strong>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        `;
-
-    }
-
-
-    let completionHTML="";
-
-
-    if(delivered){
-
-        completionHTML=`
-
-            <div class="delivery-complete">
-
-                <h3>
-                    ✅ Delivery Completed
-                </h3>
-
-                <p>
-                    <strong>Received by:</strong>
-                    ${escapeHTML(
-                        order.recipientName ||
-                        order.name
-                    )}
-                </p>
-
-                <p>
-                    <strong>Completed:</strong>
-                    ${formatDate(order.completedAt)}
-                </p>
-
-                ${
-                    order.deliveryNote
-                    ? `
-                        <p style="margin-top:7px;">
-                            <strong>Delivery note:</strong>
-                            ${escapeHTML(order.deliveryNote)}
-                        </p>
-                    `
-                    : ""
-                }
-
-                ${
-                    order.deliveryPhoto
-                    ? `
-                        <p style="margin-top:7px;">
-                            📷 Delivery photo recorded:
-                            ${escapeHTML(order.deliveryPhoto)}
-                        </p>
-                    `
-                    : ""
-                }
-
-            </div>
-
-        `;
-
-    }
-
-
-    result.innerHTML=`
-
-        <div class="order-summary">
-
-            <div class="order-summary-top">
-
-                <div>
-
-                    <h3>
-                        AeroZone Order
-                    </h3>
-
-                    <div class="order-number">
-                        ${escapeHTML(order.orderNumber)}
-                    </div>
-
-                </div>
-
-                <div class="
-                    status-badge
-                    ${delivered ? "delivered" : ""}
-                ">
-                    ${escapeHTML(order.status)}
-                </div>
-
-            </div>
-
-
-            <div
-                style="
-                    margin-top:15px;
-                    font-size:13px;
-                    color:#555;
-                "
-            >
-
-                <div>
-                    👤 ${escapeHTML(order.name)}
-                </div>
-
-                <div style="margin-top:5px;">
-                    📍 ${escapeHTML(order.address)}
-                </div>
-
-                <div style="margin-top:5px;">
-                    💰 Total: R${Number(order.total).toFixed(2)}
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="timeline">
-            ${timeline}
-        </div>
-
-
-        ${driverHTML}
-
-        ${completionHTML}
-
-    `;
-}
-
-
-/* ==========================================================
-   DELIVERY PORTAL
-========================================================== */
-
-function openDeliveryPortal(){
-
-    document
-        .getElementById("deliveryOverlay")
-        .classList.add("active");
-
-
-    document.getElementById(
-        "deliveryForm"
-    ).style.display="none";
-
-
-    document.getElementById(
-        "deliveryOrderNumber"
-    ).value="";
-}
-
-
-function closeDeliveryPortal(){
-
-    document
-        .getElementById("deliveryOverlay")
-        .classList.remove("active");
-}
-
-
-function loadDeliveryOrder(){
-
-    const number =
-        document.getElementById(
-            "deliveryOrderNumber"
-        ).value.trim().toUpperCase();
-
-
-    if(!number){
-
-        alert("Enter an order number.");
-
-        return;
-    }
-
-
-    const order=findOrder(number);
-
-
-    if(!order){
-
-        alert(
-            "Order not found on this device."
-        );
-
-        return;
-    }
-
-
-    deliveryEditingOrder=order;
-
-
-    document.getElementById(
-        "deliveryForm"
-    ).style.display="block";
-
-
-    document.getElementById(
-        "deliveryStatus"
-    ).value=order.status;
-
-
-    document.getElementById(
-        "driverName"
-    ).value=order.driverName || "";
-
-
-    document.getElementById(
-        "driverPhone"
-    ).value=order.driverPhone || "";
-
-
-    document.getElementById(
-        "driverVehicle"
-    ).value=order.vehicle || "";
-
-
-    document.getElementById(
-        "estimatedTime"
-    ).value=order.estimatedTime || "";
-
-
-    document.getElementById(
-        "recipientName"
-    ).value=order.recipientName || "";
-
-
-    document.getElementById(
-        "deliveryNote"
-    ).value=order.deliveryNote || "";
-
-
-    document.getElementById(
-        "deliveryPhoto"
-    ).value="";
-
-
-    document.getElementById(
-        "photoPreview"
-    ).innerHTML="";
-
-
-    showToast(
-        "Order "+order.orderNumber+" loaded"
-    );
-}
-
-
-/* ==========================================================
-   UPDATE ORDER
-========================================================== */
-
-function updateOrderData(order,status){
-
-    order.status=status;
-
-    order.driverName =
-        document.getElementById(
-            "driverName"
-        ).value.trim() ||
-        "Not assigned";
-
-
-    order.driverPhone =
-        document.getElementById(
-            "driverPhone"
-        ).value.trim();
-
-
-    order.vehicle =
-        document.getElementById(
-            "driverVehicle"
-        ).value.trim();
-
-
-    order.estimatedTime =
-        document.getElementById(
-            "estimatedTime"
-        ).value.trim() ||
-        "Pending";
-
-
-    order.recipientName =
-        document.getElementById(
-            "recipientName"
-        ).value.trim();
-
-
-    order.deliveryNote =
-        document.getElementById(
-            "deliveryNote"
-        ).value.trim();
-
-
-    order.updatedAt =
-        new Date().toISOString();
-
-
-    if(status==="Delivered"){
-
-        if(!order.completedAt){
-
-            order.completedAt =
-                new Date().toISOString();
-
-        }
-
-        if(!order.recipientName){
-
-            order.recipientName=
-                order.name;
-
-        }
-
-    }else{
-
-        order.completedAt=null;
-
-    }
-
-
-    const photo =
-        document.getElementById(
-            "deliveryPhoto"
-        ).files[0];
-
-
-    if(photo){
-
-        order.deliveryPhoto=photo.name;
-
-    }
-
-
-    const index =
-        orders.findIndex(
-            item =>
-                item.orderNumber===
-                order.orderNumber
-        );
-
-
-    if(index>=0){
-
-        orders[index]=order;
-
-    }else{
-
-        orders.push(order);
-
-    }
-
-
-    localStorage.setItem(
-        "aerozoneOrders",
-        JSON.stringify(orders)
-    );
-
-
-    localStorage.setItem(
-        "aerozoneLastOrder",
-        JSON.stringify(order)
-    );
-
-
-    deliveryEditingOrder=order;
-
-    return order;
-}
-
-
-/* ==========================================================
-   SAVE DELIVERY UPDATE
-========================================================== */
-
-function saveDeliveryUpdate(){
-
-    if(!deliveryEditingOrder){
-
-        alert(
-            "Find an order first."
-        );
-
-        return;
-    }
-
-
-    const status =
-        document.getElementById(
-            "deliveryStatus"
-        ).value;
-
-
-    const order =
-        updateOrderData(
-            deliveryEditingOrder,
-            status
-        );
-
-
-    showToast(
-        "Delivery status updated"
-    );
-
-
-    setTimeout(()=>{
-
-        openTracking();
-
-        document.getElementById(
-            "trackingOrderNumber"
-        ).value=order.orderNumber;
-
-        renderTracking(order);
-
-    },500);
-}
-
-
-/* ==========================================================
-   MARK DELIVERED
-========================================================== */
-
-function markDelivered(){
-
-    if(!deliveryEditingOrder){
-
-        alert(
-            "Find an order first."
-        );
-
-        return;
-    }
-
-
-    const recipient =
-        document.getElementById(
-            "recipientName"
-        ).value.trim();
-
-
-    if(!recipient){
-
-        alert(
-            "Enter the name of the person who received the order."
-        );
-
-        return;
-    }
-
-
-    document.getElementById(
-        "deliveryStatus"
-    ).value="Delivered";
-
-
-    const order =
-        updateOrderData(
-            deliveryEditingOrder,
-            "Delivered"
-        );
-
-
-    showToast(
-        "✅ Order marked as delivered"
-    );
-
-
-    setTimeout(()=>{
-
-        openTracking();
-
-        document.getElementById(
-            "trackingOrderNumber"
-        ).value=order.orderNumber;
-
-        renderTracking(order);
-
-    },500);
-}
-
-
-/* ==========================================================
-   DELIVERY PHOTO PREVIEW
-========================================================== */
-
-document.addEventListener(
-    "change",
-    function(event){
-
-        if(
-            event.target.id!=="deliveryPhoto"
-        ){
-            return;
-        }
-
-
-        const file =
-            event.target.files[0];
-
-
-        const preview =
-            document.getElementById(
-                "photoPreview"
-            );
-
-
-        if(!file){
-
-            preview.innerHTML="";
-
-            return;
-        }
-
-
-        if(!file.type.startsWith("image/")){
-
-            preview.innerHTML=
-                "<p style='color:#777;font-size:12px;'>Selected file: "+
-                escapeHTML(file.name)+
-                "</p>";
-
-            return;
-        }
-
-
-        const reader =
-            new FileReader();
-
-
-        reader.onload=function(){
-
-            preview.innerHTML=`
-
-                <div
-                    style="
-                        background:#f5f5f5;
-                        padding:10px;
-                        border-radius:12px;
-                    "
-                >
-
-                    <img
-                        src="${reader.result}"
-                        alt="Delivery proof"
-                        style="
-                            width:100%;
-                            max-height:220px;
-                            object-fit:cover;
-                            border-radius:10px;
-                        "
-                    >
-
-                    <p
-                        style="
-                            font-size:11px;
-                            color:#777;
-                            margin-top:6px;
-                        "
-                    >
-                        ${escapeHTML(file.name)}
-                    </p>
-
-                </div>
-
-            `;
-
-        };
-
-
-        reader.readAsDataURL(file);
-
-    }
-);
-
-
-/* ==========================================================
-   TOAST
-========================================================== */
-
-function showToast(message){
-
-    const toast =
-        document.getElementById(
-            "toast"
-        );
-
-
-    toast.textContent=message;
-
-    toast.classList.add("show");
-
-
-    clearTimeout(
-        window.aerozoneToastTimer
-    );
-
-
-    window.aerozoneToastTimer =
-        setTimeout(()=>{
-
-            toast.classList.remove("show");
-
-        },2200);
-}
-
-
-/* ==========================================================
-   LOAD SAVED ADDRESS
-========================================================== */
-
-function loadSavedAddress(){
-
-    const address =
-        localStorage.getItem(
-            "aerozoneAddress"
-        );
-
-
-    if(address){
-
-        document.getElementById(
-            "locationText"
-        ).textContent=address;
-
-    }
-}
-
-
-/* ==========================================================
-   INITIALISE
-========================================================== */
+/* =========================================================
+   START
+========================================================= */
 
 renderBranches();
-
 updateCart();
 
-loadSavedAddress();
+/*
+  Automatically sign in customers anonymously.
+  This is required by the Firebase rules.
+*/
+
+ensureCustomerAuth()
+  .catch(error=>{
+    console.error(error);
+    setFirebaseStatus("Firebase authentication needs setup");
+  });
 
 
-/* ==========================================================
-   SET MINIMUM DELIVERY DATE
-========================================================== */
+/*
+  Close overlays when clicking outside the modal.
+*/
 
-const today =
-    new Date().toISOString().split("T")[0];
+document.querySelectorAll(".overlay").forEach(overlay=>{
 
+  overlay.addEventListener("click",event=>{
 
-document.getElementById(
-    "deliveryDate"
-).min=today;
-
-
-/* ==========================================================
-   ESC KEY CLOSES MODALS
-========================================================== */
-
-document.addEventListener(
-    "keydown",
-    function(event){
-
-        if(event.key!=="Escape"){
-            return;
-        }
-
-
-        closeCart();
-
-        closeCheckout();
-
-        closeTracking();
-
-        closeDeliveryPortal();
-
+    if(event.target === overlay){
+      overlay.style.display = "none";
     }
-);
+
+  });
+
+});
+
 
 </script>
 
 </body>
 </html>
-
-This version includes AeroZone branches → products → cart → checkout → WhatsApp order → order number → customer tracking → driver status updates → driver details → estimated delivery → “Mark Delivered” → recipient name → delivery note/photo record.
-
-Important: because this is still a single "index.html", the tracking data is stored in the browser. For customers and drivers to see the same order live from different phones, the next upgrade should connect the tracking system to Firebase.
