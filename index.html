@@ -1,175 +1,584 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AeroZone | Viral Life Hacks & Smart Gadgets</title>
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brandBlue: '#1E40AF',      /* Royal Blue */
-            brandLightBlue: '#3B82F6', /* Sky Accent */
-            brandDarkBlue: '#1E293B'   /* Deep Slate Blue */
-          }
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AeroZone | Smart Gadgets & Trending Products</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        brandBlue: '#1E40AF',
+        brandLightBlue: '#3B82F6',
+        brandDarkBlue: '#1E293B'
       }
     }
-  </script>
+  }
+}
+</script>
+
 </head>
-<body class="bg-blue-50/30 text-gray-900 font-sans antialiased">
 
-  <!-- Header / Navigation -->
-  <header class="sticky top-0 z-50 bg-white border-b border-blue-100 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="flex items-center space-x-2">
-        <span class="p-2 bg-brandBlue rounded-lg shadow">
-          <i data-lucide="zap" class="w-6 h-6 text-white"></i>
-        </span>
-        <span class="text-xl font-bold tracking-wide text-brandDarkBlue">Aero<span class="text-brandLightBlue">Zone</span></span>
-      </div>
+<body class="bg-blue-50 text-gray-900">
 
-      <button id="cartBtn" class="relative p-2 rounded-full hover:bg-blue-50 text-brandDarkBlue transition">
-        <i data-lucide="shopping-bag" class="w-6 h-6"></i>
-        <span id="cartCount" class="absolute -top-1 -right-1 bg-brandBlue text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center shadow">0</span>
-      </button>
-    </div>
-  </header>
+<!-- HEADER -->
 
-  <!-- Hero Banner -->
-  <section class="bg-gradient-to-r from-brandDarkBlue via-brandBlue to-brandDarkBlue text-white py-12 px-4 text-center shadow-inner">
-    <div class="max-w-3xl mx-auto">
-      <span class="bg-white/10 text-blue-200 border border-blue-300/30 text-xs font-semibold uppercase tracking-widest py-1 px-3 rounded-full inline-block mb-3">South Africa's Top Trending Hacks</span>
-      <h1 class="text-3xl md:text-5xl font-extrabold mb-4">Your Zone for Daily Upgrades</h1>
-      <p class="text-blue-100 text-sm md:text-base mb-6">Discover South Africa's most in-demand gadgets, smart backup solutions, and viral everyday hacks.</p>
-      <a href="#products" class="bg-white text-brandBlue hover:bg-blue-50 font-bold py-3 px-8 rounded-full shadow-lg transition inline-block">Shop Top Deals</a>
-    </div>
-  </section>
+<header class="bg-white shadow sticky top-0 z-50">
 
-  <!-- Product Catalog -->
-  <main id="products" class="max-w-7xl mx-auto px-4 py-12">
-    <h2 class="text-2xl font-bold text-brandDarkBlue mb-8 text-center">Featured South Africa Catalogue</h2>
-    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-      <!-- Products generated via JS -->
-    </div>
-  </main>
+<div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
 
-  <!-- Cart Drawer Overlay -->
-  <div id="cartDrawer" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 hidden transition-opacity">
-    <div class="fixed right-0 top-0 bottom-0 w-full max-w-md bg-white shadow-2xl flex flex-col justify-between p-6">
-      <div>
-        <div class="flex justify-between items-center pb-4 border-b">
-          <h3 class="text-lg font-bold text-brandDarkBlue">Your AeroZone Cart</h3>
-          <button id="closeCart" class="text-gray-400 hover:text-gray-700">
-            <i data-lucide="x" class="w-6 h-6"></i>
-          </button>
-        </div>
-        <div id="cartItems" class="py-4 space-y-4 max-h-[60vh] overflow-y-auto">
-          <!-- Cart items injected here -->
-        </div>
-      </div>
-      <div class="border-t pt-4">
-        <div class="flex justify-between text-lg font-bold mb-4 text-brandDarkBlue">
-          <span>Total:</span>
-          <span id="cartTotal">R0.00</span>
-        </div>
-        <button id="checkoutBtn" class="w-full bg-brandBlue hover:bg-blue-800 text-white font-bold py-3 rounded-lg shadow-md transition">Proceed to Checkout</button>
-      </div>
-    </div>
-  </main>
+<h1 class="text-2xl font-extrabold text-brandDarkBlue">
+Aero<span class="text-brandLightBlue">Zone</span>
+</h1>
 
-  <!-- JavaScript Logic -->
-  <script>
-    const products = [
-      { id: 1, name: "Rechargeable LED Emergency Bulb (Pack of 2)", price: 299, category: "Emergency & Power", img: "https://images.unsplash.com/photo-1550985616-10810253b84d?w=500&q=80" },
-      { id: 2, name: "Portable Solar Power Bank (20,000mAh)", price: 449, category: "Tech & Gear", img: "https://images.unsplash.com/photo-1609592424109-dd9892f1b177?w=500&q=80" },
-      { id: 3, name: "Mini Portable Wireless Wi-Fi UPS Battery", price: 599, category: "Tech & Home", img: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500&q=80" },
-      { id: 4, name: "Portable Rechargeable Travel Espresso Maker", price: 899, category: "Lifestyle", img: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500&q=80" },
-      { id: 5, name: "MistBrush™ 2-in-1 Spray Hairbrush", price: 399, category: "Beauty Tools", img: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500&q=80" },
-      { id: 6, name: "Express Chopper Electric Veggie Dicer", price: 349, category: "Kitchen Hacks", img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=500&q=80" },
-      { id: 7, name: "SplashFree™ Anti-Spill Pet Water Bowl", price: 299, category: "Pet Essentials", img: "https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=500&q=80" },
-      { id: 8, name: "Motion-Sensor Solar Security Wall Light", price: 249, category: "Home & Garden", img: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=500&q=80" },
-      { id: 9, name: "PocketGlide™ Cordless Hair Straightener", price: 499, category: "Beauty Tools", img: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=500&q=80" },
-      { id: 10, name: "SonicShine™ Ultrasonic Jewelry Cleaner", price: 429, category: "Utility", img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&q=80" }
-    ];
+<button
+onclick="openCart()"
+class="bg-brandBlue text-white px-4 py-2 rounded-lg font-bold"
+>
+🛒 Cart
+<span id="cartCount">0</span>
+</button>
 
-    let cart = [];
+</div>
 
-    function renderProducts() {
-      const grid = document.getElementById('productGrid');
-      grid.innerHTML = products.map(product => `
-        <div class="bg-white rounded-xl border border-blue-100 shadow-sm overflow-hidden hover:shadow-md transition flex flex-col justify-between">
-          <div>
-            <img src="${product.img}" alt="${product.name}" class="w-full h-48 object-cover">
-            <div class="p-4">
-              <span class="text-xs font-semibold text-brandBlue bg-blue-50 border border-blue-100 px-2 py-1 rounded">${product.category}</span>
-              <h3 class="font-bold text-brandDarkBlue mt-2">${product.name}</h3>
-              <p class="text-brandBlue font-extrabold text-xl mt-1">R ${product.price.toFixed(2)}</p>
-            </div>
-          </div>
-          <div class="p-4 pt-0">
-            <button onclick="addToCart(${product.id})" class="w-full bg-brandDarkBlue hover:bg-brandBlue text-white text-sm font-bold py-2.5 rounded-lg transition flex items-center justify-center space-x-1 shadow-sm">
-              <i data-lucide="plus" class="w-4 h-4"></i>
-              <span>Add to Cart</span>
-            </button>
-          </div>
-        </div>
-      `).join('');
-      lucide.createIcons();
-    }
+</header>
 
-    function addToCart(productId) {
-      const item = products.find(p => p.id === productId);
-      const existing = cart.find(p => p.id === productId);
-      if (existing) {
-        existing.qty++;
-      } else {
-        cart.push({ ...item, qty: 1 });
-      }
-      updateCartUI();
-    }
 
-    function updateCartUI() {
-      const cartCount = document.getElementById('cartCount');
-      const cartItems = document.getElementById('cartItems');
-      const cartTotal = document.getElementById('cartTotal');
+<!-- HERO -->
 
-      const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
-      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+<section class="bg-gradient-to-r from-brandDarkBlue via-brandBlue to-brandDarkBlue text-white text-center py-14 px-5">
 
-      cartCount.textContent = totalItems;
-      cartTotal.textContent = `R ${totalPrice.toFixed(2)}`;
+<div class="max-w-3xl mx-auto">
 
-      if (cart.length === 0) {
-        cartItems.innerHTML = '<p class="text-gray-400 text-center py-6">Your cart is empty.</p>';
-      } else {
-        cartItems.innerHTML = cart.map(item => `
-          <div class="flex items-center justify-between border-b pb-3">
-            <div>
-              <p class="font-bold text-sm text-brandDarkBlue">${item.name}</p>
-              <p class="text-xs text-gray-500">R ${item.price} x ${item.qty}</p>
-            </div>
-            <span class="font-bold text-brandBlue">R ${(item.price * item.qty).toFixed(2)}</span>
-          </div>
-        `).join('');
-      }
-    }
+<p class="text-blue-200 uppercase text-sm font-bold mb-3">
+Trending in South Africa
+</p>
 
-    // Modal Controls
-    const cartBtn = document.getElementById('cartBtn');
-    const closeCart = document.getElementById('closeCart');
-    const cartDrawer = document.getElementById('cartDrawer');
+<h2 class="text-4xl md:text-5xl font-extrabold mb-4">
+Smart Products. Better Life.
+</h2>
 
-    cartBtn.addEventListener('click', () => cartDrawer.classList.remove('hidden'));
-    closeCart.addEventListener('click', () => cartDrawer.classList.add('hidden'));
+<p class="text-blue-100 mb-7">
+Discover useful gadgets, home products, beauty tools and everyday smart solutions.
+</p>
 
-    // Initialize
-    renderProducts();
-  </script>
+<a
+href="#products"
+class="bg-white text-brandBlue px-7 py-3 rounded-full font-bold"
+>
+Shop Now
+</a>
+
+</div>
+
+</section>
+
+
+<!-- PRODUCTS -->
+
+<section id="products" class="max-w-7xl mx-auto px-4 py-12">
+
+<h2 class="text-3xl font-bold text-center text-brandDarkBlue mb-8">
+Popular Products
+</h2>
+
+<div
+id="productGrid"
+class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+>
+</div>
+
+</section>
+
+
+<!-- CART -->
+
+<div
+id="cart"
+class="hidden fixed inset-0 bg-black/50 z-50"
+>
+
+<div class="bg-white absolute right-0 top-0 h-full w-full max-w-md p-6 overflow-y-auto">
+
+<div class="flex justify-between items-center mb-6">
+
+<h2 class="text-2xl font-bold">
+Your Cart
+</h2>
+
+<button
+onclick="closeCart()"
+class="text-2xl"
+>
+✕
+</button>
+
+</div>
+
+
+<div id="cartItems"></div>
+
+
+<div class="border-t mt-6 pt-5">
+
+<div class="flex justify-between text-xl font-bold mb-5">
+
+<span>Total</span>
+
+<span id="cartTotal">
+R0.00
+</span>
+
+</div>
+
+
+<!-- ==================================================
+     CHANGE ONLY THIS LINK
+
+     Replace YOUR-YOCO-PAYMENT-LINK with your
+     actual Yoco Payment Link.
+================================================== -->
+
+<a
+id="yocoButton"
+href="#"
+target="_blank"
+class="block w-full bg-brandBlue hover:bg-blue-800 text-white text-center py-4 rounded-lg font-bold"
+onclick="return checkCartBeforePayment()"
+>
+💳 Pay Securely with Yoco
+</a>
+
+
+<p class="text-center text-xs text-gray-500 mt-3">
+Secure payment powered by Yoco
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+/* ==================================================
+   YOUR YOCO PAYMENT LINK
+   ==================================================
+
+   Replace the text between the quotes with your
+   Yoco Payment Link.
+
+   Example:
+
+   const YOCO_PAYMENT_LINK =
+   "https://pay.yoco.com/your-store";
+
+================================================== */
+
+const YOCO_PAYMENT_LINK = "YOUR-YOCO-PAYMENT-LINK";
+
+
+/* PRODUCTS */
+
+const products = [
+
+{
+id: 1,
+name: "Rechargeable LED Emergency Bulb (Pack of 2)",
+price: 299,
+category: "Emergency & Power",
+image: "https://images.unsplash.com/photo-1550985616-10810253b84d?w=600"
+},
+
+{
+id: 2,
+name: "Portable Solar Power Bank 20,000mAh",
+price: 449,
+category: "Tech & Gear",
+image: "https://images.unsplash.com/photo-1609592424109-dd9892f1b177?w=600"
+},
+
+{
+id: 3,
+name: "Mini Portable Wi-Fi UPS Battery",
+price: 599,
+category: "Tech & Home",
+image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600"
+},
+
+{
+id: 4,
+name: "Portable Rechargeable Travel Espresso Maker",
+price: 899,
+category: "Lifestyle",
+image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600"
+},
+
+{
+id: 5,
+name: "MistBrush 2-in-1 Spray Hairbrush",
+price: 399,
+category: "Beauty Tools",
+image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600"
+},
+
+{
+id: 6,
+name: "Electric Vegetable Chopper",
+price: 349,
+category: "Kitchen",
+image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600"
+},
+
+{
+id: 7,
+name: "Anti-Spill Pet Water Bowl",
+price: 299,
+category: "Pet Essentials",
+image: "https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=600"
+},
+
+{
+id: 8,
+name: "Motion Sensor Solar Security Light",
+price: 249,
+category: "Home & Garden",
+image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600"
+},
+
+{
+id: 9,
+name: "Cordless Hair Straightener",
+price: 499,
+category: "Beauty Tools",
+image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600"
+},
+
+{
+id: 10,
+name: "Ultrasonic Jewelry Cleaner",
+price: 429,
+category: "Utility",
+image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600"
+}
+
+];
+
+
+let cartItems = [];
+
+
+/* SHOW PRODUCTS */
+
+function showProducts() {
+
+const grid =
+document.getElementById("productGrid");
+
+grid.innerHTML = products.map(product => `
+
+<div class="bg-white rounded-xl shadow overflow-hidden">
+
+<img
+src="${product.image}"
+class="w-full h-48 object-cover"
+alt="${product.name}"
+>
+
+<div class="p-4">
+
+<p class="text-xs text-brandBlue font-bold uppercase">
+${product.category}
+</p>
+
+<h3 class="font-bold text-lg mt-2">
+${product.name}
+</h3>
+
+<p class="text-xl font-extrabold text-brandBlue mt-2">
+R${product.price.toFixed(2)}
+</p>
+
+<button
+onclick="addToCart(${product.id})"
+class="w-full mt-4 bg-brandDarkBlue hover:bg-brandBlue text-white py-3 rounded-lg font-bold"
+>
+Add to Cart
+</button>
+
+</div>
+
+</div>
+
+`).join("");
+
+}
+
+
+/* ADD TO CART */
+
+function addToCart(id) {
+
+const product =
+products.find(p => p.id === id);
+
+const existing =
+cartItems.find(p => p.id === id);
+
+if(existing) {
+
+existing.quantity++;
+
+} else {
+
+cartItems.push({
+...product,
+quantity: 1
+});
+
+}
+
+updateCart();
+
+openCart();
+
+}
+
+
+/* UPDATE CART */
+
+function updateCart() {
+
+const container =
+document.getElementById("cartItems");
+
+const count =
+document.getElementById("cartCount");
+
+const total =
+document.getElementById("cartTotal");
+
+
+let itemCount = 0;
+let totalPrice = 0;
+
+
+cartItems.forEach(item => {
+
+itemCount += item.quantity;
+
+totalPrice +=
+item.price * item.quantity;
+
+});
+
+
+count.innerText = itemCount;
+
+total.innerText =
+"R" + totalPrice.toFixed(2);
+
+
+if(cartItems.length === 0) {
+
+container.innerHTML = `
+
+<div class="text-center py-10 text-gray-400">
+
+<p class="text-4xl mb-3">🛒</p>
+
+<p>Your cart is empty.</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+container.innerHTML =
+cartItems.map(item => `
+
+<div class="border-b py-4">
+
+<div class="flex justify-between gap-3">
+
+<div>
+
+<h3 class="font-bold text-sm">
+${item.name}
+</h3>
+
+<p class="text-sm text-gray-500">
+R${item.price.toFixed(2)}
+</p>
+
+</div>
+
+<button
+onclick="removeItem(${item.id})"
+class="text-red-500 font-bold"
+>
+Remove
+</button>
+
+</div>
+
+
+<div class="flex justify-between items-center mt-3">
+
+<div class="flex items-center gap-3">
+
+<button
+onclick="changeQuantity(${item.id}, -1)"
+class="bg-gray-200 px-3 py-1 rounded"
+>
+−
+</button>
+
+<span class="font-bold">
+${item.quantity}
+</span>
+
+<button
+onclick="changeQuantity(${item.id}, 1)"
+class="bg-gray-200 px-3 py-1 rounded"
+>
++
+</button>
+
+</div>
+
+<strong>
+R${(item.price * item.quantity).toFixed(2)}
+</strong>
+
+</div>
+
+</div>
+
+`).join("");
+
+}
+
+
+/* CHANGE QUANTITY */
+
+function changeQuantity(id, amount) {
+
+const item =
+cartItems.find(p => p.id === id);
+
+if(!item) return;
+
+item.quantity += amount;
+
+if(item.quantity <= 0) {
+
+removeItem(id);
+
+return;
+
+}
+
+updateCart();
+
+}
+
+
+/* REMOVE */
+
+function removeItem(id) {
+
+cartItems =
+cartItems.filter(p => p.id !== id);
+
+updateCart();
+
+}
+
+
+/* OPEN CART */
+
+function openCart() {
+
+document
+.getElementById("cart")
+.classList.remove("hidden");
+
+}
+
+
+/* CLOSE CART */
+
+function closeCart() {
+
+document
+.getElementById("cart")
+.classList.add("hidden");
+
+}
+
+
+/* YOCO PAYMENT */
+
+function checkCartBeforePayment() {
+
+if(cartItems.length === 0) {
+
+alert("Your cart is empty.");
+
+return false;
+
+}
+
+
+if(
+YOCO_PAYMENT_LINK ===
+"YOUR-YOCO-PAYMENT-LINK"
+) {
+
+alert(
+"Yoco payment has not been connected yet. Please add your Yoco Payment Link."
+);
+
+return false;
+
+}
+
+
+/*
+   Open the Yoco Payment Link.
+*/
+
+document
+.getElementById("yocoButton")
+.href =
+YOCO_PAYMENT_LINK;
+
+return true;
+
+}
+
+
+/* START */
+
+showProducts();
+
+updateCart();
+
+</script>
+
 </body>
 </html>
