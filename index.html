@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#000000">
-<meta name="description" content="AeroZone - Food, groceries, beauty, snacks and everyday essentials delivered to your door.">
-<title>AeroZone | Food & Shopping Delivery</title>
+
+<title>QuickCart | Shop & Deliver</title>
 
 <style>
 *{
@@ -14,21 +14,14 @@
     padding:0;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
     font-family:Arial,Helvetica,sans-serif;
-    background:#fff;
+    background:#f7f7f7;
     color:#111;
-    line-height:1.5;
+    padding-bottom:90px;
 }
 
-button,
-input,
-select,
-textarea{
+button,input,select{
     font:inherit;
 }
 
@@ -36,741 +29,506 @@ button{
     cursor:pointer;
 }
 
-a{
-    color:inherit;
-    text-decoration:none;
-}
-
-/* =========================
-   HEADER
-========================= */
-
-.header{
+/* HEADER */
+header{
+    background:#000;
+    color:#fff;
     position:sticky;
     top:0;
     z-index:1000;
-    background:#000;
-    color:#fff;
-    box-shadow:0 3px 18px rgba(0,0,0,.18);
+    box-shadow:0 3px 15px rgba(0,0,0,.18);
 }
 
-.header-top{
-    max-width:1250px;
+.header{
+    max-width:1200px;
     margin:auto;
-    padding:15px 20px;
+    padding:16px 20px;
     display:flex;
     align-items:center;
-    gap:18px;
+    justify-content:space-between;
+    gap:15px;
 }
 
 .logo{
-    font-size:28px;
+    font-size:24px;
     font-weight:900;
-    letter-spacing:-1.5px;
-    white-space:nowrap;
+    letter-spacing:-1px;
 }
 
 .logo span{
-    color:#fff;
-    border-bottom:3px solid #fff;
-}
-
-.search-box{
-    flex:1;
-    position:relative;
-}
-
-.search-box input{
-    width:100%;
-    height:45px;
-    border:0;
-    outline:0;
-    border-radius:25px;
-    padding:0 18px 0 45px;
     background:#fff;
-    color:#111;
+    color:#000;
+    padding:4px 7px;
+    border-radius:6px;
 }
 
-.search-icon{
-    position:absolute;
-    left:17px;
-    top:12px;
-    color:#777;
-}
-
-.cart-btn{
+.cart-button{
     background:#fff;
     color:#000;
     border:0;
-    border-radius:25px;
-    padding:11px 18px;
+    border-radius:12px;
+    padding:10px 15px;
     font-weight:800;
-    white-space:nowrap;
 }
 
 .cart-count{
-    display:inline-flex;
-    justify-content:center;
-    align-items:center;
-    min-width:21px;
-    height:21px;
-    margin-left:5px;
-    padding:0 5px;
     background:#000;
     color:#fff;
     border-radius:50%;
-    font-size:12px;
+    padding:2px 7px;
+    margin-left:4px;
 }
 
-/* =========================
-   NAV
-========================= */
-
-.nav-scroll{
-    border-top:1px solid #333;
-    overflow-x:auto;
-}
-
-.nav{
-    max-width:1250px;
-    margin:auto;
-    display:flex;
-    gap:8px;
-    padding:10px 20px;
-    min-width:max-content;
-}
-
-.nav button{
-    border:1px solid #444;
-    background:#111;
-    color:#fff;
-    border-radius:20px;
-    padding:8px 16px;
-    font-size:13px;
-}
-
-.nav button.active,
-.nav button:hover{
-    background:#fff;
-    color:#000;
-}
-
-/* =========================
-   HERO
-========================= */
-
+/* HERO */
 .hero{
-    background:#000;
-    color:#fff;
-    padding:55px 20px;
-}
-
-.hero-inner{
-    max-width:1250px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:1.4fr .8fr;
-    gap:30px;
-    align-items:center;
-}
-
-.hero h1{
-    font-size:clamp(38px,6vw,72px);
-    line-height:.95;
-    letter-spacing:-3px;
-    margin-bottom:20px;
-}
-
-.hero h1 span{
-    color:#bbb;
-}
-
-.hero p{
-    color:#ccc;
-    max-width:620px;
-    font-size:18px;
-    margin-bottom:28px;
-}
-
-.hero-buttons{
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
-}
-
-.hero-btn{
-    padding:13px 21px;
-    border-radius:28px;
-    border:1px solid #fff;
     background:#fff;
-    color:#000;
-    font-weight:800;
-}
-
-.hero-btn.dark{
-    background:#000;
-    color:#fff;
-}
-
-.hero-card{
-    border:1px solid #444;
-    border-radius:25px;
-    padding:28px;
-    background:#111;
-}
-
-.hero-card .big{
-    font-size:52px;
-    margin-bottom:8px;
-}
-
-.hero-card h3{
-    font-size:24px;
-    margin-bottom:8px;
-}
-
-.hero-card p{
-    margin:0;
-    font-size:14px;
-    color:#aaa;
-}
-
-/* =========================
-   ADDRESS
-========================= */
-
-.address-bar{
-    background:#f5f5f5;
+    padding:38px 20px 28px;
     border-bottom:1px solid #ddd;
 }
 
-.address-inner{
-    max-width:1250px;
+.hero-inner{
+    max-width:1200px;
     margin:auto;
-    padding:15px 20px;
+}
+
+.hero h1{
+    font-size:clamp(30px,5vw,52px);
+    line-height:1;
+    margin-bottom:12px;
+}
+
+.hero p{
+    color:#666;
+    font-size:16px;
+    margin-bottom:22px;
+}
+
+.search{
     display:flex;
-    gap:10px;
+    background:#f1f1f1;
+    border:1px solid #ddd;
+    border-radius:15px;
+    overflow:hidden;
+    max-width:750px;
+}
+
+.search input{
+    width:100%;
+    border:0;
+    outline:0;
+    padding:16px;
+    background:transparent;
+}
+
+.search button{
+    border:0;
+    background:#000;
+    color:#fff;
+    padding:0 22px;
+}
+
+/* LOCATION */
+.location{
+    max-width:1200px;
+    margin:20px auto;
+    padding:0 20px;
+}
+
+.location-box{
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:15px;
+    padding:16px;
+    display:flex;
+    gap:12px;
     align-items:center;
 }
 
-.address-inner input{
+.location-icon{
+    font-size:25px;
+}
+
+.location-text{
     flex:1;
-    min-width:0;
-    padding:12px 15px;
-    border:1px solid #ccc;
-    border-radius:10px;
-    outline:0;
-    background:#fff;
 }
 
-.address-inner button{
-    padding:12px 17px;
-    background:#000;
-    color:#fff;
-    border:0;
-    border-radius:10px;
-    font-weight:700;
+.location-text strong{
+    display:block;
+    margin-bottom:4px;
 }
 
-/* =========================
-   MAIN
-========================= */
+.location-text small{
+    color:#777;
+}
 
-.container{
-    max-width:1250px;
-    margin:auto;
-    padding:35px 20px;
+/* SECTIONS */
+section{
+    max-width:1200px;
+    margin:28px auto;
+    padding:0 20px;
 }
 
 .section-title{
     display:flex;
-    align-items:end;
+    align-items:center;
     justify-content:space-between;
-    gap:15px;
-    margin-bottom:18px;
+    margin-bottom:15px;
 }
 
 .section-title h2{
-    font-size:30px;
-    letter-spacing:-1px;
+    font-size:23px;
 }
 
-.section-title p{
+.section-title span{
     color:#777;
-    font-size:14px;
+    font-size:13px;
 }
 
-/* =========================
-   CATEGORIES
-========================= */
-
+/* CATEGORIES */
 .categories{
-    display:grid;
-    grid-template-columns:repeat(7,1fr);
+    display:flex;
     gap:12px;
-    margin-bottom:40px;
+    overflow-x:auto;
+    padding-bottom:5px;
+}
+
+.categories::-webkit-scrollbar{
+    display:none;
 }
 
 .category{
+    min-width:115px;
     border:1px solid #ddd;
     background:#fff;
-    border-radius:18px;
-    padding:18px 10px;
+    border-radius:15px;
+    padding:16px 10px;
     text-align:center;
     transition:.2s;
 }
 
-.category:hover,
-.category.active{
-    background:#000;
-    color:#fff;
-    border-color:#000;
+.category:hover{
     transform:translateY(-2px);
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
 }
 
 .category-icon{
     font-size:30px;
-    display:block;
-    margin-bottom:6px;
+    margin-bottom:8px;
 }
 
-.category span:last-child{
+.category strong{
     font-size:13px;
-    font-weight:700;
 }
 
-/* =========================
-   STORES
-========================= */
-
-.store-section{
-    margin-bottom:48px;
-    border:1px solid #e1e1e1;
-    border-radius:25px;
-    padding:20px;
-    background:#fff;
-    box-shadow:0 8px 30px rgba(0,0,0,.045);
-}
-
-.store-section.hidden{
-    display:none;
-}
-
-.store-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:15px;
-    margin-bottom:18px;
-}
-
-.store-info{
-    display:flex;
-    align-items:center;
+/* STORE CARDS */
+.stores{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
     gap:14px;
 }
 
-.store-logo{
-    width:58px;
-    height:58px;
-    border-radius:16px;
+.store{
     background:#000;
     color:#fff;
+    border-radius:17px;
+    padding:20px;
+    min-height:125px;
     display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.store-icon{
+    font-size:32px;
+}
+
+.store h3{
+    margin-top:12px;
+}
+
+.store small{
+    color:#bbb;
+}
+
+/* DEAL */
+.deal{
+    background:#000;
+    color:#fff;
+    border-radius:20px;
+    padding:24px;
+    display:flex;
+    justify-content:space-between;
     align-items:center;
-    justify-content:center;
-    font-size:28px;
-    flex-shrink:0;
+    gap:20px;
 }
 
-.store-info h3{
-    font-size:23px;
+.deal h2{
+    font-size:25px;
+    margin-bottom:6px;
 }
 
-.store-info p{
-    color:#777;
-    font-size:13px;
+.deal p{
+    color:#ccc;
 }
 
-.store-meta{
-    text-align:right;
-    font-size:13px;
-    color:#555;
-}
-
-.store-meta strong{
-    color:#000;
-}
-
-.view-store{
-    border:1px solid #111;
+.deal button{
     background:#fff;
     color:#000;
-    padding:8px 14px;
-    border-radius:18px;
-    font-size:12px;
-    font-weight:800;
+    border:0;
+    border-radius:12px;
+    padding:12px 18px;
+    font-weight:bold;
 }
 
-/* =========================
-   PRODUCTS INSIDE STORES
-========================= */
-
-.store-products{
+/* PRODUCTS */
+.products{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(auto-fill,minmax(170px,1fr));
     gap:15px;
 }
 
-.product-card{
-    border:1px solid #e2e2e2;
-    border-radius:17px;
-    overflow:hidden;
+.product{
     background:#fff;
+    border:1px solid #ddd;
+    border-radius:18px;
+    overflow:hidden;
     transition:.2s;
-    position:relative;
 }
 
-.product-card:hover{
+.product:hover{
     transform:translateY(-3px);
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-}
-
-.product-card.hidden{
-    display:none;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
 
 .product-image{
     height:145px;
-    background:#f4f4f4;
+    background:#eee;
     display:flex;
-    align-items:center;
     justify-content:center;
-    font-size:65px;
-}
-
-.product-body{
-    padding:13px;
-}
-
-.product-name{
-    font-weight:800;
-    min-height:42px;
-    font-size:15px;
-}
-
-.rating{
-    color:#555;
-    font-size:12px;
-    margin:4px 0 7px;
-}
-
-.price-row{
-    display:flex;
     align-items:center;
-    gap:8px;
-    flex-wrap:wrap;
-    margin-bottom:10px;
+    font-size:58px;
 }
 
-.price{
-    font-weight:900;
-    font-size:18px;
+.product-info{
+    padding:14px;
 }
 
-.old-price{
-    color:#999;
-    text-decoration:line-through;
-    font-size:12px;
-}
-
-.add-btn{
-    width:100%;
-    border:0;
-    background:#000;
-    color:#fff;
-    padding:10px;
-    border-radius:10px;
-    font-weight:800;
-}
-
-.add-btn:hover{
-    background:#222;
-}
-
-.no-products{
-    display:none;
-    text-align:center;
-    padding:25px;
+.product-store{
     color:#777;
-}
-
-.no-products.show{
-    display:block;
-}
-
-/* =========================
-   DEALS
-========================= */
-
-.deals{
-    margin:10px 0 45px;
-    background:#000;
-    color:#fff;
-    border-radius:25px;
-    padding:25px;
-}
-
-.deals-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-    margin-top:18px;
-}
-
-.deal{
-    background:#151515;
-    border:1px solid #333;
-    padding:18px;
-    border-radius:17px;
-}
-
-.deal strong{
-    display:block;
-    font-size:19px;
+    font-size:11px;
     margin-bottom:5px;
 }
 
-.deal p{
-    color:#aaa;
-    font-size:13px;
+.product-name{
+    font-weight:700;
+    min-height:38px;
 }
 
-/* =========================
-   CONTACT
-========================= */
-
-.contact-strip{
-    background:#f5f5f5;
-    border-top:1px solid #ddd;
-    border-bottom:1px solid #ddd;
-    padding:25px 20px;
-}
-
-.contact-inner{
-    max-width:1250px;
-    margin:auto;
+.product-bottom{
     display:flex;
     justify-content:space-between;
-    gap:15px;
     align-items:center;
+    margin-top:12px;
 }
 
-.contact-inner h3{
-    margin-bottom:4px;
+.price{
+    font-size:18px;
+    font-weight:900;
 }
 
-.contact-inner p{
-    color:#666;
-    font-size:14px;
-}
-
-.whatsapp-btn{
+.add{
+    width:38px;
+    height:38px;
+    border:0;
+    border-radius:12px;
     background:#000;
     color:#fff;
-    border:0;
-    border-radius:25px;
-    padding:12px 20px;
-    font-weight:800;
+    font-size:22px;
 }
 
-/* =========================
-   CART
-========================= */
-
+/* CART DRAWER */
 .overlay{
+    display:none;
     position:fixed;
     inset:0;
     background:rgba(0,0,0,.55);
-    z-index:2000;
-    display:none;
+    z-index:1999;
 }
 
 .overlay.show{
     display:block;
 }
 
-.cart-panel{
+.cart{
     position:fixed;
+    right:-500px;
     top:0;
-    right:0;
     height:100%;
-    width:min(450px,100%);
+    width:min(480px,100%);
     background:#fff;
-    z-index:2100;
-    transform:translateX(100%);
+    z-index:2000;
     transition:.3s;
     display:flex;
     flex-direction:column;
 }
 
-.cart-panel.show{
-    transform:translateX(0);
+.cart.open{
+    right:0;
 }
 
 .cart-header{
-    padding:18px;
-    border-bottom:1px solid #ddd;
+    background:#000;
+    color:#fff;
+    padding:20px;
     display:flex;
     justify-content:space-between;
     align-items:center;
 }
 
-.close-btn{
+.close{
+    background:#fff;
+    color:#000;
     border:0;
-    background:#eee;
+    border-radius:9px;
     width:35px;
     height:35px;
-    border-radius:50%;
 }
 
 .cart-items{
     flex:1;
-    overflow-y:auto;
+    overflow:auto;
     padding:15px;
 }
 
-.cart-empty{
+.empty{
     text-align:center;
     color:#777;
-    padding:60px 20px;
+    padding:50px 20px;
 }
 
 .cart-item{
-    display:grid;
-    grid-template-columns:48px 1fr auto;
-    gap:10px;
-    align-items:center;
+    display:flex;
+    gap:12px;
     padding:13px 0;
     border-bottom:1px solid #eee;
 }
 
 .cart-item-icon{
-    width:48px;
-    height:48px;
+    width:55px;
+    height:55px;
     border-radius:12px;
-    background:#f2f2f2;
+    background:#eee;
     display:flex;
     align-items:center;
     justify-content:center;
     font-size:25px;
 }
 
-.cart-item-name{
-    font-weight:800;
-    font-size:14px;
+.cart-item-info{
+    flex:1;
 }
 
-.cart-item-price{
-    font-size:12px;
-    color:#777;
+.cart-item-info strong{
+    display:block;
+    margin-bottom:5px;
 }
 
 .qty{
     display:flex;
     align-items:center;
-    gap:6px;
-    margin-top:5px;
+    gap:9px;
 }
 
 .qty button{
     border:1px solid #ccc;
     background:#fff;
-    width:25px;
-    height:25px;
-    border-radius:6px;
+    width:27px;
+    height:27px;
+    border-radius:7px;
 }
 
-.cart-summary{
+.cart-footer{
     border-top:1px solid #ddd;
     padding:18px;
 }
 
-.summary-line{
+.total-row{
     display:flex;
     justify-content:space-between;
-    margin:6px 0;
+    margin-bottom:8px;
 }
 
-.summary-total{
-    font-size:20px;
+.grand-total{
+    font-size:22px;
     font-weight:900;
-    border-top:1px solid #ddd;
-    padding-top:12px;
-    margin-top:10px;
+    margin:12px 0;
 }
 
-.checkout-btn{
+.checkout{
     width:100%;
     background:#000;
     color:#fff;
     border:0;
-    padding:14px;
-    border-radius:12px;
-    margin-top:14px;
-    font-weight:900;
+    padding:15px;
+    border-radius:13px;
+    font-weight:800;
 }
 
-/* =========================
-   CHECKOUT
-========================= */
-
-.checkout{
+/* CHECKOUT */
+.checkout-modal{
+    display:none;
     position:fixed;
     inset:0;
     background:rgba(0,0,0,.6);
     z-index:3000;
-    display:none;
-    overflow-y:auto;
-    padding:25px 15px;
+    overflow:auto;
+    padding:20px;
 }
 
-.checkout.show{
-    display:block;
+.checkout-modal.show{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
 }
 
 .checkout-box{
-    max-width:650px;
-    margin:20px auto;
     background:#fff;
-    border-radius:22px;
-    padding:25px;
+    width:min(650px,100%);
+    margin:30px auto;
+    border-radius:20px;
+    overflow:hidden;
 }
 
-.checkout-box h2{
-    margin-bottom:20px;
+.checkout-header{
+    background:#000;
+    color:#fff;
+    padding:22px;
+    display:flex;
+    justify-content:space-between;
+}
+
+.form{
+    padding:20px;
 }
 
 .form-group{
-    margin-bottom:14px;
+    margin-bottom:15px;
 }
 
 .form-group label{
     display:block;
-    font-weight:700;
-    font-size:13px;
-    margin-bottom:6px;
+    font-weight:bold;
+    margin-bottom:7px;
 }
 
 .form-group input,
-.form-group select,
-.form-group textarea{
+.form-group textarea,
+.form-group select{
     width:100%;
+    padding:13px;
     border:1px solid #ccc;
-    border-radius:9px;
-    padding:11px;
+    border-radius:10px;
     outline:0;
-    background:#fff;
 }
 
 .form-group textarea{
@@ -778,291 +536,155 @@ a{
     resize:vertical;
 }
 
-.payment-title{
-    font-weight:900;
-    margin:18px 0 10px;
-}
-
-.payment-options{
+.payment{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:10px;
 }
 
-.payment-option{
+.payment label{
     border:1px solid #ccc;
     padding:13px;
     border-radius:10px;
+    cursor:pointer;
+}
+
+.payment input{
+    margin-right:6px;
+}
+
+.place-order{
+    width:100%;
+    background:#000;
+    color:#fff;
+    border:0;
+    padding:16px;
+    border-radius:12px;
+    font-weight:900;
+    margin-top:10px;
+}
+
+/* ORDER STATUS */
+.status{
+    display:none;
+    max-width:1200px;
+    margin:30px auto;
+    padding:0 20px;
+}
+
+.status.show{
+    display:block;
+}
+
+.status-card{
     background:#fff;
-    text-align:left;
-}
-
-.payment-option.selected{
-    border:2px solid #000;
-    background:#f5f5f5;
-}
-
-.checkout-buttons{
-    display:flex;
-    gap:10px;
-    margin-top:20px;
-}
-
-.checkout-buttons button{
-    flex:1;
-    padding:13px;
-    border-radius:10px;
-    font-weight:800;
-}
-
-.cancel-btn{
-    background:#eee;
-    border:0;
-}
-
-.place-btn{
-    background:#000;
-    color:#fff;
-    border:0;
-}
-
-/* =========================
-   TOAST
-========================= */
-
-.toast{
-    position:fixed;
-    left:50%;
-    bottom:25px;
-    transform:translate(-50%,100px);
-    background:#000;
-    color:#fff;
-    padding:12px 20px;
-    border-radius:25px;
-    z-index:5000;
-    opacity:0;
-    transition:.3s;
-    font-size:14px;
-}
-
-.toast.show{
-    transform:translate(-50%,0);
-    opacity:1;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    background:#000;
-    color:#fff;
-    padding:35px 20px 20px;
-}
-
-.footer-inner{
-    max-width:1250px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:1.5fr 1fr 1fr;
-    gap:30px;
-}
-
-footer h3{
-    margin-bottom:10px;
-}
-
-footer p,
-footer li{
-    color:#aaa;
-    font-size:13px;
-}
-
-footer ul{
-    list-style:none;
-}
-
-footer li{
-    margin:6px 0;
-}
-
-.footer-bottom{
-    max-width:1250px;
-    margin:25px auto 0;
-    padding-top:15px;
-    border-top:1px solid #333;
-    color:#777;
-    font-size:12px;
+    border:1px solid #ddd;
+    border-radius:20px;
+    padding:25px;
     text-align:center;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media(max-width:950px){
-    .categories{
-        grid-template-columns:repeat(4,1fr);
-    }
-
-    .store-products{
-        grid-template-columns:repeat(3,1fr);
-    }
-
-    .hero-inner{
-        grid-template-columns:1fr;
-    }
-
-    .footer-inner{
-        grid-template-columns:1fr 1fr;
-    }
+.status-icon{
+    font-size:55px;
 }
 
-@media(max-width:700px){
-    .header-top{
-        flex-wrap:wrap;
-        padding:12px 14px;
-        gap:10px;
+.status-steps{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    margin-top:25px;
+    gap:8px;
+}
+
+.step{
+    padding:15px 5px;
+    border-top:4px solid #ddd;
+    color:#777;
+    font-size:12px;
+}
+
+.step.active{
+    border-top-color:#000;
+    color:#000;
+    font-weight:bold;
+}
+
+/* FOOTER */
+footer{
+    background:#000;
+    color:#fff;
+    padding:35px 20px;
+    margin-top:40px;
+}
+
+.footer-inner{
+    max-width:1200px;
+    margin:auto;
+    text-align:center;
+}
+
+footer p{
+    color:#aaa;
+    margin-top:8px;
+}
+
+.whatsapp{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:#000;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:27px;
+    z-index:1500;
+    box-shadow:0 5px 20px rgba(0,0,0,.25);
+    text-decoration:none;
+}
+
+@media(max-width:600px){
+    .header{
+        padding:13px 15px;
     }
 
     .logo{
-        font-size:24px;
-    }
-
-    .search-box{
-        order:3;
-        flex-basis:100%;
-    }
-
-    .search-box input{
-        height:42px;
-    }
-
-    .cart-btn{
-        margin-left:auto;
-        padding:10px 13px;
+        font-size:20px;
     }
 
     .hero{
-        padding:40px 16px;
+        padding:28px 15px 22px;
     }
 
-    .hero h1{
-        font-size:47px;
-        letter-spacing:-2px;
+    section{
+        padding:0 15px;
     }
 
-    .hero p{
-        font-size:15px;
+    .location{
+        padding:0 15px;
     }
 
-    .address-inner{
-        padding:12px 14px;
-    }
-
-    .address-inner button{
-        padding:12px;
-    }
-
-    .container{
-        padding:28px 14px;
-    }
-
-    .categories{
-        grid-template-columns:repeat(4,1fr);
-        gap:8px;
-    }
-
-    .category{
-        padding:13px 5px;
-        border-radius:14px;
-    }
-
-    .category-icon{
-        font-size:25px;
-    }
-
-    .category span:last-child{
-        font-size:11px;
-    }
-
-    .store-section{
-        padding:14px;
-        border-radius:19px;
-        margin-bottom:25px;
-    }
-
-    .store-header{
-        align-items:flex-start;
-    }
-
-    .store-info h3{
-        font-size:19px;
-    }
-
-    .store-info p{
-        max-width:190px;
-    }
-
-    .store-meta{
-        font-size:11px;
-    }
-
-    .view-store{
-        display:none;
-    }
-
-    .store-products{
-        display:flex;
-        overflow-x:auto;
-        gap:12px;
-        padding-bottom:5px;
-        scroll-snap-type:x mandatory;
-    }
-
-    .product-card{
-        min-width:170px;
-        max-width:170px;
-        scroll-snap-align:start;
+    .products{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
     }
 
     .product-image{
-        height:125px;
-        font-size:52px;
+        height:120px;
     }
 
-    .product-body{
-        padding:11px;
+    .product-info{
+        padding:10px;
     }
 
-    .product-name{
-        font-size:13px;
-    }
-
-    .price{
-        font-size:16px;
-    }
-
-    .deals-grid{
-        grid-template-columns:1fr;
-    }
-
-    .contact-inner{
+    .deal{
         flex-direction:column;
         align-items:flex-start;
     }
 
-    .footer-inner{
-        grid-template-columns:1fr;
-    }
-
-    .payment-options{
-        grid-template-columns:1fr;
-    }
-}
-
-@media(max-width:380px){
-    .categories{
+    .status-steps{
         grid-template-columns:repeat(2,1fr);
     }
 }
@@ -1071,2051 +693,720 @@ footer li{
 
 <body>
 
-<!-- =========================
-     HEADER
-========================= -->
+<header>
+    <div class="header">
+        <div class="logo"><span>Q</span> QuickCart</div>
 
-<header class="header">
-
-    <div class="header-top">
-
-        <div class="logo">
-            Aero<span>Zone</span>
-        </div>
-
-        <div class="search-box">
-            <span class="search-icon">🔍</span>
-            <input
-                type="search"
-                id="search"
-                placeholder="Search food, groceries, beauty..."
-            >
-        </div>
-
-        <button class="cart-btn" onclick="openCart()">
+        <button class="cart-button" onclick="openCart()">
             🛒 Cart
             <span class="cart-count" id="cartCount">0</span>
         </button>
-
     </div>
-
-    <div class="nav-scroll">
-        <nav class="nav">
-
-            <button class="active" onclick="showCategory('all',this)">
-                All
-            </button>
-
-            <button onclick="showCategory('food',this)">
-                🍔 Food
-            </button>
-
-            <button onclick="showCategory('groceries',this)">
-                🛒 Groceries
-            </button>
-
-            <button onclick="showCategory('drinks',this)">
-                🥤 Drinks
-            </button>
-
-            <button onclick="showCategory('beauty',this)">
-                💄 Beauty
-            </button>
-
-            <button onclick="showCategory('household',this)">
-                🧽 Household
-            </button>
-
-            <button onclick="showCategory('pet',this)">
-                🐶 Pet
-            </button>
-
-            <button onclick="showCategory('snacks',this)">
-                🍿 Snacks
-            </button>
-
-        </nav>
-    </div>
-
 </header>
 
-
-<!-- =========================
-     HERO
-========================= -->
-
-<section class="hero">
-
+<div class="hero">
     <div class="hero-inner">
+        <h1>Shop everything.<br>Delivered to you.</h1>
+        <p>Groceries, food, health, household items and more.</p>
 
-        <div>
-
-            <h1>
-                Everything.<br>
-                <span>Delivered.</span>
-            </h1>
-
-            <p>
-                Order food, groceries, beauty products, snacks and everyday
-                essentials from your favourite stores — all through AeroZone.
-            </p>
-
-            <div class="hero-buttons">
-
-                <button
-                    class="hero-btn"
-                    onclick="document.getElementById('stores').scrollIntoView()"
-                >
-                    Shop Now
-                </button>
-
-                <button
-                    class="hero-btn dark"
-                    onclick="openCart()"
-                >
-                    View Cart
-                </button>
-
-            </div>
-
+        <div class="search">
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Search products..."
+                oninput="searchProducts()"
+            >
+            <button onclick="searchProducts()">🔍</button>
         </div>
-
-        <div class="hero-card">
-
-            <div class="big">🚚</div>
-
-            <h3>Fast Local Delivery</h3>
-
-            <p>
-                Place your order and arrange delivery directly through
-                AeroZone.
-            </p>
-
-        </div>
-
     </div>
-
-</section>
-
-
-<!-- =========================
-     ADDRESS
-========================= -->
-
-<div class="address-bar">
-
-    <div class="address-inner">
-
-        <span>📍</span>
-
-        <input
-            id="deliveryAddress"
-            type="text"
-            placeholder="Enter your delivery address"
-        >
-
-        <button onclick="saveAddress()">
-            Save
-        </button>
-
-    </div>
-
 </div>
 
+<div class="location">
+    <div class="location-box">
+        <div class="location-icon">📍</div>
 
-<main class="container">
-
-    <!-- =========================
-         CATEGORIES
-    ========================= -->
-
-    <div class="section-title">
-
-        <div>
-            <h2>Shop by Category</h2>
-            <p>Find exactly what you need</p>
+        <div class="location-text">
+            <strong>Delivery location</strong>
+            <small id="locationText">Enter your address at checkout</small>
         </div>
 
+        <button onclick="openCheckout()" style="border:1px solid #ccc;background:#fff;border-radius:9px;padding:9px 12px;">
+            Change
+        </button>
+    </div>
+</div>
+
+<section>
+    <div class="section-title">
+        <h2>Shop by category</h2>
     </div>
 
     <div class="categories">
 
-        <button class="category active" onclick="showCategory('all',this)">
-            <span class="category-icon">✨</span>
-            <span>All</span>
+        <button class="category" onclick="filterCategory('Supermarket')">
+            <div class="category-icon">🛒</div>
+            <strong>Supermarket</strong>
         </button>
 
-        <button class="category" onclick="showCategory('food',this)">
-            <span class="category-icon">🍔</span>
-            <span>Food</span>
+        <button class="category" onclick="filterCategory('Pharmacy')">
+            <div class="category-icon">💊</div>
+            <strong>Pharmacy</strong>
         </button>
 
-        <button class="category" onclick="showCategory('groceries',this)">
-            <span class="category-icon">🛒</span>
-            <span>Groceries</span>
+        <button class="category" onclick="filterCategory('Restaurant')">
+            <div class="category-icon">🍽️</div>
+            <strong>Restaurant</strong>
         </button>
 
-        <button class="category" onclick="showCategory('drinks',this)">
-            <span class="category-icon">🥤</span>
-            <span>Drinks</span>
+        <button class="category" onclick="filterCategory('Fast Food')">
+            <div class="category-icon">🍔</div>
+            <strong>Fast Food</strong>
         </button>
 
-        <button class="category" onclick="showCategory('beauty',this)">
-            <span class="category-icon">💄</span>
-            <span>Beauty</span>
+        <button class="category" onclick="filterCategory('Bakery')">
+            <div class="category-icon">🥐</div>
+            <strong>Bakery</strong>
         </button>
 
-        <button class="category" onclick="showCategory('household',this)">
-            <span class="category-icon">🧽</span>
-            <span>Household</span>
+        <button class="category" onclick="filterCategory('Butchery')">
+            <div class="category-icon">🥩</div>
+            <strong>Butchery</strong>
         </button>
 
-        <button class="category" onclick="showCategory('pet',this)">
-            <span class="category-icon">🐶</span>
-            <span>Pet</span>
+        <button class="category" onclick="filterCategory('Fruit & Veg')">
+            <div class="category-icon">🥦</div>
+            <strong>Fruit & Veg</strong>
+        </button>
+
+        <button class="category" onclick="filterCategory('Home')">
+            <div class="category-icon">🧹</div>
+            <strong>Home</strong>
         </button>
 
     </div>
+</section>
 
+<section>
 
-    <!-- =========================
-         DEALS
-    ========================= -->
+    <div class="section-title">
+        <h2>Popular stores</h2>
+        <span>Browse stores</span>
+    </div>
 
-    <section class="deals">
+    <div class="stores">
 
-        <h2>🔥 Deals & Specials</h2>
-
-        <div class="deals-grid">
-
-            <div class="deal">
-                <strong>Food Favourites</strong>
-                <p>Enjoy popular meals at great prices.</p>
-            </div>
-
-            <div class="deal">
-                <strong>Everyday Essentials</strong>
-                <p>Groceries and household products in one place.</p>
-            </div>
-
-            <div class="deal">
-                <strong>Beauty & Care</strong>
-                <p>Personal care products delivered to your door.</p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         POPULAR STORES
-         PRODUCTS ARE INSIDE STORES
-    ========================= -->
-
-    <section id="stores">
-
-        <div class="section-title">
-
+        <div class="store">
+            <div class="store-icon">🛒</div>
             <div>
-                <h2>Popular Stores</h2>
-                <p id="productStatus">
-                    62 products available
-                </p>
+                <h3>Supermarket</h3>
+                <small>Groceries & essentials</small>
             </div>
-
         </div>
 
-
-        <!-- =========================
-             MR FOOD
-        ========================= -->
-
-        <section
-            class="store-section"
-            id="store-mrfood"
-            data-store="Mr Food"
-        >
-
-            <div class="store-header">
-
-                <div class="store-info">
-
-                    <div class="store-logo">
-                        🍔
-                    </div>
-
-                    <div>
-                        <h3>Mr Food</h3>
-                        <p>
-                            Burgers, pizza, chicken and delicious meals
-                        </p>
-                    </div>
-
-                </div>
-
-                <div class="store-meta">
-                    ⭐ <strong>4.8</strong><br>
-                    25–45 min
-                </div>
-
+        <div class="store">
+            <div class="store-icon">💊</div>
+            <div>
+                <h3>Pharmacy & Health</h3>
+                <small>Health & personal care</small>
             </div>
-
-            <div class="store-products">
-
-                <div class="product-card"
-                     data-category="food"
-                     data-name="Cheese Burger"
-                     data-id="1">
-
-                    <div class="product-image">🍔</div>
-
-                    <div class="product-body">
-
-                        <div class="product-name">
-                            Cheese Burger
-                        </div>
-
-                        <div class="rating">⭐ 4.8</div>
-
-                        <div class="price-row">
-                            <span class="price">R69.99</span>
-                            <span class="old-price">R79.99</span>
-                        </div>
-
-                        <button class="add-btn"
-                                onclick="addToCart(1)">
-                            Add to Cart
-                        </button>
-
-                    </div>
-                </div>
-
-
-                <div class="product-card"
-                     data-category="food"
-                     data-name="Double Beef Burger"
-                     data-id="2">
-
-                    <div class="product-image">🍔</div>
-
-                    <div class="product-body">
-
-                        <div class="product-name">
-                            Double Beef Burger
-                        </div>
-
-                        <div class="rating">⭐ 4.9</div>
-
-                        <div class="price-row">
-                            <span class="price">R89.99</span>
-                            <span class="old-price">R99.99</span>
-                        </div>
-
-                        <button class="add-btn"
-                                onclick="addToCart(2)">
-                            Add to Cart
-                        </button>
-
-                    </div>
-                </div>
-
-
-                <div class="product-card"
-                     data-category="food"
-                     data-name="Chicken Burger"
-                     data-id="3">
-
-                    <div class="product-image">🍔</div>
-
-                    <div class="product-body">
-
-                        <div class="product-name">
-                            Chicken Burger
-                        </div>
-
-                        <div class="rating">⭐ 4.7</div>
-
-                        <div class="price-row">
-                            <span class="price">R74.99</span>
-                        </div>
-
-                        <button class="add-btn"
-                                onclick="addToCart(3)">
-                            Add to Cart
-                        </button>
-
-                    </div>
-                </div>
-
-
-                <div class="product-card"
-                     data-category="food"
-                     data-name="Large Pizza"
-                     data-id="4">
-
-                    <div class="product-image">🍕</div>
-
-                    <div class="product-body">
-
-                        <div class="product-name">
-                            Large Pizza
-                        </div>
-
-                        <div class="rating">⭐ 4.8</div>
-
-                        <div class="price-row">
-                            <span class="price">R119.99</span>
-                            <span class="old-price">R139.99</span>
-                        </div>
-
-                        <button class="add-btn"
-                                onclick="addToCart(4)">
-                            Add to Cart
-                        </button>
-
-                    </div>
-                </div>
-
-
-                <div class="product-card"
-                     data-category="food"
-                     data-name="Pepperoni Pizza"
-                     data-id="5">
-
-                    <div class="product-image">🍕</div>
-
-                    <div class="product-body">
-
-                        <div class="product-name">
-                            Pepperoni Pizza
-                        </div>
-
-                        <div class="rating">⭐ 4.8</div>
-
-                        <div class="price-row">
-                            <span class="price">R129.99</span>
-                        </div>
-
-                        <button class="add-btn"
-                                onclick="addToCart(5)">
-                            Add to Cart
-                        </button>
-
-                    </div>
-                </div>
-
-
-                <div class="product-card"
-                     data-category="food"
-                     data-name="Chicken Wings"
-                     data-id="6">
-
-                    <div class="product-image">🍗</div>
-
-                    <div class="product-body">
-
-                        <div class="product-name">
-                            Chicken Wings
-                        </div>
-
-                        <div class="rating">⭐ 4.7</div>
-
-                        <div class="price-row">
-                            <span class="price">R79.99</span>
-                        </div>
-
-                        <button class="add-btn"
-                                onclick="addToCart(6)">
-                            Add to Cart
-                        </button>
-
-                    </div>
-                </div>
-
-
-                <div class="product-card"
-                     data-category="food"
-                     data-name="Chicken Meal"
-                     data-id="7">
-
-                    <div class="product-image">🍗</div>
-
-                    <div class="product-body">
-
-                        <div class="product-name">
-                            Chicken Meal
-                        </div>
-
-                        <div class="rating">⭐ 4.8</div>
-
-                        <div class="price-row">
-                            <span class="price">R89.99</span>
-                        </div>
-
-                        <button class="add-btn"
-                                onclick="addToCart(7)">
-                            Add to Cart
-                        </button>
-
-                    </div>
-                </div>
-
-
-                <div class="product-card"
-                     data-category="food"
-                     data-name="French Fries"
-                     data-id="8">
-
-                    <div class="product-image">🍟</div>
-
-                    <div class="product-body">
-
-                        <div class="product-name">
-                            French Fries
-                        </div>
-
-                        <div class="rating">⭐ 4.6</div>
-
-                        <div class="price-row">
-                            <span class="price">R39.99</span>
-                        </div>
-
-                        <button class="add-btn"
-                                onclick="addToCart(8)">
-                            Add to Cart
-                        </button>
-
-                    </div>
-                </div>
-
-
-                <div class="product-card"
-                     data-category="food"
-                     data-name="Chicken Wrap"
-                     data-id="9">
-
-                    <div class="product-image">🌯</div>
-
-                    <div class="product-body">
-
-                        <div class="product-name">
-                            Chicken Wrap
-                        </div>
-
-                        <div class="rating">⭐ 4.7</div>
-
-                        <div class="price-row">
-                            <span class="price">R69.99</span>
-                        </div>
-
-                        <button class="add-btn"
-                                onclick="addToCart(9)">
-                            Add to Cart
-                        </button>
-
-                    </div>
-                </div>
-
-
-                <div class="product-card"
-                     data-category="food"
-                     data-name="Fish & Chips"
-                     data-id="10">
-
-                    <div class="product-image">🐟</div>
-
-                    <div class="product-body">
-
-                        <div class="product-name">
-                            Fish & Chips
-                        </div>
-
-                        <div class="rating">⭐ 4.6</div>
-
-                        <div class="price-row">
-                            <span class="price">R94.99</span>
-                        </div>
-
-                        <button class="add-btn"
-                                onclick="addToCart(10)">
-                            Add to Cart
-                        </button>
-
-                    </div>
-                </div>
-
-
-                <div class="product-card"
-                     data-category="food snacks"
-                     data-name="Cupcakes"
-                     data-id="60">
-
-                    <div class="product-image">🧁</div>
-
-                    <div class="product-body">
-
-                        <div class="product-name">
-                            Cupcakes
-                        </div>
-
-                        <div class="rating">⭐ 4.8</div>
-
-                        <div class="price-row">
-                            <span class="price">R49.99</span>
-                        </div>
-
-                        <button class="add-btn"
-                                onclick="addToCart(60)">
-                            Add to Cart
-                        </button>
-
-                    </div>
-                </div>
-
-
-                <div class="product-card"
-                     data-category="food snacks"
-                     data-name="Donuts"
-                     data-id="62">
-
-                    <div class="product-image">🍩</div>
-
-                    <div class="product-body">
-
-                        <div class="product-name">
-                            Donuts
-                        </div>
-
-                        <div class="rating">⭐ 4.7</div>
-
-                        <div class="price-row">
-                            <span class="price">R44.99</span>
-                        </div>
-
-                        <button class="add-btn"
-                                onclick="addToCart(62)">
-                            Add to Cart
-                        </button>
-
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="no-products">
-                No matching products in this store.
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             CHECKERS
-        ========================= -->
-
-        <section
-            class="store-section"
-            id="store-checkers"
-            data-store="Checkers"
-        >
-
-            <div class="store-header">
-
-                <div class="store-info">
-
-                    <div class="store-logo">
-                        🛒
-                    </div>
-
-                    <div>
-                        <h3>Checkers</h3>
-                        <p>
-                            Groceries, drinks, household and pet essentials
-                        </p>
-                    </div>
-
-                </div>
-
-                <div class="store-meta">
-                    ⭐ <strong>4.8</strong><br>
-                    30–60 min
-                </div>
-
-            </div>
-
-            <div class="store-products">
-
-                <div class="product-card" data-category="groceries" data-name="White Bread 700g" data-id="11">
-                    <div class="product-image">🍞</div>
-                    <div class="product-body">
-                        <div class="product-name">White Bread 700g</div>
-                        <div class="rating">⭐ 4.7</div>
-                        <div class="price-row"><span class="price">R18.99</span></div>
-                        <button class="add-btn" onclick="addToCart(11)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="groceries" data-name="Full Cream Milk 2L" data-id="12">
-                    <div class="product-image">🥛</div>
-                    <div class="product-body">
-                        <div class="product-name">Full Cream Milk 2L</div>
-                        <div class="rating">⭐ 4.8</div>
-                        <div class="price-row"><span class="price">R34.99</span></div>
-                        <button class="add-btn" onclick="addToCart(12)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="groceries" data-name="Large Eggs 18 Pack" data-id="13">
-                    <div class="product-image">🥚</div>
-                    <div class="product-body">
-                        <div class="product-name">Large Eggs 18 Pack</div>
-                        <div class="rating">⭐ 4.8</div>
-                        <div class="price-row"><span class="price">R59.99</span></div>
-                        <button class="add-btn" onclick="addToCart(13)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="groceries" data-name="Rice 2kg" data-id="14">
-                    <div class="product-image">🍚</div>
-                    <div class="product-body">
-                        <div class="product-name">Rice 2kg</div>
-                        <div class="rating">⭐ 4.7</div>
-                        <div class="price-row"><span class="price">R39.99</span></div>
-                        <button class="add-btn" onclick="addToCart(14)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="groceries" data-name="Chicken Breasts 1kg" data-id="15">
-                    <div class="product-image">🍗</div>
-                    <div class="product-body">
-                        <div class="product-name">Chicken Breasts 1kg</div>
-                        <div class="rating">⭐ 4.8</div>
-                        <div class="price-row"><span class="price">R89.99</span></div>
-                        <button class="add-btn" onclick="addToCart(15)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="groceries" data-name="Beef Mince 500g" data-id="16">
-                    <div class="product-image">🥩</div>
-                    <div class="product-body">
-                        <div class="product-name">Beef Mince 500g</div>
-                        <div class="rating">⭐ 4.6</div>
-                        <div class="price-row"><span class="price">R74.99</span></div>
-                        <button class="add-btn" onclick="addToCart(16)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="groceries" data-name="Cooking Oil 2L" data-id="17">
-                    <div class="product-image">🫗</div>
-                    <div class="product-body">
-                        <div class="product-name">Cooking Oil 2L</div>
-                        <div class="rating">⭐ 4.6</div>
-                        <div class="price-row"><span class="price">R59.99</span></div>
-                        <button class="add-btn" onclick="addToCart(17)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="groceries" data-name="Sugar 2kg" data-id="18">
-                    <div class="product-image">🍚</div>
-                    <div class="product-body">
-                        <div class="product-name">Sugar 2kg</div>
-                        <div class="rating">⭐ 4.7</div>
-                        <div class="price-row"><span class="price">R39.99</span></div>
-                        <button class="add-btn" onclick="addToCart(18)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="groceries" data-name="Maize Meal 5kg" data-id="19">
-                    <div class="product-image">🌽</div>
-                    <div class="product-body">
-                        <div class="product-name">Maize Meal 5kg</div>
-                        <div class="rating">⭐ 4.8</div>
-                        <div class="price-row"><span class="price">R69.99</span></div>
-                        <button class="add-btn" onclick="addToCart(19)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="groceries" data-name="Potatoes 2kg" data-id="20">
-                    <div class="product-image">🥔</div>
-                    <div class="product-body">
-                        <div class="product-name">Potatoes 2kg</div>
-                        <div class="rating">⭐ 4.7</div>
-                        <div class="price-row"><span class="price">R39.99</span></div>
-                        <button class="add-btn" onclick="addToCart(20)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="groceries" data-name="Tomatoes 1kg" data-id="21">
-                    <div class="product-image">🍅</div>
-                    <div class="product-body">
-                        <div class="product-name">Tomatoes 1kg</div>
-                        <div class="rating">⭐ 4.6</div>
-                        <div class="price-row"><span class="price">R29.99</span></div>
-                        <button class="add-btn" onclick="addToCart(21)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="groceries" data-name="Onions 1kg" data-id="22">
-                    <div class="product-image">🧅</div>
-                    <div class="product-body">
-                        <div class="product-name">Onions 1kg</div>
-                        <div class="rating">⭐ 4.6</div>
-                        <div class="price-row"><span class="price">R24.99</span></div>
-                        <button class="add-btn" onclick="addToCart(22)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="groceries" data-name="Bananas 1kg" data-id="23">
-                    <div class="product-image">🍌</div>
-                    <div class="product-body">
-                        <div class="product-name">Bananas 1kg</div>
-                        <div class="rating">⭐ 4.8</div>
-                        <div class="price-row"><span class="price">R26.99</span></div>
-                        <button class="add-btn" onclick="addToCart(23)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="groceries" data-name="Apples 1kg" data-id="24">
-                    <div class="product-image">🍎</div>
-                    <div class="product-body">
-                        <div class="product-name">Apples 1kg</div>
-                        <div class="rating">⭐ 4.7</div>
-                        <div class="price-row"><span class="price">R34.99</span></div>
-                        <button class="add-btn" onclick="addToCart(24)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="groceries" data-name="Cheddar Cheese 500g" data-id="25">
-                    <div class="product-image">🧀</div>
-                    <div class="product-body">
-                        <div class="product-name">Cheddar Cheese 500g</div>
-                        <div class="rating">⭐ 4.8</div>
-                        <div class="price-row"><span class="price">R69.99</span></div>
-                        <button class="add-btn" onclick="addToCart(25)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="drinks" data-name="Coca-Cola 2L" data-id="26">
-                    <div class="product-image">🥤</div>
-                    <div class="product-body">
-                        <div class="product-name">Coca-Cola 2L</div>
-                        <div class="rating">⭐ 4.8</div>
-                        <div class="price-row"><span class="price">R22.99</span></div>
-                        <button class="add-btn" onclick="addToCart(26)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="drinks" data-name="Pepsi 2L" data-id="27">
-                    <div class="product-image">🥤</div>
-                    <div class="product-body">
-                        <div class="product-name">Pepsi 2L</div>
-                        <div class="rating">⭐ 4.7</div>
-                        <div class="price-row"><span class="price">R21.99</span></div>
-                        <button class="add-btn" onclick="addToCart(27)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="drinks" data-name="Fruit Juice 1L" data-id="28">
-                    <div class="product-image">🧃</div>
-                    <div class="product-body">
-                        <div class="product-name">Fruit Juice 1L</div>
-                        <div class="rating">⭐ 4.6</div>
-                        <div class="price-row"><span class="price">R25.99</span></div>
-                        <button class="add-btn" onclick="addToCart(28)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="drinks" data-name="Energy Drink" data-id="29">
-                    <div class="product-image">⚡</div>
-                    <div class="product-body">
-                        <div class="product-name">Energy Drink</div>
-                        <div class="rating">⭐ 4.7</div>
-                        <div class="price-row"><span class="price">R19.99</span></div>
-                        <button class="add-btn" onclick="addToCart(29)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="drinks" data-name="Bottled Water 1.5L" data-id="30">
-                    <div class="product-image">💧</div>
-                    <div class="product-body">
-                        <div class="product-name">Bottled Water 1.5L</div>
-                        <div class="rating">⭐ 4.8</div>
-                        <div class="price-row"><span class="price">R12.99</span></div>
-                        <button class="add-btn" onclick="addToCart(30)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="drinks" data-name="Ice Tea 1.5L" data-id="31">
-                    <div class="product-image">🧋</div>
-                    <div class="product-body">
-                        <div class="product-name">Ice Tea 1.5L</div>
-                        <div class="rating">⭐ 4.6</div>
-                        <div class="price-row"><span class="price">R23.99</span></div>
-                        <button class="add-btn" onclick="addToCart(31)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="drinks" data-name="Chocolate Milk 1L" data-id="33">
-                    <div class="product-image">🥛</div>
-                    <div class="product-body">
-                        <div class="product-name">Chocolate Milk 1L</div>
-                        <div class="rating">⭐ 4.7</div>
-                        <div class="price-row"><span class="price">R24.99</span></div>
-                        <button class="add-btn" onclick="addToCart(33)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="household" data-name="Washing Powder" data-id="42">
-                    <div class="product-image">🧺</div>
-                    <div class="product-body">
-                        <div class="product-name">Washing Powder</div>
-                        <div class="rating">⭐ 4.8</div>
-                        <div class="price-row"><span class="price">R69.99</span></div>
-                        <button class="add-btn" onclick="addToCart(42)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="household" data-name="Dishwashing Liquid" data-id="43">
-                    <div class="product-image">🧴</div>
-                    <div class="product-body">
-                        <div class="product-name">Dishwashing Liquid</div>
-                        <div class="rating">⭐ 4.7</div>
-                        <div class="price-row"><span class="price">R29.99</span></div>
-                        <button class="add-btn" onclick="addToCart(43)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="household" data-name="Toilet Paper 18 Pack" data-id="44">
-                    <div class="product-image">🧻</div>
-                    <div class="product-body">
-                        <div class="product-name">Toilet Paper 18 Pack</div>
-                        <div class="rating">⭐ 4.8</div>
-                        <div class="price-row">
-                            <span class="price">R99.99</span>
-                            <span class="old-price">R119.99</span>
-                        </div>
-                        <button class="add-btn" onclick="addToCart(44)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="household" data-name="Paper Towels" data-id="45">
-                    <div class="product-image">🧻</div>
-                    <div class="product-body">
-                        <div class="product-name">Paper Towels</div>
-                        <div class="rating">⭐ 4.6</div>
-                        <div class="price-row"><span class="price">R39.99</span></div>
-                        <button class="add-btn" onclick="addToCart(45)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="household" data-name="Bleach 2L" data-id="46">
-                    <div class="product-image">🧴</div>
-                    <div class="product-body">
-                        <div class="product-name">Bleach 2L</div>
-                        <div class="rating">⭐ 4.7</div>
-                        <div class="price-row"><span class="price">R29.99</span></div>
-                        <button class="add-btn" onclick="addToCart(46)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="household" data-name="Multi-Purpose Cleaner" data-id="47">
-                    <div class="product-image">🧽</div>
-                    <div class="product-body">
-                        <div class="product-name">Multi-Purpose Cleaner</div>
-                        <div class="rating">⭐ 4.7</div>
-                        <div class="price-row"><span class="price">R34.99</span></div>
-                        <button class="add-btn" onclick="addToCart(47)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="household" data-name="Refuse Bags" data-id="48">
-                    <div class="product-image">🗑️</div>
-                    <div class="product-body">
-                        <div class="product-name">Refuse Bags</div>
-                        <div class="rating">⭐ 4.6</div>
-                        <div class="price-row"><span class="price">R39.99</span></div>
-                        <button class="add-btn" onclick="addToCart(48)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="household" data-name="Sponges Pack" data-id="49">
-                    <div class="product-image">🧽</div>
-                    <div class="product-body">
-                        <div class="product-name">Sponges Pack</div>
-                        <div class="rating">⭐ 4.5</div>
-                        <div class="price-row"><span class="price">R24.99</span></div>
-                        <button class="add-btn" onclick="addToCart(49)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="pet" data-name="Dog Food 2kg" data-id="50">
-                    <div class="product-image">🐶</div>
-                    <div class="product-body">
-                        <div class="product-name">Dog Food 2kg</div>
-                        <div class="rating">⭐ 4.8</div>
-                        <div class="price-row"><span class="price">R64.99</span></div>
-                        <button class="add-btn" onclick="addToCart(50)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="pet" data-name="Cat Food" data-id="51">
-                    <div class="product-image">🐱</div>
-                    <div class="product-body">
-                        <div class="product-name">Cat Food</div>
-                        <div class="rating">⭐ 4.7</div>
-                        <div class="price-row"><span class="price">R49.99</span></div>
-                        <button class="add-btn" onclick="addToCart(51)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="pet" data-name="Dog Treats" data-id="52">
-                    <div class="product-image">🦴</div>
-                    <div class="product-body">
-                        <div class="product-name">Dog Treats</div>
-                        <div class="rating">⭐ 4.8</div>
-                        <div class="price-row"><span class="price">R39.99</span></div>
-                        <button class="add-btn" onclick="addToCart(52)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="pet" data-name="Cat Treats" data-id="53">
-                    <div class="product-image">🐱</div>
-                    <div class="product-body">
-                        <div class="product-name">Cat Treats</div>
-                        <div class="rating">⭐ 4.7</div>
-                        <div class="price-row"><span class="price">R34.99</span></div>
-                        <button class="add-btn" onclick="addToCart(53)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="snacks" data-name="Ice Cream" data-id="61">
-                    <div class="product-image">🍦</div>
-                    <div class="product-body">
-                        <div class="product-name">Ice Cream</div>
-                        <div class="rating">⭐ 4.8</div>
-                        <div class="price-row"><span class="price">R54.99</span></div>
-                        <button class="add-btn" onclick="addToCart(61)">Add to Cart</button>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="no-products">
-                No matching products in this store.
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             CLICKS
-        ========================= -->
-
-        <section
-            class="store-section"
-            id="store-clicks"
-            data-store="Clicks"
-        >
-
-            <div class="store-header">
-
-                <div class="store-info">
-
-                    <div class="store-logo">
-                        💄
-                    </div>
-
-                    <div>
-                        <h3>Clicks</h3>
-                        <p>
-                            Beauty, personal care and everyday essentials
-                        </p>
-                    </div>
-
-                </div>
-
-                <div class="store-meta">
-                    ⭐ <strong>4.7</strong><br>
-                    30–60 min
-                </div>
-
-            </div>
-
-            <div class="store-products">
-
-                <div class="product-card" data-category="beauty" data-name="Shampoo 400ml" data-id="34">
-                    <div class="product-image">🧴</div>
-                    <div class="product-body">
-                        <div class="product-name">Shampoo 400ml</div>
-                        <div class="rating">⭐ 4.7</div>
-                        <div class="price-row"><span class="price">R49.99</span></div>
-                        <button class="add-btn" onclick="addToCart(34)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="beauty" data-name="Body Lotion" data-id="35">
-                    <div class="product-image">🧴</div>
-                    <div class="product-body">
-                        <div class="product-name">Body Lotion</div>
-                        <div class="rating">⭐ 4.8</div>
-                        <div class="price-row"><span class="price">R59.99</span></div>
-                        <button class="add-btn" onclick="addToCart(35)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="beauty" data-name="Toothpaste" data-id="36">
-                    <div class="product-image">🪥</div>
-                    <div class="product-body">
-                        <div class="product-name">Toothpaste</div>
-                        <div class="rating">⭐ 4.7</div>
-                        <div class="price-row"><span class="price">R29.99</span></div>
-                        <button class="add-btn" onclick="addToCart(36)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="beauty" data-name="Toothbrush" data-id="37">
-                    <div class="product-image">🪥</div>
-                    <div class="product-body">
-                        <div class="product-name">Toothbrush</div>
-                        <div class="rating">⭐ 4.6</div>
-                        <div class="price-row"><span class="price">R24.99</span></div>
-                        <button class="add-btn" onclick="addToCart(37)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="beauty" data-name="Deodorant" data-id="38">
-                    <div class="product-image">🧴</div>
-                    <div class="product-body">
-                        <div class="product-name">Deodorant</div>
-                        <div class="rating">⭐ 4.8</div>
-                        <div class="price-row"><span class="price">R39.99</span></div>
-                        <button class="add-btn" onclick="addToCart(38)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="beauty" data-name="Face Wash" data-id="39">
-                    <div class="product-image">🫧</div>
-                    <div class="product-body">
-                        <div class="product-name">Face Wash</div>
-                        <div class="rating">⭐ 4.6</div>
-                        <div class="price-row"><span class="price">R69.99</span></div>
-                        <button class="add-btn" onclick="addToCart(39)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="beauty" data-name="Hand Cream" data-id="40">
-                    <div class="product-image">🧴</div>
-                    <div class="product-body">
-                        <div class="product-name">Hand Cream</div>
-                        <div class="rating">⭐ 4.7</div>
-                        <div class="price-row"><span class="price">R44.99</span></div>
-                        <button class="add-btn" onclick="addToCart(40)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="beauty" data-name="Bath Soap Pack" data-id="41">
-                    <div class="product-image">🧼</div>
-                    <div class="product-body">
-                        <div class="product-name">Bath Soap Pack</div>
-                        <div class="rating">⭐ 4.7</div>
-                        <div class="price-row"><span class="price">R34.99</span></div>
-                        <button class="add-btn" onclick="addToCart(41)">Add to Cart</button>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="no-products">
-                No matching products in this store.
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             AEROZONE MARKET
-        ========================= -->
-
-        <section
-            class="store-section"
-            id="store-aerozone"
-            data-store="AeroZone Market"
-        >
-
-            <div class="store-header">
-
-                <div class="store-info">
-
-                    <div class="store-logo">
-                        AZ
-                    </div>
-
-                    <div>
-                        <h3>AeroZone Market</h3>
-                        <p>
-                            Snacks, drinks, pet care and everyday essentials
-                        </p>
-                    </div>
-
-                </div>
-
-                <div class="store-meta">
-                    ⭐ <strong>4.7</strong><br>
-                    20–45 min
-                </div>
-
-            </div>
-
-            <div class="store-products">
-
-                <div class="product-card" data-category="drinks" data-name="Sparkling Water" data-id="32">
-                    <div class="product-image">💧</div>
-                    <div class="product-body">
-                        <div class="product-name">Sparkling Water</div>
-                        <div class="rating">⭐ 4.5</div>
-                        <div class="price-row"><span class="price">R16.99</span></div>
-                        <button class="add-btn" onclick="addToCart(32)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="pet" data-name="Pet Shampoo" data-id="54">
-                    <div class="product-image">🐕</div>
-                    <div class="product-body">
-                        <div class="product-name">Pet Shampoo</div>
-                        <div class="rating">⭐ 4.6</div>
-                        <div class="price-row"><span class="price">R59.99</span></div>
-                        <button class="add-btn" onclick="addToCart(54)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="snacks" data-name="Potato Chips" data-id="55">
-                    <div class="product-image">🍟</div>
-                    <div class="product-body">
-                        <div class="product-name">Potato Chips</div>
-                        <div class="rating">⭐ 4.8</div>
-                        <div class="price-row"><span class="price">R19.99</span></div>
-                        <button class="add-btn" onclick="addToCart(55)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="snacks" data-name="Chocolate Bar" data-id="56">
-                    <div class="product-image">🍫</div>
-                    <div class="product-body">
-                        <div class="product-name">Chocolate Bar</div>
-                        <div class="rating">⭐ 4.9</div>
-                        <div class="price-row"><span class="price">R16.99</span></div>
-                        <button class="add-btn" onclick="addToCart(56)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="snacks" data-name="Biscuits" data-id="57">
-                    <div class="product-image">🍪</div>
-                    <div class="product-body">
-                        <div class="product-name">Biscuits</div>
-                        <div class="rating">⭐ 4.7</div>
-                        <div class="price-row"><span class="price">R24.99</span></div>
-                        <button class="add-btn" onclick="addToCart(57)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="snacks" data-name="Popcorn" data-id="58">
-                    <div class="product-image">🍿</div>
-                    <div class="product-body">
-                        <div class="product-name">Popcorn</div>
-                        <div class="rating">⭐ 4.6</div>
-                        <div class="price-row"><span class="price">R22.99</span></div>
-                        <button class="add-btn" onclick="addToCart(58)">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="snacks" data-name="Mixed Nuts" data-id="59">
-                    <div class="product-image">🥜</div>
-                    <div class="product-body">
-                        <div class="product-name">Mixed Nuts</div>
-                        <div class="rating">⭐ 4.7</div>
-                        <div class="price-row"><span class="price">R39.99</span></div>
-                        <button class="add-btn" onclick="addToCart(59)">Add to Cart</button>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="no-products">
-                No matching products in this store.
-            </div>
-
-        </section>
-
-    </section>
-
-</main>
-
-
-<!-- =========================
-     CONTACT
-========================= -->
-
-<section class="contact-strip">
-
-    <div class="contact-inner">
-
-        <div>
-            <h3>Need help with your order?</h3>
-            <p>
-                Contact AeroZone on WhatsApp: 068 868 5355
-            </p>
         </div>
 
-        <a
-            class="whatsapp-btn"
-            href="https://wa.me/27688685355"
-            target="_blank"
-        >
-            💬 WhatsApp Us
-        </a>
+        <div class="store">
+            <div class="store-icon">🍔</div>
+            <div>
+                <h3>Fast Food</h3>
+                <small>Meals & drinks</small>
+            </div>
+        </div>
+
+        <div class="store">
+            <div class="store-icon">🥩</div>
+            <div>
+                <h3>Butchery</h3>
+                <small>Fresh meat</small>
+            </div>
+        </div>
+
+        <div class="store">
+            <div class="store-icon">🥐</div>
+            <div>
+                <h3>Bakery</h3>
+                <small>Fresh baked goods</small>
+            </div>
+        </div>
+
+        <div class="store">
+            <div class="store-icon">🧹</div>
+            <div>
+                <h3>Home & Cleaning</h3>
+                <small>Household essentials</small>
+            </div>
+        </div>
 
     </div>
+</section>
+
+<section>
+    <div class="deal">
+        <div>
+            <h2>🔥 Today's deals</h2>
+            <p>Save more when you order multiple items.</p>
+        </div>
+
+        <button onclick="showDeals()">View deals</button>
+    </div>
+</section>
+
+<section>
+
+    <div class="section-title">
+        <h2 id="productsTitle">Popular products</h2>
+        <span id="productResult">50+ items</span>
+    </div>
+
+    <div class="products" id="products"></div>
 
 </section>
 
+<div class="status" id="orderStatus">
+    <div class="status-card">
+        <div class="status-icon">📦</div>
 
-<!-- =========================
-     FOOTER
-========================= -->
+        <h2>Order received!</h2>
+
+        <p id="orderNumber" style="margin-top:8px;color:#666;"></p>
+
+        <div class="status-steps">
+            <div class="step active">✓<br>Order received</div>
+            <div class="step">2<br>Preparing</div>
+            <div class="step">3<br>On the way</div>
+            <div class="step">4<br>Delivered</div>
+        </div>
+    </div>
+</div>
 
 <footer>
-
     <div class="footer-inner">
-
-        <div>
-
-            <h3>AeroZone</h3>
-
-            <p>
-                Your local marketplace for food, groceries, beauty,
-                snacks and everyday essentials.
-            </p>
-
-        </div>
-
-        <div>
-
-            <h3>Quick Links</h3>
-
-            <ul>
-                <li><a href="#stores">Stores</a></li>
-                <li><a href="#stores">Food</a></li>
-                <li><a href="#stores">Groceries</a></li>
-                <li><a href="#stores">Beauty</a></li>
-            </ul>
-
-        </div>
-
-        <div>
-
-            <h3>Contact</h3>
-
-            <p>📞 068 868 5355</p>
-            <p>💬 WhatsApp Available</p>
-            <p>🚚 Local Delivery</p>
-
-        </div>
-
+        <h2>QuickCart</h2>
+        <p>Shop online. Order easily. Get it delivered.</p>
+        <p style="margin-top:18px;">WhatsApp: 068 868 5355</p>
+        <p style="margin-top:18px;font-size:12px;">
+            © 2026 QuickCart. All rights reserved.
+        </p>
     </div>
-
-    <div class="footer-bottom">
-        © 2026 AeroZone. All rights reserved.
-        <br>
-        Store names and products shown are for marketplace demonstration
-        and do not imply official affiliation.
-    </div>
-
 </footer>
 
+<a
+    class="whatsapp"
+    href="https://wa.me/27688685355"
+    target="_blank"
+    aria-label="WhatsApp"
+>💬</a>
 
-<!-- =========================
-     OVERLAY
-========================= -->
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
 
-<div
-    class="overlay"
-    id="overlay"
-    onclick="closeCart()"
-></div>
-
-
-<!-- =========================
-     CART
-========================= -->
-
-<aside class="cart-panel" id="cartPanel">
+<!-- CART -->
+<div class="cart" id="cart">
 
     <div class="cart-header">
-
         <h2>Your Cart</h2>
-
-        <button class="close-btn" onclick="closeCart()">
-            ✕
-        </button>
-
+        <button class="close" onclick="closeCart()">✕</button>
     </div>
 
-    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-items" id="cartItems">
+        <div class="empty">
+            🛒<br><br>
+            Your cart is empty.
+        </div>
+    </div>
 
-    <div class="cart-summary">
+    <div class="cart-footer">
 
-        <div class="summary-line">
+        <div class="total-row">
             <span>Subtotal</span>
             <strong id="subtotal">R0.00</strong>
         </div>
 
-        <div class="summary-line">
+        <div class="total-row">
             <span>Delivery</span>
-            <strong id="deliveryFee">R35.00</strong>
+            <strong id="delivery">R0.00</strong>
         </div>
 
-        <div class="summary-line summary-total">
+        <div class="total-row grand-total">
             <span>Total</span>
-            <strong id="total">R35.00</strong>
+            <span id="total">R0.00</span>
         </div>
 
-        <button
-            class="checkout-btn"
-            onclick="openCheckout()"
-        >
-            Proceed to Checkout
+        <button class="checkout" onclick="openCheckout()">
+            Proceed to checkout
         </button>
-
-    </div>
-
-</aside>
-
-
-<!-- =========================
-     CHECKOUT
-========================= -->
-
-<div class="checkout" id="checkout">
-
-    <div class="checkout-box">
-
-        <h2>Checkout</h2>
-
-        <div class="form-group">
-            <label>Full Name</label>
-            <input
-                type="text"
-                id="customerName"
-                placeholder="Your full name"
-            >
-        </div>
-
-        <div class="form-group">
-            <label>Phone Number</label>
-            <input
-                type="tel"
-                id="customerPhone"
-                placeholder="068 868 5355"
-            >
-        </div>
-
-        <div class="form-group">
-            <label>Email Address</label>
-            <input
-                type="email"
-                id="customerEmail"
-                placeholder="your@email.com"
-            >
-        </div>
-
-        <div class="form-group">
-            <label>Delivery Address</label>
-            <input
-                type="text"
-                id="customerAddress"
-                placeholder="Full delivery address"
-            >
-        </div>
-
-        <div class="form-group">
-            <label>Delivery Area</label>
-            <input
-                type="text"
-                id="deliveryArea"
-                placeholder="e.g. Pretoria, Midrand, Johannesburg"
-            >
-        </div>
-
-        <div class="form-group">
-            <label>Special Instructions</label>
-            <textarea
-                id="orderNotes"
-                placeholder="Gate number, preferred delivery instructions, etc."
-            ></textarea>
-        </div>
-
-        <div class="payment-title">
-            Select Payment Method
-        </div>
-
-        <div class="payment-options">
-
-            <button
-                class="payment-option selected"
-                data-payment="WhatsApp"
-                onclick="selectPayment(this)"
-            >
-                💬 WhatsApp Order
-                <br>
-                <small>Confirm order through WhatsApp</small>
-            </button>
-
-            <button
-                class="payment-option"
-                data-payment="EFT"
-                onclick="selectPayment(this)"
-            >
-                🏦 EFT
-                <br>
-                <small>Bank transfer</small>
-            </button>
-
-            <button
-                class="payment-option"
-                data-payment="Pay on Delivery"
-                onclick="selectPayment(this)"
-            >
-                💵 Pay on Delivery
-                <br>
-                <small>Where available</small>
-            </button>
-
-            <button
-                class="payment-option"
-                data-payment="Online Payment"
-                onclick="selectPayment(this)"
-            >
-                💳 Online Payment
-                <br>
-                <small>Payment integration required</small>
-            </button>
-
-        </div>
-
-        <div class="checkout-buttons">
-
-            <button
-                class="cancel-btn"
-                onclick="closeCheckout()"
-            >
-                Cancel
-            </button>
-
-            <button
-                class="place-btn"
-                onclick="placeOrder()"
-            >
-                Place Order
-            </button>
-
-        </div>
 
     </div>
 
 </div>
 
+<!-- CHECKOUT -->
+<div class="checkout-modal" id="checkoutModal">
 
-<!-- =========================
-     TOAST
-========================= -->
+    <div class="checkout-box">
 
-<div class="toast" id="toast"></div>
+        <div class="checkout-header">
+            <h2>Checkout</h2>
+            <button class="close" onclick="closeCheckout()">✕</button>
+        </div>
 
+        <div class="form">
+
+            <div class="form-group">
+                <label>Full name</label>
+                <input id="customerName" type="text" placeholder="Your full name">
+            </div>
+
+            <div class="form-group">
+                <label>Phone number</label>
+                <input id="customerPhone" type="tel" placeholder="Your phone number">
+            </div>
+
+            <div class="form-group">
+                <label>Delivery address</label>
+                <textarea id="customerAddress" placeholder="House number, street, suburb, city"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Delivery instructions</label>
+                <textarea id="instructions" placeholder="Gate code, directions, special instructions..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Payment method</label>
+
+                <div class="payment">
+
+                    <label>
+                        <input type="radio" name="payment" value="WhatsApp payment" checked>
+                        💬 WhatsApp
+                    </label>
+
+                    <label>
+                        <input type="radio" name="payment" value="Cash on Delivery">
+                        💵 Cash
+                    </label>
+
+                    <label>
+                        <input type="radio" name="payment" value="Yoco">
+                        💳 Card / Yoco
+                    </label>
+
+                    <label>
+                        <input type="radio" name="payment" value="EFT">
+                        🏦 EFT
+                    </label>
+
+                </div>
+            </div>
+
+            <div style="background:#f4f4f4;padding:15px;border-radius:12px;margin-bottom:10px;">
+                <div class="total-row">
+                    <span>Subtotal</span>
+                    <strong id="checkoutSubtotal">R0.00</strong>
+                </div>
+
+                <div class="total-row">
+                    <span>Delivery</span>
+                    <strong id="checkoutDelivery">R0.00</strong>
+                </div>
+
+                <div class="total-row grand-total">
+                    <span>Total</span>
+                    <span id="checkoutTotal">R0.00</span>
+                </div>
+            </div>
+
+            <button class="place-order" onclick="placeOrder()">
+                📱 Place Order via WhatsApp
+            </button>
+
+        </div>
+
+    </div>
+</div>
 
 <script>
 
 /* =========================
-   PRODUCT DATA
+   PRODUCTS
 ========================= */
 
-const products = {
+const products = [
 
-    1:{name:"Cheese Burger",price:69.99,icon:"🍔"},
-    2:{name:"Double Beef Burger",price:89.99,icon:"🍔"},
-    3:{name:"Chicken Burger",price:74.99,icon:"🍔"},
-    4:{name:"Large Pizza",price:119.99,icon:"🍕"},
-    5:{name:"Pepperoni Pizza",price:129.99,icon:"🍕"},
-    6:{name:"Chicken Wings",price:79.99,icon:"🍗"},
-    7:{name:"Chicken Meal",price:89.99,icon:"🍗"},
-    8:{name:"French Fries",price:39.99,icon:"🍟"},
-    9:{name:"Chicken Wrap",price:69.99,icon:"🌯"},
-    10:{name:"Fish & Chips",price:94.99,icon:"🐟"},
+/* SUPERMARKET */
+{name:"Milk 2L",price:39.99,cat:"Supermarket",icon:"🥛"},
+{name:"Bread White Loaf",price:18.99,cat:"Supermarket",icon:"🍞"},
+{name:"Brown Bread",price:19.99,cat:"Supermarket",icon:"🍞"},
+{name:"Eggs 18 Pack",price:59.99,cat:"Supermarket",icon:"🥚"},
+{name:"Rice 2kg",price:42.99,cat:"Supermarket",icon:"🍚"},
+{name:"Sugar 2kg",price:39.99,cat:"Supermarket",icon:"🍚"},
+{name:"Cooking Oil 2L",price:59.99,cat:"Supermarket",icon:"🫗"},
+{name:"Maize Meal 2.5kg",price:45.99,cat:"Supermarket",icon:"🌽"},
+{name:"Tea Bags 100",price:49.99,cat:"Supermarket",icon:"☕"},
+{name:"Coffee 200g",price:69.99,cat:"Supermarket",icon:"☕"},
+{name:"Breakfast Cereal",price:54.99,cat:"Supermarket",icon:"🥣"},
+{name:"Baked Beans",price:16.99,cat:"Supermarket",icon:"🥫"},
+{name:"Tomato Sauce",price:29.99,cat:"Supermarket",icon:"🍅"},
+{name:"Peanut Butter",price:39.99,cat:"Supermarket",icon:"🥜"},
+{name:"Laundry Detergent",price:79.99,cat:"Supermarket",icon:"🧺"},
 
-    11:{name:"White Bread 700g",price:18.99,icon:"🍞"},
-    12:{name:"Full Cream Milk 2L",price:34.99,icon:"🥛"},
-    13:{name:"Large Eggs 18 Pack",price:59.99,icon:"🥚"},
-    14:{name:"Rice 2kg",price:39.99,icon:"🍚"},
-    15:{name:"Chicken Breasts 1kg",price:89.99,icon:"🍗"},
-    16:{name:"Beef Mince 500g",price:74.99,icon:"🥩"},
-    17:{name:"Cooking Oil 2L",price:59.99,icon:"🫗"},
-    18:{name:"Sugar 2kg",price:39.99,icon:"🍚"},
-    19:{name:"Maize Meal 5kg",price:69.99,icon:"🌽"},
-    20:{name:"Potatoes 2kg",price:39.99,icon:"🥔"},
-    21:{name:"Tomatoes 1kg",price:29.99,icon:"🍅"},
-    22:{name:"Onions 1kg",price:24.99,icon:"🧅"},
-    23:{name:"Bananas 1kg",price:26.99,icon:"🍌"},
-    24:{name:"Apples 1kg",price:34.99,icon:"🍎"},
-    25:{name:"Cheddar Cheese 500g",price:69.99,icon:"🧀"},
-    26:{name:"Coca-Cola 2L",price:22.99,icon:"🥤"},
-    27:{name:"Pepsi 2L",price:21.99,icon:"🥤"},
-    28:{name:"Fruit Juice 1L",price:25.99,icon:"🧃"},
-    29:{name:"Energy Drink",price:19.99,icon:"⚡"},
-    30:{name:"Bottled Water 1.5L",price:12.99,icon:"💧"},
-    31:{name:"Ice Tea 1.5L",price:23.99,icon:"🧋"},
-    32:{name:"Sparkling Water",price:16.99,icon:"💧"},
-    33:{name:"Chocolate Milk 1L",price:24.99,icon:"🥛"},
+/* FRUIT & VEG */
+{name:"Potatoes 2kg",price:29.99,cat:"Fruit & Veg",icon:"🥔"},
+{name:"Onions 1kg",price:24.99,cat:"Fruit & Veg",icon:"🧅"},
+{name:"Tomatoes 1kg",price:29.99,cat:"Fruit & Veg",icon:"🍅"},
+{name:"Bananas 1kg",price:24.99,cat:"Fruit & Veg",icon:"🍌"},
+{name:"Apples 1kg",price:34.99,cat:"Fruit & Veg",icon:"🍎"},
+{name:"Oranges 1kg",price:29.99,cat:"Fruit & Veg",icon:"🍊"},
+{name:"Spinach",price:14.99,cat:"Fruit & Veg",icon:"🥬"},
 
-    34:{name:"Shampoo 400ml",price:49.99,icon:"🧴"},
-    35:{name:"Body Lotion",price:59.99,icon:"🧴"},
-    36:{name:"Toothpaste",price:29.99,icon:"🪥"},
-    37:{name:"Toothbrush",price:24.99,icon:"🪥"},
-    38:{name:"Deodorant",price:39.99,icon:"🧴"},
-    39:{name:"Face Wash",price:69.99,icon:"🫧"},
-    40:{name:"Hand Cream",price:44.99,icon:"🧴"},
-    41:{name:"Bath Soap Pack",price:34.99,icon:"🧼"},
+/* BUTCHERY */
+{name:"Beef Steak 500g",price:89.99,cat:"Butchery",icon:"🥩"},
+{name:"Beef Mince 500g",price:69.99,cat:"Butchery",icon:"🥩"},
+{name:"Chicken Breasts 1kg",price:79.99,cat:"Butchery",icon:"🍗"},
+{name:"Chicken Wings 1kg",price:64.99,cat:"Butchery",icon:"🍗"},
+{name:"Boerewors 1kg",price:99.99,cat:"Butchery",icon:"🌭"},
+{name:"Lamb Chops 500g",price:109.99,cat:"Butchery",icon:"🥩"},
 
-    42:{name:"Washing Powder",price:69.99,icon:"🧺"},
-    43:{name:"Dishwashing Liquid",price:29.99,icon:"🧴"},
-    44:{name:"Toilet Paper 18 Pack",price:99.99,icon:"🧻"},
-    45:{name:"Paper Towels",price:39.99,icon:"🧻"},
-    46:{name:"Bleach 2L",price:29.99,icon:"🧴"},
-    47:{name:"Multi-Purpose Cleaner",price:34.99,icon:"🧽"},
-    48:{name:"Refuse Bags",price:39.99,icon:"🗑️"},
-    49:{name:"Sponges Pack",price:24.99,icon:"🧽"},
+/* BAKERY */
+{name:"Fresh Rolls 6 Pack",price:24.99,cat:"Bakery",icon:"🥖"},
+{name:"Croissants 4 Pack",price:39.99,cat:"Bakery",icon:"🥐"},
+{name:"Chocolate Muffins",price:34.99,cat:"Bakery",icon:"🧁"},
+{name:"Chocolate Cake",price:119.99,cat:"Bakery",icon:"🍰"},
+{name:"Birthday Cake",price:199.99,cat:"Bakery",icon:"🎂"},
 
-    50:{name:"Dog Food 2kg",price:64.99,icon:"🐶"},
-    51:{name:"Cat Food",price:49.99,icon:"🐱"},
-    52:{name:"Dog Treats",price:39.99,icon:"🦴"},
-    53:{name:"Cat Treats",price:34.99,icon:"🐱"},
-    54:{name:"Pet Shampoo",price:59.99,icon:"🐕"},
+/* FAST FOOD */
+{name:"Beef Burger",price:59.99,cat:"Fast Food",icon:"🍔"},
+{name:"Chicken Burger",price:54.99,cat:"Fast Food",icon:"🍔"},
+{name:"Large Chips",price:34.99,cat:"Fast Food",icon:"🍟"},
+{name:"Pizza Margherita",price:89.99,cat:"Fast Food",icon:"🍕"},
+{name:"Chicken Pizza",price:109.99,cat:"Fast Food",icon:"🍕"},
+{name:"Chicken Wings 8pc",price:79.99,cat:"Fast Food",icon:"🍗"},
+{name:"Combo Meal",price:99.99,cat:"Fast Food",icon:"🍔"},
 
-    55:{name:"Potato Chips",price:19.99,icon:"🍟"},
-    56:{name:"Chocolate Bar",price:16.99,icon:"🍫"},
-    57:{name:"Biscuits",price:24.99,icon:"🍪"},
-    58:{name:"Popcorn",price:22.99,icon:"🍿"},
-    59:{name:"Mixed Nuts",price:39.99,icon:"🥜"},
-    60:{name:"Cupcakes",price:49.99,icon:"🧁"},
-    61:{name:"Ice Cream",price:54.99,icon:"🍦"},
-    62:{name:"Donuts",price:44.99,icon:"🍩"}
+/* RESTAURANT */
+{name:"Chicken & Rice",price:79.99,cat:"Restaurant",icon:"🍗"},
+{name:"Beef Pasta",price:89.99,cat:"Restaurant",icon:"🍝"},
+{name:"Grilled Chicken",price:99.99,cat:"Restaurant",icon:"🍗"},
+{name:"Fish & Chips",price:89.99,cat:"Restaurant",icon:"🐟"},
+{name:"Breakfast Plate",price:69.99,cat:"Restaurant",icon:"🍳"},
 
-};
+/* PHARMACY */
+{name:"Toothpaste",price:29.99,cat:"Pharmacy",icon:"🪥"},
+{name:"Toothbrush",price:24.99,cat:"Pharmacy",icon:"🪥"},
+{name:"Shampoo",price:49.99,cat:"Pharmacy",icon:"🧴"},
+{name:"Body Lotion",price:44.99,cat:"Pharmacy",icon:"🧴"},
+{name:"Hand Sanitiser",price:29.99,cat:"Pharmacy",icon:"🧴"},
+{name:"Face Wash",price:59.99,cat:"Pharmacy",icon:"🧼"},
+{name:"Deodorant",price:39.99,cat:"Pharmacy",icon:"🧴"},
 
+/* HOME */
+{name:"Dishwashing Liquid",price:29.99,cat:"Home",icon:"🧽"},
+{name:"Sponges 5 Pack",price:19.99,cat:"Home",icon:"🧽"},
+{name:"Toilet Paper 18 Pack",price:79.99,cat:"Home",icon:"🧻"},
+{name:"Paper Towels",price:34.99,cat:"Home",icon:"🧻"},
+{name:"Bin Bags",price:39.99,cat:"Home",icon:"🗑️"},
+{name:"Floor Cleaner",price:39.99,cat:"Home",icon:"🧹"}
+];
+
+let cart = JSON.parse(localStorage.getItem("quickcart")) || [];
 
 /* =========================
-   CART
+   DISPLAY PRODUCTS
 ========================= */
 
-let cart = [];
+function displayProducts(list=products){
 
-let currentCategory = "all";
+    const container=document.getElementById("products");
 
-let searchTerm = "";
+    container.innerHTML="";
 
-let selectedPayment = "WhatsApp";
+    if(list.length===0){
 
-const whatsappNumber = "27688685355";
+        container.innerHTML=`
+            <div style="grid-column:1/-1;text-align:center;padding:40px;color:#777;">
+                No products found.
+            </div>
+        `;
 
+        document.getElementById("productResult").textContent="0 items";
 
-/* =========================
-   CATEGORY FILTER
-========================= */
-
-function showCategory(category,button){
-
-    currentCategory = category;
-
-    searchTerm = "";
-
-    const search = document.getElementById("search");
-
-    if(search){
-        search.value = "";
+        return;
     }
 
-    document
-        .querySelectorAll(".nav button")
-        .forEach(btn => btn.classList.remove("active"));
+    document.getElementById("productResult").textContent=list.length+" items";
 
-    document
-        .querySelectorAll(".category")
-        .forEach(btn => btn.classList.remove("active"));
+    list.forEach((product,index)=>{
 
-    if(button){
-        button.classList.add("active");
-    }
+        const originalIndex=products.indexOf(product);
 
-    filterProducts();
+        container.innerHTML+=`
 
-    document
-        .getElementById("stores")
-        .scrollIntoView({
-            behavior:"smooth",
-            block:"start"
-        });
+        <div class="product">
+
+            <div class="product-image">
+                ${product.icon}
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-store">
+                    ${product.cat}
+                </div>
+
+                <div class="product-name">
+                    ${product.name}
+                </div>
+
+                <div class="product-bottom">
+
+                    <div class="price">
+                        R${product.price.toFixed(2)}
+                    </div>
+
+                    <button
+                        class="add"
+                        onclick="addToCart(${originalIndex})"
+                    >+</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+    });
 }
-
 
 /* =========================
    SEARCH
 ========================= */
 
-document
-    .getElementById("search")
-    .addEventListener("input",function(){
+function searchProducts(){
 
-        searchTerm = this.value.toLowerCase().trim();
+    const q=document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
 
-        filterProducts();
+    const results=products.filter(p=>
+        p.name.toLowerCase().includes(q) ||
+        p.cat.toLowerCase().includes(q)
+    );
 
-    });
+    document.getElementById("productsTitle").textContent=
+        q ? "Search results" : "Popular products";
 
-
-/* =========================
-   FILTER PRODUCTS
-========================= */
-
-function filterProducts(){
-
-    const stores = document.querySelectorAll(".store-section");
-
-    let visibleTotal = 0;
-
-    stores.forEach(store => {
-
-        const cards = store.querySelectorAll(".product-card");
-
-        let storeVisible = 0;
-
-        cards.forEach(card => {
-
-            const category =
-                card.dataset.category || "";
-
-            const name =
-                (card.dataset.name || "").toLowerCase();
-
-            const categoryMatch =
-                currentCategory === "all" ||
-                category.split(" ").includes(currentCategory);
-
-            const searchMatch =
-                !searchTerm ||
-                name.includes(searchTerm);
-
-            if(categoryMatch && searchMatch){
-
-                card.classList.remove("hidden");
-
-                storeVisible++;
-
-                visibleTotal++;
-
-            }else{
-
-                card.classList.add("hidden");
-
-            }
-
-        });
-
-        const noProducts =
-            store.querySelector(".no-products");
-
-        if(storeVisible === 0){
-
-            store.classList.add("hidden");
-
-            if(noProducts){
-                noProducts.classList.add("show");
-            }
-
-        }else{
-
-            store.classList.remove("hidden");
-
-            if(noProducts){
-                noProducts.classList.remove("show");
-            }
-
-        }
-
-    });
-
-    document.getElementById("productStatus").textContent =
-        searchTerm
-        ? `${visibleTotal} matching products`
-        : `${visibleTotal} products available`;
-
+    displayProducts(results);
 }
 
+/* =========================
+   CATEGORY
+========================= */
+
+function filterCategory(category){
+
+    const results=products.filter(p=>p.cat===category);
+
+    document.getElementById("productsTitle").textContent=category;
+
+    displayProducts(results);
+
+    window.scrollTo({
+        top:document.getElementById("products").offsetTop-130,
+        behavior:"smooth"
+    });
+}
+
+/* =========================
+   DEALS
+========================= */
+
+function showDeals(){
+
+    const deals=products.filter(p=>p.price<40);
+
+    document.getElementById("productsTitle").textContent="Today's deals";
+
+    displayProducts(deals);
+
+    window.scrollTo({
+        top:document.getElementById("products").offsetTop-130,
+        behavior:"smooth"
+    });
+}
 
 /* =========================
    CART
 ========================= */
 
-function addToCart(id){
+function addToCart(index){
 
-    const existing =
-        cart.find(item => item.id === id);
+    const product=products[index];
+
+    const existing=cart.find(item=>item.index===index);
 
     if(existing){
-
         existing.qty++;
-
     }else{
-
         cart.push({
-            id:id,
+            index:index,
             qty:1
         });
-
     }
 
+    saveCart();
     updateCart();
-
-    showToast(
-        products[id].name + " added to cart"
-    );
 
 }
 
+function changeQty(index,change){
+
+    const item=cart.find(i=>i.index===index);
+
+    if(!item)return;
+
+    item.qty+=change;
+
+    if(item.qty<=0){
+        cart=cart.filter(i=>i.index!==index);
+    }
+
+    saveCart();
+    updateCart();
+}
+
+function saveCart(){
+    localStorage.setItem("quickcart",JSON.stringify(cart));
+}
+
+function getSubtotal(){
+
+    return cart.reduce((sum,item)=>{
+
+        const product=products[item.index];
+
+        return sum+(product.price*item.qty);
+
+    },0);
+}
+
+function getDelivery(){
+
+    if(cart.length===0)return 0;
+
+    const subtotal=getSubtotal();
+
+    if(subtotal>=500)return 0;
+
+    return 35;
+}
 
 function updateCart(){
 
-    const cartItems =
-        document.getElementById("cartItems");
+    const container=document.getElementById("cartItems");
 
-    const cartCount =
-        document.getElementById("cartCount");
+    document.getElementById("cartCount").textContent=
+        cart.reduce((sum,item)=>sum+item.qty,0);
 
-    const subtotalElement =
-        document.getElementById("subtotal");
+    if(cart.length===0){
 
-    const deliveryElement =
-        document.getElementById("deliveryFee");
-
-    const totalElement =
-        document.getElementById("total");
-
-    let subtotal = 0;
-
-    let count = 0;
-
-    cartItems.innerHTML = "";
-
-    if(cart.length === 0){
-
-        cartItems.innerHTML = `
-            <div class="cart-empty">
+        container.innerHTML=`
+            <div class="empty">
                 🛒<br><br>
-                Your cart is empty.<br>
-                Add something delicious!
+                Your cart is empty.
             </div>
         `;
 
     }else{
 
-        cart.forEach(item => {
+        container.innerHTML="";
 
-            const product =
-                products[item.id];
+        cart.forEach(item=>{
 
-            subtotal +=
-                product.price * item.qty;
+            const p=products[item.index];
 
-            count += item.qty;
+            container.innerHTML+=`
 
-            const div =
-                document.createElement("div");
-
-            div.className = "cart-item";
-
-            div.innerHTML = `
+            <div class="cart-item">
 
                 <div class="cart-item-icon">
-                    ${product.icon}
+                    ${p.icon}
                 </div>
 
-                <div>
+                <div class="cart-item-info">
 
-                    <div class="cart-item-name">
-                        ${product.name}
-                    </div>
+                    <strong>${p.name}</strong>
 
-                    <div class="cart-item-price">
-                        R${product.price.toFixed(2)}
+                    <div style="color:#666;font-size:13px;margin-bottom:7px;">
+                        R${p.price.toFixed(2)} each
                     </div>
 
                     <div class="qty">
 
-                        <button
-                            onclick="changeQty(${item.id},-1)"
-                        >
-                            −
-                        </button>
+                        <button onclick="changeQty(${item.index},-1)">−</button>
 
-                        <strong>
-                            ${item.qty}
-                        </strong>
+                        <strong>${item.qty}</strong>
 
-                        <button
-                            onclick="changeQty(${item.id},1)"
-                        >
-                            +
-                        </button>
+                        <button onclick="changeQty(${item.index},1)">+</button>
 
                     </div>
 
                 </div>
 
-                <button
-                    onclick="removeItem(${item.id})"
-                    style="
-                        border:0;
-                        background:none;
-                        color:#888;
-                    "
-                >
-                    ✕
-                </button>
+                <strong>
+                    R${(p.price*item.qty).toFixed(2)}
+                </strong>
+
+            </div>
 
             `;
-
-            cartItems.appendChild(div);
-
         });
-
     }
 
-    const delivery =
-        subtotal > 0 ? 35 : 0;
+    const subtotal=getSubtotal();
+    const delivery=getDelivery();
+    const total=subtotal+delivery;
 
-    const total =
-        subtotal + delivery;
+    document.getElementById("subtotal").textContent=
+        "R"+subtotal.toFixed(2);
 
-    cartCount.textContent = count;
+    document.getElementById("delivery").textContent=
+        delivery===0 && subtotal>0 ? "FREE" : "R"+delivery.toFixed(2);
 
-    subtotalElement.textContent =
-        "R" + subtotal.toFixed(2);
+    document.getElementById("total").textContent=
+        "R"+total.toFixed(2);
 
-    deliveryElement.textContent =
-        "R" + delivery.toFixed(2);
+    document.getElementById("checkoutSubtotal").textContent=
+        "R"+subtotal.toFixed(2);
 
-    totalElement.textContent =
-        "R" + total.toFixed(2);
+    document.getElementById("checkoutDelivery").textContent=
+        delivery===0 && subtotal>0 ? "FREE" : "R"+delivery.toFixed(2);
 
+    document.getElementById("checkoutTotal").textContent=
+        "R"+total.toFixed(2);
 }
-
-
-function changeQty(id,amount){
-
-    const item =
-        cart.find(item => item.id === id);
-
-    if(!item) return;
-
-    item.qty += amount;
-
-    if(item.qty <= 0){
-
-        cart =
-            cart.filter(item => item.id !== id);
-
-    }
-
-    updateCart();
-
-}
-
-
-function removeItem(id){
-
-    cart =
-        cart.filter(item => item.id !== id);
-
-    updateCart();
-
-}
-
 
 function openCart(){
 
-    document
-        .getElementById("cartPanel")
-        .classList.add("show");
-
-    document
-        .getElementById("overlay")
-        .classList.add("show");
+    document.getElementById("cart").classList.add("open");
+    document.getElementById("overlay").classList.add("show");
 
 }
-
 
 function closeCart(){
 
-    document
-        .getElementById("cartPanel")
-        .classList.remove("show");
-
-    document
-        .getElementById("overlay")
-        .classList.remove("show");
+    document.getElementById("cart").classList.remove("open");
+    document.getElementById("overlay").classList.remove("show");
 
 }
-
-
-/* =========================
-   ADDRESS
-========================= */
-
-function saveAddress(){
-
-    const address =
-        document
-        .getElementById("deliveryAddress")
-        .value
-        .trim();
-
-    if(!address){
-
-        showToast("Please enter your address");
-
-        return;
-
-    }
-
-    localStorage.setItem(
-        "aerozoneAddress",
-        address
-    );
-
-    showToast("Delivery address saved");
-
-}
-
-
-const savedAddress =
-    localStorage.getItem("aerozoneAddress");
-
-if(savedAddress){
-
-    document
-        .getElementById("deliveryAddress")
-        .value = savedAddress;
-
-}
-
 
 /* =========================
    CHECKOUT
@@ -3123,53 +1414,27 @@ if(savedAddress){
 
 function openCheckout(){
 
-    if(cart.length === 0){
+    if(cart.length===0){
 
-        showToast("Your cart is empty");
+        alert("Your cart is empty.");
 
         return;
-
     }
 
     closeCart();
 
-    document
-        .getElementById("checkout")
+    document.getElementById("checkoutModal")
         .classList.add("show");
 
+    updateCart();
 }
-
 
 function closeCheckout(){
 
-    document
-        .getElementById("checkout")
+    document.getElementById("checkoutModal")
         .classList.remove("show");
 
 }
-
-
-/* =========================
-   PAYMENT
-========================= */
-
-function selectPayment(button){
-
-    document
-        .querySelectorAll(".payment-option")
-        .forEach(option => {
-
-            option.classList.remove("selected");
-
-        });
-
-    button.classList.add("selected");
-
-    selectedPayment =
-        button.dataset.payment;
-
-}
-
 
 /* =========================
    PLACE ORDER
@@ -3177,208 +1442,128 @@ function selectPayment(button){
 
 function placeOrder(){
 
-    if(cart.length === 0){
+    if(cart.length===0){
 
-        showToast("Your cart is empty");
+        alert("Your cart is empty.");
 
         return;
-
     }
 
-    const name =
-        document
+    const name=document
         .getElementById("customerName")
         .value.trim();
 
-    const phone =
-        document
+    const phone=document
         .getElementById("customerPhone")
         .value.trim();
 
-    const email =
-        document
-        .getElementById("customerEmail")
-        .value.trim();
-
-    const address =
-        document
+    const address=document
         .getElementById("customerAddress")
         .value.trim();
 
-    const area =
-        document
-        .getElementById("deliveryArea")
+    const instructions=document
+        .getElementById("instructions")
         .value.trim();
 
-    const notes =
-        document
-        .getElementById("orderNotes")
-        .value.trim();
-
+    const payment=document
+        .querySelector('input[name="payment"]:checked')
+        .value;
 
     if(!name || !phone || !address){
 
-        showToast(
-            "Please complete your name, phone and address"
-        );
+        alert("Please enter your name, phone number and delivery address.");
 
         return;
-
     }
 
+    const orderNumber=
+        "QC"+Date.now().toString().slice(-8);
 
-    let subtotal = 0;
+    let message=
+`🛒 *NEW QUICKCART ORDER*
 
-    let orderText =
-        "🛍️ *AEROZONE ORDER*%0A%0A";
+Order Number: ${orderNumber}
 
-    orderText +=
-        "*Customer:* " +
-        encodeURIComponent(name) +
-        "%0A";
+👤 *Customer*
+Name: ${name}
+Phone: ${phone}
 
-    orderText +=
-        "*Phone:* " +
-        encodeURIComponent(phone) +
-        "%0A";
+📍 *Delivery Address*
+${address}
 
-    if(email){
+📝 *Instructions*
+${instructions || "None"}
 
-        orderText +=
-            "*Email:* " +
-            encodeURIComponent(email) +
-            "%0A";
+💳 *Payment*
+${payment}
 
-    }
+📦 *ORDER ITEMS*
+`;
 
-    orderText +=
-        "*Address:* " +
-        encodeURIComponent(address) +
-        "%0A";
+    cart.forEach(item=>{
 
-    if(area){
+        const p=products[item.index];
 
-        orderText +=
-            "*Area:* " +
-            encodeURIComponent(area) +
-            "%0A";
-
-    }
-
-    orderText +=
-        "*Payment:* " +
-        encodeURIComponent(selectedPayment) +
-        "%0A%0A";
-
-    orderText +=
-        "*ITEMS*%0A";
-
-
-    cart.forEach(item => {
-
-        const product =
-            products[item.id];
-
-        const lineTotal =
-            product.price * item.qty;
-
-        subtotal += lineTotal;
-
-        orderText +=
-            "• " +
-            encodeURIComponent(product.name) +
-            " x" +
-            item.qty +
-            " — R" +
-            lineTotal.toFixed(2) +
-            "%0A";
+        message+=
+`\n• ${p.name} x${item.qty} — R${(p.price*item.qty).toFixed(2)}`;
 
     });
 
+    const subtotal=getSubtotal();
+    const delivery=getDelivery();
+    const total=subtotal+delivery;
 
-    const delivery =
-        subtotal > 0 ? 35 : 0;
+    message+=`
 
-    const total =
-        subtotal + delivery;
+💰 *SUBTOTAL:* R${subtotal.toFixed(2)}
+🚚 *DELIVERY:* ${delivery===0 ? "FREE" : "R"+delivery.toFixed(2)}
+💵 *TOTAL:* R${total.toFixed(2)}
 
+Please confirm my order.
+`;
 
-    orderText += "%0A";
+    const whatsappNumber="27688685355";
 
-    orderText +=
-        "*Subtotal:* R" +
-        subtotal.toFixed(2) +
-        "%0A";
+    const url=
+        "https://wa.me/"+whatsappNumber+
+        "?text="+encodeURIComponent(message);
 
-    orderText +=
-        "*Delivery:* R" +
-        delivery.toFixed(2) +
-        "%0A";
+    window.open(url,"_blank");
 
-    orderText +=
-        "*TOTAL:* R" +
-        total.toFixed(2) +
-        "%0A";
+    localStorage.setItem("lastOrder",JSON.stringify({
+        orderNumber:orderNumber,
+        name:name,
+        phone:phone,
+        address:address,
+        total:total,
+        date:new Date().toISOString()
+    }));
 
+    document.getElementById("orderNumber").textContent=
+        "Order #"+orderNumber+" • Total R"+total.toFixed(2);
 
-    if(notes){
+    document.getElementById("orderStatus")
+        .classList.add("show");
 
-        orderText +=
-            "%0A*Notes:* " +
-            encodeURIComponent(notes);
+    closeCheckout();
 
-    }
+    cart=[];
 
+    saveCart();
+    updateCart();
 
-    const whatsappUrl =
-        "https://wa.me/" +
-        whatsappNumber +
-        "?text=" +
-        orderText;
-
-
-    window.open(
-        whatsappUrl,
-        "_blank"
-    );
-
-
-    showToast(
-        "Order sent to WhatsApp"
-    );
-
+    window.scrollTo({
+        top:document.getElementById("orderStatus").offsetTop-100,
+        behavior:"smooth"
+    });
 }
 
-
 /* =========================
-   TOAST
+   INITIALIZE
 ========================= */
 
-function showToast(message){
-
-    const toast =
-        document.getElementById("toast");
-
-    toast.textContent = message;
-
-    toast.classList.add("show");
-
-    setTimeout(() => {
-
-        toast.classList.remove("show");
-
-    },2500);
-
-}
-
-
-/* =========================
-   INITIALISE
-========================= */
-
+displayProducts();
 updateCart();
-
-filterProducts();
 
 </script>
 
