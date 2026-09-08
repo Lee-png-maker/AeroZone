@@ -4,33 +4,54 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AeroZone | Online Store</title>
+
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#f5f5f5;color:#111}
-header{background:#111827;color:white;padding:15px;position:sticky;top:0;z-index:10}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f5f5f5;color:#111}
+header{background:#111827;color:#fff;padding:15px;position:sticky;top:0;z-index:100}
 .top{max-width:1200px;margin:auto;display:flex;gap:12px;align-items:center}
-.logo{font-size:25px;font-weight:bold}.search{flex:1;padding:12px;border:0;border-radius:7px}
+.logo{font-size:25px;font-weight:bold;white-space:nowrap}
+.search{flex:1;padding:12px;border:0;border-radius:7px;font-size:15px}
 button{cursor:pointer;border:0;border-radius:7px;padding:10px}
 .cartBtn{background:#f59e0b;font-weight:bold}
-nav{background:white;padding:10px;overflow:auto;white-space:nowrap}
+nav{background:#fff;padding:10px;overflow:auto;white-space:nowrap}
 nav button{margin:3px;background:#eee}
-nav button:hover{background:#111827;color:white}
-.hero{max-width:1200px;margin:20px auto;padding:40px 20px;background:#1f2937;color:white;border-radius:12px}
+nav button:hover{background:#111827;color:#fff}
+.hero{max-width:1200px;margin:20px auto;padding:40px 20px;background:#1f2937;color:#fff;border-radius:12px}
 .hero h1{font-size:38px;margin:0 0 10px}
 .container{max-width:1200px;margin:auto;padding:10px 15px}
 .products{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}
-.card{background:white;border-radius:10px;overflow:hidden;box-shadow:0 2px 7px #ddd}
+.card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 7px #ddd}
 .card img{width:100%;height:180px;object-fit:cover;background:#eee}
-.info{padding:12px}.cat{font-size:12px;color:#777}.name{height:40px;font-weight:bold}
+.info{padding:12px}
+.cat{font-size:12px;color:#777}
+.name{height:40px;font-weight:bold}
 .price{font-size:20px;font-weight:bold;margin:8px 0}
-.add{width:100%;background:#111827;color:white}.add:hover{background:#f59e0b;color:#111}
-.drawer{position:fixed;right:-400px;top:0;width:380px;max-width:95%;height:100%;background:white;z-index:20;box-shadow:-5px 0 20px #999;transition:.3s;display:flex;flex-direction:column}
-.drawer.open{right:0}.cartHead{background:#111827;color:white;padding:15px;display:flex;justify-content:space-between}
-.items{flex:1;overflow:auto;padding:15px}.item{display:flex;gap:10px;border-bottom:1px solid #ddd;padding:10px 0}
-.item img{width:60px;height:60px;object-fit:cover}.item div{flex:1}
-.bottom{padding:15px;border-top:1px solid #ddd}.checkout{width:100%;background:#16a34a;color:white;font-weight:bold}
-footer{background:#111827;color:white;text-align:center;padding:25px;margin-top:30px}
-@media(max-width:1000px){.products{grid-template-columns:repeat(4,1fr)}}
-@media(max-width:700px){.products{grid-template-columns:repeat(2,1fr)}.top{flex-wrap:wrap}.search{order:3;flex-basis:100%}}
+.add{width:100%;background:#111827;color:#fff}
+.add:hover{background:#f59e0b;color:#111}
+.drawer{position:fixed;right:-400px;top:0;width:380px;max-width:95%;height:100%;background:#fff;z-index:200;box-shadow:-5px 0 20px #999;transition:.25s;display:flex;flex-direction:column}
+.drawer.open{right:0}
+.cartHead{background:#111827;color:#fff;padding:15px;display:flex;justify-content:space-between;align-items:center}
+.cartHead button{font-size:20px}
+.items{flex:1;overflow:auto;padding:15px}
+.item{display:flex;gap:10px;border-bottom:1px solid #ddd;padding:10px 0}
+.item img{width:60px;height:60px;object-fit:cover;border-radius:6px}
+.item div{flex:1}
+.item button{padding:5px;margin-top:5px;color:#b91c1c}
+.bottom{padding:15px;border-top:1px solid #ddd}
+.checkout{width:100%;background:#16a34a;color:#fff;font-weight:bold}
+footer{background:#111827;color:#fff;text-align:center;padding:25px;margin-top:30px}
+
+@media(max-width:1000px){
+.products{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:700px){
+.products{grid-template-columns:repeat(2,1fr);gap:10px}
+.top{flex-wrap:wrap}
+.search{order:3;flex-basis:100%}
+.hero h1{font-size:30px}
+.card img{height:150px}
+}
 </style>
 </head>
 
@@ -39,21 +60,30 @@ footer{background:#111827;color:white;text-align:center;padding:25px;margin-top:
 <header>
 <div class="top">
 <div class="logo">AeroZone</div>
-<input id="search" class="search" placeholder="Search products...">
-<button class="cartBtn" onclick="openCart()">🛒 Cart (<span id="count">0</span>)</button>
+
+<input
+id="search"
+class="search"
+type="search"
+placeholder="Search products..."
+>
+
+<button class="cartBtn" onclick="openCart()">
+🛒 Cart (<span id="count">0</span>)
+</button>
 </div>
 </header>
 
 <nav>
-<button onclick="filter('All')">All</button>
-<button onclick="filter('Electronics')">Electronics</button>
-<button onclick="filter('Home')">Home</button>
-<button onclick="filter('Automotive')">Automotive</button>
-<button onclick="filter('Kitchen')">Kitchen</button>
-<button onclick="filter('Beauty')">Beauty</button>
-<button onclick="filter('Pets')">Pets</button>
-<button onclick="filter('Outdoor')">Outdoor</button>
-<button onclick="filter('Travel')">Travel</button>
+<button onclick="filterProducts('All')">All</button>
+<button onclick="filterProducts('Electronics')">Electronics</button>
+<button onclick="filterProducts('Home')">Home</button>
+<button onclick="filterProducts('Automotive')">Automotive</button>
+<button onclick="filterProducts('Kitchen')">Kitchen</button>
+<button onclick="filterProducts('Beauty')">Beauty</button>
+<button onclick="filterProducts('Pets')">Pets</button>
+<button onclick="filterProducts('Outdoor')">Outdoor</button>
+<button onclick="filterProducts('Travel')">Travel</button>
 </nav>
 
 <section class="hero">
@@ -67,15 +97,21 @@ footer{background:#111827;color:white;text-align:center;padding:25px;margin-top:
 </main>
 
 <div id="drawer" class="drawer">
+
 <div class="cartHead">
 <h2>🛒 Your Cart</h2>
 <button onclick="closeCart()">✕</button>
 </div>
+
 <div id="items" class="items"></div>
+
 <div class="bottom">
 <h2>Total: R<span id="total">0.00</span></h2>
-<button class="checkout" onclick="checkout()">Order on WhatsApp</button>
+<button class="checkout" onclick="checkout()">
+Order on WhatsApp
+</button>
 </div>
+
 </div>
 
 <footer>
@@ -86,11 +122,13 @@ footer{background:#111827;color:white;text-align:center;padding:25px;margin-top:
 
 <script>
 
-/* =========================
-   ONLY EDIT PRODUCTS HERE
-========================= */
+/* =================================
+   AEROZONE PRODUCTS
+   NAME | PRICE | CATEGORY
+================================= */
 
 const products=[
+
 ["Wireless Bluetooth Earbuds",299,"Electronics"],
 ["Smart Fitness Watch",499,"Electronics"],
 ["Wireless Charging Pad",199,"Electronics"],
@@ -111,6 +149,7 @@ const products=[
 ["Mini Projector",999,"Electronics"],
 ["Smart LED Bulb",149,"Home"],
 ["Digital Alarm Clock",229,"Home"],
+
 ["Magnetic Car Phone Mount",179,"Automotive"],
 ["Car USB Charger",129,"Automotive"],
 ["Car Interior LED Lights",249,"Automotive"],
@@ -126,6 +165,7 @@ const products=[
 ["Car Cup Holder",159,"Automotive"],
 ["Car Trash Bin",139,"Automotive"],
 ["Car Seat Gap Organiser",149,"Automotive"],
+
 ["Handheld Vacuum Cleaner",699,"Home"],
 ["Microfiber Cleaning Cloth Set",129,"Home"],
 ["Multi-purpose Cleaning Brush",119,"Home"],
@@ -141,6 +181,7 @@ const products=[
 ["Wall Hooks",99,"Home"],
 ["Motion Sensor Light",199,"Home"],
 ["Under Cabinet LED Light",229,"Home"],
+
 ["Digital Kitchen Scale",179,"Kitchen"],
 ["Electric Milk Frother",159,"Kitchen"],
 ["Portable Blender",349,"Kitchen"],
@@ -151,6 +192,7 @@ const products=[
 ["Kitchen Knife Set",449,"Kitchen"],
 ["Automatic Soap Dispenser",249,"Kitchen"],
 ["Filter Water Bottle",199,"Kitchen"],
+
 ["Facial Cleansing Brush",229,"Beauty"],
 ["LED Makeup Mirror",399,"Beauty"],
 ["Hair Straightener",399,"Beauty"],
@@ -161,6 +203,7 @@ const products=[
 ["Perfume Atomizer",99,"Beauty"],
 ["Silk Sleep Mask",129,"Beauty"],
 ["Reusable Beauty Water Bottle",179,"Beauty"],
+
 ["Interactive Dog Toy",179,"Pets"],
 ["Pet Grooming Brush",149,"Pets"],
 ["Automatic Pet Feeder",699,"Pets"],
@@ -171,6 +214,7 @@ const products=[
 ["Pet Feeding Mat",149,"Pets"],
 ["Dog Waste Bag Dispenser",99,"Pets"],
 ["Pet Cooling Mat",299,"Pets"],
+
 ["Camping Lantern",299,"Outdoor"],
 ["Camping Stove",499,"Outdoor"],
 ["Rechargeable Headlamp",179,"Outdoor"],
@@ -181,6 +225,7 @@ const products=[
 ["Solar Garden Lights",199,"Outdoor"],
 ["Folding Outdoor Table",599,"Outdoor"],
 ["Waterproof Dry Bag",249,"Outdoor"],
+
 ["Travel Neck Pillow",179,"Travel"],
 ["Luggage Organiser Set",249,"Travel"],
 ["Digital Luggage Scale",159,"Travel"],
@@ -191,105 +236,299 @@ const products=[
 ["Travel Duffel Bag",299,"Travel"],
 ["Portable Travel Door Lock",179,"Travel"],
 ["Compression Travel Bags",149,"Travel"]
+
 ];
 
-/* =========================
-   AUTOMATIC IMAGE NAME
-========================= */
+/* =================================
+   AUTOMATIC IMAGE FILE NAME
+================================= */
 
 function imageName(name){
+
 return "images/"+name
 .toLowerCase()
 .replace(/&/g,"and")
 .replace(/[^a-z0-9]+/g,"-")
 .replace(/^-|-$/g,"")+".jpg";
+
 }
+
+/* =================================
+   CART
+================================= */
 
 let cart=[];
-let category="All";
+let currentCategory="All";
 
-function show(list){
-document.getElementById("products").innerHTML=list.map((p,i)=>`
+/* =================================
+   DISPLAY PRODUCTS
+================================= */
+
+function displayProducts(list){
+
+const box=document.getElementById("products");
+
+box.innerHTML=list.map(product=>{
+
+const index=products.indexOf(product);
+
+return `
 <div class="card">
-<img src="${imageName(p[0])}" alt="${p[0]}"
-onerror="this.src='images/no-image.jpg'">
+
+<img
+src="${imageName(product[0])}"
+alt="${product[0]}"
+onerror="this.src='images/no-image.jpg'"
+>
+
 <div class="info">
-<div class="cat">${p[2]}</div>
-<div class="name">${p[0]}</div>
-<div class="price">R${p[1].toFixed(2)}</div>
-<button class="add" onclick="add(${i})">Add to Cart</button>
+
+<div class="cat">${product[2]}</div>
+
+<div class="name">${product[0]}</div>
+
+<div class="price">
+R${product[1].toFixed(2)}
 </div>
-</div>`).join("");
-}
 
-function filter(c){
-category=c;
-search();
-}
+<button
+class="add"
+onclick="addToCart(${index})"
+>
+Add to Cart
+</button>
 
-function search(){
-let q=document.getElementById("search").value.toLowerCase();
-let list=products.map((p,i)=>[...p,i])
-.filter(p=>
-(category=="All"||p[2]==category)&&
-p[0].toLowerCase().includes(q)
-);
-show(list.map(p=>products[p[3]]));
-}
+</div>
+</div>
+`;
 
-document.getElementById("search").oninput=search;
-
-function add(i){
-cart.push(i);
-update();
-openCart();
-}
-
-function update(){
-let total=0;
-document.getElementById("items").innerHTML=cart.map((i,n)=>{
-let p=products[i];total+=p[1];
-return `<div class="item">
-<img src="${imageName(p[0])}">
-<div><b>${p[0]}</b><br>R${p[1]}
-<button onclick="removeItem(${n})">Remove</button></div>
-</div>`;
 }).join("");
-document.getElementById("count").textContent=cart.length;
-document.getElementById("total").textContent=total.toFixed(2);
+
 }
 
-function removeItem(n){
-cart.splice(n,1);
-update();
+/* =================================
+   FILTER
+================================= */
+
+function filterProducts(category){
+
+currentCategory=category;
+searchProducts();
+
 }
 
-function openCart(){
-document.getElementById("drawer").classList.add("open");
-}
+/* =================================
+   SEARCH
+================================= */
 
-function closeCart(){
-document.getElementById("drawer").classList.remove("open");
-}
+function searchProducts(){
 
-function checkout(){
-if(!cart.length)return alert("Your cart is empty.");
+const text=
+document.getElementById("search")
+.value
+.toLowerCase();
 
-let phone="27000000000";
-let msg="Hello AeroZone, I want to order:%0A%0A";
+const list=products.filter(product=>{
 
-cart.forEach(i=>{
-let p=products[i];
-msg+=p[0]+" - R"+p[1]+"%0A";
+const categoryMatch=
+currentCategory==="All" ||
+product[2]===currentCategory;
+
+const searchMatch=
+product[0]
+.toLowerCase()
+.includes(text);
+
+return categoryMatch && searchMatch;
+
 });
 
-msg+="%0ATotal: R"+cart.reduce((s,i)=>s+products[i][1],0).toFixed(2);
+displayProducts(list);
 
-window.open("https://wa.me/"+phone+"?text="+msg,"_blank");
 }
 
-show(products);
+document
+.getElementById("search")
+.addEventListener(
+"input",
+searchProducts
+);
+
+/* =================================
+   ADD TO CART
+================================= */
+
+function addToCart(index){
+
+cart.push(index);
+
+updateCart();
+
+openCart();
+
+}
+
+/* =================================
+   UPDATE CART
+================================= */
+
+function updateCart(){
+
+const box=document.getElementById("items");
+
+let total=0;
+
+if(cart.length===0){
+
+box.innerHTML="<p>Your cart is empty.</p>";
+
+}else{
+
+box.innerHTML=cart.map((index,position)=>{
+
+const product=products[index];
+
+total+=product[1];
+
+return `
+<div class="item">
+
+<img
+src="${imageName(product[0])}"
+alt="${product[0]}"
+>
+
+<div>
+
+<b>${product[0]}</b>
+
+<br>
+
+R${product[1].toFixed(2)}
+
+<br>
+
+<button
+onclick="removeFromCart(${position})"
+>
+Remove
+</button>
+
+</div>
+
+</div>
+`;
+
+}).join("");
+
+}
+
+document.getElementById("count")
+.textContent=cart.length;
+
+document.getElementById("total")
+.textContent=total.toFixed(2);
+
+}
+
+/* =================================
+   REMOVE FROM CART
+================================= */
+
+function removeFromCart(position){
+
+cart.splice(position,1);
+
+updateCart();
+
+}
+
+/* =================================
+   OPEN CART
+================================= */
+
+function openCart(){
+
+document
+.getElementById("drawer")
+.classList.add("open");
+
+}
+
+/* =================================
+   CLOSE CART
+================================= */
+
+function closeCart(){
+
+document
+.getElementById("drawer")
+.classList.remove("open");
+
+}
+
+/* =================================
+   WHATSAPP
+================================= */
+
+function checkout(){
+
+if(cart.length===0){
+
+alert("Your cart is empty.");
+
+return;
+
+}
+
+/*
+CHANGE THIS NUMBER
+TO YOUR AEROZONE WHATSAPP NUMBER.
+Example:
+27821234567
+*/
+
+const phone="27000000000";
+
+let message=
+"Hello AeroZone, I would like to order:%0A%0A";
+
+let total=0;
+
+cart.forEach(index=>{
+
+const product=products[index];
+
+message+=
+"• "+product[0]+
+" - R"+product[1].toFixed(2)+
+"%0A";
+
+total+=product[1];
+
+});
+
+message+=
+"%0A*Total: R"+
+total.toFixed(2)+"*";
+
+window.open(
+"https://wa.me/"+phone+
+"?text="+message,
+"_blank"
+);
+
+}
+
+/* =================================
+   START STORE
+================================= */
+
+displayProducts(products);
+
+updateCart();
 
 </script>
+
 </body>
 </html>
