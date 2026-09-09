@@ -1,1 +1,586 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>AeroZone Admin</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f5f5f5;
+  color:#111;
+}
+
+header{
+  background:#000;
+  color:#fff;
+  padding:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:1000;
+}
+
+button{
+  border:0;
+  border-radius:10px;
+  padding:12px 16px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.black{
+  background:#000;
+  color:#fff;
+}
+
+.white{
+  background:#fff;
+  color:#000;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:20px;
+}
+
+.login{
+  max-width:420px;
+  margin:80px auto;
+  background:#fff;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 10px 35px #0002;
+}
+
+input,select{
+  width:100%;
+  padding:14px;
+  margin:8px 0 15px;
+  border:1px solid #ccc;
+  border-radius:10px;
+  font-size:15px;
+}
+
+.dashboard{
+  display:none;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin:20px 0;
+}
+
+.card{
+  background:#fff;
+  padding:20px;
+  border-radius:18px;
+  box-shadow:0 5px 20px #0001;
+}
+
+.number{
+  font-size:30px;
+  font-weight:1000;
+}
+
+.order{
+  background:#fff;
+  border-radius:18px;
+  padding:20px;
+  margin:15px 0;
+  box-shadow:0 5px 20px #0001;
+}
+
+.status{
+  display:inline-block;
+  padding:7px 10px;
+  background:#eee;
+  border-radius:20px;
+  font-weight:800;
+  font-size:12px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+@media(max-width:800px){
+  .cards{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:500px){
+  .cards{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">AeroZone Admin</div>
+  <button class="white" onclick="logout()">Logout</button>
+</header>
+
+<div id="loginScreen" class="login">
+
+<h2>Admin Login</h2>
+
+<input id="email" type="email" placeholder="Admin email">
+
+<input id="password" type="password" placeholder="Password">
+
+<button class="black" style="width:100%" onclick="login()">
+Login
+</button>
+
+<p id="loginMessage"></p>
+
+</div>
+
+<div id="dashboard" class="dashboard">
+
+<div class="container">
+
+<h1>Operations Dashboard</h1>
+
+<div class="cards">
+
+<div class="card">
+<div>Total Orders</div>
+<div class="number" id="totalOrders">0</div>
+</div>
+
+<div class="card">
+<div>Paid</div>
+<div class="number" id="paidOrders">0</div>
+</div>
+
+<div class="card">
+<div>Shopping</div>
+<div class="number" id="shoppingOrders">0</div>
+</div>
+
+<div class="card">
+<div>Delivering</div>
+<div class="number" id="deliveryOrders">0</div>
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Create / Assign Order</h2>
+
+<div class="grid">
+
+<div>
+
+<label>Customer name</label>
+<input id="customerName">
+
+<label>Customer phone</label>
+<input id="customerPhone">
+
+<label>Delivery address</label>
+<input id="deliveryAddress">
+
+<label>Total paid</label>
+<input id="totalPaid" type="number">
+
+</div>
+
+<div>
+
+<label>Shopping allowance</label>
+<input id="shoppingAllowance" type="number">
+
+<label>Shopper</label>
+<select id="shopperSelect">
+<option value="">Select shopper</option>
+</select>
+
+<label>Driver</label>
+<select id="driverSelect">
+<option value="">Select driver</option>
+</select>
+
+</div>
+
+</div>
+
+<button class="black" onclick="createOrder()">
+Create Order
+</button>
+
+</div>
+
+<h2>Orders</h2>
+
+<div id="orders"></div>
+
+</div>
+</div>
+
+<script type="module">
+
+import {
+  auth,
+  db,
+  ref,
+  get,
+  set,
+  update,
+  push,
+  onValue,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut
+} from "./firebase.js";
+
+window.login = async function(){
+
+  const email=document.getElementById("email").value.trim();
+  const password=document.getElementById("password").value;
+
+  try{
+
+    await signInWithEmailAndPassword(auth,email,password);
+
+  }catch(error){
+
+    document.getElementById("loginMessage").textContent =
+      error.message;
+
+  }
+};
+
+window.logout = function(){
+  signOut(auth);
+};
+
+onAuthStateChanged(auth,async(user)=>{
+
+  if(!user){
+
+    document.getElementById("loginScreen").style.display="block";
+    document.getElementById("dashboard").style.display="none";
+
+    return;
+  }
+
+  const userSnap=await get(ref(db,"users/"+user.uid));
+
+  if(!userSnap.exists() ||
+     userSnap.val().role!=="admin"){
+
+    alert("This account is not an AeroZone admin.");
+
+    await signOut(auth);
+
+    return;
+  }
+
+  document.getElementById("loginScreen").style.display="none";
+  document.getElementById("dashboard").style.display="block";
+
+  loadUsers();
+  loadOrders();
+
+});
+
+async function loadUsers(){
+
+  const snap=await get(ref(db,"users"));
+
+  if(!snap.exists()) return;
+
+  const users=snap.val();
+
+  const shopper=document.getElementById("shopperSelect");
+  const driver=document.getElementById("driverSelect");
+
+  shopper.innerHTML='<option value="">Select shopper</option>';
+  driver.innerHTML='<option value="">Select driver</option>';
+
+  Object.entries(users).forEach(([id,u])=>{
+
+    if(!u.active) return;
+
+    const option=document.createElement("option");
+
+    option.value=id;
+    option.textContent=u.name+" - "+u.phone;
+
+    if(u.role==="shopper"){
+      shopper.appendChild(option);
+    }
+
+    if(u.role==="driver"){
+      driver.appendChild(option.cloneNode(true));
+    }
+
+  });
+}
+
+window.createOrder = async function(){
+
+  const customerName=document.getElementById("customerName").value.trim();
+  const customerPhone=document.getElementById("customerPhone").value.trim();
+  const deliveryAddress=document.getElementById("deliveryAddress").value.trim();
+
+  const total=Number(document.getElementById("totalPaid").value);
+  const allowance=Number(document.getElementById("shoppingAllowance").value);
+
+  const shopperId=document.getElementById("shopperSelect").value;
+  const driverId=document.getElementById("driverSelect").value;
+
+  if(!customerName || !customerPhone || !deliveryAddress){
+    alert("Complete customer information.");
+    return;
+  }
+
+  if(!Number.isFinite(total) || total<=0){
+    alert("Enter a valid order amount.");
+    return;
+  }
+
+  if(!Number.isFinite(allowance) || allowance<=0){
+    alert("Enter a valid shopping allowance.");
+    return;
+  }
+
+  const orderRef=push(ref(db,"orders"));
+  const orderId=orderRef.key;
+
+  const pin=String(
+    Math.floor(100000 + Math.random()*900000)
+  );
+
+  const order={
+    orderId,
+    customerId:"",
+    customerName,
+    customerPhone,
+    deliveryAddress,
+
+    items:{},
+
+    subtotal:total,
+    deliveryFee:0,
+    total,
+
+    shoppingAllowance:allowance,
+    actualShoppingCost:0,
+
+    shopperId:shopperId||"",
+    driverId:driverId||"",
+
+    receiptUrl:"",
+
+    deliveryPin:pin,
+
+    status:"paid",
+
+    createdAt:Date.now(),
+    updatedAt:Date.now()
+  };
+
+  await set(orderRef,order);
+
+  alert("Order created: "+orderId);
+
+  document.getElementById("customerName").value="";
+  document.getElementById("customerPhone").value="";
+  document.getElementById("deliveryAddress").value="";
+  document.getElementById("totalPaid").value="";
+  document.getElementById("shoppingAllowance").value="";
+
+};
+
+function loadOrders(){
+
+  onValue(ref(db,"orders"),snapshot=>{
+
+    const box=document.getElementById("orders");
+
+    box.innerHTML="";
+
+    let total=0;
+    let paid=0;
+    let shopping=0;
+    let delivery=0;
+
+    if(!snapshot.exists()){
+
+      box.innerHTML="<p>No orders yet.</p>";
+      return;
+
+    }
+
+    const orders=snapshot.val();
+
+    Object.values(orders)
+      .sort((a,b)=>(b.createdAt||0)-(a.createdAt||0))
+      .forEach(order=>{
+
+        total++;
+
+        if(order.status==="paid") paid++;
+
+        if(order.status==="shopping") shopping++;
+
+        if(
+          order.status==="ready_for_driver" ||
+          order.status==="out_for_delivery"
+        ){
+          delivery++;
+        }
+
+        const div=document.createElement("div");
+
+        div.className="order";
+
+        div.innerHTML=`
+
+          <h3>${escapeHtml(order.orderId)}</h3>
+
+          <span class="status">
+            ${escapeHtml(order.status||"unknown")}
+          </span>
+
+          <p>
+          <b>Customer:</b>
+          ${escapeHtml(order.customerName||"")}
+          </p>
+
+          <p>
+          <b>Phone:</b>
+          ${escapeHtml(order.customerPhone||"")}
+          </p>
+
+          <p>
+          <b>Address:</b>
+          ${escapeHtml(order.deliveryAddress||"")}
+          </p>
+
+          <p>
+          <b>Total:</b>
+          R${Number(order.total||0).toFixed(2)}
+          </p>
+
+          <p>
+          <b>Shopping allowance:</b>
+          R${Number(order.shoppingAllowance||0).toFixed(2)}
+          </p>
+
+          <p>
+          <b>Actual shopping:</b>
+          R${Number(order.actualShoppingCost||0).toFixed(2)}
+          </p>
+
+          <p>
+          <b>Shopper:</b>
+          ${escapeHtml(order.shopperId||"Not assigned")}
+          </p>
+
+          <p>
+          <b>Driver:</b>
+          ${escapeHtml(order.driverId||"Not assigned")}
+          </p>
+
+          <button class="black"
+          onclick="assignOrder('${order.orderId}')">
+          Assign
+          </button>
+
+        `;
+
+        box.appendChild(div);
+
+      });
+
+    document.getElementById("totalOrders").textContent=total;
+    document.getElementById("paidOrders").textContent=paid;
+    document.getElementById("shoppingOrders").textContent=shopping;
+    document.getElementById("deliveryOrders").textContent=delivery;
+
+  });
+
+}
+
+window.assignOrder = async function(orderId){
+
+  const shopperId=document.getElementById("shopperSelect").value;
+  const driverId=document.getElementById("driverSelect").value;
+
+  if(!shopperId && !driverId){
+
+    alert("Select a shopper or driver first.");
+    return;
+
+  }
+
+  const changes={
+    updatedAt:Date.now()
+  };
+
+  if(shopperId){
+    changes.shopperId=shopperId;
+  }
+
+  if(driverId){
+    changes.driverId=driverId;
+  }
+
+  await update(
+    ref(db,"orders/"+orderId),
+    changes
+  );
+
+  alert("Order assigned.");
+
+};
+
+function escapeHtml(value){
+
+  return String(value||"")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+
+}
+
+</script>
+
+</body>
+</html>
