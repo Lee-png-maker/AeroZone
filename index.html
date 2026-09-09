@@ -3,18 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#000000">
-<meta name="description" content="AeroZone - Convenient shopping and delivery across South Africa">
+<meta name="theme-color" content="#000">
+<meta name="description" content="AeroZone - Shop and get delivered">
 <title>AeroZone | Shop & Get Delivered</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
 body{
   font-family:Arial,Helvetica,sans-serif;
-  background:#f7f7f7;
+  background:#f5f5f5;
   color:#111;
-  overflow-x:hidden
 }
 button,input,select,textarea{font:inherit}
 button{cursor:pointer}
@@ -23,794 +21,605 @@ button{cursor:pointer}
   position:sticky;
   top:0;
   z-index:1000;
-  background:#000;
-  color:#fff;
-  height:68px;
+  height:66px;
+  background:#050505;
+  color:white;
   display:flex;
   align-items:center;
   justify-content:space-between;
   padding:0 5%;
-  box-shadow:0 3px 20px rgba(0,0,0,.2)
+  box-shadow:0 3px 18px #0003;
 }
-
 .logo{
   display:flex;
   align-items:center;
   gap:10px;
-  font-size:22px;
+  font-size:21px;
   font-weight:900;
-  letter-spacing:-1px
 }
-
-.logo-mark{
+.logoMark{
   width:38px;
   height:38px;
-  background:#fff;
-  color:#000;
+  background:white;
+  color:black;
   border-radius:11px;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-weight:900
+  font-weight:900;
 }
-
-.header-actions{
-  display:flex;
-  align-items:center;
-  gap:8px
-}
-
-.icon-btn{
+.headerActions{display:flex;gap:8px}
+.headerBtn{
+  position:relative;
+  width:41px;
+  height:41px;
   border:1px solid #333;
-  background:#111;
-  color:#fff;
-  min-width:42px;
-  height:42px;
   border-radius:12px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative
+  background:#111;
+  color:white;
 }
-
-.icon-btn:hover{background:#222}
-
-.cart-count{
+.cartBadge{
   position:absolute;
   top:-5px;
   right:-5px;
-  background:#fff;
-  color:#000;
-  min-width:19px;
-  height:19px;
+  display:none;
+  min-width:20px;
+  height:20px;
   padding:0 5px;
   border-radius:20px;
-  font-size:11px;
-  font-weight:900;
-  display:none;
+  background:white;
+  color:black;
   align-items:center;
-  justify-content:center
+  justify-content:center;
+  font-size:10px;
+  font-weight:bold;
 }
 
 .hero{
   background:#000;
   color:#fff;
-  padding:55px 5% 65px;
-  text-align:center
+  text-align:center;
+  padding:58px 5% 65px;
 }
-
 .hero h1{
-  font-size:clamp(34px,6vw,68px);
+  font-size:clamp(40px,8vw,76px);
   line-height:1;
-  letter-spacing:-3px;
-  margin-bottom:15px
+  letter-spacing:-4px;
 }
-
-.hero h1 span{color:#aaa}
-
+.hero h1 span{color:#888}
 .hero p{
-  color:#bbb;
-  max-width:650px;
-  margin:auto;
-  font-size:16px;
-  line-height:1.6
+  max-width:620px;
+  margin:20px auto 0;
+  color:#aaa;
+  line-height:1.6;
 }
-
-.search-wrap{
+.search{
   max-width:680px;
-  margin:30px auto 0;
-  position:relative
+  margin:28px auto 0;
+  position:relative;
 }
-
-.search-wrap input{
+.search input{
   width:100%;
   height:58px;
   border:0;
-  border-radius:17px;
-  padding:0 22px 0 52px;
+  border-radius:18px;
+  padding:0 20px 0 52px;
   outline:none;
-  font-size:16px
+  font-size:16px;
 }
-
-.search-icon{
+.searchIcon{
   position:absolute;
-  left:18px;
-  top:18px;
-  color:#777
+  left:19px;
+  top:19px;
+  color:#777;
 }
 
 .container{
-  width:90%;
+  width:92%;
   max-width:1250px;
-  margin:auto
+  margin:auto;
 }
-
-.section{
-  padding:42px 0
-}
-
-.section-title{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  gap:20px;
-  margin-bottom:22px
-}
-
-.section-title h2{
-  font-size:27px;
-  letter-spacing:-1px
-}
-
-.section-title p{
-  color:#777;
-  font-size:14px
+.section{padding:38px 0}
+.sectionTitle{margin-bottom:19px}
+.sectionTitle h2{font-size:27px}
+.sectionTitle p{
+  color:#888;
+  font-size:13px;
+  margin-top:5px;
 }
 
 .categories{
   display:flex;
-  gap:10px;
+  gap:9px;
   overflow-x:auto;
-  padding:5px 0 15px;
-  scrollbar-width:none
+  padding-bottom:8px;
+  scrollbar-width:none;
 }
-
 .categories::-webkit-scrollbar{display:none}
-
-.cat-btn{
+.categoryBtn{
   flex:0 0 auto;
-  border:1px solid #ddd;
-  background:#fff;
-  color:#111;
   padding:11px 17px;
+  border:1px solid #ddd;
   border-radius:30px;
-  font-weight:700;
-  font-size:13px
+  background:#fff;
+  font-weight:bold;
+  font-size:13px;
 }
-
-.cat-btn.active,
-.cat-btn:hover{
+.categoryBtn.active{
   background:#000;
   color:#fff;
-  border-color:#000
+  border-color:#000;
 }
 
-.store-grid{
+.storeGrid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:14px
+  gap:14px;
 }
-
-.store-card{
+.store{
   background:#fff;
-  border:1px solid #e6e6e6;
-  border-radius:18px;
-  padding:22px;
-  min-height:145px;
+  border:1px solid #e5e5e5;
+  border-radius:19px;
+  padding:20px;
+  min-height:140px;
   transition:.2s;
-  cursor:pointer
 }
-
-.store-card:hover{
+.store:hover{
   transform:translateY(-3px);
-  box-shadow:0 12px 35px rgba(0,0,0,.08)
+  box-shadow:0 15px 30px #0001;
 }
-
-.store-icon{
-  font-size:31px;
-  margin-bottom:14px
-}
-
-.store-card h3{
-  font-size:17px;
-  margin-bottom:5px
-}
-
-.store-card p{
-  color:#777;
-  font-size:12px
-}
-
-.products{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px
-}
-
-.product{
-  background:#fff;
-  border:1px solid #e7e7e7;
-  border-radius:18px;
-  padding:13px;
-  transition:.2s
-}
-
-.product:hover{
-  transform:translateY(-3px);
-  box-shadow:0 10px 28px rgba(0,0,0,.07)
-}
-
-.product-img{
-  height:145px;
-  background:#f3f3f3;
-  border-radius:14px;
+.storeIcon{
+  width:52px;
+  height:52px;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:55px;
-  margin-bottom:12px
+  border-radius:15px;
+  background:#f0f0f0;
+  font-size:28px;
+  margin-bottom:15px;
 }
-
-.product-category{
+.store h3{font-size:16px}
+.store p{
+  margin-top:5px;
   color:#888;
-  font-size:11px;
-  margin-bottom:5px
+  font-size:12px;
 }
 
-.product h3{
-  font-size:14px;
-  min-height:34px
+.productGrid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+.product{
+  background:white;
+  border:1px solid #e5e5e5;
+  border-radius:18px;
+  overflow:hidden;
+  transition:.2s;
+}
+.product:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 28px #0001;
 }
 
-.product-bottom{
+/* PRODUCT VISUAL - NO IMAGE FILES */
+.productVisual{
+  height:175px;
+  background:linear-gradient(135deg,#f4f4f4,#ddd);
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:8px;
-  margin-top:12px
+  justify-content:center;
+  position:relative;
 }
-
-.price{
-  font-weight:900;
-  font-size:16px
+.productEmoji{
+  width:105px;
+  height:105px;
+  border-radius:28px;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:57px;
+  box-shadow:0 12px 30px #0002;
 }
-
-.add-btn{
-  border:0;
+.productTag{
+  position:absolute;
+  left:10px;
+  top:10px;
   background:#000;
   color:#fff;
-  width:36px;
-  height:36px;
-  border-radius:11px;
-  font-size:20px;
-  display:flex;
-  align-items:center;
-  justify-content:center
+  padding:5px 8px;
+  border-radius:7px;
+  font-size:9px;
+  font-weight:bold;
+  text-transform:uppercase;
 }
 
-.add-btn:hover{background:#333}
+.productInfo{padding:13px}
+.productCategory{
+  color:#999;
+  font-size:9px;
+  font-weight:bold;
+  text-transform:uppercase;
+}
+.productName{
+  margin-top:5px;
+  min-height:35px;
+  font-size:14px;
+  font-weight:700;
+  line-height:1.25;
+}
+.productBottom{
+  margin-top:11px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.productPrice{
+  font-size:16px;
+  font-weight:900;
+}
+.addButton{
+  width:37px;
+  height:37px;
+  border:0;
+  border-radius:11px;
+  background:#000;
+  color:#fff;
+  font-size:22px;
+}
+.addButton:hover{background:#333}
 
 .benefits{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:15px
+  gap:14px;
 }
-
 .benefit{
   background:#000;
   color:#fff;
   border-radius:20px;
-  padding:27px
+  padding:25px;
 }
-
-.benefit-icon{
-  font-size:27px;
-  margin-bottom:14px
-}
-
-.benefit h3{
-  margin-bottom:7px
-}
-
+.benefitIcon{font-size:28px;margin-bottom:12px}
+.benefit h3{margin-bottom:7px}
 .benefit p{
-  color:#bbb;
-  line-height:1.5;
-  font-size:13px
+  color:#aaa;
+  font-size:13px;
+  line-height:1.6;
 }
 
 .premium{
   background:#000;
   color:#fff;
-  border-radius:25px;
-  padding:35px;
+  border-radius:23px;
+  padding:32px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  gap:25px
+  justify-content:space-between;
+  gap:20px;
 }
-
-.premium h2{
-  font-size:30px;
-  margin-bottom:8px
-}
-
+.premium h2{font-size:29px}
 .premium p{
-  color:#bbb;
-  line-height:1.5
+  color:#aaa;
+  margin-top:6px;
 }
-
-.premium-price{
-  font-size:28px;
+.premiumPrice{
+  margin-top:10px;
+  font-size:27px;
   font-weight:900;
-  margin-top:12px
 }
-
-.white-btn{
+.whiteButton{
   border:0;
-  background:#fff;
+  background:white;
   color:#000;
-  padding:14px 20px;
-  border-radius:13px;
+  border-radius:12px;
+  padding:13px 19px;
   font-weight:900;
-  white-space:nowrap
 }
 
-.account-card{
-  background:#fff;
+.account{
+  background:white;
   border:1px solid #e5e5e5;
   border-radius:20px;
-  padding:25px;
+  padding:23px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:20px
 }
-
-.black-btn{
+.blackButton{
   background:#000;
-  color:#fff;
+  color:white;
   border:0;
+  border-radius:11px;
   padding:13px 18px;
-  border-radius:12px;
-  font-weight:800
-}
-
-.outline-btn{
-  background:#fff;
-  color:#000;
-  border:1px solid #ccc;
-  padding:12px 17px;
-  border-radius:12px;
-  font-weight:800
+  font-weight:800;
 }
 
 footer{
+  margin-top:25px;
+  padding:42px 5% 25px;
   background:#000;
   color:#fff;
-  margin-top:40px;
-  padding:45px 5% 25px
 }
-
-.footer-grid{
+.footerGrid{
   max-width:1250px;
   margin:auto;
   display:grid;
   grid-template-columns:2fr 1fr 1fr;
-  gap:35px
+  gap:30px;
 }
-
-footer h3{margin-bottom:12px}
 footer p,footer li{
-  color:#aaa;
+  color:#999;
   font-size:13px;
-  line-height:1.8
+  line-height:1.9;
 }
-
 footer ul{list-style:none}
-
-.footer-bottom{
+.footerBottom{
   max-width:1250px;
-  margin:35px auto 0;
-  padding-top:20px;
+  margin:25px auto 0;
   border-top:1px solid #222;
+  padding-top:18px;
   color:#777;
-  font-size:12px
+  font-size:12px;
 }
 
 /* SMALL FLOATING CART */
-.floating-cart{
+.floatingCart{
   position:fixed;
-  right:18px;
-  bottom:18px;
-  z-index:900;
+  right:16px;
+  bottom:16px;
+  z-index:1500;
+  height:48px;
+  border:0;
+  border-radius:30px;
+  padding:0 15px;
   background:#000;
   color:#fff;
-  border:0;
-  border-radius:50px;
-  min-height:50px;
-  padding:0 17px;
   display:flex;
   align-items:center;
-  gap:9px;
-  box-shadow:0 8px 30px rgba(0,0,0,.25);
-  font-weight:800
+  gap:8px;
+  box-shadow:0 8px 25px #0004;
+  font-weight:900;
 }
-
-.floating-cart strong{
+.floatingCart span{
+  min-width:21px;
+  height:21px;
   background:#fff;
   color:#000;
-  min-width:22px;
-  height:22px;
-  border-radius:20px;
+  border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:11px
+  font-size:10px;
 }
 
 /* MODALS */
 .modal{
+  display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.65);
-  z-index:2000;
-  display:none;
+  z-index:3000;
+  background:#0009;
+  padding:15px;
   align-items:center;
   justify-content:center;
-  padding:15px
 }
-
 .modal.show{display:flex}
-
-.modal-box{
+.modalBox{
+  position:relative;
   width:100%;
   max-width:520px;
   max-height:90vh;
   overflow:auto;
-  background:#fff;
-  border-radius:22px;
-  padding:25px;
-  position:relative
+  padding:23px;
+  background:white;
+  border-radius:21px;
 }
-
 .close{
   position:absolute;
-  right:16px;
-  top:15px;
-  width:35px;
-  height:35px;
-  border-radius:50%;
+  right:13px;
+  top:13px;
+  width:34px;
+  height:34px;
   border:0;
-  background:#f1f1f1;
-  font-size:18px
+  border-radius:50%;
+  background:#eee;
+  font-size:20px;
 }
-
-.modal-title{
+.modalTitle{
+  margin-bottom:17px;
   font-size:23px;
-  margin-bottom:18px
 }
 
 /* COMPACT CART */
 #cartModal{
+  padding:0;
   align-items:flex-end;
   justify-content:flex-end;
-  padding:0
 }
-
-#cartModal .modal-box{
+#cartModal .modalBox{
   width:390px;
   max-width:390px;
-  height:min(90vh,700px);
-  max-height:90vh;
+  height:min(88vh,680px);
   border-radius:20px 0 0 20px;
-  padding:18px
+  padding:18px;
 }
 
-.cart-items{
+.cartItems{
   display:flex;
   flex-direction:column;
   gap:8px;
-  margin:12px 0
 }
-
-.cart-item{
+.cartItem{
   display:grid;
   grid-template-columns:42px 1fr auto;
+  gap:8px;
   align-items:center;
-  gap:9px;
-  padding:9px;
-  background:#f6f6f6;
-  border-radius:12px
+  padding:7px;
+  border-radius:11px;
+  background:#f4f4f4;
 }
-
-.cart-item-img{
+.cartVisual{
   width:42px;
   height:42px;
-  border-radius:10px;
+  border-radius:9px;
   background:#fff;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:22px
+  font-size:22px;
 }
-
-.cart-item h4{
+.cartName{
   font-size:12px;
-  margin-bottom:3px
+  font-weight:800;
 }
-
-.cart-item-price{
-  font-size:11px;
-  color:#777
+.cartLine{
+  margin-top:3px;
+  color:#777;
+  font-size:10px;
 }
-
 .qty{
   display:flex;
   align-items:center;
-  gap:5px
+  gap:4px;
 }
-
 .qty button{
   width:24px;
   height:24px;
   border:1px solid #ddd;
-  background:#fff;
-  border-radius:7px;
-  font-weight:900
+  background:white;
+  border-radius:6px;
+  font-weight:bold;
 }
-
 .qty span{
-  min-width:15px;
+  width:15px;
   text-align:center;
-  font-size:12px;
-  font-weight:800
+  font-size:11px;
+  font-weight:bold;
 }
 
-.cart-summary{
-  border-top:1px solid #eee;
-  padding-top:12px;
-  margin-top:8px
+.summary{
+  border-top:1px solid #ddd;
+  margin-top:11px;
+  padding-top:8px;
 }
-
-.summary-row{
+.summaryRow{
   display:flex;
   justify-content:space-between;
-  margin:7px 0;
-  font-size:13px
+  margin:6px 0;
+  font-size:12px;
 }
-
-.summary-row.total{
+.summaryTotal{
+  border-top:1px solid #eee;
+  padding-top:8px;
   font-size:17px;
   font-weight:900;
-  padding-top:7px;
-  border-top:1px solid #eee
 }
-
-.checkout-btn{
+.checkoutButton{
   width:100%;
-  height:48px;
+  height:46px;
   border:0;
+  border-radius:11px;
   background:#000;
-  color:#fff;
-  border-radius:12px;
+  color:white;
   font-weight:900;
-  margin-top:10px
+  margin-top:8px;
 }
 
 .empty{
   text-align:center;
-  padding:40px 15px;
-  color:#888
+  padding:45px 10px;
+  color:#888;
 }
+.emptyIcon{font-size:45px;margin-bottom:9px}
 
-.empty-icon{
-  font-size:45px;
-  margin-bottom:10px
-}
-
-.form-group{
-  margin-bottom:13px
-}
-
-.form-group label{
+.formGroup{margin-bottom:13px}
+.formGroup label{
   display:block;
+  margin-bottom:6px;
   font-size:12px;
   font-weight:800;
-  margin-bottom:6px
 }
-
-.form-group input,
-.form-group select,
-.form-group textarea{
+.formGroup input,
+.formGroup select,
+.formGroup textarea{
   width:100%;
   border:1px solid #ddd;
+  border-radius:10px;
+  padding:11px;
   background:#fafafa;
-  border-radius:11px;
-  padding:12px;
-  outline:none
+  outline:none;
 }
-
-.form-group textarea{
-  min-height:80px;
-  resize:vertical
+.formGroup textarea{
+  min-height:75px;
+  resize:vertical;
 }
-
-.order-number{
-  background:#f2f2f2;
-  border-radius:13px;
-  padding:15px;
-  text-align:center;
-  margin:15px 0
-}
-
-.status{
-  display:inline-block;
-  padding:7px 11px;
-  background:#000;
-  color:#fff;
-  border-radius:20px;
-  font-size:12px;
-  font-weight:800
-}
-
-.mobile-nav{
-  display:none
-}
-
 .notice{
   padding:12px;
-  background:#f5f5f5;
-  border-radius:12px;
-  font-size:12px;
+  border-radius:11px;
+  background:#f2f2f2;
   color:#555;
-  margin-bottom:13px
+  font-size:12px;
+  margin-bottom:14px;
+}
+.orderBox{
+  background:#f3f3f3;
+  border-radius:15px;
+  padding:20px;
+  text-align:center;
+}
+.status{
+  display:inline-block;
+  margin:14px 0;
+  padding:7px 13px;
+  border-radius:20px;
+  background:#000;
+  color:white;
+  font-size:11px;
+  font-weight:bold;
 }
 
 @media(max-width:950px){
-  .store-grid{grid-template-columns:repeat(2,1fr)}
-  .products{grid-template-columns:repeat(3,1fr)}
+  .storeGrid{grid-template-columns:repeat(2,1fr)}
+  .productGrid{grid-template-columns:repeat(3,1fr)}
 }
-
 @media(max-width:700px){
-  .header{
-    padding:0 4%;
-    height:62px
+  .hero{padding:45px 5% 50px}
+  .hero h1{letter-spacing:-2px}
+  .productGrid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .productVisual{height:145px}
+  .productEmoji{
+    width:82px;
+    height:82px;
+    font-size:45px;
   }
-
-  .logo{font-size:19px}
-
-  .logo-mark{
-    width:34px;
-    height:34px
-  }
-
-  .hero{
-    padding:42px 5% 48px
-  }
-
-  .hero h1{
-    letter-spacing:-2px
-  }
-
-  .section{padding:30px 0}
-
-  .container{width:92%}
-
-  .store-grid{
-    grid-template-columns:repeat(2,1fr);
-    gap:10px
-  }
-
-  .store-card{
-    padding:16px;
-    min-height:125px
-  }
-
-  .products{
-    grid-template-columns:repeat(2,1fr);
-    gap:10px
-  }
-
-  .product{padding:9px}
-
-  .product-img{
-    height:115px;
-    font-size:43px
-  }
-
-  .benefits{
-    grid-template-columns:1fr
-  }
-
+  .storeGrid{gap:10px}
+  .store{padding:15px}
+  .benefits{grid-template-columns:1fr}
   .premium{
     flex-direction:column;
     align-items:flex-start;
-    padding:25px
+    padding:25px;
   }
-
-  .account-card{
+  .account{
     flex-direction:column;
-    align-items:flex-start
+    align-items:flex-start;
+    gap:14px;
   }
-
-  .footer-grid{
-    grid-template-columns:1fr
-  }
-
+  .footerGrid{grid-template-columns:1fr}
   #cartModal{
     align-items:flex-end;
     justify-content:center;
-    padding:8px
+    padding:6px;
   }
-
-  #cartModal .modal-box{
+  #cartModal .modalBox{
     width:100%;
     max-width:420px;
     height:auto;
     max-height:72vh;
     border-radius:20px 20px 0 0;
-    padding:16px
-  }
-
-  .floating-cart{
-    right:12px;
-    bottom:12px
-  }
-
-  .mobile-nav{
-    position:fixed;
-    display:flex;
-    bottom:0;
-    left:0;
-    right:0;
-    height:62px;
-    background:#000;
-    z-index:850;
-    justify-content:space-around;
-    align-items:center;
-    border-top:1px solid #222
-  }
-
-  .mobile-nav button{
-    background:none;
-    color:#aaa;
-    border:0;
-    font-size:10px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:4px
-  }
-
-  .mobile-nav button span{
-    font-size:19px
-  }
-
-  body{padding-bottom:62px}
-}
-
-@media(max-width:390px){
-  .store-grid,
-  .products{
-    grid-template-columns:1fr 1fr
-  }
-
-  .product h3{
-    font-size:12px
-  }
-
-  .price{
-    font-size:14px
   }
 }
 </style>
@@ -819,30 +628,40 @@ footer ul{list-style:none}
 <body>
 
 <header class="header">
+
   <div class="logo">
-    <div class="logo-mark">A</div>
+    <div class="logoMark">A</div>
     AeroZone
   </div>
 
-  <div class="header-actions">
-    <button class="icon-btn" onclick="openAccount()" aria-label="Account">👤</button>
-    <button class="icon-btn" onclick="openPremium()" aria-label="Premium">★</button>
-    <button class="icon-btn" onclick="openCart()" aria-label="Cart">
+  <div class="headerActions">
+
+    <button class="headerBtn" onclick="openAccount()">👤</button>
+
+    <button class="headerBtn" onclick="openPremium()">★</button>
+
+    <button class="headerBtn" onclick="openCart()">
       🛒
-      <span class="cart-count" id="cartCount">0</span>
+      <span class="cartBadge" id="cartBadge">0</span>
     </button>
+
   </div>
+
 </header>
 
+
 <section class="hero">
-  <h1>Shop. <span>Order.</span> Delivered.</h1>
+
+  <h1>
+    Shop. <span>Order.</span> Delivered.
+  </h1>
+
   <p>
-    Everything you need, conveniently delivered to your door.
-    Shop products across AeroZone categories in one place.
+    Everything you need in one convenient shopping experience.
   </p>
 
-  <div class="search-wrap">
-    <span class="search-icon">🔎</span>
+  <div class="search">
+    <span class="searchIcon">🔎</span>
     <input
       id="searchInput"
       type="search"
@@ -850,54 +669,53 @@ footer ul{list-style:none}
       oninput="searchProducts()"
     >
   </div>
+
 </section>
+
 
 <main>
 
 <section class="section">
 <div class="container">
 
-  <div class="section-title">
-    <div>
-      <h2>Shop by category</h2>
-      <p>Choose a category to start shopping</p>
-    </div>
+  <div class="sectionTitle">
+    <h2>Shop by category</h2>
+    <p>Choose what you need</p>
   </div>
 
-  <div class="categories" id="categoryButtons"></div>
+  <div class="categories" id="categories"></div>
 
 </div>
 </section>
 
-<section class="section" id="stores">
-<div class="container">
-
-  <div class="section-title">
-    <div>
-      <h2>Explore AeroZone</h2>
-      <p>Browse products by category</p>
-    </div>
-  </div>
-
-  <div class="store-grid" id="storeGrid"></div>
-
-</div>
-</section>
 
 <section class="section">
 <div class="container">
 
-  <div class="section-title">
-    <div>
-      <h2 id="productsTitle">Products</h2>
-      <p id="productsSubtitle">Browse our selection</p>
-    </div>
+  <div class="sectionTitle">
+    <h2>Explore AeroZone</h2>
+    <p>Browse our shopping categories</p>
   </div>
 
-  <div class="products" id="productGrid"></div>
+  <div class="storeGrid" id="storeGrid"></div>
 
 </div>
 </section>
+
+
+<section class="section">
+<div class="container">
+
+  <div class="sectionTitle">
+    <h2 id="productsTitle">Supermarket</h2>
+    <p id="productsSubtitle">Shop products</p>
+  </div>
+
+  <div class="productGrid" id="productGrid"></div>
+
+</div>
+</section>
+
 
 <section class="section">
 <div class="container">
@@ -905,1358 +723,15 @@ footer ul{list-style:none}
   <div class="benefits">
 
     <div class="benefit">
-      <div class="benefit-icon">🚚</div>
+      <div class="benefitIcon">🚚</div>
       <h3>Convenient Delivery</h3>
       <p>
-        Order what you need and have it delivered conveniently to your door.
+        Get your shopping delivered conveniently to your chosen address.
       </p>
     </div>
 
     <div class="benefit">
-      <div class="benefit-icon">⚡</div>
-      <h3>Simple Ordering</h3>
+      <div class="benefitIcon">⚡</div>
+      <h3>Easy Ordering</h3>
       <p>
-        Choose your products, add them to your cart and complete your order.
-      </p>
-    </div>
-
-    <div class="benefit">
-      <div class="benefit-icon">🔒</div>
-      <h3>Secure Checkout</h3>
-      <p>
-        Your order details are handled securely and conveniently.
-      </p>
-    </div>
-
-  </div>
-
-</div>
-</section>
-
-<section class="section">
-<div class="container">
-
-  <div class="premium">
-
-    <div>
-      <h2>AeroZone Premium</h2>
-      <p>
-        Get free delivery with Premium for only R99 per month.
-      </p>
-      <div class="premium-price">R99 / month</div>
-    </div>
-
-    <button class="white-btn" onclick="openPremium()">
-      Join Premium
-    </button>
-
-  </div>
-
-</div>
-</section>
-
-<section class="section">
-<div class="container">
-
-  <div class="account-card">
-    <div>
-      <h2 id="accountWelcome">Your AeroZone Account</h2>
-      <p id="accountStatus" style="color:#777;margin-top:6px">
-        Sign in or create your account to manage orders.
-      </p>
-    </div>
-
-    <button class="black-btn" onclick="openAccount()">
-      Account
-    </button>
-  </div>
-
-</div>
-</section>
-
-</main>
-
-<footer>
-<div class="footer-grid">
-
-  <div>
-    <div class="logo">
-      <div class="logo-mark">A</div>
-      AeroZone
-    </div>
-
-    <p style="margin-top:15px">
-      Convenient shopping and delivery across South Africa.
-    </p>
-  </div>
-
-  <div>
-    <h3>Shop</h3>
-    <ul>
-      <li>Supermarket</li>
-      <li>Pharmacy & Health</li>
-      <li>Restaurants</li>
-      <li>Fast Food</li>
-      <li>Butchery</li>
-    </ul>
-  </div>
-
-  <div>
-    <h3>Help</h3>
-    <ul>
-      <li onclick="openTracking()" style="cursor:pointer">Track Order</li>
-      <li onclick="openAccount()" style="cursor:pointer">My Account</li>
-      <li onclick="openPremium()" style="cursor:pointer">Premium</li>
-      <li>
-        <a
-          href="https://wa.me/27688685355"
-          target="_blank"
-          style="color:#aaa;text-decoration:none"
-        >
-          WhatsApp
-        </a>
-      </li>
-    </ul>
-  </div>
-
-</div>
-
-<div class="footer-bottom">
-  © 2026 AeroZone. All rights reserved.
-</div>
-</footer>
-
-<button class="floating-cart" onclick="openCart()">
-  🛒 Cart
-  <strong id="floatingCount">0</strong>
-</button>
-
-<nav class="mobile-nav">
-  <button onclick="window.scrollTo({top:0,behavior:'smooth'})">
-    <span>⌂</span>Home
-  </button>
-
-  <button onclick="document.getElementById('stores').scrollIntoView({behavior:'smooth'})">
-    <span>▦</span>Shop
-  </button>
-
-  <button onclick="openCart()">
-    <span>🛒</span>Cart
-  </button>
-
-  <button onclick="openAccount()">
-    <span>👤</span>Account
-  </button>
-</nav>
-
-<!-- CART -->
-<div class="modal" id="cartModal">
-<div class="modal-box">
-
-  <button class="close" onclick="closeModal('cartModal')">×</button>
-
-  <h2 class="modal-title">Your Cart</h2>
-
-  <div id="cartContent"></div>
-
-</div>
-</div>
-
-<!-- CHECKOUT -->
-<div class="modal" id="checkoutModal">
-<div class="modal-box">
-
-  <button class="close" onclick="closeModal('checkoutModal')">×</button>
-
-  <h2 class="modal-title">Checkout</h2>
-
-  <div class="notice">
-    Complete your details below to place your AeroZone order.
-  </div>
-
-  <form id="checkoutForm">
-
-    <div class="form-group">
-      <label>Full Name</label>
-      <input id="checkoutName" required>
-    </div>
-
-    <div class="form-group">
-      <label>Phone Number</label>
-      <input id="checkoutPhone" type="tel" required>
-    </div>
-
-    <div class="form-group">
-      <label>Email Address</label>
-      <input id="checkoutEmail" type="email">
-    </div>
-
-    <div class="form-group">
-      <label>Delivery Address</label>
-      <textarea id="checkoutAddress" required></textarea>
-    </div>
-
-    <div class="form-group">
-      <label>Payment Method</label>
-      <select id="paymentMethod">
-        <option>Cash on Delivery</option>
-        <option>Yoco / Card</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label>Special Instructions</label>
-      <textarea id="checkoutNotes"></textarea>
-    </div>
-
-    <button class="checkout-btn" type="submit">
-      Place Order
-    </button>
-
-  </form>
-
-</div>
-</div>
-
-<!-- PREMIUM -->
-<div class="modal" id="premiumModal">
-<div class="modal-box">
-
-  <button class="close" onclick="closeModal('premiumModal')">×</button>
-
-  <h2 class="modal-title">AeroZone Premium ★</h2>
-
-  <div class="notice">
-    Premium costs R99 per month and gives you free delivery.
-  </div>
-
-  <div style="background:#000;color:#fff;border-radius:17px;padding:20px;margin-bottom:16px">
-    <h3>R99 / month</h3>
-    <p style="color:#bbb;font-size:13px;margin-top:6px">
-      Free delivery on your AeroZone orders.
-    </p>
-  </div>
-
-  <button class="checkout-btn" onclick="openPremiumSignup()">
-    Continue
-  </button>
-
-</div>
-</div>
-
-<!-- PREMIUM SIGNUP -->
-<div class="modal" id="premiumSignupModal">
-<div class="modal-box">
-
-  <button class="close" onclick="closeModal('premiumSignupModal')">×</button>
-
-  <h2 class="modal-title">Premium Sign-up</h2>
-
-  <form id="premiumForm">
-
-    <div class="form-group">
-      <label>Full Name</label>
-      <input id="premiumName" required>
-    </div>
-
-    <div class="form-group">
-      <label>Phone Number</label>
-      <input id="premiumPhone" required>
-    </div>
-
-    <div class="form-group">
-      <label>Email Address</label>
-      <input id="premiumEmail" type="email" required>
-    </div>
-
-    <button class="checkout-btn" type="submit">
-      Start Premium Sign-up
-    </button>
-
-  </form>
-
-</div>
-</div>
-
-<!-- ACCOUNT -->
-<div class="modal" id="accountModal">
-<div class="modal-box">
-
-  <button class="close" onclick="closeModal('accountModal')">×</button>
-
-  <h2 class="modal-title">My Account</h2>
-
-  <form id="accountForm">
-
-    <div class="form-group">
-      <label>Full Name</label>
-      <input id="accountName">
-    </div>
-
-    <div class="form-group">
-      <label>Phone Number</label>
-      <input id="accountPhone">
-    </div>
-
-    <div class="form-group">
-      <label>Email Address</label>
-      <input id="accountEmail" type="email">
-    </div>
-
-    <button class="checkout-btn" type="submit">
-      Save Account
-    </button>
-
-  </form>
-
-  <button
-    class="outline-btn"
-    style="width:100%;margin-top:10px"
-    onclick="openTracking()"
-  >
-    Track My Order
-  </button>
-
-</div>
-</div>
-
-<!-- TRACKING -->
-<div class="modal" id="trackingModal">
-<div class="modal-box">
-
-  <button class="close" onclick="closeModal('trackingModal')">×</button>
-
-  <h2 class="modal-title">Track Order</h2>
-
-  <div id="trackingContent"></div>
-
-</div>
-</div>
-
-<script>
-
-/* =========================
-   PRODUCT DATA
-========================= */
-
-const branches = {
-
-  supermarket:{
-    name:"Supermarket",
-    icon:"🛒",
-    products:[
-      ["Milk 2L",38.99,"🥛"],
-      ["Brown Bread",18.99,"🍞"],
-      ["White Sugar 2kg",39.99,"🧂"],
-      ["Rice 2kg",42.99,"🍚"],
-      ["Cooking Oil 2L",59.99,"🫗"],
-      ["Eggs 18 Pack",54.99,"🥚"],
-      ["Cereal 500g",49.99,"🥣"],
-      ["Coffee 200g",69.99,"☕"],
-      ["Tea 100 Bags",44.99,"🍵"],
-      ["Cold Drink 2L",24.99,"🥤"],
-      ["Water 6 Pack",39.99,"💧"],
-      ["Toilet Paper 18 Pack",89.99,"🧻"]
-    ]
-  },
-
-  pharmacy:{
-    name:"Pharmacy & Health",
-    icon:"💊",
-    products:[
-      ["Paracetamol",29.99,"💊"],
-      ["Vitamin C",69.99,"🍊"],
-      ["Multivitamins",99.99,"💊"],
-      ["Toothpaste",32.99,"🪥"],
-      ["Toothbrush",19.99,"🪥"],
-      ["Body Lotion",59.99,"🧴"],
-      ["Shampoo",69.99,"🧴"],
-      ["Deodorant",39.99,"🧼"],
-      ["Hand Sanitizer",29.99,"🧴"],
-      ["Face Wash",74.99,"🧴"]
-    ]
-  },
-
-  restaurant:{
-    name:"Restaurants",
-    icon:"🍽️",
-    products:[
-      ["Chicken Burger Meal",89.99,"🍔"],
-      ["Beef Burger Meal",99.99,"🍔"],
-      ["Chicken Wrap",69.99,"🌯"],
-      ["Grilled Chicken",119.99,"🍗"],
-      ["Fish & Chips",99.99,"🐟"],
-      ["Chicken Pasta",109.99,"🍝"],
-      ["Beef Pasta",119.99,"🍝"],
-      ["Medium Pizza",129.99,"🍕"],
-      ["Large Pizza",169.99,"🍕"],
-      ["Greek Salad",69.99,"🥗"]
-    ]
-  },
-
-  fastfood:{
-    name:"Fast Food",
-    icon:"🍔",
-    products:[
-      ["Chicken Burger",49.99,"🍔"],
-      ["Cheese Burger",54.99,"🍔"],
-      ["Chicken Wings",69.99,"🍗"],
-      ["Large Chips",39.99,"🍟"],
-      ["Chicken Nuggets",59.99,"🍗"],
-      ["Hot Dog",44.99,"🌭"],
-      ["Milkshake",39.99,"🥤"],
-      ["Ice Cream",29.99,"🍦"],
-      ["Chicken Combo",89.99,"🍗"]
-    ]
-  },
-
-  butchery:{
-    name:"Butchery",
-    icon:"🥩",
-    products:[
-      ["Beef Steak 500g",89.99,"🥩"],
-      ["Beef Mince 500g",69.99,"🥩"],
-      ["Chicken Breasts 1kg",79.99,"🍗"],
-      ["Chicken Wings 1kg",69.99,"🍗"],
-      ["Boerewors 1kg",99.99,"🌭"],
-      ["Pork Chops 1kg",89.99,"🥩"],
-      ["Lamb Chops 500g",109.99,"🥩"],
-      ["Beef Short Ribs 1kg",119.99,"🥩"]
-    ]
-  },
-
-  bakery:{
-    name:"Bakery",
-    icon:"🥐",
-    products:[
-      ["Fresh Bread",18.99,"🍞"],
-      ["Brown Bread",19.99,"🍞"],
-      ["Croissant",14.99,"🥐"],
-      ["Muffin",16.99,"🧁"],
-      ["Doughnut",12.99,"🍩"],
-      ["Chocolate Cake",149.99,"🍰"],
-      ["Birthday Cake",199.99,"🎂"],
-      ["Vetkoek",12.99,"🥯"]
-    ]
-  },
-
-  fruitveg:{
-    name:"Fruit & Veg",
-    icon:"🥦",
-    products:[
-      ["Bananas 1kg",24.99,"🍌"],
-      ["Apples 1kg",34.99,"🍎"],
-      ["Oranges 1kg",29.99,"🍊"],
-      ["Avocado Pack",39.99,"🥑"],
-      ["Potatoes 2kg",34.99,"🥔"],
-      ["Tomatoes 1kg",29.99,"🍅"],
-      ["Onions 1kg",24.99,"🧅"],
-      ["Spinach",14.99,"🥬"],
-      ["Carrots 1kg",24.99,"🥕"],
-      ["Cabbage",19.99,"🥬"]
-    ]
-  },
-
-  home:{
-    name:"Home & Cleaning",
-    icon:"🧹",
-    products:[
-      ["Dishwashing Liquid",29.99,"🧴"],
-      ["Laundry Powder 2kg",59.99,"🧺"],
-      ["Bleach 2L",24.99,"🧴"],
-      ["Floor Cleaner",34.99,"🧹"],
-      ["Sponges Pack",19.99,"🧽"],
-      ["Bin Bags",29.99,"🗑️"],
-      ["Paper Towels",39.99,"🧻"],
-      ["Air Freshener",29.99,"🌸"],
-      ["Washing Gloves",19.99,"🧤"]
-    ]
-  }
-
-};
-
-
-/* =========================
-   SAFE NUMBER FUNCTIONS
-========================= */
-
-function safeNumber(value){
-
-  if(typeof value === "number"){
-    return Number.isFinite(value) ? value : 0;
-  }
-
-  if(value === null || value === undefined){
-    return 0;
-  }
-
-  const cleaned = String(value)
-    .replace(/R/gi,"")
-    .replace(/,/g,"")
-    .replace(/[^0-9.-]/g,"");
-
-  const number = parseFloat(cleaned);
-
-  return Number.isFinite(number) ? number : 0;
-}
-
-
-function safeQty(value){
-
-  const number = parseInt(value,10);
-
-  if(!Number.isFinite(number) || number < 1){
-    return 1;
-  }
-
-  return number;
-}
-
-
-function money(value){
-
-  return "R" + safeNumber(value).toFixed(2);
-}
-
-
-/* =========================
-   CUSTOMER
-========================= */
-
-let customer;
-
-try{
-  customer = JSON.parse(
-    localStorage.getItem("aerozoneCustomer") || "null"
-  );
-}catch(e){
-  customer = null;
-}
-
-if(!customer){
-
-  customer = {
-    name:"",
-    phone:"",
-    email:"",
-    premiumActive:false,
-    premiumStatus:"inactive",
-    subscriptionId:"",
-    subscriptionStarted:""
-  };
-
-}
-
-
-/* =========================
-   CART
-========================= */
-
-let cart = [];
-
-try{
-
-  const savedCart =
-    JSON.parse(localStorage.getItem("aerozoneCart") || "[]");
-
-  if(Array.isArray(savedCart)){
-    cart = savedCart;
-  }
-
-}catch(e){
-  cart = [];
-}
-
-
-/* IMPORTANT:
-   Clean old/broken cart data
-*/
-
-cart = cart
-.map(item => {
-
-  if(!item || typeof item !== "object"){
-    return null;
-  }
-
-  const price = safeNumber(item.price);
-  const qty = safeQty(item.qty);
-
-  return {
-    id:item.id || "",
-    name:item.name || "Product",
-    price:price,
-    qty:qty,
-    icon:item.icon || "🛍️",
-    category:item.category || ""
-  };
-
-})
-.filter(item =>
-  item &&
-  item.name &&
-  Number.isFinite(item.price) &&
-  item.price >= 0
-);
-
-
-/* =========================
-   STORAGE
-========================= */
-
-function saveCart(){
-
-  localStorage.setItem(
-    "aerozoneCart",
-    JSON.stringify(cart)
-  );
-
-}
-
-
-/* =========================
-   INITIALISE
-========================= */
-
-let currentCategory = "supermarket";
-
-
-document.addEventListener("DOMContentLoaded",function(){
-
-  renderCategories();
-  renderStores();
-  renderProducts();
-  updateCart();
-  updateAccount();
-
-});
-
-
-/* =========================
-   CATEGORIES
-========================= */
-
-function renderCategories(){
-
-  const container =
-    document.getElementById("categoryButtons");
-
-  container.innerHTML = "";
-
-  Object.entries(branches).forEach(([key,branch]) => {
-
-    const button =
-      document.createElement("button");
-
-    button.className =
-      "cat-btn" +
-      (key === currentCategory ? " active" : "");
-
-    button.innerHTML =
-      branch.icon + " " + branch.name;
-
-    button.onclick = function(){
-
-      currentCategory = key;
-
-      document
-        .querySelectorAll(".cat-btn")
-        .forEach(btn =>
-          btn.classList.remove("active")
-        );
-
-      button.classList.add("active");
-
-      renderProducts();
-
-      document
-        .getElementById("productGrid")
-        .scrollIntoView({
-          behavior:"smooth",
-          block:"start"
-        });
-
-    };
-
-    container.appendChild(button);
-
-  });
-
-}
-
-
-/* =========================
-   STORES
-========================= */
-
-function renderStores(){
-
-  const grid =
-    document.getElementById("storeGrid");
-
-  grid.innerHTML = "";
-
-  Object.entries(branches).forEach(([key,branch]) => {
-
-    const card =
-      document.createElement("div");
-
-    card.className = "store-card";
-
-    card.innerHTML = `
-      <div class="store-icon">${branch.icon}</div>
-      <h3>${branch.name}</h3>
-      <p>${branch.products.length} products available</p>
-    `;
-
-    card.onclick = function(){
-
-      currentCategory = key;
-
-      document
-        .querySelectorAll(".cat-btn")
-        .forEach(btn => btn.classList.remove("active"));
-
-      renderCategories();
-      renderProducts();
-
-      document
-        .getElementById("productGrid")
-        .scrollIntoView({
-          behavior:"smooth"
-        });
-
-    };
-
-    grid.appendChild(card);
-
-  });
-
-}
-
-
-/* =========================
-   PRODUCTS
-========================= */
-
-function renderProducts(list){
-
-  const grid =
-    document.getElementById("productGrid");
-
-  const branch =
-    branches[currentCategory];
-
-  if(!branch){
-    grid.innerHTML = "";
-    return;
-  }
-
-  let products = list || branch.products;
-
-  document.getElementById("productsTitle").textContent =
-    branch.name;
-
-  document.getElementById("productsSubtitle").textContent =
-    "Choose what you would like to order";
-
-  grid.innerHTML = "";
-
-  if(products.length === 0){
-
-    grid.innerHTML = `
-      <div style="
-        grid-column:1/-1;
-        background:#fff;
-        padding:40px;
-        border-radius:18px;
-        text-align:center;
-        color:#777;
-      ">
-        No products found.
-      </div>
-    `;
-
-    return;
-  }
-
-  products.forEach((item,index) => {
-
-    const name = item[0];
-    const price = safeNumber(item[1]);
-    const icon = item[2] || "🛍️";
-
-    const product =
-      document.createElement("div");
-
-    product.className = "product";
-
-    product.innerHTML = `
-      <div class="product-img">${icon}</div>
-
-      <div class="product-category">
-        ${branch.name}
-      </div>
-
-      <h3>${name}</h3>
-
-      <div class="product-bottom">
-        <div class="price">${money(price)}</div>
-
-        <button
-          class="add-btn"
-          onclick="addToCart('${currentCategory}',${index})"
-          aria-label="Add to cart"
-        >
-          +
-        </button>
-      </div>
-    `;
-
-    grid.appendChild(product);
-
-  });
-
-}
-
-
-/* =========================
-   ADD TO CART
-========================= */
-
-function addToCart(category,index){
-
-  const branch =
-    branches[category];
-
-  if(!branch || !branch.products[index]){
-    return;
-  }
-
-  const item =
-    branch.products[index];
-
-  const name = item[0];
-  const price = safeNumber(item[1]);
-  const icon = item[2] || "🛍️";
-
-  const id =
-    category + "-" +
-    name.toLowerCase().replace(/[^a-z0-9]+/g,"-");
-
-  const existing =
-    cart.find(item => item.id === id);
-
-  if(existing){
-
-    existing.qty =
-      safeQty(existing.qty) + 1;
-
-  }else{
-
-    cart.push({
-      id:id,
-      name:name,
-      price:price,
-      qty:1,
-      icon:icon,
-      category:branch.name
-    });
-
-  }
-
-  saveCart();
-  updateCart();
-
-}
-
-
-/* =========================
-   CART CALCULATIONS
-========================= */
-
-function getSubtotal(){
-
-  return cart.reduce((sum,item) => {
-
-    const price =
-      safeNumber(item.price);
-
-    const qty =
-      safeQty(item.qty);
-
-    return sum + (price * qty);
-
-  },0);
-
-}
-
-
-function isPremium(){
-
-  return customer &&
-    customer.premiumActive === true;
-
-}
-
-
-function getDelivery(){
-
-  const subtotal =
-    getSubtotal();
-
-  if(subtotal <= 0){
-    return 0;
-  }
-
-  if(isPremium()){
-    return 0;
-  }
-
-  if(subtotal >= 500){
-    return 0;
-  }
-
-  return 35;
-
-}
-
-
-function getTotal(){
-
-  return getSubtotal() + getDelivery();
-
-}
-
-
-/* =========================
-   UPDATE CART
-========================= */
-
-function updateCart(){
-
-  const count =
-    cart.reduce(
-      (total,item) =>
-        total + safeQty(item.qty),
-      0
-    );
-
-  const cartCount =
-    document.getElementById("cartCount");
-
-  const floatingCount =
-    document.getElementById("floatingCount");
-
-  if(cartCount){
-
-    cartCount.textContent = count;
-
-    cartCount.style.display =
-      count > 0 ? "flex" : "none";
-
-  }
-
-  if(floatingCount){
-    floatingCount.textContent = count;
-  }
-
-  saveCart();
-
-  renderCart();
-
-}
-
-
-/* =========================
-   RENDER CART
-========================= */
-
-function renderCart(){
-
-  const content =
-    document.getElementById("cartContent");
-
-  if(!content) return;
-
-  if(cart.length === 0){
-
-    content.innerHTML = `
-      <div class="empty">
-        <div class="empty-icon">🛒</div>
-        <h3>Your cart is empty</h3>
-        <p style="margin-top:6px">
-          Add products to start your order.
-        </p>
-      </div>
-    `;
-
-    return;
-
-  }
-
-  let html =
-    `<div class="cart-items">`;
-
-  cart.forEach((item,index) => {
-
-    const price =
-      safeNumber(item.price);
-
-    const qty =
-      safeQty(item.qty);
-
-    const lineTotal =
-      price * qty;
-
-    html += `
-      <div class="cart-item">
-
-        <div class="cart-item-img">
-          ${item.icon || "🛍️"}
-        </div>
-
-        <div>
-          <h4>${item.name}</h4>
-          <div class="cart-item-price">
-            ${money(price)} × ${qty}
-            = <strong>${money(lineTotal)}</strong>
-          </div>
-        </div>
-
-        <div class="qty">
-
-          <button onclick="changeQty(${index},-1)">
-            −
-          </button>
-
-          <span>${qty}</span>
-
-          <button onclick="changeQty(${index},1)">
-            +
-          </button>
-
-        </div>
-
-      </div>
-    `;
-
-  });
-
-  html += `</div>`;
-
-  const subtotal =
-    getSubtotal();
-
-  const delivery =
-    getDelivery();
-
-  const total =
-    getTotal();
-
-  html += `
-    <div class="cart-summary">
-
-      <div class="summary-row">
-        <span>Subtotal</span>
-        <strong>${money(subtotal)}</strong>
-      </div>
-
-      <div class="summary-row">
-        <span>Delivery</span>
-        <strong>
-          ${
-            delivery === 0
-            ? "FREE"
-            : money(delivery)
-          }
-        </strong>
-      </div>
-
-      ${
-        subtotal > 0 && subtotal < 500 && !isPremium()
-        ? `
-          <div style="
-            font-size:11px;
-            color:#777;
-            margin:8px 0;
-          ">
-            Spend ${money(500-subtotal)} more for free delivery.
-          </div>
-        `
-        : ""
-      }
-
-      ${
-        isPremium()
-        ? `
-          <div style="
-            font-size:11px;
-            color:#111;
-            margin:8px 0;
-            font-weight:800;
-          ">
-            ★ Premium free delivery applied
-          </div>
-        `
-        : ""
-      }
-
-      <div class="summary-row total">
-        <span>Total</span>
-        <strong>${money(total)}</strong>
-      </div>
-
-      <button
-        class="checkout-btn"
-        onclick="openCheckout()"
-      >
-        Checkout · ${money(total)}
-      </button>
-
-    </div>
-  `;
-
-  content.innerHTML = html;
-
-}
-
-
-/* =========================
-   CHANGE QUANTITY
-========================= */
-
-function changeQty(index,amount){
-
-  if(!cart[index]) return;
-
-  const current =
-    safeQty(cart[index].qty);
-
-  cart[index].qty =
-    current + amount;
-
-  if(cart[index].qty <= 0){
-
-    cart.splice(index,1);
-
-  }
-
-  saveCart();
-  updateCart();
-
-}
-
-
-/* =========================
-   SEARCH
-========================= */
-
-function searchProducts(){
-
-  const search =
-    document
-      .getElementById("searchInput")
-      .value
-      .toLowerCase()
-      .trim();
-
-  if(!search){
-
-    renderProducts();
-    return;
-
-  }
-
-  const results = [];
-
-  Object.entries(branches).forEach(([key,branch]) => {
-
-    branch.products.forEach((item,index) => {
-
-      if(
-        item[0].toLowerCase().includes(search) ||
-        branch.name.toLowerCase().includes(search)
-      ){
-
-        results.push(item);
-
-      }
-
-    });
-
-  });
-
-  document.getElementById("productsTitle").textContent =
-    "Search results";
-
-  document.getElementById("productsSubtitle").textContent =
-    results.length +
-    " product" +
-    (results.length === 1 ? "" : "s") +
-    " found";
-
-  const grid =
-    document.getElementById("productGrid");
-
-  grid.innerHTML = "";
-
-  results.forEach(item => {
-
-    const product =
-      document.createElement("div");
-
-    product.className = "product";
-
-    product.innerHTML = `
-      <div class="product-img">
-        ${item[2] || "🛍️"}
-      </div>
-
-      <div class="product-category">
-        AeroZone
-      </div>
-
-      <h3>${item[0]}</h3>
-
-      <div class="product-bottom">
-
-        <div class="price">
-          ${money(item[1])}
-        </div>
-
-        <button
-          class="add-btn"
-          onclick='addSearchProduct(${JSON.stringify(item)})'
-        >
-          +
-        </button>
-
-      </div>
-    `;
-
-    grid.appendChild(product);
-
-  });
-
-}
-
-
-function addSearchProduct(item){
-
-  const name = item[0];
-  const price = safeNumber(item[1]);
-  const icon = item[2] || "🛍️";
-
-  const id =
-    "search-" +
-    name.toLowerCase().replace(/[^a-z0-9]+/g,"-");
-
-  const existing =
-    cart.find(item => item.id === id);
-
-  if(existing){
-
-    existing.qty =
-      safeQty(existing.qty) + 1;
-
-  }else{
-
-    cart.push({
-      id:id,
-      name:name,
-      price:price,
-      qty:1,
-      icon:icon,
-      category:"AeroZone"
-    });
-
-  }
-
-  saveCart();
-  updateCart();
-
-}
-
-
-/* =========================
-   MODALS
-========================= */
-
-function openModal(id){
-
-  const modal =
-    document.getElementById(id);
-
-  if(modal){
-    modal.classList.add("show");
-  }
-
-}
-
-
-function closeModal(id){
-
-  const modal =
-    document.getElementById(id);
-
-  if(modal){
-    modal.classList.remove("show");
-  }
-
-}
-
-
-function openCart(){
-
-  renderCart();
-  openModal("cartModal");
-
-}
-
-
-function openCheckout(){
-
-  if(cart.length === 0){
-
-    alert("Your cart is empty.");
-    return;
-
-  }
-
-  closeModal("cartModal");
-
-  document.getElementById("checkoutName").value =
-    customer.name || "";
-
-  document.getElementById("checkoutPhone").value =
-    customer.phone || "";
-
-  document.getElementById("checkoutEmail").value =
-    customer.email || "";
-
-  openModal("checkoutModal");
-
-}
-
-
-/* =========================
-   CHECKOUT
-========================= */
-
-document
-.getElementById("checkoutForm")
-.addEventListener("submit",function(e){
-
-  e.preventDefault();
-
-  if(cart.length === 0){
-
-    alert("Your cart is empty.");
-    closeModal("checkoutModal");
-    return;
-
-  }
-
-  const name =
-    document.getElementById("checkoutName").value
+        Add your products to your cart and place your order in
