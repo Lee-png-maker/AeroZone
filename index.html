@@ -4,8 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#000000">
-<meta name="description" content="AeroZone - Shop online and get your order delivered.">
-
+<meta name="description" content="AeroZone - Shop online and get delivered.">
 <title>AeroZone | Shop & Get Delivered</title>
 
 <style>
@@ -21,9 +20,8 @@ html{
 
 body{
     font-family:Arial,Helvetica,sans-serif;
-    background:#fff;
+    background:#f7f7f7;
     color:#111;
-    min-height:100vh;
 }
 
 button,
@@ -37,75 +35,85 @@ button{
     cursor:pointer;
 }
 
+/* ================= HEADER ================= */
+
 header{
+    background:#000;
+    color:#fff;
     position:sticky;
     top:0;
     z-index:1000;
-    background:#000;
-    color:#fff;
-    border-bottom:1px solid #222;
+    box-shadow:0 3px 15px rgba(0,0,0,.2);
 }
 
-.nav{
+.header{
     max-width:1200px;
     margin:auto;
-    min-height:70px;
+    min-height:72px;
+    padding:10px 16px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:0 18px;
+    gap:15px;
 }
 
 .logo{
-    font-size:27px;
+    color:#fff;
+    font-size:28px;
     font-weight:900;
     letter-spacing:-1px;
 }
 
-.navLinks{
+.nav{
     display:flex;
     align-items:center;
     gap:7px;
 }
 
-.navBtn{
-    border:0;
-    background:transparent;
+.nav button{
+    border:1px solid #444;
+    background:#111;
     color:#fff;
-    padding:10px 12px;
-    border-radius:9px;
-    font-weight:700;
-}
-
-.navBtn:hover,
-.navBtn.active{
-    background:#fff;
-    color:#000;
-}
-
-.cartBtn{
-    position:relative;
-    font-size:18px;
-}
-
-.cartCount{
-    position:absolute;
-    top:-3px;
-    right:-3px;
-    min-width:18px;
-    height:18px;
-    padding:0 4px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:50%;
-    background:#fff;
-    color:#000;
-    font-size:11px;
+    padding:11px 15px;
+    border-radius:10px;
     font-weight:900;
 }
 
-/* HOME */
+.nav button:hover{
+    background:#fff;
+    color:#000;
+}
+
+.nav .catalogNav{
+    background:#fff;
+    color:#000;
+    border-color:#fff;
+}
+
+.nav .catalogNav:hover{
+    background:#ddd;
+}
+
+.cartButton{
+    position:relative;
+}
+
+.cartNumber{
+    position:absolute;
+    top:-7px;
+    right:-7px;
+    background:#fff;
+    color:#000;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:11px;
+}
+
+/* ================= PAGE SYSTEM ================= */
 
 .page{
     display:none;
@@ -115,29 +123,31 @@ header{
     display:block;
 }
 
+/* ================= HOME ================= */
+
 .hero{
     background:#000;
     color:#fff;
     padding:75px 20px 85px;
-}
-
-.heroInner{
-    max-width:1100px;
-    margin:auto;
     text-align:center;
 }
 
+.heroContent{
+    max-width:900px;
+    margin:auto;
+}
+
 .hero h1{
-    font-size:clamp(42px,8vw,78px);
+    font-size:clamp(45px,9vw,82px);
     line-height:.95;
     letter-spacing:-4px;
-    margin-bottom:22px;
+    margin-bottom:25px;
 }
 
 .hero p{
-    max-width:620px;
+    max-width:650px;
     margin:0 auto 30px;
-    color:#d6d6d6;
+    color:#ccc;
     font-size:18px;
     line-height:1.6;
 }
@@ -149,194 +159,217 @@ header{
     flex-wrap:wrap;
 }
 
-.btn{
+.bigButton{
     border:0;
-    border-radius:12px;
-    padding:14px 22px;
+    border-radius:13px;
+    padding:17px 27px;
+    font-size:16px;
     font-weight:900;
-    transition:.2s;
 }
 
-.btn:hover{
-    transform:translateY(-2px);
-}
-
-.btnBlack{
-    background:#000;
-    color:#fff;
-}
-
-.btnWhite{
+.whiteButton{
     background:#fff;
     color:#000;
 }
 
-.btnOutline{
-    background:transparent;
+.blackButton{
+    background:#000;
     color:#fff;
-    border:1px solid #fff;
 }
 
+.outlineButton{
+    background:transparent;
+    color:#fff;
+    border:2px solid #fff;
+}
+
+/* ================= CLEAR CATALOG AREA ================= */
+
+.catalogBanner{
+    max-width:1100px;
+    margin:40px auto;
+    padding:45px 20px;
+    background:#fff;
+    border:2px solid #000;
+    border-radius:22px;
+    text-align:center;
+}
+
+.catalogBanner h2{
+    font-size:38px;
+    margin-bottom:12px;
+}
+
+.catalogBanner p{
+    color:#666;
+    margin-bottom:25px;
+}
+
+.catalogMainButton{
+    display:inline-block;
+    border:0;
+    background:#000;
+    color:#fff;
+    padding:18px 35px;
+    border-radius:13px;
+    font-size:18px;
+    font-weight:900;
+}
+
+.catalogMainButton:hover{
+    background:#222;
+}
+
+/* ================= BENEFITS ================= */
+
 .section{
-    max-width:1150px;
+    max-width:1100px;
     margin:auto;
-    padding:65px 18px;
+    padding:25px 18px 60px;
 }
 
 .sectionTitle{
     text-align:center;
-    margin-bottom:35px;
+    margin-bottom:30px;
 }
 
 .sectionTitle h2{
-    font-size:38px;
-    letter-spacing:-1.5px;
-    margin-bottom:10px;
+    font-size:35px;
+    margin-bottom:8px;
 }
 
 .sectionTitle p{
     color:#666;
 }
 
-.infoGrid{
+.benefits{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:18px;
+    gap:16px;
 }
 
-.infoCard{
-    border:1px solid #e5e5e5;
-    border-radius:20px;
-    padding:30px;
+.benefit{
     background:#fff;
+    border:1px solid #ddd;
+    border-radius:18px;
+    padding:28px 20px;
     text-align:center;
 }
 
-.infoIcon{
-    width:58px;
-    height:58px;
-    border-radius:16px;
+.benefitIcon{
+    width:55px;
+    height:55px;
     background:#000;
     color:#fff;
+    border-radius:15px;
+    margin:0 auto 15px;
     display:flex;
     align-items:center;
     justify-content:center;
-    margin:0 auto 18px;
-    font-size:25px;
+    font-size:24px;
 }
 
-.infoCard h3{
-    margin-bottom:9px;
+.benefit h3{
+    margin-bottom:8px;
 }
 
-.infoCard p{
+.benefit p{
     color:#666;
     line-height:1.5;
 }
 
-.catalogCTA{
-    background:#f5f5f5;
-    border-radius:25px;
-    padding:45px 25px;
-    text-align:center;
-}
+/* ================= PREMIUM ================= */
 
-.catalogCTA h2{
-    font-size:38px;
-    margin-bottom:10px;
-}
-
-.catalogCTA p{
-    color:#666;
-    margin-bottom:25px;
-}
-
-.premiumBox{
+.premium{
+    max-width:1100px;
+    margin:10px auto 60px;
+    padding:45px 20px;
     background:#000;
     color:#fff;
-    border-radius:25px;
-    padding:45px 25px;
+    border-radius:22px;
     text-align:center;
 }
 
-.premiumBox h2{
-    font-size:38px;
+.premium h2{
+    font-size:35px;
     margin-bottom:10px;
 }
 
-.premiumBox p{
-    color:#ccc;
-    max-width:600px;
-    margin:0 auto 22px;
-    line-height:1.6;
-}
-
-.priceBig{
+.premiumPrice{
     font-size:48px;
     font-weight:900;
-    margin:12px 0 20px;
+    margin:15px 0;
 }
 
-/* CATALOG */
+.premium p{
+    max-width:600px;
+    margin:0 auto 20px;
+    color:#ccc;
+    line-height:1.5;
+}
 
-.catalogTop{
+/* ================= CATALOG PAGE ================= */
+
+.catalogHeader{
     background:#000;
     color:#fff;
-    padding:45px 18px;
+    padding:40px 18px;
 }
 
-.catalogTopInner{
-    max-width:1150px;
+.catalogHeaderInner{
+    max-width:1100px;
     margin:auto;
 }
 
-.catalogTop h1{
+.catalogHeader h1{
     font-size:48px;
-    letter-spacing:-2px;
-    margin-bottom:10px;
+    margin-bottom:8px;
 }
 
-.catalogTop p{
+.catalogHeader p{
     color:#ccc;
     margin-bottom:25px;
 }
 
-.searchBox{
+.search{
     width:100%;
-    max-width:700px;
-    background:#fff;
-    border-radius:14px;
-    padding:15px 18px;
+    padding:16px;
     border:0;
+    border-radius:12px;
     outline:none;
-    color:#111;
+    font-size:16px;
 }
 
-.catalogContent{
-    max-width:1150px;
+.catalogBody{
+    max-width:1100px;
     margin:auto;
-    padding:30px 18px 80px;
+    padding:30px 15px 90px;
 }
 
-.categoryGrid{
+/* ================= CATEGORIES ================= */
+
+.categoryTitle{
+    font-size:25px;
+    margin-bottom:15px;
+}
+
+.categories{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:12px;
-    margin-bottom:28px;
+    margin-bottom:35px;
 }
 
-.categoryCard{
-    border:1px solid #e3e3e3;
+.category{
     background:#fff;
-    border-radius:17px;
-    padding:20px 14px;
+    border:2px solid #ddd;
+    border-radius:15px;
+    padding:18px 10px;
     text-align:center;
     font-weight:900;
-    transition:.2s;
 }
 
-.categoryCard:hover,
-.categoryCard.active{
+.category.active{
     background:#000;
     color:#fff;
     border-color:#000;
@@ -345,76 +378,78 @@ header{
 .categoryEmoji{
     display:block;
     font-size:30px;
-    margin-bottom:9px;
+    margin-bottom:8px;
 }
 
-.filterRow{
+/* ================= FILTER ================= */
+
+.filters{
     display:flex;
     gap:8px;
     flex-wrap:wrap;
-    margin-bottom:25px;
+    margin-bottom:20px;
 }
 
-.filterBtn{
-    border:1px solid #ddd;
+.filter{
     background:#fff;
-    border-radius:999px;
+    border:1px solid #ccc;
+    border-radius:50px;
     padding:9px 15px;
     font-weight:800;
 }
 
-.filterBtn.active{
+.filter.active{
     background:#000;
     color:#fff;
-    border-color:#000;
 }
+
+/* ================= PRODUCTS ================= */
 
 .productGrid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:16px;
+    gap:15px;
 }
 
-.productCard{
-    border:1px solid #e5e5e5;
-    border-radius:18px;
-    overflow:hidden;
+.product{
     background:#fff;
+    border:1px solid #ddd;
+    border-radius:17px;
+    overflow:hidden;
     transition:.2s;
 }
 
-.productCard:hover{
+.product:hover{
     transform:translateY(-3px);
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    box-shadow:0 8px 25px rgba(0,0,0,.1);
 }
 
-.productVisual{
-    height:155px;
-    background:#f4f4f4;
+.productImage{
+    height:145px;
+    background:#f0f0f0;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:62px;
+    font-size:60px;
 }
 
-.productInfo{
-    padding:17px;
+.productDetails{
+    padding:15px;
 }
 
 .productCategory{
+    font-size:10px;
     color:#777;
-    font-size:11px;
-    text-transform:uppercase;
     font-weight:900;
-    letter-spacing:.7px;
-    margin-bottom:7px;
+    text-transform:uppercase;
+    margin-bottom:6px;
 }
 
 .productName{
-    font-size:17px;
+    font-size:16px;
     font-weight:900;
-    margin-bottom:9px;
-    min-height:40px;
+    min-height:38px;
+    margin-bottom:12px;
 }
 
 .productBottom{
@@ -425,61 +460,46 @@ header{
 }
 
 .productPrice{
-    font-size:18px;
+    font-size:17px;
     font-weight:900;
 }
 
-.addBtn{
-    border:0;
+.add{
     background:#000;
     color:#fff;
-    border-radius:10px;
-    padding:10px 13px;
+    border:0;
+    border-radius:9px;
+    padding:9px 12px;
     font-weight:900;
 }
 
-.addBtn:hover{
-    background:#222;
-}
+/* ================= CART FLOAT ================= */
 
-.noProducts{
-    text-align:center;
-    padding:50px 20px;
-    color:#666;
-    grid-column:1/-1;
-}
-
-/* CART */
-
-.floatingCart{
+.cartFloat{
     position:fixed;
-    right:18px;
-    bottom:18px;
+    right:15px;
+    bottom:15px;
     z-index:900;
+    border:0;
     background:#000;
     color:#fff;
-    border:0;
-    border-radius:999px;
-    padding:13px 18px;
-    box-shadow:0 8px 25px rgba(0,0,0,.25);
+    border-radius:50px;
+    padding:14px 19px;
     font-weight:900;
+    box-shadow:0 8px 25px rgba(0,0,0,.3);
 }
 
-.floatingCart span{
-    margin-left:5px;
-}
-
-/* MODAL */
+/* ================= MODALS ================= */
 
 .modal{
+    display:none;
     position:fixed;
     inset:0;
     z-index:2000;
-    background:rgba(0,0,0,.7);
-    display:none;
+    background:rgba(0,0,0,.72);
+    padding:15px;
     align-items:center;
     justify-content:center;
-    padding:15px;
 }
 
 .modal.show{
@@ -487,60 +507,139 @@ header{
 }
 
 .modalBox{
-    background:#fff;
-    color:#111;
+    position:relative;
     width:100%;
     max-width:520px;
     max-height:90vh;
     overflow:auto;
+    background:#fff;
     border-radius:22px;
     padding:25px;
-    position:relative;
 }
 
-.closeBtn{
+.close{
     position:absolute;
-    right:15px;
     top:12px;
+    right:12px;
     width:35px;
     height:35px;
     border:0;
     border-radius:50%;
     background:#eee;
-    font-size:20px;
+    font-size:21px;
 }
 
 .modalBox h2{
-    margin-bottom:8px;
     font-size:30px;
+    margin-bottom:8px;
 }
 
-.modalSub{
+.modalDescription{
     color:#666;
-    margin-bottom:20px;
     line-height:1.5;
+    margin-bottom:20px;
 }
+
+/* ================= CART ITEMS ================= */
+
+.cartItem{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:13px 0;
+    border-bottom:1px solid #eee;
+}
+
+.cartEmoji{
+    width:48px;
+    height:48px;
+    background:#f0f0f0;
+    border-radius:11px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
+}
+
+.cartInfo{
+    flex:1;
+}
+
+.cartInfo strong{
+    display:block;
+    margin-bottom:4px;
+}
+
+.cartInfo small{
+    color:#777;
+}
+
+.qty{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.qty button{
+    width:28px;
+    height:28px;
+    border:1px solid #ccc;
+    background:#fff;
+    border-radius:7px;
+    font-weight:900;
+}
+
+.summary{
+    margin-top:18px;
+    padding-top:15px;
+    border-top:1px solid #ddd;
+}
+
+.summaryRow{
+    display:flex;
+    justify-content:space-between;
+    padding:5px 0;
+}
+
+.total{
+    border-top:1px solid #ddd;
+    margin-top:8px;
+    padding-top:12px;
+    font-size:20px;
+    font-weight:900;
+}
+
+.free{
+    font-weight:900;
+}
+
+.empty{
+    text-align:center;
+    color:#666;
+    padding:35px 10px;
+}
+
+/* ================= FORMS ================= */
 
 .formGroup{
-    margin-bottom:15px;
+    margin-bottom:14px;
 }
 
 .formGroup label{
     display:block;
-    margin-bottom:6px;
     font-size:13px;
     font-weight:900;
+    margin-bottom:6px;
 }
 
 .formGroup input,
 .formGroup select,
 .formGroup textarea{
     width:100%;
-    border:1px solid #ddd;
-    border-radius:11px;
     padding:13px;
+    border:1px solid #ddd;
+    border-radius:10px;
     outline:none;
-    background:#fff;
 }
 
 .formGroup textarea{
@@ -548,134 +647,54 @@ header{
     resize:vertical;
 }
 
-.formGroup input:focus,
-.formGroup select:focus,
-.formGroup textarea:focus{
-    border-color:#000;
-}
-
-.fullBtn{
+.full{
     width:100%;
-    margin-top:5px;
 }
 
-.cartItem{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    border-bottom:1px solid #eee;
-    padding:13px 0;
-}
+/* ================= FOOTER ================= */
 
-.cartItemVisual{
-    width:50px;
-    height:50px;
-    background:#f2f2f2;
-    border-radius:12px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:25px;
-    flex-shrink:0;
-}
-
-.cartItemInfo{
-    flex:1;
-}
-
-.cartItemInfo strong{
-    display:block;
-    margin-bottom:4px;
-}
-
-.cartItemInfo small{
-    color:#777;
-}
-
-.qtyControls{
-    display:flex;
-    align-items:center;
-    gap:7px;
-}
-
-.qtyBtn{
-    width:29px;
-    height:29px;
-    border:1px solid #ddd;
-    border-radius:8px;
-    background:#fff;
-    font-weight:900;
-}
-
-.removeBtn{
-    border:0;
-    background:transparent;
-    color:#777;
-    font-size:12px;
-}
-
-.summary{
-    margin-top:18px;
-    border-top:1px solid #eee;
-    padding-top:15px;
-}
-
-.summaryRow{
-    display:flex;
-    justify-content:space-between;
-    padding:6px 0;
-}
-
-.summaryTotal{
-    font-size:20px;
-    font-weight:900;
-    border-top:1px solid #ddd;
-    margin-top:8px;
-    padding-top:12px;
-}
-
-.deliveryFree{
-    font-weight:900;
-}
-
-.emptyCart{
+footer{
+    background:#000;
+    color:#fff;
+    padding:35px 18px;
     text-align:center;
-    padding:35px 10px;
-    color:#666;
 }
 
-/* ACCOUNT */
-
-.accountStatus{
-    background:#f5f5f5;
-    border-radius:15px;
-    padding:15px;
-    margin-bottom:20px;
+.footerLogo{
+    font-size:25px;
+    font-weight:900;
+    margin-bottom:8px;
 }
 
-.orderBox{
-    border:1px solid #ddd;
-    border-radius:15px;
-    padding:15px;
+footer p{
+    color:#aaa;
+    line-height:1.5;
+}
+
+.whatsapp{
+    display:inline-block;
+    color:#fff;
+    text-decoration:none;
+    font-weight:900;
     margin-top:15px;
 }
 
-/* TOAST */
+/* ================= TOAST ================= */
 
 .toast{
     position:fixed;
+    z-index:4000;
     left:50%;
     bottom:80px;
     transform:translateX(-50%) translateY(20px);
-    z-index:3000;
     background:#000;
     color:#fff;
     padding:13px 18px;
-    border-radius:999px;
+    border-radius:30px;
     opacity:0;
     pointer-events:none;
     transition:.25s;
-    font-weight:800;
+    font-weight:900;
 }
 
 .toast.show{
@@ -683,107 +702,65 @@ header{
     transform:translateX(-50%) translateY(0);
 }
 
-/* FOOTER */
+/* ================= MOBILE ================= */
 
-footer{
-    background:#000;
-    color:#fff;
-    padding:35px 18px;
-    margin-top:20px;
-}
+@media(max-width:850px){
 
-.footerInner{
-    max-width:1100px;
-    margin:auto;
-    text-align:center;
-}
+    .header{
+        flex-direction:column;
+        padding:13px;
+    }
 
-.footerBrand{
-    font-size:24px;
-    font-weight:900;
-    margin-bottom:10px;
-}
+    .nav{
+        width:100%;
+        justify-content:center;
+    }
 
-footer p{
-    color:#aaa;
-    line-height:1.6;
-}
+    .nav button{
+        flex:1;
+        padding:11px 7px;
+    }
 
-.whatsappLink{
-    display:inline-block;
-    margin-top:15px;
-    color:#fff;
-    text-decoration:none;
-    font-weight:900;
-}
+    .categories{
+        grid-template-columns:repeat(2,1fr);
+    }
 
-/* MOBILE */
-
-@media(max-width:900px){
     .productGrid{
         grid-template-columns:repeat(3,1fr);
     }
 
-    .categoryGrid{
-        grid-template-columns:repeat(2,1fr);
-    }
 }
 
-@media(max-width:650px){
-    .nav{
-        min-height:62px;
-        padding:0 12px;
-    }
-
-    .logo{
-        font-size:23px;
-    }
-
-    .navLinks{
-        gap:2px;
-    }
-
-    .navBtn{
-        padding:9px 8px;
-        font-size:13px;
-    }
+@media(max-width:600px){
 
     .hero{
         padding:55px 18px 65px;
     }
 
     .hero h1{
-        letter-spacing:-2.5px;
+        font-size:52px;
+        letter-spacing:-3px;
     }
 
     .hero p{
         font-size:16px;
     }
 
-    .section{
-        padding:45px 15px;
+    .catalogBanner{
+        margin:25px 12px;
+        padding:35px 18px;
     }
 
-    .sectionTitle h2,
-    .catalogCTA h2,
-    .premiumBox h2{
+    .catalogBanner h2{
         font-size:30px;
     }
 
-    .infoGrid{
+    .benefits{
         grid-template-columns:1fr;
     }
 
-    .catalogTop{
-        padding:35px 15px;
-    }
-
-    .catalogTop h1{
-        font-size:38px;
-    }
-
-    .catalogContent{
-        padding:22px 12px 70px;
+    .catalogHeader h1{
+        font-size:40px;
     }
 
     .productGrid{
@@ -791,137 +768,229 @@ footer p{
         gap:10px;
     }
 
-    .productVisual{
-        height:125px;
+    .productImage{
+        height:120px;
         font-size:48px;
     }
 
-    .productInfo{
-        padding:12px;
+    .productDetails{
+        padding:11px;
     }
 
     .productName{
         font-size:14px;
-        min-height:34px;
     }
 
     .productPrice{
         font-size:15px;
     }
 
-    .addBtn{
-        padding:8px 9px;
+    .add{
         font-size:12px;
+        padding:8px 9px;
     }
 
-    .floatingCart{
-        right:12px;
-        bottom:12px;
-        padding:11px 15px;
-    }
 }
 
-@media(max-width:390px){
-    .navBtn{
-        padding:8px 6px;
-        font-size:12px;
+@media(max-width:380px){
+
+    .nav button{
+        font-size:11px;
+        padding:10px 5px;
     }
 
-    .productGrid{
-        gap:8px;
+    .logo{
+        font-size:24px;
     }
 
-    .productVisual{
-        height:110px;
-    }
 }
 </style>
 </head>
 
 <body>
 
+<!-- ================= HEADER ================= -->
+
 <header>
-    <div class="nav">
 
-        <!-- AeroZone logo - no airplane -->
-        <div class="logo">AeroZone</div>
+    <div class="header">
 
-        <div class="navLinks">
-            <button class="navBtn active" id="homeBtn" onclick="showHome()">Home</button>
-
-            <button class="navBtn" id="catalogBtn" onclick="showCatalog()">Catalog</button>
-
-            <button class="navBtn" onclick="openAccount()">👤</button>
-
-            <button class="navBtn" onclick="openPremium()">⭐</button>
-
-            <button class="navBtn cartBtn" onclick="openCart()">
-                🛒
-                <span class="cartCount" id="cartCount">0</span>
-            </button>
+        <div class="logo">
+            AeroZone
         </div>
 
+        <nav class="nav">
+
+            <button
+                id="homeNav"
+                onclick="showHome()"
+            >
+                HOME
+            </button>
+
+            <button
+                id="catalogNav"
+                class="catalogNav"
+                onclick="showCatalog()"
+            >
+                CATALOG
+            </button>
+
+            <button onclick="openAccount()">
+                ACCOUNT
+            </button>
+
+            <button onclick="openPremium()">
+                PREMIUM
+            </button>
+
+            <button
+                class="cartButton"
+                onclick="openCart()"
+            >
+                🛒
+                <span
+                    id="cartNumber"
+                    class="cartNumber"
+                >0</span>
+            </button>
+
+        </nav>
+
     </div>
+
 </header>
 
-<!-- ================= HOME ================= -->
+
+<!-- ================= HOME PAGE ================= -->
 
 <main id="homePage" class="page active">
 
     <section class="hero">
-        <div class="heroInner">
 
-            <h1>Shop.<br>Order.<br>Delivered.</h1>
+        <div class="heroContent">
+
+            <h1>
+                Shop.<br>
+                Order.<br>
+                Delivered.
+            </h1>
 
             <p>
-                Shop everyday essentials from AeroZone and get your order delivered conveniently to your door.
+                Shop everyday essentials with AeroZone
+                and get your order delivered conveniently.
             </p>
 
             <div class="heroButtons">
-                <button class="btn btnWhite" onclick="showCatalog()">
-                    Browse Catalog
+
+                <button
+                    class="bigButton whiteButton"
+                    onclick="showCatalog()"
+                >
+                    🛍 SHOP THE CATALOG
                 </button>
 
-                <button class="btn btnOutline" onclick="openCart()">
-                    View Cart
+                <button
+                    class="bigButton outlineButton"
+                    onclick="openCart()"
+                >
+                    🛒 VIEW CART
                 </button>
+
             </div>
 
         </div>
+
+    </section>
+
+
+    <!-- VERY CLEAR CATALOG BUTTON -->
+
+    <section class="catalogBanner">
+
+        <h2>
+            🛍 Shop AeroZone
+        </h2>
+
+        <p>
+            Browse our full catalog and choose what you want delivered.
+        </p>
+
+        <button
+            class="catalogMainButton"
+            onclick="showCatalog()"
+        >
+            OPEN CATALOG →
+        </button>
+
     </section>
 
 
     <section class="section">
 
         <div class="sectionTitle">
-            <h2>Why AeroZone?</h2>
-            <p>Simple shopping designed for everyday convenience.</p>
+
+            <h2>
+                Why AeroZone?
+            </h2>
+
+            <p>
+                Shopping made simple.
+            </p>
+
         </div>
 
-        <div class="infoGrid">
 
-            <div class="infoCard">
-                <div class="infoIcon">🛍</div>
-                <h3>Easy Shopping</h3>
+        <div class="benefits">
+
+            <div class="benefit">
+
+                <div class="benefitIcon">
+                    🛍
+                </div>
+
+                <h3>
+                    Easy Shopping
+                </h3>
+
                 <p>
-                    Browse categories and choose the products you need.
+                    Browse products and add everything you need to your cart.
                 </p>
+
             </div>
 
-            <div class="infoCard">
-                <div class="infoIcon">🚚</div>
-                <h3>Convenient Delivery</h3>
+
+            <div class="benefit">
+
+                <div class="benefitIcon">
+                    🚚
+                </div>
+
+                <h3>
+                    Convenient Delivery
+                </h3>
+
                 <p>
-                    Get your order delivered to your chosen address.
+                    Choose your delivery address during checkout.
                 </p>
+
             </div>
 
-            <div class="infoCard">
-                <div class="infoIcon">✓</div>
-                <h3>Simple Checkout</h3>
+
+            <div class="benefit">
+
+                <div class="benefitIcon">
+                    ✓
+                </div>
+
+                <h3>
+                    Simple Checkout
+                </h3>
+
                 <p>
-                    Add your items, enter your details and place your order.
+                    Enter your details and place your order.
                 </p>
+
             </div>
 
         </div>
@@ -929,70 +998,57 @@ footer p{
     </section>
 
 
-    <section class="section">
+    <section class="premium">
 
-        <div class="catalogCTA">
+        <h2>
+            AeroZone Premium
+        </h2>
 
-            <h2>Everything You Need</h2>
-
-            <p>
-                Explore groceries, health products, food, bakery items, fresh produce and more.
-            </p>
-
-            <button class="btn btnBlack" onclick="showCatalog()">
-                Open Catalog
-            </button>
-
+        <div class="premiumPrice">
+            R99
+            <span style="font-size:18px;">
+                /month
+            </span>
         </div>
 
-    </section>
+        <p>
+            Get free delivery with AeroZone Premium.
+        </p>
 
-
-    <section class="section">
-
-        <div class="premiumBox">
-
-            <h2>AeroZone Premium</h2>
-
-            <div class="priceBig">
-                R99<span style="font-size:18px;">/month</span>
-            </div>
-
-            <p>
-                Enjoy free delivery on your AeroZone orders with Premium.
-            </p>
-
-            <button class="btn btnWhite" onclick="openPremium()">
-                Join Premium
-            </button>
-
-        </div>
+        <button
+            class="bigButton whiteButton"
+            onclick="openPremium()"
+        >
+            JOIN PREMIUM
+        </button>
 
     </section>
 
 </main>
 
 
-<!-- ================= CATALOG ================= -->
+<!-- ================= CATALOG PAGE ================= -->
 
 <main id="catalogPage" class="page">
 
-    <section class="catalogTop">
+    <section class="catalogHeader">
 
-        <div class="catalogTopInner">
+        <div class="catalogHeaderInner">
 
-            <h1>Catalog</h1>
+            <h1>
+                Catalog
+            </h1>
 
             <p>
-                Choose what you need and add it to your cart.
+                Choose your products below.
             </p>
 
             <input
-                type="search"
                 id="searchInput"
-                class="searchBox"
-                placeholder="Search products..."
-                oninput="searchProducts()"
+                class="search"
+                type="search"
+                placeholder="Search for products..."
+                oninput="renderProducts()"
             >
 
         </div>
@@ -1000,51 +1056,83 @@ footer p{
     </section>
 
 
-    <section class="catalogContent">
+    <section class="catalogBody">
 
-        <div class="categoryGrid">
+        <h2 class="categoryTitle">
+            Categories
+        </h2>
 
-            <button class="categoryCard active" onclick="filterCategory('All',this)">
+
+        <div class="categories">
+
+            <button
+                class="category active"
+                onclick="chooseCategory('All',this)"
+            >
                 <span class="categoryEmoji">🛍</span>
                 All
             </button>
 
-            <button class="categoryCard" onclick="filterCategory('Supermarket',this)">
+            <button
+                class="category"
+                onclick="chooseCategory('Supermarket',this)"
+            >
                 <span class="categoryEmoji">🛒</span>
                 Supermarket
             </button>
 
-            <button class="categoryCard" onclick="filterCategory('Pharmacy & Health',this)">
+            <button
+                class="category"
+                onclick="chooseCategory('Pharmacy & Health',this)"
+            >
                 <span class="categoryEmoji">💊</span>
                 Pharmacy & Health
             </button>
 
-            <button class="categoryCard" onclick="filterCategory('Restaurants',this)">
-                <span class="categoryEmoji">🍽</span>
+            <button
+                class="category"
+                onclick="chooseCategory('Restaurants',this)"
+            >
+                <span class="categoryEmoji">🍽️</span>
                 Restaurants
             </button>
 
-            <button class="categoryCard" onclick="filterCategory('Fast Food',this)">
+            <button
+                class="category"
+                onclick="chooseCategory('Fast Food',this)"
+            >
                 <span class="categoryEmoji">🍔</span>
                 Fast Food
             </button>
 
-            <button class="categoryCard" onclick="filterCategory('Butchery',this)">
+            <button
+                class="category"
+                onclick="chooseCategory('Butchery',this)"
+            >
                 <span class="categoryEmoji">🥩</span>
                 Butchery
             </button>
 
-            <button class="categoryCard" onclick="filterCategory('Bakery',this)">
+            <button
+                class="category"
+                onclick="chooseCategory('Bakery',this)"
+            >
                 <span class="categoryEmoji">🥐</span>
                 Bakery
             </button>
 
-            <button class="categoryCard" onclick="filterCategory('Fruit & Veg',this)">
+            <button
+                class="category"
+                onclick="chooseCategory('Fruit & Veg',this)"
+            >
                 <span class="categoryEmoji">🥦</span>
                 Fruit & Veg
             </button>
 
-            <button class="categoryCard" onclick="filterCategory('Home & Cleaning',this)">
+            <button
+                class="category"
+                onclick="chooseCategory('Home & Cleaning',this)"
+            >
                 <span class="categoryEmoji">🧹</span>
                 Home & Cleaning
             </button>
@@ -1052,24 +1140,36 @@ footer p{
         </div>
 
 
-        <div class="filterRow">
+        <div class="filters">
 
-            <button class="filterBtn active" onclick="sortProducts('default',this)">
+            <button
+                class="filter active"
+                onclick="sortProducts('default',this)"
+            >
                 Recommended
             </button>
 
-            <button class="filterBtn" onclick="sortProducts('low',this)">
-                Price: Low
+            <button
+                class="filter"
+                onclick="sortProducts('low',this)"
+            >
+                Price Low
             </button>
 
-            <button class="filterBtn" onclick="sortProducts('high',this)">
-                Price: High
+            <button
+                class="filter"
+                onclick="sortProducts('high',this)"
+            >
+                Price High
             </button>
 
         </div>
 
 
-        <div id="productGrid" class="productGrid"></div>
+        <div
+            id="productGrid"
+            class="productGrid"
+        ></div>
 
     </section>
 
@@ -1078,25 +1178,38 @@ footer p{
 
 <!-- ================= FLOATING CART ================= -->
 
-<button class="floatingCart" onclick="openCart()">
-    🛒 Cart
-    <span id="floatingCartTotal">R0.00</span>
+<button
+    class="cartFloat"
+    onclick="openCart()"
+>
+    🛒 CART
+    <span id="cartTotalFloat">
+        R0.00
+    </span>
 </button>
 
 
 <!-- ================= CART MODAL ================= -->
 
-<div id="cartModal" class="modal">
+<div
+    id="cartModal"
+    class="modal"
+>
 
     <div class="modalBox">
 
-        <button class="closeBtn" onclick="closeModal('cartModal')">
+        <button
+            class="close"
+            onclick="closeModal('cartModal')"
+        >
             ×
         </button>
 
-        <h2>Your Cart</h2>
+        <h2>
+            Your Cart
+        </h2>
 
-        <p class="modalSub">
+        <p class="modalDescription">
             Review your items before checkout.
         </p>
 
@@ -1106,27 +1219,33 @@ footer p{
 
             <div class="summaryRow">
                 <span>Subtotal</span>
-                <strong id="cartSubtotal">R0.00</strong>
+                <strong id="subtotal">
+                    R0.00
+                </strong>
             </div>
 
             <div class="summaryRow">
                 <span>Delivery</span>
-                <strong id="cartDelivery">R0.00</strong>
+                <strong id="delivery">
+                    R0.00
+                </strong>
             </div>
 
-            <div class="summaryRow summaryTotal">
+            <div class="summaryRow total">
                 <span>Total</span>
-                <strong id="cartTotal">R0.00</strong>
+                <strong id="total">
+                    R0.00
+                </strong>
             </div>
 
         </div>
 
         <button
-            class="btn btnBlack fullBtn"
-            id="checkoutButton"
+            class="bigButton blackButton full"
             onclick="openCheckout()"
+            style="margin-top:18px;"
         >
-            Checkout
+            CHECKOUT
         </button>
 
     </div>
@@ -1134,65 +1253,137 @@ footer p{
 </div>
 
 
-<!-- ================= CHECKOUT MODAL ================= -->
+<!-- ================= CHECKOUT ================= -->
 
-<div id="checkoutModal" class="modal">
+<div
+    id="checkoutModal"
+    class="modal"
+>
 
     <div class="modalBox">
 
-        <button class="closeBtn" onclick="closeModal('checkoutModal')">
+        <button
+            class="close"
+            onclick="closeModal('checkoutModal')"
+        >
             ×
         </button>
 
-        <h2>Checkout</h2>
+        <h2>
+            Checkout
+        </h2>
 
-        <p class="modalSub">
+        <p class="modalDescription">
             Enter your delivery details.
         </p>
 
         <form id="checkoutForm">
 
             <div class="formGroup">
-                <label>Full Name</label>
-                <input id="checkoutName" type="text" required>
+
+                <label>
+                    Full Name *
+                </label>
+
+                <input
+                    id="customerName"
+                    type="text"
+                    required
+                >
+
             </div>
 
+
             <div class="formGroup">
-                <label>Phone Number</label>
-                <input id="checkoutPhone" type="tel" required>
+
+                <label>
+                    Phone Number *
+                </label>
+
+                <input
+                    id="customerPhone"
+                    type="tel"
+                    required
+                >
+
             </div>
 
+
             <div class="formGroup">
-                <label>Email Address</label>
-                <input id="checkoutEmail" type="email">
+
+                <label>
+                    Email Address
+                </label>
+
+                <input
+                    id="customerEmail"
+                    type="email"
+                >
+
             </div>
 
-            <div class="formGroup">
-                <label>Delivery Address</label>
-                <textarea id="checkoutAddress" required></textarea>
-            </div>
 
             <div class="formGroup">
-                <label>Payment Method</label>
 
-                <select id="paymentMethod" required>
-                    <option value="">Select payment method</option>
-                    <option value="Cash on Delivery">Cash on Delivery</option>
-                    <option value="Yoco / Card">Yoco / Card</option>
-                </select>
-            </div>
-
-            <div class="formGroup">
-                <label>Special Instructions</label>
+                <label>
+                    Delivery Address *
+                </label>
 
                 <textarea
-                    id="checkoutInstructions"
-                    placeholder="Optional"
+                    id="customerAddress"
+                    required
+                    placeholder="Enter your full delivery address"
                 ></textarea>
+
             </div>
 
-            <button class="btn btnBlack fullBtn" type="submit">
-                Place Order
+
+            <div class="formGroup">
+
+                <label>
+                    Payment Method *
+                </label>
+
+                <select
+                    id="paymentMethod"
+                    required
+                >
+                    <option value="">
+                        Select payment method
+                    </option>
+
+                    <option value="Cash on Delivery">
+                        Cash on Delivery
+                    </option>
+
+                    <option value="Yoco / Card">
+                        Yoco / Card
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="formGroup">
+
+                <label>
+                    Special Instructions
+                </label>
+
+                <textarea
+                    id="instructions"
+                    placeholder="Optional"
+                ></textarea>
+
+            </div>
+
+
+            <button
+                class="bigButton blackButton full"
+                type="submit"
+            >
+                PLACE ORDER
             </button>
 
         </form>
@@ -1202,48 +1393,93 @@ footer p{
 </div>
 
 
-<!-- ================= ACCOUNT MODAL ================= -->
+<!-- ================= ACCOUNT ================= -->
 
-<div id="accountModal" class="modal">
+<div
+    id="accountModal"
+    class="modal"
+>
 
     <div class="modalBox">
 
-        <button class="closeBtn" onclick="closeModal('accountModal')">
+        <button
+            class="close"
+            onclick="closeModal('accountModal')"
+        >
             ×
         </button>
 
-        <h2>Your Account</h2>
+        <h2>
+            My Account
+        </h2>
 
-        <p class="modalSub">
+        <p class="modalDescription">
             Save your details for faster checkout.
         </p>
 
-        <div id="accountStatus" class="accountStatus">
-            No account details saved yet.
+        <div
+            id="accountStatus"
+            style="background:#f5f5f5;padding:15px;border-radius:12px;margin-bottom:18px;"
+        >
+            No account saved yet.
         </div>
+
 
         <form id="accountForm">
 
             <div class="formGroup">
-                <label>Full Name</label>
-                <input id="accountName" type="text" required>
+
+                <label>
+                    Full Name
+                </label>
+
+                <input
+                    id="accountName"
+                    type="text"
+                    required
+                >
+
             </div>
+
 
             <div class="formGroup">
-                <label>Phone Number</label>
-                <input id="accountPhone" type="tel" required>
+
+                <label>
+                    Phone Number
+                </label>
+
+                <input
+                    id="accountPhone"
+                    type="tel"
+                    required
+                >
+
             </div>
+
 
             <div class="formGroup">
-                <label>Email Address</label>
-                <input id="accountEmail" type="email">
+
+                <label>
+                    Email
+                </label>
+
+                <input
+                    id="accountEmail"
+                    type="email"
+                >
+
             </div>
 
-            <button class="btn btnBlack fullBtn" type="submit">
-                Save Account
+
+            <button
+                class="bigButton blackButton full"
+                type="submit"
+            >
+                SAVE ACCOUNT
             </button>
 
         </form>
+
 
         <div id="latestOrder"></div>
 
@@ -1252,25 +1488,36 @@ footer p{
 </div>
 
 
-<!-- ================= PREMIUM MODAL ================= -->
+<!-- ================= PREMIUM ================= -->
 
-<div id="premiumModal" class="modal">
+<div
+    id="premiumModal"
+    class="modal"
+>
 
     <div class="modalBox">
 
-        <button class="closeBtn" onclick="closeModal('premiumModal')">
+        <button
+            class="close"
+            onclick="closeModal('premiumModal')"
+        >
             ×
         </button>
 
-        <h2>AeroZone Premium</h2>
+        <h2>
+            AeroZone Premium
+        </h2>
 
-        <p class="modalSub">
-            Get free delivery with your monthly Premium membership.
+        <p class="modalDescription">
+            Free delivery for R99 per month.
         </p>
 
-        <div class="premiumBox" style="padding:25px;margin-bottom:20px;">
 
-            <div style="font-size:40px;font-weight:900;">
+        <div
+            style="background:#000;color:#fff;border-radius:16px;padding:25px;text-align:center;margin-bottom:20px;"
+        >
+
+            <div style="font-size:45px;font-weight:900;">
                 R99
             </div>
 
@@ -1280,32 +1527,62 @@ footer p{
 
         </div>
 
+
         <form id="premiumForm">
 
             <div class="formGroup">
-                <label>Full Name</label>
-                <input id="premiumName" type="text" required>
+
+                <label>
+                    Full Name
+                </label>
+
+                <input
+                    id="premiumName"
+                    type="text"
+                    required
+                >
+
             </div>
+
 
             <div class="formGroup">
-                <label>Phone Number</label>
-                <input id="premiumPhone" type="tel" required>
+
+                <label>
+                    Phone Number
+                </label>
+
+                <input
+                    id="premiumPhone"
+                    type="tel"
+                    required
+                >
+
             </div>
+
 
             <div class="formGroup">
-                <label>Email Address</label>
-                <input id="premiumEmail" type="email" required>
+
+                <label>
+                    Email Address
+                </label>
+
+                <input
+                    id="premiumEmail"
+                    type="email"
+                    required
+                >
+
             </div>
 
-            <button class="btn btnBlack fullBtn" type="submit">
-                Continue
+
+            <button
+                class="bigButton blackButton full"
+                type="submit"
+            >
+                CONTINUE
             </button>
 
         </form>
-
-        <p style="font-size:12px;color:#777;margin-top:14px;line-height:1.5;">
-            Premium registration will be saved as payment pending until a live recurring payment provider is connected.
-        </p>
 
     </div>
 
@@ -1316,43 +1593,42 @@ footer p{
 
 <footer>
 
-    <div class="footerInner">
-
-        <div class="footerBrand">
-            AeroZone
-        </div>
-
-        <p>
-            Shop online and get your order delivered.
-        </p>
-
-        <a
-            class="whatsappLink"
-            href="https://wa.me/27688685355"
-            target="_blank"
-        >
-            WhatsApp Support: 068 868 5355
-        </a>
-
-        <p style="margin-top:20px;font-size:12px;">
-            © 2026 AeroZone. All rights reserved.
-        </p>
-
+    <div class="footerLogo">
+        AeroZone
     </div>
+
+    <p>
+        Shop online and get your order delivered.
+    </p>
+
+    <a
+        class="whatsapp"
+        href="https://wa.me/27688685355"
+        target="_blank"
+    >
+        WhatsApp: 068 868 5355
+    </a>
+
+    <p style="margin-top:20px;font-size:12px;">
+        © 2026 AeroZone. All rights reserved.
+    </p>
 
 </footer>
 
 
-<div id="toast" class="toast">
+<div
+    id="toast"
+    class="toast"
+>
     Added to cart
 </div>
 
 
 <script>
 
-/* =========================================================
-   AEROZONE DATA
-========================================================= */
+/* =====================================================
+   PRODUCTS
+===================================================== */
 
 const PRODUCTS = [
 
@@ -1435,7 +1711,7 @@ const PRODUCTS = [
     {id:70,name:"Bleach 2L",price:30,category:"Home & Cleaning",emoji:"🧴"},
     {id:71,name:"Floor Cleaner",price:40,category:"Home & Cleaning",emoji:"🧹"},
     {id:72,name:"Sponges Pack",price:25,category:"Home & Cleaning",emoji:"🧽"},
-    {id:73,name:"Bin Bags",price:35,category:"Home & Cleaning",emoji:"🗑"},
+    {id:73,name:"Bin Bags",price:35,category:"Home & Cleaning",emoji:"🗑️"},
     {id:74,name:"Paper Towels",price:45,category:"Home & Cleaning",emoji:"🧻"},
     {id:75,name:"Air Freshener",price:35,category:"Home & Cleaning",emoji:"🌸"},
     {id:76,name:"Washing Gloves",price:25,category:"Home & Cleaning",emoji:"🧤"}
@@ -1443,52 +1719,52 @@ const PRODUCTS = [
 ];
 
 
-/* =========================================================
+/* =====================================================
    VARIABLES
-========================================================= */
+===================================================== */
 
-let cart = loadCart();
+let cart = [];
 
-let currentCategory = "All";
+let selectedCategory = "All";
 
-let currentProducts = [...PRODUCTS];
+let productList = [...PRODUCTS];
 
 let premiumActive =
-    localStorage.getItem("premiumActive") === "true";
+    localStorage.getItem("aerozonePremiumActive") === "true";
 
 
-/* =========================================================
-   SAFE MONEY FUNCTIONS
-========================================================= */
+/* =====================================================
+   SAFE NUMBER
+===================================================== */
 
-function safeNumber(value){
+function number(value){
 
-    const number = Number(value);
+    const n = Number(value);
 
-    if(!Number.isFinite(number)){
-        return 0;
-    }
+    return Number.isFinite(n) ? n : 0;
 
-    return number;
 }
 
 
 function money(value){
 
-    return "R" + safeNumber(value).toFixed(2);
+    return "R" + number(value).toFixed(2);
+
 }
 
 
-/* =========================================================
-   CART STORAGE
-========================================================= */
+/* =====================================================
+   LOAD CART
+===================================================== */
 
 function loadCart(){
 
     try{
 
         const saved =
-            JSON.parse(localStorage.getItem("aerozoneCart") || "[]");
+            JSON.parse(
+                localStorage.getItem("aerozoneCart") || "[]"
+            );
 
         if(!Array.isArray(saved)){
             return [];
@@ -1497,11 +1773,16 @@ function loadCart(){
         return saved
             .map(item => ({
                 id:Number(item.id),
-                qty:Math.max(1,Math.floor(safeNumber(item.qty)))
+                qty:Math.max(
+                    1,
+                    Math.floor(number(item.qty))
+                )
             }))
             .filter(item =>
-                Number.isFinite(item.id) &&
-                PRODUCTS.some(p => p.id === item.id)
+                PRODUCTS.some(
+                    product =>
+                        product.id === item.id
+                )
             );
 
     }catch(error){
@@ -1513,6 +1794,13 @@ function loadCart(){
 }
 
 
+cart = loadCart();
+
+
+/* =====================================================
+   SAVE CART
+===================================================== */
+
 function saveCart(){
 
     localStorage.setItem(
@@ -1520,13 +1808,14 @@ function saveCart(){
         JSON.stringify(cart)
     );
 
-    updateCartUI();
+    updateCart();
+
 }
 
 
-/* =========================================================
-   CART CALCULATIONS
-========================================================= */
+/* =====================================================
+   CART ITEMS
+===================================================== */
 
 function getCartItems(){
 
@@ -1534,7 +1823,10 @@ function getCartItems(){
         .map(item => {
 
             const product =
-                PRODUCTS.find(p => p.id === Number(item.id));
+                PRODUCTS.find(
+                    p =>
+                        p.id === Number(item.id)
+                );
 
             if(!product){
                 return null;
@@ -1542,7 +1834,10 @@ function getCartItems(){
 
             return {
                 ...product,
-                qty:Math.max(1,Math.floor(safeNumber(item.qty)))
+                qty:Math.max(
+                    1,
+                    Math.floor(number(item.qty))
+                )
             };
 
         })
@@ -1551,24 +1846,24 @@ function getCartItems(){
 }
 
 
-function getSubtotal(){
+function subtotal(){
 
     return getCartItems().reduce(
-        (total,item) =>
-            total +
-            safeNumber(item.price) *
-            safeNumber(item.qty),
+        (sum,item) =>
+            sum +
+            number(item.price) *
+            number(item.qty),
         0
     );
 
 }
 
 
-function getDelivery(){
+function deliveryCost(){
 
-    const subtotal = getSubtotal();
+    const total = subtotal();
 
-    if(subtotal <= 0){
+    if(total <= 0){
         return 0;
     }
 
@@ -1576,44 +1871,134 @@ function getDelivery(){
         return 0;
     }
 
-    if(subtotal >= 500){
+    if(total >= 500){
         return 0;
     }
 
     return 35;
-}
-
-
-function getTotal(){
-
-    return getSubtotal() + getDelivery();
 
 }
 
 
-/* =========================================================
-   CART UI
-========================================================= */
+function grandTotal(){
 
-function updateCartUI(){
+    return subtotal() + deliveryCost();
 
-    const items = getCartItems();
+}
+
+
+/* =====================================================
+   UPDATE CART
+===================================================== */
+
+function updateCart(){
+
+    const items =
+        getCartItems();
 
     const count =
         items.reduce(
-            (total,item) =>
-                total + safeNumber(item.qty),
+            (sum,item) =>
+                sum + number(item.qty),
             0
         );
 
-    document.getElementById("cartCount").textContent =
-        count;
+    document.getElementById(
+        "cartNumber"
+    ).textContent = count;
 
-    document.getElementById("floatingCartTotal").textContent =
-        money(getTotal());
+    document.getElementById(
+        "cartTotalFloat"
+    ).textContent = money(grandTotal());
 
 }
 
+
+/* =====================================================
+   ADD TO CART
+===================================================== */
+
+function addToCart(id){
+
+    id = Number(id);
+
+    const product =
+        PRODUCTS.find(
+            p => p.id === id
+        );
+
+    if(!product){
+        return;
+    }
+
+    const existing =
+        cart.find(
+            item =>
+                Number(item.id) === id
+        );
+
+    if(existing){
+
+        existing.qty =
+            number(existing.qty) + 1;
+
+    }else{
+
+        cart.push({
+            id:id,
+            qty:1
+        });
+
+    }
+
+    saveCart();
+
+    showToast(
+        product.name + " added to cart"
+    );
+
+}
+
+
+/* =====================================================
+   CHANGE QUANTITY
+===================================================== */
+
+function changeQuantity(id,change){
+
+    const item =
+        cart.find(
+            x =>
+                Number(x.id) === Number(id)
+        );
+
+    if(!item){
+        return;
+    }
+
+    item.qty =
+        number(item.qty) + Number(change);
+
+    if(item.qty <= 0){
+
+        cart =
+            cart.filter(
+                x =>
+                    Number(x.id) !== Number(id)
+            );
+
+    }
+
+    saveCart();
+
+    renderCart();
+
+}
+
+
+/* =====================================================
+   OPEN CART
+===================================================== */
 
 function openCart(){
 
@@ -1629,18 +2014,25 @@ function openCart(){
 function renderCart(){
 
     const container =
-        document.getElementById("cartItems");
+        document.getElementById(
+            "cartItems"
+        );
 
-    const items = getCartItems();
+    const items =
+        getCartItems();
+
 
     if(items.length === 0){
 
         container.innerHTML = `
-            <div class="emptyCart">
+            <div class="empty">
                 Your cart is empty.
                 <br><br>
-                <button class="btn btnBlack" onclick="closeModal('cartModal');showCatalog()">
-                    Browse Catalog
+                <button
+                    class="bigButton blackButton"
+                    onclick="closeModal('cartModal');showCatalog()"
+                >
+                    SHOP NOW
                 </button>
             </div>
         `;
@@ -1652,27 +2044,26 @@ function renderCart(){
 
                 <div class="cartItem">
 
-                    <div class="cartItemVisual">
+                    <div class="cartEmoji">
                         ${item.emoji}
                     </div>
 
-                    <div class="cartItemInfo">
+                    <div class="cartInfo">
 
                         <strong>
                             ${escapeHtml(item.name)}
                         </strong>
 
                         <small>
-                            ${money(item.price)} each
+                            ${money(item.price)}
                         </small>
 
                     </div>
 
-                    <div class="qtyControls">
+                    <div class="qty">
 
                         <button
-                            class="qtyBtn"
-                            onclick="changeQty(${item.id},-1)"
+                            onclick="changeQuantity(${item.id},-1)"
                         >
                             −
                         </button>
@@ -1682,8 +2073,7 @@ function renderCart(){
                         </strong>
 
                         <button
-                            class="qtyBtn"
-                            onclick="changeQty(${item.id},1)"
+                            onclick="changeQuantity(${item.id},1)"
                         >
                             +
                         </button>
@@ -1697,98 +2087,31 @@ function renderCart(){
     }
 
 
-    document.getElementById("cartSubtotal").textContent =
-        money(getSubtotal());
-
-    const delivery =
-        getDelivery();
-
-    document.getElementById("cartDelivery").innerHTML =
-        delivery === 0
-            ? `<span class="deliveryFree">FREE</span>`
-            : money(delivery);
-
-    document.getElementById("cartTotal").textContent =
-        money(getTotal());
-
-}
+    document.getElementById(
+        "subtotal"
+    ).textContent =
+        money(subtotal());
 
 
-function addToCart(id){
+    document.getElementById(
+        "delivery"
+    ).innerHTML =
+        deliveryCost() === 0
+            ? '<span class="free">FREE</span>'
+            : money(deliveryCost());
 
-    id = Number(id);
 
-    const product =
-        PRODUCTS.find(p => p.id === id);
-
-    if(!product){
-        return;
-    }
-
-    const existing =
-        cart.find(item => Number(item.id) === id);
-
-    if(existing){
-
-        existing.qty =
-            Math.max(
-                1,
-                Math.floor(
-                    safeNumber(existing.qty)
-                ) + 1
-            );
-
-    }else{
-
-        cart.push({
-            id:id,
-            qty:1
-        });
-
-    }
-
-    saveCart();
-
-    showToast(product.name + " added to cart");
+    document.getElementById(
+        "total"
+    ).textContent =
+        money(grandTotal());
 
 }
 
 
-function changeQty(id,change){
-
-    const item =
-        cart.find(
-            x => Number(x.id) === Number(id)
-        );
-
-    if(!item){
-        return;
-    }
-
-    item.qty =
-        Math.floor(
-            safeNumber(item.qty)
-        ) + Number(change);
-
-    if(item.qty <= 0){
-
-        cart =
-            cart.filter(
-                x => Number(x.id) !== Number(id)
-            );
-
-    }
-
-    saveCart();
-
-    renderCart();
-
-}
-
-
-/* =========================================================
-   CATALOG
-========================================================= */
+/* =====================================================
+   PAGE NAVIGATION
+===================================================== */
 
 function showHome(){
 
@@ -1801,17 +2124,14 @@ function showHome(){
         .classList.remove("active");
 
     document
-        .getElementById("homeBtn")
-        .classList.add("active");
+        .getElementById("homeNav")
+        .classList.add("catalogNav");
 
     document
-        .getElementById("catalogBtn")
-        .classList.remove("active");
+        .getElementById("catalogNav")
+        .classList.add("catalogNav");
 
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
+    window.scrollTo(0,0);
 
 }
 
@@ -1826,32 +2146,27 @@ function showCatalog(){
         .getElementById("catalogPage")
         .classList.add("active");
 
-    document
-        .getElementById("homeBtn")
-        .classList.remove("active");
-
-    document
-        .getElementById("catalogBtn")
-        .classList.add("active");
+    window.scrollTo(0,0);
 
     renderProducts();
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
 
 }
 
 
-function filterCategory(category,button){
+/* =====================================================
+   CATEGORY
+===================================================== */
 
-    currentCategory = category;
+function chooseCategory(category,button){
+
+    selectedCategory =
+        category;
 
     document
-        .querySelectorAll(".categoryCard")
-        .forEach(btn =>
-            btn.classList.remove("active")
+        .querySelectorAll(".category")
+        .forEach(
+            b =>
+                b.classList.remove("active")
         );
 
     if(button){
@@ -1863,46 +2178,46 @@ function filterCategory(category,button){
 }
 
 
-function searchProducts(){
-
-    renderProducts();
-
-}
-
+/* =====================================================
+   SORT
+===================================================== */
 
 function sortProducts(type,button){
 
     document
-        .querySelectorAll(".filterBtn")
-        .forEach(btn =>
-            btn.classList.remove("active")
+        .querySelectorAll(".filter")
+        .forEach(
+            b =>
+                b.classList.remove("active")
         );
 
     if(button){
         button.classList.add("active");
     }
 
+
     if(type === "low"){
 
-        currentProducts =
+        productList =
             [...PRODUCTS].sort(
                 (a,b) =>
-                    safeNumber(a.price) -
-                    safeNumber(b.price)
+                    number(a.price) -
+                    number(b.price)
             );
 
     }else if(type === "high"){
 
-        currentProducts =
+        productList =
             [...PRODUCTS].sort(
                 (a,b) =>
-                    safeNumber(b.price) -
-                    safeNumber(a.price)
+                    number(b.price) -
+                    number(a.price)
             );
 
     }else{
 
-        currentProducts = [...PRODUCTS];
+        productList =
+            [...PRODUCTS];
 
     }
 
@@ -1911,64 +2226,78 @@ function sortProducts(type,button){
 }
 
 
+/* =====================================================
+   RENDER PRODUCTS
+===================================================== */
+
 function renderProducts(){
 
     const grid =
-        document.getElementById("productGrid");
+        document.getElementById(
+            "productGrid"
+        );
 
     if(!grid){
         return;
     }
 
+
     const search =
         (
-            document.getElementById("searchInput")?.value ||
-            ""
+            document.getElementById(
+                "searchInput"
+            )?.value || ""
         )
-        .trim()
-        .toLowerCase();
+        .toLowerCase()
+        .trim();
 
 
-    let list =
-        currentProducts.filter(product => {
+    const products =
+        productList.filter(product => {
 
             const categoryMatch =
-                currentCategory === "All" ||
-                product.category === currentCategory;
+                selectedCategory === "All" ||
+                product.category === selectedCategory;
 
             const searchMatch =
                 !search ||
-                product.name.toLowerCase().includes(search) ||
-                product.category.toLowerCase().includes(search);
+                product.name
+                    .toLowerCase()
+                    .includes(search) ||
+                product.category
+                    .toLowerCase()
+                    .includes(search);
 
-            return categoryMatch && searchMatch;
+            return categoryMatch &&
+                   searchMatch;
 
         });
 
 
-    if(list.length === 0){
+    if(products.length === 0){
 
         grid.innerHTML = `
-            <div class="noProducts">
+            <div style="grid-column:1/-1;text-align:center;padding:50px;color:#666;">
                 <h3>No products found</h3>
                 <p>Try another search or category.</p>
             </div>
         `;
 
         return;
+
     }
 
 
     grid.innerHTML =
-        list.map(product => `
+        products.map(product => `
 
-            <article class="productCard">
+            <article class="product">
 
-                <div class="productVisual">
+                <div class="productImage">
                     ${product.emoji}
                 </div>
 
-                <div class="productInfo">
+                <div class="productDetails">
 
                     <div class="productCategory">
                         ${escapeHtml(product.category)}
@@ -1985,10 +2314,10 @@ function renderProducts(){
                         </div>
 
                         <button
-                            class="addBtn"
+                            class="add"
                             onclick="addToCart(${product.id})"
                         >
-                            + Add
+                            + ADD
                         </button>
 
                     </div>
@@ -2002,35 +2331,48 @@ function renderProducts(){
 }
 
 
-/* =========================================================
+/* =====================================================
    CHECKOUT
-========================================================= */
+===================================================== */
 
 function openCheckout(){
 
     if(getCartItems().length === 0){
 
-        showToast("Your cart is empty");
+        showToast(
+            "Your cart is empty"
+        );
 
         return;
+
     }
 
     closeModal("cartModal");
 
+
     const customer =
         JSON.parse(
-            localStorage.getItem("aerozoneCustomer") || "null"
+            localStorage.getItem(
+                "aerozoneCustomer"
+            ) || "null"
         );
+
 
     if(customer){
 
-        document.getElementById("checkoutName").value =
+        document.getElementById(
+            "customerName"
+        ).value =
             customer.name || "";
 
-        document.getElementById("checkoutPhone").value =
+        document.getElementById(
+            "customerPhone"
+        ).value =
             customer.phone || "";
 
-        document.getElementById("checkoutEmail").value =
+        document.getElementById(
+            "customerEmail"
+        ).value =
             customer.email || "";
 
     }
@@ -2045,149 +2387,181 @@ function openCheckout(){
 
 document
     .getElementById("checkoutForm")
-    .addEventListener("submit",function(event){
+    .addEventListener(
+        "submit",
+        function(event){
 
-        event.preventDefault();
-
-        const name =
-            document.getElementById("checkoutName").value.trim();
-
-        const phone =
-            document.getElementById("checkoutPhone").value.trim();
-
-        const email =
-            document.getElementById("checkoutEmail").value.trim();
-
-        const address =
-            document.getElementById("checkoutAddress").value.trim();
-
-        const payment =
-            document.getElementById("paymentMethod").value;
-
-        const instructions =
-            document.getElementById("checkoutInstructions").value.trim();
+            event.preventDefault();
 
 
-        if(!name || !phone || !address || !payment){
+            const name =
+                document.getElementById(
+                    "customerName"
+                ).value.trim();
 
-            showToast("Please complete all required fields");
+            const phone =
+                document.getElementById(
+                    "customerPhone"
+                ).value.trim();
 
-            return;
+            const email =
+                document.getElementById(
+                    "customerEmail"
+                ).value.trim();
+
+            const address =
+                document.getElementById(
+                    "customerAddress"
+                ).value.trim();
+
+            const payment =
+                document.getElementById(
+                    "paymentMethod"
+                ).value;
+
+            const instructions =
+                document.getElementById(
+                    "instructions"
+                ).value.trim();
+
+
+            if(
+                !name ||
+                !phone ||
+                !address ||
+                !payment
+            ){
+
+                showToast(
+                    "Please complete the required fields"
+                );
+
+                return;
+
+            }
+
+
+            const orderNumber =
+                "AZ" +
+                Math.floor(
+                    10000000 +
+                    Math.random() * 90000000
+                );
+
+
+            const order = {
+
+                orderNumber:orderNumber,
+
+                customer:{
+                    name:name,
+                    phone:phone,
+                    email:email,
+                    address:address
+                },
+
+                items:getCartItems(),
+
+                subtotal:subtotal(),
+
+                delivery:deliveryCost(),
+
+                total:grandTotal(),
+
+                paymentMethod:payment,
+
+                instructions:instructions,
+
+                status:"Order Received",
+
+                date:new Date().toISOString()
+
+            };
+
+
+            localStorage.setItem(
+                "aerozoneLastOrder",
+                JSON.stringify(order)
+            );
+
+
+            localStorage.setItem(
+                "aerozoneCustomer",
+                JSON.stringify({
+                    name:name,
+                    phone:phone,
+                    email:email
+                })
+            );
+
+
+            const whatsapp =
+                createWhatsAppMessage(
+                    order
+                );
+
+
+            cart = [];
+
+            saveCart();
+
+
+            closeModal(
+                "checkoutModal"
+            );
+
+
+            showToast(
+                "Order " +
+                orderNumber +
+                " received"
+            );
+
+
+            setTimeout(
+                function(){
+
+                    window.open(
+                        "https://wa.me/27688685355?text=" +
+                        encodeURIComponent(whatsapp),
+                        "_blank"
+                    );
+
+                },
+                700
+            );
+
         }
+    );
 
 
-        const orderNumber =
-            "AZ" +
-            Math.floor(
-                10000000 +
-                Math.random() * 90000000
-            );
-
-
-        const items =
-            getCartItems();
-
-
-        const order = {
-
-            orderNumber:orderNumber,
-
-            customer:{
-                name:name,
-                phone:phone,
-                email:email,
-                address:address
-            },
-
-            items:items,
-
-            subtotal:getSubtotal(),
-
-            delivery:getDelivery(),
-
-            total:getTotal(),
-
-            paymentMethod:payment,
-
-            instructions:instructions,
-
-            status:"Order Received",
-
-            createdAt:new Date().toISOString()
-
-        };
-
-
-        localStorage.setItem(
-            "aerozoneLastOrder",
-            JSON.stringify(order)
-        );
-
-
-        localStorage.setItem(
-            "aerozoneCustomer",
-            JSON.stringify({
-                name:name,
-                phone:phone,
-                email:email
-            })
-        );
-
-
-        const whatsappMessage =
-            buildWhatsAppOrder(order);
-
-
-        cart = [];
-
-        saveCart();
-
-
-        closeModal("checkoutModal");
-
-
-        showToast(
-            "Order " +
-            orderNumber +
-            " placed"
-        );
-
-
-        setTimeout(() => {
-
-            window.open(
-                "https://wa.me/27688685355?text=" +
-                encodeURIComponent(whatsappMessage),
-                "_blank"
-            );
-
-        },700);
-
-});
-
-
-function buildWhatsAppOrder(order){
+function createWhatsAppMessage(order){
 
     let message =
-        "AEROZONE ORDER\n\n" +
-        "Order: " +
+        "AEROZONE ORDER\n\n";
+
+    message +=
+        "Order Number: " +
         order.orderNumber +
         "\n\n";
 
-    order.items.forEach(item => {
 
-        message +=
-            item.name +
-            " x " +
-            item.qty +
-            " = " +
-            money(
-                safeNumber(item.price) *
-                safeNumber(item.qty)
-            ) +
-            "\n";
+    order.items.forEach(
+        item => {
 
-    });
+            message +=
+                item.name +
+                " x " +
+                item.qty +
+                " = " +
+                money(
+                    number(item.price) *
+                    number(item.qty)
+                ) +
+                "\n";
+
+        }
+    );
 
 
     message +=
@@ -2196,7 +2570,7 @@ function buildWhatsAppOrder(order){
 
         "\nDelivery: " +
         (
-            safeNumber(order.delivery) === 0
+            order.delivery === 0
                 ? "FREE"
                 : money(order.delivery)
         ) +
@@ -2231,41 +2605,49 @@ function buildWhatsAppOrder(order){
 }
 
 
-/* =========================================================
+/* =====================================================
    ACCOUNT
-========================================================= */
+===================================================== */
 
 function openAccount(){
 
     const customer =
         JSON.parse(
-            localStorage.getItem("aerozoneCustomer") || "null"
+            localStorage.getItem(
+                "aerozoneCustomer"
+            ) || "null"
         );
 
-    const status =
-        document.getElementById("accountStatus");
 
     if(customer){
 
-        status.innerHTML = `
-            <strong>${escapeHtml(customer.name || "")}</strong><br>
-            ${escapeHtml(customer.phone || "")}<br>
-            ${escapeHtml(customer.email || "")}
-        `;
-
-        document.getElementById("accountName").value =
+        document.getElementById(
+            "accountName"
+        ).value =
             customer.name || "";
 
-        document.getElementById("accountPhone").value =
+        document.getElementById(
+            "accountPhone"
+        ).value =
             customer.phone || "";
 
-        document.getElementById("accountEmail").value =
+        document.getElementById(
+            "accountEmail"
+        ).value =
             customer.email || "";
 
-    }else{
 
-        status.innerHTML =
-            "No account details saved yet.";
+        document.getElementById(
+            "accountStatus"
+        ).innerHTML = `
+            <strong>
+                ${escapeHtml(customer.name)}
+            </strong>
+            <br>
+            ${escapeHtml(customer.phone)}
+            <br>
+            ${escapeHtml(customer.email || "")}
+        `;
 
     }
 
@@ -2282,53 +2664,77 @@ function openAccount(){
 
 document
     .getElementById("accountForm")
-    .addEventListener("submit",function(event){
+    .addEventListener(
+        "submit",
+        function(event){
 
-        event.preventDefault();
-
-        const customer = {
-
-            name:
-                document.getElementById("accountName").value.trim(),
-
-            phone:
-                document.getElementById("accountPhone").value.trim(),
-
-            email:
-                document.getElementById("accountEmail").value.trim()
-
-        };
+            event.preventDefault();
 
 
-        if(!customer.name || !customer.phone){
+            const customer = {
 
-            showToast("Name and phone are required");
+                name:
+                    document.getElementById(
+                        "accountName"
+                    ).value.trim(),
 
-            return;
+                phone:
+                    document.getElementById(
+                        "accountPhone"
+                    ).value.trim(),
+
+                email:
+                    document.getElementById(
+                        "accountEmail"
+                    ).value.trim()
+
+            };
+
+
+            if(
+                !customer.name ||
+                !customer.phone
+            ){
+
+                showToast(
+                    "Name and phone are required"
+                );
+
+                return;
+
+            }
+
+
+            localStorage.setItem(
+                "aerozoneCustomer",
+                JSON.stringify(customer)
+            );
+
+
+            showToast(
+                "Account saved"
+            );
+
+
+            openAccount();
+
         }
-
-
-        localStorage.setItem(
-            "aerozoneCustomer",
-            JSON.stringify(customer)
-        );
-
-
-        showToast("Account saved");
-
-        openAccount();
-
-});
+    );
 
 
 function renderLatestOrder(){
 
     const container =
-        document.getElementById("latestOrder");
+        document.getElementById(
+            "latestOrder"
+        );
+
 
     const order =
         JSON.parse(
-            localStorage.getItem("aerozoneLastOrder") || "null"
+            localStorage.getItem(
+                "aerozoneLastOrder"
+            ) || "null"
         );
 
 
@@ -2337,12 +2743,20 @@ function renderLatestOrder(){
         container.innerHTML = "";
 
         return;
+
     }
 
 
     container.innerHTML = `
 
-        <div class="orderBox">
+        <div
+            style="
+                margin-top:20px;
+                border:1px solid #ddd;
+                border-radius:14px;
+                padding:15px;
+            "
+        >
 
             <strong>
                 Latest Order
@@ -2350,7 +2764,9 @@ function renderLatestOrder(){
 
             <p style="margin-top:8px;">
                 Order:
-                <strong>${escapeHtml(order.orderNumber)}</strong>
+                <strong>
+                    ${escapeHtml(order.orderNumber)}
+                </strong>
             </p>
 
             <p style="margin-top:5px;">
@@ -2360,7 +2776,9 @@ function renderLatestOrder(){
 
             <p style="margin-top:5px;">
                 Total:
-                <strong>${money(order.total)}</strong>
+                <strong>
+                    ${money(order.total)}
+                </strong>
             </p>
 
         </div>
@@ -2370,9 +2788,9 @@ function renderLatestOrder(){
 }
 
 
-/* =========================================================
+/* =====================================================
    PREMIUM
-========================================================= */
+===================================================== */
 
 function openPremium(){
 
@@ -2385,55 +2803,61 @@ function openPremium(){
 
 document
     .getElementById("premiumForm")
-    .addEventListener("submit",function(event){
+    .addEventListener(
+        "submit",
+        function(event){
 
-        event.preventDefault();
-
-        const premiumRequest = {
-
-            name:
-                document.getElementById("premiumName").value.trim(),
-
-            phone:
-                document.getElementById("premiumPhone").value.trim(),
-
-            email:
-                document.getElementById("premiumEmail").value.trim(),
-
-            plan:"R99/month",
-
-            status:"payment_pending",
-
-            createdAt:new Date().toISOString()
-
-        };
+            event.preventDefault();
 
 
-        localStorage.setItem(
-            "aerozonePremiumRequest",
-            JSON.stringify(premiumRequest)
-        );
+            const request = {
+
+                name:
+                    document.getElementById(
+                        "premiumName"
+                    ).value.trim(),
+
+                phone:
+                    document.getElementById(
+                        "premiumPhone"
+                    ).value.trim(),
+
+                email:
+                    document.getElementById(
+                        "premiumEmail"
+                    ).value.trim(),
+
+                plan:"R99/month",
+
+                status:"payment_pending",
+
+                date:new Date().toISOString()
+
+            };
 
 
-        /*
-            IMPORTANT:
-            Premium is NOT activated here because a real
-            recurring payment provider has not yet been connected.
-        */
-
-        showToast(
-            "Premium request saved"
-        );
+            localStorage.setItem(
+                "aerozonePremiumRequest",
+                JSON.stringify(request)
+            );
 
 
-        closeModal("premiumModal");
+            showToast(
+                "Premium request saved"
+            );
 
-});
+
+            closeModal(
+                "premiumModal"
+            );
+
+        }
+    );
 
 
-/* =========================================================
-   MODALS
-========================================================= */
+/* =====================================================
+   CLOSE MODALS
+===================================================== */
 
 function closeModal(id){
 
@@ -2441,7 +2865,11 @@ function closeModal(id){
         document.getElementById(id);
 
     if(modal){
-        modal.classList.remove("show");
+
+        modal.classList.remove(
+            "show"
+        );
+
     }
 
 }
@@ -2449,53 +2877,74 @@ function closeModal(id){
 
 document
     .querySelectorAll(".modal")
-    .forEach(modal => {
+    .forEach(
+        modal => {
 
-        modal.addEventListener("click",function(event){
+            modal.addEventListener(
+                "click",
+                function(event){
 
-            if(event.target === modal){
+                    if(
+                        event.target === modal
+                    ){
 
-                modal.classList.remove("show");
+                        modal.classList.remove(
+                            "show"
+                        );
 
-            }
+                    }
 
-        });
+                }
+            );
 
-    });
+        }
+    );
 
 
-/* =========================================================
+/* =====================================================
    TOAST
-========================================================= */
+===================================================== */
 
 let toastTimer;
-
 
 function showToast(message){
 
     const toast =
-        document.getElementById("toast");
+        document.getElementById(
+            "toast"
+        );
 
     toast.textContent =
         message;
 
-    toast.classList.add("show");
+    toast.classList.add(
+        "show"
+    );
 
-    clearTimeout(toastTimer);
+
+    clearTimeout(
+        toastTimer
+    );
+
 
     toastTimer =
-        setTimeout(() => {
+        setTimeout(
+            function(){
 
-            toast.classList.remove("show");
+                toast.classList.remove(
+                    "show"
+                );
 
-        },2200);
+            },
+            2200
+        );
 
 }
 
 
-/* =========================================================
-   SECURITY / DISPLAY HELPER
-========================================================= */
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
 
 function escapeHtml(value){
 
@@ -2509,22 +2958,23 @@ function escapeHtml(value){
 }
 
 
-/* =========================================================
-   INITIALIZE
-========================================================= */
+/* =====================================================
+   START
+===================================================== */
 
-document.addEventListener("DOMContentLoaded",function(){
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
 
-    updateCartUI();
+        updateCart();
 
-    /*
-       Products are rendered into the Catalog only.
-       Home deliberately contains no product cards.
-    */
+        /*
+           Products intentionally are NOT rendered on Home.
+           They appear only after Catalog is opened.
+        */
 
-    renderProducts();
-
-});
+    }
+);
 
 </script>
 
