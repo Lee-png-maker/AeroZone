@@ -1,1 +1,360 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>AeroZone Shopper</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f5f5f5;
+color:#111;
+}
+
+header{
+background:#000;
+color:#fff;
+padding:18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:22px;
+font-weight:1000;
+}
+
+button{
+padding:12px 16px;
+border:0;
+border-radius:10px;
+font-weight:900;
+cursor:pointer;
+}
+
+.black{
+background:#000;
+color:#fff;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+.login{
+max-width:400px;
+margin:80px auto;
+background:white;
+padding:25px;
+border-radius:20px;
+}
+
+input{
+width:100%;
+padding:13px;
+margin:8px 0 15px;
+border:1px solid #ccc;
+border-radius:10px;
+}
+
+.dashboard{
+display:none;
+}
+
+.order{
+background:#fff;
+padding:20px;
+border-radius:18px;
+margin:15px 0;
+box-shadow:0 5px 20px #0001;
+}
+
+.allowance{
+font-size:24px;
+font-weight:1000;
+}
+
+.status{
+display:inline-block;
+background:#eee;
+padding:7px 10px;
+border-radius:20px;
+font-weight:800;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+AeroZone Shopper
+</div>
+
+<button onclick="logout()">
+Logout
+</button>
+
+</header>
+
+<div id="loginScreen" class="login">
+
+<h2>Shopper Login</h2>
+
+<input id="email" type="email" placeholder="Email">
+
+<input id="password" type="password" placeholder="Password">
+
+<button class="black" style="width:100%" onclick="login()">
+Login
+</button>
+
+<p id="message"></p>
+
+</div>
+
+<div id="dashboard" class="dashboard">
+
+<div class="container">
+
+<h1>Shopping Orders</h1>
+
+<p>
+Only shop orders assigned to you.
+</p>
+
+<div id="orders"></div>
+
+</div>
+
+</div>
+
+<script type="module">
+
+import {
+auth,
+db,
+ref,
+get,
+update,
+onValue,
+onAuthStateChanged,
+signInWithEmailAndPassword,
+signOut
+} from "./firebase.js";
+
+window.login=async function(){
+
+try{
+
+await signInWithEmailAndPassword(
+auth,
+document.getElementById("email").value.trim(),
+document.getElementById("password").value
+);
+
+}catch(e){
+
+document.getElementById("message").textContent=e.message;
+
+}
+
+};
+
+window.logout=function(){
+signOut(auth);
+};
+
+onAuthStateChanged(auth,async user=>{
+
+if(!user){
+
+document.getElementById("loginScreen").style.display="block";
+document.getElementById("dashboard").style.display="none";
+
+return;
+
+}
+
+const snap=await get(ref(db,"users/"+user.uid));
+
+if(!snap.exists() || snap.val().role!=="shopper"){
+
+alert("This account is not a shopper account.");
+await signOut(auth);
+return;
+
+}
+
+document.getElementById("loginScreen").style.display="none";
+document.getElementById("dashboard").style.display="block";
+
+loadOrders(user.uid);
+
+});
+
+function loadOrders(uid){
+
+onValue(ref(db,"orders"),snapshot=>{
+
+const box=document.getElementById("orders");
+
+box.innerHTML="";
+
+if(!snapshot.exists()){
+
+box.innerHTML="<p>No orders.</p>";
+return;
+
+}
+
+Object.values(snapshot.val())
+.filter(order=>order.shopperId===uid)
+.forEach(order=>{
+
+const remaining=
+Number(order.shoppingAllowance||0)-
+Number(order.actualShoppingCost||0);
+
+const div=document.createElement("div");
+
+div.className="order";
+
+div.innerHTML=`
+
+<h2>${escapeHtml(order.orderId)}</h2>
+
+<span class="status">
+${escapeHtml(order.status)}
+</span>
+
+<p>
+<b>Customer:</b>
+${escapeHtml(order.customerName)}
+</p>
+
+<p>
+<b>Delivery address:</b>
+${escapeHtml(order.deliveryAddress)}
+</p>
+
+<h3>Shopping allowance</h3>
+
+<div class="allowance">
+R${Number(order.shoppingAllowance||0).toFixed(2)}
+</div>
+
+<p>
+Remaining:
+<b>R${Math.max(0,remaining).toFixed(2)}</b>
+</p>
+
+<p>
+Actual shopping cost:
+<b>
+R${Number(order.actualShoppingCost||0).toFixed(2)}
+</b>
+</p>
+
+<button class="black"
+onclick="startShopping('${order.orderId}')">
+Start Shopping
+</button>
+
+`;
+
+box.appendChild(div);
+
+});
+
+});
+
+}
+
+window.startShopping=async function(orderId){
+
+await update(
+ref(db,"orders/"+orderId),
+{
+status:"shopping",
+updatedAt:Date.now()
+}
+);
+
+const cost=prompt(
+"Enter the exact amount on the shopping receipt:"
+);
+
+if(cost===null) return;
+
+const amount=Number(cost);
+
+if(!Number.isFinite(amount)||amount<0){
+
+alert("Invalid amount.");
+return;
+
+}
+
+const snap=await get(ref(db,"orders/"+orderId));
+
+if(!snap.exists()) return;
+
+const order=snap.val();
+
+if(amount>Number(order.shoppingAllowance||0)){
+
+alert(
+"The receipt is higher than the approved shopping allowance."
+);
+
+return;
+
+}
+
+await update(
+ref(db,"orders/"+orderId),
+{
+actualShoppingCost:amount,
+status:"ready_for_driver",
+updatedAt:Date.now()
+}
+);
+
+alert(
+"Shopping recorded. Order is ready for driver."
+);
+
+};
+
+function escapeHtml(value){
+
+return String(value||"")
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
+
+}
+
+</script>
+
+</body>
+</html>
