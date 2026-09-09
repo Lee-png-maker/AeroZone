@@ -2,736 +2,2602 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#000">
-<meta name="description" content="AeroZone - Shop and get delivered">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000">
+<meta name="description" content="AeroZone - Convenient shopping and delivery across South Africa.">
+
 <title>AeroZone | Shop & Get Delivered</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#f5f5f5;
-  color:#111;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f5f5f5;
+    color:#111;
+    min-height:100vh;
 }
-button,input,select,textarea{font:inherit}
-button{cursor:pointer}
 
-.header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  height:66px;
-  background:#050505;
-  color:white;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 5%;
-  box-shadow:0 3px 18px #0003;
+button,
+input,
+select,
+textarea{
+    font:inherit;
 }
+
+button{
+    cursor:pointer;
+}
+
+/* HEADER */
+header{
+    background:#000;
+    color:#fff;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 3px 15px rgba(0,0,0,.25);
+}
+
+.navbar{
+    max-width:1200px;
+    margin:auto;
+    min-height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:10px 18px;
+    gap:12px;
+}
+
 .logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-size:21px;
-  font-weight:900;
-}
-.logoMark{
-  width:38px;
-  height:38px;
-  background:white;
-  color:black;
-  border-radius:11px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:900;
-}
-.headerActions{display:flex;gap:8px}
-.headerBtn{
-  position:relative;
-  width:41px;
-  height:41px;
-  border:1px solid #333;
-  border-radius:12px;
-  background:#111;
-  color:white;
-}
-.cartBadge{
-  position:absolute;
-  top:-5px;
-  right:-5px;
-  display:none;
-  min-width:20px;
-  height:20px;
-  padding:0 5px;
-  border-radius:20px;
-  background:white;
-  color:black;
-  align-items:center;
-  justify-content:center;
-  font-size:10px;
-  font-weight:bold;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:24px;
+    font-weight:900;
+    letter-spacing:-1px;
 }
 
-.hero{
-  background:#000;
-  color:#fff;
-  text-align:center;
-  padding:58px 5% 65px;
-}
-.hero h1{
-  font-size:clamp(40px,8vw,76px);
-  line-height:1;
-  letter-spacing:-4px;
-}
-.hero h1 span{color:#888}
-.hero p{
-  max-width:620px;
-  margin:20px auto 0;
-  color:#aaa;
-  line-height:1.6;
-}
-.search{
-  max-width:680px;
-  margin:28px auto 0;
-  position:relative;
-}
-.search input{
-  width:100%;
-  height:58px;
-  border:0;
-  border-radius:18px;
-  padding:0 20px 0 52px;
-  outline:none;
-  font-size:16px;
-}
-.searchIcon{
-  position:absolute;
-  left:19px;
-  top:19px;
-  color:#777;
-}
-
-.container{
-  width:92%;
-  max-width:1250px;
-  margin:auto;
-}
-.section{padding:38px 0}
-.sectionTitle{margin-bottom:19px}
-.sectionTitle h2{font-size:27px}
-.sectionTitle p{
-  color:#888;
-  font-size:13px;
-  margin-top:5px;
-}
-
-.categories{
-  display:flex;
-  gap:9px;
-  overflow-x:auto;
-  padding-bottom:8px;
-  scrollbar-width:none;
-}
-.categories::-webkit-scrollbar{display:none}
-.categoryBtn{
-  flex:0 0 auto;
-  padding:11px 17px;
-  border:1px solid #ddd;
-  border-radius:30px;
-  background:#fff;
-  font-weight:bold;
-  font-size:13px;
-}
-.categoryBtn.active{
-  background:#000;
-  color:#fff;
-  border-color:#000;
-}
-
-.storeGrid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:14px;
-}
-.store{
-  background:#fff;
-  border:1px solid #e5e5e5;
-  border-radius:19px;
-  padding:20px;
-  min-height:140px;
-  transition:.2s;
-}
-.store:hover{
-  transform:translateY(-3px);
-  box-shadow:0 15px 30px #0001;
-}
-.storeIcon{
-  width:52px;
-  height:52px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:15px;
-  background:#f0f0f0;
-  font-size:28px;
-  margin-bottom:15px;
-}
-.store h3{font-size:16px}
-.store p{
-  margin-top:5px;
-  color:#888;
-  font-size:12px;
-}
-
-.productGrid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:14px;
-}
-.product{
-  background:white;
-  border:1px solid #e5e5e5;
-  border-radius:18px;
-  overflow:hidden;
-  transition:.2s;
-}
-.product:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 28px #0001;
-}
-
-/* PRODUCT VISUAL - NO IMAGE FILES */
-.productVisual{
-  height:175px;
-  background:linear-gradient(135deg,#f4f4f4,#ddd);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-}
-.productEmoji{
-  width:105px;
-  height:105px;
-  border-radius:28px;
-  background:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:57px;
-  box-shadow:0 12px 30px #0002;
-}
-.productTag{
-  position:absolute;
-  left:10px;
-  top:10px;
-  background:#000;
-  color:#fff;
-  padding:5px 8px;
-  border-radius:7px;
-  font-size:9px;
-  font-weight:bold;
-  text-transform:uppercase;
-}
-
-.productInfo{padding:13px}
-.productCategory{
-  color:#999;
-  font-size:9px;
-  font-weight:bold;
-  text-transform:uppercase;
-}
-.productName{
-  margin-top:5px;
-  min-height:35px;
-  font-size:14px;
-  font-weight:700;
-  line-height:1.25;
-}
-.productBottom{
-  margin-top:11px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.productPrice{
-  font-size:16px;
-  font-weight:900;
-}
-.addButton{
-  width:37px;
-  height:37px;
-  border:0;
-  border-radius:11px;
-  background:#000;
-  color:#fff;
-  font-size:22px;
-}
-.addButton:hover{background:#333}
-
-.benefits{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
-}
-.benefit{
-  background:#000;
-  color:#fff;
-  border-radius:20px;
-  padding:25px;
-}
-.benefitIcon{font-size:28px;margin-bottom:12px}
-.benefit h3{margin-bottom:7px}
-.benefit p{
-  color:#aaa;
-  font-size:13px;
-  line-height:1.6;
-}
-
-.premium{
-  background:#000;
-  color:#fff;
-  border-radius:23px;
-  padding:32px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-}
-.premium h2{font-size:29px}
-.premium p{
-  color:#aaa;
-  margin-top:6px;
-}
-.premiumPrice{
-  margin-top:10px;
-  font-size:27px;
-  font-weight:900;
-}
-.whiteButton{
-  border:0;
-  background:white;
-  color:#000;
-  border-radius:12px;
-  padding:13px 19px;
-  font-weight:900;
-}
-
-.account{
-  background:white;
-  border:1px solid #e5e5e5;
-  border-radius:20px;
-  padding:23px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.blackButton{
-  background:#000;
-  color:white;
-  border:0;
-  border-radius:11px;
-  padding:13px 18px;
-  font-weight:800;
-}
-
-footer{
-  margin-top:25px;
-  padding:42px 5% 25px;
-  background:#000;
-  color:#fff;
-}
-.footerGrid{
-  max-width:1250px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr;
-  gap:30px;
-}
-footer p,footer li{
-  color:#999;
-  font-size:13px;
-  line-height:1.9;
-}
-footer ul{list-style:none}
-.footerBottom{
-  max-width:1250px;
-  margin:25px auto 0;
-  border-top:1px solid #222;
-  padding-top:18px;
-  color:#777;
-  font-size:12px;
-}
-
-/* SMALL FLOATING CART */
-.floatingCart{
-  position:fixed;
-  right:16px;
-  bottom:16px;
-  z-index:1500;
-  height:48px;
-  border:0;
-  border-radius:30px;
-  padding:0 15px;
-  background:#000;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  gap:8px;
-  box-shadow:0 8px 25px #0004;
-  font-weight:900;
-}
-.floatingCart span{
-  min-width:21px;
-  height:21px;
-  background:#fff;
-  color:#000;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:10px;
-}
-
-/* MODALS */
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  z-index:3000;
-  background:#0009;
-  padding:15px;
-  align-items:center;
-  justify-content:center;
-}
-.modal.show{display:flex}
-.modalBox{
-  position:relative;
-  width:100%;
-  max-width:520px;
-  max-height:90vh;
-  overflow:auto;
-  padding:23px;
-  background:white;
-  border-radius:21px;
-}
-.close{
-  position:absolute;
-  right:13px;
-  top:13px;
-  width:34px;
-  height:34px;
-  border:0;
-  border-radius:50%;
-  background:#eee;
-  font-size:20px;
-}
-.modalTitle{
-  margin-bottom:17px;
-  font-size:23px;
-}
-
-/* COMPACT CART */
-#cartModal{
-  padding:0;
-  align-items:flex-end;
-  justify-content:flex-end;
-}
-#cartModal .modalBox{
-  width:390px;
-  max-width:390px;
-  height:min(88vh,680px);
-  border-radius:20px 0 0 20px;
-  padding:18px;
-}
-
-.cartItems{
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
-.cartItem{
-  display:grid;
-  grid-template-columns:42px 1fr auto;
-  gap:8px;
-  align-items:center;
-  padding:7px;
-  border-radius:11px;
-  background:#f4f4f4;
-}
-.cartVisual{
-  width:42px;
-  height:42px;
-  border-radius:9px;
-  background:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:22px;
-}
-.cartName{
-  font-size:12px;
-  font-weight:800;
-}
-.cartLine{
-  margin-top:3px;
-  color:#777;
-  font-size:10px;
-}
-.qty{
-  display:flex;
-  align-items:center;
-  gap:4px;
-}
-.qty button{
-  width:24px;
-  height:24px;
-  border:1px solid #ddd;
-  background:white;
-  border-radius:6px;
-  font-weight:bold;
-}
-.qty span{
-  width:15px;
-  text-align:center;
-  font-size:11px;
-  font-weight:bold;
-}
-
-.summary{
-  border-top:1px solid #ddd;
-  margin-top:11px;
-  padding-top:8px;
-}
-.summaryRow{
-  display:flex;
-  justify-content:space-between;
-  margin:6px 0;
-  font-size:12px;
-}
-.summaryTotal{
-  border-top:1px solid #eee;
-  padding-top:8px;
-  font-size:17px;
-  font-weight:900;
-}
-.checkoutButton{
-  width:100%;
-  height:46px;
-  border:0;
-  border-radius:11px;
-  background:#000;
-  color:white;
-  font-weight:900;
-  margin-top:8px;
-}
-
-.empty{
-  text-align:center;
-  padding:45px 10px;
-  color:#888;
-}
-.emptyIcon{font-size:45px;margin-bottom:9px}
-
-.formGroup{margin-bottom:13px}
-.formGroup label{
-  display:block;
-  margin-bottom:6px;
-  font-size:12px;
-  font-weight:800;
-}
-.formGroup input,
-.formGroup select,
-.formGroup textarea{
-  width:100%;
-  border:1px solid #ddd;
-  border-radius:10px;
-  padding:11px;
-  background:#fafafa;
-  outline:none;
-}
-.formGroup textarea{
-  min-height:75px;
-  resize:vertical;
-}
-.notice{
-  padding:12px;
-  border-radius:11px;
-  background:#f2f2f2;
-  color:#555;
-  font-size:12px;
-  margin-bottom:14px;
-}
-.orderBox{
-  background:#f3f3f3;
-  border-radius:15px;
-  padding:20px;
-  text-align:center;
-}
-.status{
-  display:inline-block;
-  margin:14px 0;
-  padding:7px 13px;
-  border-radius:20px;
-  background:#000;
-  color:white;
-  font-size:11px;
-  font-weight:bold;
-}
-
-@media(max-width:950px){
-  .storeGrid{grid-template-columns:repeat(2,1fr)}
-  .productGrid{grid-template-columns:repeat(3,1fr)}
-}
-@media(max-width:700px){
-  .hero{padding:45px 5% 50px}
-  .hero h1{letter-spacing:-2px}
-  .productGrid{grid-template-columns:repeat(2,1fr);gap:10px}
-  .productVisual{height:145px}
-  .productEmoji{
-    width:82px;
-    height:82px;
-    font-size:45px;
-  }
-  .storeGrid{gap:10px}
-  .store{padding:15px}
-  .benefits{grid-template-columns:1fr}
-  .premium{
-    flex-direction:column;
-    align-items:flex-start;
-    padding:25px;
-  }
-  .account{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:14px;
-  }
-  .footerGrid{grid-template-columns:1fr}
-  #cartModal{
-    align-items:flex-end;
+.logo-icon{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    background:#fff;
+    color:#000;
+    display:flex;
+    align-items:center;
     justify-content:center;
-    padding:6px;
-  }
-  #cartModal .modalBox{
+    font-size:23px;
+}
+
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+
+.nav-btn{
+    border:1px solid #444;
+    background:#111;
+    color:#fff;
+    border-radius:10px;
+    padding:9px 11px;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.nav-btn:hover{
+    background:#fff;
+    color:#000;
+}
+
+.cart-top{
+    position:relative;
+}
+
+.cart-count{
+    position:absolute;
+    top:-7px;
+    right:-7px;
+    background:#fff;
+    color:#000;
+    width:21px;
+    height:21px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:11px;
+    font-weight:bold;
+}
+
+/* HERO */
+.hero{
+    background:#000;
+    color:#fff;
+    padding:42px 18px 50px;
+}
+
+.hero-inner{
+    max-width:1100px;
+    margin:auto;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:clamp(34px,7vw,66px);
+    line-height:1;
+    margin-bottom:15px;
+    font-weight:900;
+    letter-spacing:-3px;
+}
+
+.hero h1 span{
+    color:#aaa;
+}
+
+.hero p{
+    max-width:650px;
+    margin:0 auto 25px;
+    color:#ccc;
+    line-height:1.6;
+}
+
+.search-box{
+    max-width:700px;
+    margin:auto;
+    display:flex;
+    background:#fff;
+    border-radius:16px;
+    overflow:hidden;
+    padding:5px;
+}
+
+.search-box input{
+    flex:1;
+    border:0;
+    outline:0;
+    padding:14px;
+    font-size:15px;
+    min-width:0;
+}
+
+.search-box button{
+    border:0;
+    background:#000;
+    color:#fff;
+    border-radius:11px;
+    padding:0 20px;
+    font-weight:bold;
+}
+
+/* GENERAL */
+.container{
+    width:min(1200px,94%);
+    margin:auto;
+}
+
+.section{
+    padding:35px 0;
+}
+
+.section-title{
+    font-size:27px;
+    font-weight:900;
+    margin-bottom:7px;
+}
+
+.section-subtitle{
+    color:#666;
+    margin-bottom:22px;
+}
+
+/* CATEGORIES */
+.categories{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+    gap:12px;
+}
+
+.category{
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:17px;
+    padding:19px 12px;
+    text-align:center;
+    transition:.2s;
+    box-shadow:0 3px 12px rgba(0,0,0,.04);
+}
+
+.category:hover{
+    transform:translateY(-3px);
+    border-color:#000;
+}
+
+.category-icon{
+    font-size:34px;
+    margin-bottom:9px;
+}
+
+.category strong{
+    display:block;
+    font-size:14px;
+}
+
+.category small{
+    display:block;
+    color:#777;
+    margin-top:5px;
+}
+
+/* FILTER */
+.filter-bar{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:20px;
+}
+
+.filter-btn{
+    border:1px solid #ccc;
+    background:#fff;
+    padding:9px 14px;
+    border-radius:30px;
+    font-weight:bold;
+    font-size:13px;
+}
+
+.filter-btn.active,
+.filter-btn:hover{
+    background:#000;
+    color:#fff;
+    border-color:#000;
+}
+
+/* PRODUCTS */
+.products{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.product{
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,.05);
+    transition:.2s;
+}
+
+.product:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 22px rgba(0,0,0,.1);
+}
+
+.product-image{
+    height:145px;
+    background:linear-gradient(135deg,#eeeeee,#ffffff);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:62px;
+}
+
+.product-info{
+    padding:14px;
+}
+
+.product-category{
+    color:#777;
+    font-size:11px;
+    text-transform:uppercase;
+    font-weight:bold;
+    margin-bottom:5px;
+}
+
+.product-name{
+    font-weight:800;
+    font-size:15px;
+    min-height:38px;
+}
+
+.product-bottom{
+    margin-top:12px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+}
+
+.price{
+    font-size:17px;
+    font-weight:900;
+}
+
+.add-btn{
+    background:#000;
+    color:#fff;
+    border:0;
+    border-radius:10px;
+    padding:9px 12px;
+    font-weight:bold;
+}
+
+.add-btn:hover{
+    background:#333;
+}
+
+/* EMPTY SEARCH */
+.empty{
+    display:none;
+    background:#fff;
+    padding:35px;
+    text-align:center;
+    border-radius:18px;
+    border:1px solid #ddd;
+}
+
+/* BENEFITS */
+.benefits{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.benefit{
+    background:#111;
+    color:#fff;
+    border-radius:17px;
+    padding:22px 16px;
+}
+
+.benefit-icon{
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.benefit h3{
+    font-size:16px;
+    margin-bottom:6px;
+}
+
+.benefit p{
+    color:#bbb;
+    font-size:13px;
+    line-height:1.5;
+}
+
+/* PREMIUM */
+.premium{
+    background:#000;
+    color:#fff;
+    border-radius:25px;
+    padding:30px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+}
+
+.premium h2{
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.premium p{
+    color:#ccc;
+    line-height:1.5;
+}
+
+.premium-price{
+    font-size:35px;
+    font-weight:900;
+    margin:12px 0;
+}
+
+.premium-price small{
+    font-size:14px;
+    color:#aaa;
+}
+
+.white-btn{
+    border:0;
+    background:#fff;
+    color:#000;
+    border-radius:12px;
+    padding:13px 20px;
+    font-weight:900;
+}
+
+/* ACCOUNT */
+.account-card{
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:20px;
+    padding:25px;
+}
+
+.account-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.input-group{
+    margin-bottom:14px;
+}
+
+.input-group label{
+    display:block;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:6px;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea{
     width:100%;
-    max-width:420px;
-    height:auto;
-    max-height:72vh;
-    border-radius:20px 20px 0 0;
-  }
+    border:1px solid #ccc;
+    border-radius:10px;
+    padding:12px;
+    outline:none;
+}
+
+.input-group textarea{
+    min-height:90px;
+    resize:vertical;
+}
+
+.black-btn{
+    background:#000;
+    color:#fff;
+    border:0;
+    border-radius:11px;
+    padding:12px 18px;
+    font-weight:bold;
+}
+
+/* FOOTER */
+footer{
+    background:#000;
+    color:#fff;
+    margin-top:35px;
+    padding:35px 18px;
+}
+
+.footer-inner{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:30px;
+}
+
+footer h3{
+    margin-bottom:10px;
+}
+
+footer p,
+footer li{
+    color:#aaa;
+    font-size:13px;
+    line-height:1.8;
+}
+
+footer ul{
+    list-style:none;
+}
+
+.footer-bottom{
+    max-width:1100px;
+    margin:25px auto 0;
+    border-top:1px solid #333;
+    padding-top:18px;
+    color:#777;
+    font-size:12px;
+}
+
+/* FLOATING CART */
+.floating-cart{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    z-index:900;
+    background:#000;
+    color:#fff;
+    border:2px solid #fff;
+    box-shadow:0 5px 25px rgba(0,0,0,.35);
+    border-radius:50px;
+    padding:13px 17px;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    font-weight:bold;
+}
+
+/* MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:2000;
+    background:rgba(0,0,0,.65);
+    padding:15px;
+    overflow-y:auto;
+}
+
+.modal.show{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.modal-box{
+    width:min(650px,100%);
+    background:#fff;
+    border-radius:20px;
+    padding:22px;
+    position:relative;
+    max-height:92vh;
+    overflow-y:auto;
+}
+
+.modal-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.close{
+    border:0;
+    background:#eee;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    font-size:18px;
+}
+
+/* CART */
+.cart-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    border-bottom:1px solid #eee;
+    padding:12px 0;
+}
+
+.cart-item-info{
+    flex:1;
+}
+
+.cart-item-name{
+    font-weight:bold;
+    font-size:14px;
+}
+
+.cart-item-price{
+    font-size:12px;
+    color:#777;
+    margin-top:3px;
+}
+
+.qty{
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+
+.qty button{
+    width:28px;
+    height:28px;
+    border:1px solid #ccc;
+    background:#fff;
+    border-radius:7px;
+}
+
+.cart-total{
+    margin-top:18px;
+    padding-top:15px;
+    border-top:2px solid #000;
+}
+
+.total-row{
+    display:flex;
+    justify-content:space-between;
+    margin:7px 0;
+}
+
+.total-row.final{
+    font-size:20px;
+    font-weight:900;
+}
+
+.checkout-btn{
+    width:100%;
+    margin-top:15px;
+    padding:14px;
+    background:#000;
+    color:#fff;
+    border:0;
+    border-radius:12px;
+    font-weight:900;
+}
+
+.delivery-note{
+    background:#f1f1f1;
+    padding:10px;
+    border-radius:9px;
+    font-size:12px;
+    margin-top:10px;
+}
+
+/* TOAST */
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:85px;
+    transform:translateX(-50%) translateY(20px);
+    background:#000;
+    color:#fff;
+    padding:12px 18px;
+    border-radius:30px;
+    opacity:0;
+    pointer-events:none;
+    transition:.25s;
+    z-index:3000;
+    font-size:13px;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .products{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .benefits{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:650px){
+    .navbar{
+        min-height:62px;
+    }
+
+    .logo{
+        font-size:20px;
+    }
+
+    .logo-icon{
+        width:37px;
+        height:37px;
+    }
+
+    .nav-btn{
+        padding:8px;
+        font-size:12px;
+    }
+
+    .hero{
+        padding:35px 15px 40px;
+    }
+
+    .hero h1{
+        letter-spacing:-2px;
+    }
+
+    .search-box{
+        border-radius:12px;
+    }
+
+    .search-box input{
+        padding:12px 10px;
+    }
+
+    .search-box button{
+        padding:0 13px;
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+    }
+
+    .product-image{
+        height:125px;
+        font-size:52px;
+    }
+
+    .product-info{
+        padding:11px;
+    }
+
+    .product-name{
+        font-size:13px;
+    }
+
+    .price{
+        font-size:15px;
+    }
+
+    .add-btn{
+        padding:8px 9px;
+        font-size:11px;
+    }
+
+    .premium{
+        flex-direction:column;
+        align-items:flex-start;
+        padding:23px;
+    }
+
+    .account-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-inner{
+        grid-template-columns:1fr;
+        gap:18px;
+    }
+}
+
+@media(max-width:390px){
+    .products{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .nav-actions{
+        gap:3px;
+    }
+
+    .nav-btn{
+        font-size:11px;
+        padding:7px 6px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<header class="header">
+<!-- HEADER -->
+<header>
+    <div class="navbar">
 
-  <div class="logo">
-    <div class="logoMark">A</div>
-    AeroZone
-  </div>
+        <div class="logo">
+            <div class="logo-icon">✈</div>
+            AeroZone
+        </div>
 
-  <div class="headerActions">
+        <div class="nav-actions">
+            <button class="nav-btn" onclick="openAccount()">👤 Account</button>
+            <button class="nav-btn" onclick="openPremium()">⭐ Premium</button>
 
-    <button class="headerBtn" onclick="openAccount()">👤</button>
+            <button class="nav-btn cart-top" onclick="openCart()">
+                🛒 Cart
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+        </div>
 
-    <button class="headerBtn" onclick="openPremium()">★</button>
-
-    <button class="headerBtn" onclick="openCart()">
-      🛒
-      <span class="cartBadge" id="cartBadge">0</span>
-    </button>
-
-  </div>
-
+    </div>
 </header>
 
-
+<!-- HERO -->
 <section class="hero">
+    <div class="hero-inner">
 
-  <h1>
-    Shop. <span>Order.</span> Delivered.
-  </h1>
+        <h1>Shop. <span>Order.</span> Delivered.</h1>
 
-  <p>
-    Everything you need in one convenient shopping experience.
-  </p>
+        <p>
+            Convenient shopping and delivery made simple.
+            Browse products, add what you need and place your order.
+        </p>
 
-  <div class="search">
-    <span class="searchIcon">🔎</span>
-    <input
-      id="searchInput"
-      type="search"
-      placeholder="Search products..."
-      oninput="searchProducts()"
-    >
-  </div>
+        <div class="search-box">
+            <input
+                id="searchInput"
+                type="search"
+                placeholder="Search products..."
+                oninput="searchProducts()"
+            >
+            <button onclick="searchProducts()">Search</button>
+        </div>
 
+    </div>
 </section>
 
-
-<main>
-
+<!-- CATEGORIES -->
 <section class="section">
-<div class="container">
+    <div class="container">
 
-  <div class="sectionTitle">
-    <h2>Shop by category</h2>
-    <p>Choose what you need</p>
-  </div>
+        <h2 class="section-title">Shop by Category</h2>
+        <p class="section-subtitle">Choose what you need.</p>
 
-  <div class="categories" id="categories"></div>
+        <div class="categories">
 
-</div>
+            <div class="category" onclick="showCategory('Supermarket')">
+                <div class="category-icon">🛒</div>
+                <strong>Supermarket</strong>
+                <small>Everyday essentials</small>
+            </div>
+
+            <div class="category" onclick="showCategory('Pharmacy & Health')">
+                <div class="category-icon">💊</div>
+                <strong>Pharmacy & Health</strong>
+                <small>Health & personal care</small>
+            </div>
+
+            <div class="category" onclick="showCategory('Restaurants')">
+                <div class="category-icon">🍽️</div>
+                <strong>Restaurants</strong>
+                <small>Meals & food</small>
+            </div>
+
+            <div class="category" onclick="showCategory('Fast Food')">
+                <div class="category-icon">🍔</div>
+                <strong>Fast Food</strong>
+                <small>Quick meals</small>
+            </div>
+
+            <div class="category" onclick="showCategory('Butchery')">
+                <div class="category-icon">🥩</div>
+                <strong>Butchery</strong>
+                <small>Fresh meat</small>
+            </div>
+
+            <div class="category" onclick="showCategory('Bakery')">
+                <div class="category-icon">🥐</div>
+                <strong>Bakery</strong>
+                <small>Fresh bakery</small>
+            </div>
+
+            <div class="category" onclick="showCategory('Fruit & Veg')">
+                <div class="category-icon">🥦</div>
+                <strong>Fruit & Veg</strong>
+                <small>Fresh produce</small>
+            </div>
+
+            <div class="category" onclick="showCategory('Home & Cleaning')">
+                <div class="category-icon">🧽</div>
+                <strong>Home & Cleaning</strong>
+                <small>Home essentials</small>
+            </div>
+
+        </div>
+
+    </div>
 </section>
 
+<!-- PRODUCTS -->
+<section class="section" id="shop">
+    <div class="container">
 
-<section class="section">
-<div class="container">
+        <h2 class="section-title">Shop Products</h2>
+        <p class="section-subtitle" id="productSubtitle">
+            Browse our available products.
+        </p>
 
-  <div class="sectionTitle">
-    <h2>Explore AeroZone</h2>
-    <p>Browse our shopping categories</p>
-  </div>
+        <div class="filter-bar">
 
-  <div class="storeGrid" id="storeGrid"></div>
+            <button class="filter-btn active" onclick="showCategory('All',this)">
+                All
+            </button>
 
-</div>
+            <button class="filter-btn" onclick="showCategory('Supermarket',this)">
+                Supermarket
+            </button>
+
+            <button class="filter-btn" onclick="showCategory('Pharmacy & Health',this)">
+                Health
+            </button>
+
+            <button class="filter-btn" onclick="showCategory('Restaurants',this)">
+                Restaurants
+            </button>
+
+            <button class="filter-btn" onclick="showCategory('Fast Food',this)">
+                Fast Food
+            </button>
+
+            <button class="filter-btn" onclick="showCategory('Butchery',this)">
+                Butchery
+            </button>
+
+            <button class="filter-btn" onclick="showCategory('Bakery',this)">
+                Bakery
+            </button>
+
+            <button class="filter-btn" onclick="showCategory('Fruit & Veg',this)">
+                Fruit & Veg
+            </button>
+
+            <button class="filter-btn" onclick="showCategory('Home & Cleaning',this)">
+                Home
+            </button>
+
+        </div>
+
+        <div class="products" id="products"></div>
+
+        <div class="empty" id="empty">
+            <h3>No products found</h3>
+            <p style="margin-top:8px;color:#777;">
+                Try another search.
+            </p>
+        </div>
+
+    </div>
 </section>
 
-
+<!-- BENEFITS -->
 <section class="section">
-<div class="container">
+    <div class="container">
 
-  <div class="sectionTitle">
-    <h2 id="productsTitle">Supermarket</h2>
-    <p id="productsSubtitle">Shop products</p>
-  </div>
+        <div class="benefits">
 
-  <div class="productGrid" id="productGrid"></div>
+            <div class="benefit">
+                <div class="benefit-icon">🚚</div>
+                <h3>Convenient Delivery</h3>
+                <p>Order what you need and have it delivered.</p>
+            </div>
 
-</div>
+            <div class="benefit">
+                <div class="benefit-icon">💳</div>
+                <h3>Easy Checkout</h3>
+                <p>Simple ordering with convenient payment options.</p>
+            </div>
+
+            <div class="benefit">
+                <div class="benefit-icon">📦</div>
+                <h3>Order Tracking</h3>
+                <p>Keep your order information available in your account.</p>
+            </div>
+
+            <div class="benefit">
+                <div class="benefit-icon">🔒</div>
+                <h3>Secure Shopping</h3>
+                <p>Your shopping experience is designed with security in mind.</p>
+            </div>
+
+        </div>
+
+    </div>
 </section>
 
-
+<!-- PREMIUM -->
 <section class="section">
-<div class="container">
+    <div class="container">
 
-  <div class="benefits">
+        <div class="premium">
 
-    <div class="benefit">
-      <div class="benefitIcon">🚚</div>
-      <h3>Convenient Delivery</h3>
-      <p>
-        Get your shopping delivered conveniently to your chosen address.
-      </p>
+            <div>
+                <h2>⭐ AeroZone Premium</h2>
+
+                <p>
+                    Get free delivery with Premium.
+                    Save more when you order regularly.
+                </p>
+
+                <div class="premium-price">
+                    R99 <small>/ month</small>
+                </div>
+
+                <p>
+                    Non-Premium customers also get free delivery
+                    when their order reaches R500 or more.
+                </p>
+            </div>
+
+            <button class="white-btn" onclick="openPremium()">
+                Join Premium
+            </button>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- ACCOUNT -->
+<section class="section" id="accountSection">
+    <div class="container">
+
+        <h2 class="section-title">Your AeroZone Account</h2>
+        <p class="section-subtitle">
+            Save your details for faster ordering.
+        </p>
+
+        <div class="account-card">
+
+            <div id="accountStatus">
+                <strong>Guest customer</strong>
+                <p style="color:#777;margin-top:5px;">
+                    Save your details below.
+                </p>
+            </div>
+
+            <div style="margin-top:18px;">
+                <button class="black-btn" onclick="openAccount()">
+                    Manage Account
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+
+        <div>
+            <h3>✈ AeroZone</h3>
+            <p>
+                Convenient shopping and delivery across South Africa.
+                Shop online and get what you need delivered.
+            </p>
+        </div>
+
+        <div>
+            <h3>Quick Links</h3>
+            <ul>
+                <li onclick="scrollToShop()" style="cursor:pointer;">Shop Products</li>
+                <li onclick="openCart()" style="cursor:pointer;">My Cart</li>
+                <li onclick="openAccount()" style="cursor:pointer;">My Account</li>
+                <li onclick="openPremium()" style="cursor:pointer;">Premium</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Need Help?</h3>
+            <p>WhatsApp: 068 868 5355</p>
+            <p>South Africa</p>
+        </div>
+
     </div>
 
-    <div class="benefit">
-      <div class="benefitIcon">⚡</div>
-      <h3>Easy Ordering</h3>
-      <p>
-        Add your products to your cart and place your order in
+    <div class="footer-bottom">
+        © 2026 AeroZone. All rights reserved.
+    </div>
+</footer>
+
+<!-- FLOATING CART -->
+<button class="floating-cart" onclick="openCart()">
+    🛒 <span id="floatingCartText">Cart · R0.00</span>
+</button>
+
+<!-- CART MODAL -->
+<div class="modal" id="cartModal">
+
+    <div class="modal-box">
+
+        <div class="modal-head">
+            <h2>Your Cart</h2>
+            <button class="close" onclick="closeModal('cartModal')">×</button>
+        </div>
+
+        <div id="cartItems"></div>
+
+        <div class="cart-total">
+
+            <div class="total-row">
+                <span>Subtotal</span>
+                <strong id="cartSubtotal">R0.00</strong>
+            </div>
+
+            <div class="total-row">
+                <span>Delivery</span>
+                <strong id="cartDelivery">R0.00</strong>
+            </div>
+
+            <div class="total-row final">
+                <span>Total</span>
+                <strong id="cartGrandTotal">R0.00</strong>
+            </div>
+
+            <div class="delivery-note" id="deliveryNote">
+                Delivery is R35. Spend R500 or more for free delivery.
+            </div>
+
+            <button class="checkout-btn" onclick="openCheckout()">
+                Continue to Checkout
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal" id="checkoutModal">
+
+    <div class="modal-box">
+
+        <div class="modal-head">
+            <h2>Checkout</h2>
+            <button class="close" onclick="closeModal('checkoutModal')">×</button>
+        </div>
+
+        <form onsubmit="placeOrder(event)">
+
+            <div class="input-group">
+                <label>Full Name</label>
+                <input id="checkoutName" required>
+            </div>
+
+            <div class="input-group">
+                <label>Phone Number</label>
+                <input id="checkoutPhone" type="tel" required>
+            </div>
+
+            <div class="input-group">
+                <label>Email Address</label>
+                <input id="checkoutEmail" type="email">
+            </div>
+
+            <div class="input-group">
+                <label>Delivery Address</label>
+                <textarea id="checkoutAddress" required></textarea>
+            </div>
+
+            <div class="input-group">
+                <label>Payment Method</label>
+
+                <select id="paymentMethod" required>
+                    <option value="">Select payment method</option>
+                    <option value="Cash on Delivery">Cash on Delivery</option>
+                    <option value="Yoco / Card">Yoco / Card</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Special Instructions</label>
+                <textarea id="checkoutNotes" placeholder="Optional"></textarea>
+            </div>
+
+            <button class="checkout-btn" type="submit">
+                Place Order
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- ACCOUNT MODAL -->
+<div class="modal" id="accountModal">
+
+    <div class="modal-box">
+
+        <div class="modal-head">
+            <h2>My Account</h2>
+            <button class="close" onclick="closeModal('accountModal')">×</button>
+        </div>
+
+        <form onsubmit="saveAccount(event)">
+
+            <div class="input-group">
+                <label>Full Name</label>
+                <input id="accountName">
+            </div>
+
+            <div class="input-group">
+                <label>Phone Number</label>
+                <input id="accountPhone" type="tel">
+            </div>
+
+            <div class="input-group">
+                <label>Email Address</label>
+                <input id="accountEmail" type="email">
+            </div>
+
+            <button class="black-btn" type="submit">
+                Save Account
+            </button>
+
+        </form>
+
+        <div style="margin-top:25px;padding-top:18px;border-top:1px solid #ddd;">
+            <h3>Latest Order</h3>
+
+            <div id="latestOrder" style="margin-top:10px;color:#666;">
+                No orders yet.
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- PREMIUM MODAL -->
+<div class="modal" id="premiumModal">
+
+    <div class="modal-box">
+
+        <div class="modal-head">
+            <h2>⭐ AeroZone Premium</h2>
+            <button class="close" onclick="closeModal('premiumModal')">×</button>
+        </div>
+
+        <div style="background:#000;color:#fff;border-radius:15px;padding:20px;margin-bottom:20px;">
+
+            <h3>R99 / month</h3>
+
+            <p style="color:#ccc;margin-top:8px;line-height:1.6;">
+                Enjoy free delivery with AeroZone Premium.
+            </p>
+
+        </div>
+
+        <form onsubmit="joinPremium(event)">
+
+            <div class="input-group">
+                <label>Full Name</label>
+                <input id="premiumName" required>
+            </div>
+
+            <div class="input-group">
+                <label>Phone Number</label>
+                <input id="premiumPhone" type="tel" required>
+            </div>
+
+            <div class="input-group">
+                <label>Email Address</label>
+                <input id="premiumEmail" type="email" required>
+            </div>
+
+            <button class="black-btn" type="submit">
+                Sign Up for Premium
+            </button>
+
+        </form>
+
+        <p style="font-size:12px;color:#777;margin-top:15px;">
+            Premium activation requires completion of the subscription payment.
+        </p>
+
+    </div>
+
+</div>
+
+<!-- TRACKING MODAL -->
+<div class="modal" id="trackingModal">
+
+    <div class="modal-box">
+
+        <div class="modal-head">
+            <h2>Order Tracking</h2>
+            <button class="close" onclick="closeModal('trackingModal')">×</button>
+        </div>
+
+        <div id="trackingContent"></div>
+
+    </div>
+
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* =========================
+   AEROZONE PRODUCT DATA
+========================= */
+
+const products = [
+
+    // SUPERMARKET
+    {id:1,name:"Milk 2L",price:32,category:"Supermarket",icon:"🥛"},
+    {id:2,name:"Brown Bread",price:20,category:"Supermarket",icon:"🍞"},
+    {id:3,name:"White Sugar 2kg",price:38,category:"Supermarket",icon:"🧂"},
+    {id:4,name:"Rice 2kg",price:45,category:"Supermarket",icon:"🍚"},
+    {id:5,name:"Cooking Oil 2L",price:65,category:"Supermarket",icon:"🫗"},
+    {id:6,name:"Eggs 18 Pack",price:55,category:"Supermarket",icon:"🥚"},
+    {id:7,name:"Cereal 500g",price:48,category:"Supermarket",icon:"🥣"},
+    {id:8,name:"Coffee 200g",price:70,category:"Supermarket",icon:"☕"},
+    {id:9,name:"Tea 100 Bags",price:45,category:"Supermarket",icon:"🫖"},
+    {id:10,name:"Cold Drink 2L",price:25,category:"Supermarket",icon:"🥤"},
+    {id:11,name:"Water 6 Pack",price:45,category:"Supermarket",icon:"💧"},
+    {id:12,name:"Toilet Paper 18 Pack",price:95,category:"Supermarket",icon:"🧻"},
+
+    // HEALTH
+    {id:13,name:"Paracetamol",price:25,category:"Pharmacy & Health",icon:"💊"},
+    {id:14,name:"Vitamin C",price:55,category:"Pharmacy & Health",icon:"🍊"},
+    {id:15,name:"Multivitamins",price:75,category:"Pharmacy & Health",icon:"💊"},
+    {id:16,name:"Toothpaste",price:32,category:"Pharmacy & Health",icon:"🪥"},
+    {id:17,name:"Toothbrush",price:25,category:"Pharmacy & Health",icon:"🪥"},
+    {id:18,name:"Body Lotion",price:65,category:"Pharmacy & Health",icon:"🧴"},
+    {id:19,name:"Shampoo",price:70,category:"Pharmacy & Health",icon:"🧴"},
+    {id:20,name:"Deodorant",price:45,category:"Pharmacy & Health",icon:"🧴"},
+    {id:21,name:"Hand Sanitizer",price:35,category:"Pharmacy & Health",icon:"🧼"},
+    {id:22,name:"Face Wash",price:60,category:"Pharmacy & Health",icon:"🧴"},
+
+    // RESTAURANTS
+    {id:23,name:"Chicken Burger Meal",price:89,category:"Restaurants",icon:"🍔"},
+    {id:24,name:"Beef Burger Meal",price:99,category:"Restaurants",icon:"🍔"},
+    {id:25,name:"Chicken Wrap",price:75,category:"Restaurants",icon:"🌯"},
+    {id:26,name:"Grilled Chicken",price:110,category:"Restaurants",icon:"🍗"},
+    {id:27,name:"Fish & Chips",price:95,category:"Restaurants",icon:"🐟"},
+    {id:28,name:"Chicken Pasta",price:90,category:"Restaurants",icon:"🍝"},
+    {id:29,name:"Beef Pasta",price:105,category:"Restaurants",icon:"🍝"},
+    {id:30,name:"Medium Pizza",price:120,category:"Restaurants",icon:"🍕"},
+    {id:31,name:"Large Pizza",price:160,category:"Restaurants",icon:"🍕"},
+    {id:32,name:"Greek Salad",price:70,category:"Restaurants",icon:"🥗"},
+
+    // FAST FOOD
+    {id:33,name:"Chicken Burger",price:55,category:"Fast Food",icon:"🍔"},
+    {id:34,name:"Cheese Burger",price:65,category:"Fast Food",icon:"🍔"},
+    {id:35,name:"Chicken Wings",price:75,category:"Fast Food",icon:"🍗"},
+    {id:36,name:"Large Chips",price:45,category:"Fast Food",icon:"🍟"},
+    {id:37,name:"Chicken Nuggets",price:60,category:"Fast Food",icon:"🍗"},
+    {id:38,name:"Hot Dog",price:50,category:"Fast Food",icon:"🌭"},
+    {id:39,name:"Milkshake",price:45,category:"Fast Food",icon:"🥤"},
+    {id:40,name:"Ice Cream",price:35,category:"Fast Food",icon:"🍦"},
+    {id:41,name:"Chicken Combo",price:95,category:"Fast Food",icon:"🍗"},
+
+    // BUTCHERY
+    {id:42,name:"Beef Steak 500g",price:110,category:"Butchery",icon:"🥩"},
+    {id:43,name:"Beef Mince 500g",price:75,category:"Butchery",icon:"🥩"},
+    {id:44,name:"Chicken Breasts 1kg",price:95,category:"Butchery",icon:"🍗"},
+    {id:45,name:"Chicken Wings 1kg",price:85,category:"Butchery",icon:"🍗"},
+    {id:46,name:"Boerewors 1kg",price:120,category:"Butchery",icon:"🌭"},
+    {id:47,name:"Pork Chops 1kg",price:110,category:"Butchery",icon:"🥩"},
+    {id:48,name:"Lamb Chops 500g",price:125,category:"Butchery",icon:"🥩"},
+    {id:49,name:"Beef Short Ribs 1kg",price:130,category:"Butchery",icon:"🥩"},
+
+    // BAKERY
+    {id:50,name:"Fresh Bread",price:20,category:"Bakery",icon:"🍞"},
+    {id:51,name:"Brown Bread",price:20,category:"Bakery",icon:"🍞"},
+    {id:52,name:"Croissant",price:25,category:"Bakery",icon:"🥐"},
+    {id:53,name:"Muffin",price:22,category:"Bakery",icon:"🧁"},
+    {id:54,name:"Doughnut",price:18,category:"Bakery",icon:"🍩"},
+    {id:55,name:"Chocolate Cake",price:180,category:"Bakery",icon:"🍰"},
+    {id:56,name:"Birthday Cake",price:250,category:"Bakery",icon:"🎂"},
+    {id:57,name:"Vetkoek",price:15,category:"Bakery",icon:"🥯"},
+
+    // FRUIT & VEG
+    {id:58,name:"Bananas 1kg",price:28,category:"Fruit & Veg",icon:"🍌"},
+    {id:59,name:"Apples 1kg",price:35,category:"Fruit & Veg",icon:"🍎"},
+    {id:60,name:"Oranges 1kg",price:30,category:"Fruit & Veg",icon:"🍊"},
+    {id:61,name:"Avocado Pack",price:40,category:"Fruit & Veg",icon:"🥑"},
+    {id:62,name:"Potatoes 2kg",price:35,category:"Fruit & Veg",icon:"🥔"},
+    {id:63,name:"Tomatoes 1kg",price:30,category:"Fruit & Veg",icon:"🍅"},
+    {id:64,name:"Onions 1kg",price:25,category:"Fruit & Veg",icon:"🧅"},
+    {id:65,name:"Spinach",price:18,category:"Fruit & Veg",icon:"🥬"},
+    {id:66,name:"Carrots 1kg",price:28,category:"Fruit & Veg",icon:"🥕"},
+    {id:67,name:"Cabbage",price:25,category:"Fruit & Veg",icon:"🥬"},
+
+    // HOME
+    {id:68,name:"Dishwashing Liquid",price:35,category:"Home & Cleaning",icon:"🧴"},
+    {id:69,name:"Laundry Powder 2kg",price:65,category:"Home & Cleaning",icon:"🧺"},
+    {id:70,name:"Bleach 2L",price:30,category:"Home & Cleaning",icon:"🧴"},
+    {id:71,name:"Floor Cleaner",price:40,category:"Home & Cleaning",icon:"🧹"},
+    {id:72,name:"Sponges Pack",price:25,category:"Home & Cleaning",icon:"🧽"},
+    {id:73,name:"Bin Bags",price:35,category:"Home & Cleaning",icon:"🗑️"},
+    {id:74,name:"Paper Towels",price:45,category:"Home & Cleaning",icon:"🧻"},
+    {id:75,name:"Air Freshener",price:35,category:"Home & Cleaning",icon:"🌸"},
+    {id:76,name:"Washing Gloves",price:25,category:"Home & Cleaning",icon:"🧤"}
+];
+
+/* =========================
+   SAFE MONEY FUNCTIONS
+========================= */
+
+function safeNumber(value){
+
+    const number = parseFloat(
+        String(value ?? "")
+        .replace(/[^0-9.-]/g,"")
+    );
+
+    return Number.isFinite(number) ? number : 0;
+}
+
+function safeQty(value){
+
+    const number = parseInt(value,10);
+
+    return Number.isFinite(number) && number > 0
+        ? number
+        : 1;
+}
+
+function money(value){
+
+    return "R" + safeNumber(value).toFixed(2);
+}
+
+/* =========================
+   STORAGE
+========================= */
+
+let cart = [];
+
+try{
+
+    const saved = JSON.parse(
+        localStorage.getItem("aerozoneCart") || "[]"
+    );
+
+    if(Array.isArray(saved)){
+        cart = saved
+            .map(item => ({
+                id:Number(item.id),
+                qty:safeQty(item.qty)
+            }))
+            .filter(item => products.some(p => p.id === item.id));
+    }
+
+}catch(error){
+
+    cart = [];
+
+}
+
+/* =========================
+   RENDER PRODUCTS
+========================= */
+
+function renderProducts(list){
+
+    const container = document.getElementById("products");
+    const empty = document.getElementById("empty");
+
+    if(!container){
+        return;
+    }
+
+    container.innerHTML = "";
+
+    if(!Array.isArray(list) || list.length === 0){
+
+        empty.style.display = "block";
+
+        return;
+    }
+
+    empty.style.display = "none";
+
+    list.forEach(product => {
+
+        const card = document.createElement("div");
+
+        card.className = "product";
+
+        card.innerHTML = `
+            <div class="product-image">
+                ${product.icon}
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    ${escapeHtml(product.category)}
+                </div>
+
+                <div class="product-name">
+                    ${escapeHtml(product.name)}
+                </div>
+
+                <div class="product-bottom">
+
+                    <div class="price">
+                        ${money(product.price)}
+                    </div>
+
+                    <button
+                        class="add-btn"
+                        onclick="addToCart(${product.id})"
+                    >
+                        + Add
+                    </button>
+
+                </div>
+
+            </div>
+        `;
+
+        container.appendChild(card);
+
+    });
+}
+
+/* =========================
+   ESCAPE HTML
+========================= */
+
+function escapeHtml(value){
+
+    return String(value ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+}
+
+/* =========================
+   CATEGORY
+========================= */
+
+function showCategory(category,button){
+
+    const subtitle =
+        document.getElementById("productSubtitle");
+
+    if(category === "All"){
+
+        renderProducts(products);
+
+        if(subtitle){
+            subtitle.textContent =
+                "Browse all available products.";
+        }
+
+    }else{
+
+        const filtered = products.filter(
+            product => product.category === category
+        );
+
+        renderProducts(filtered);
+
+        if(subtitle){
+            subtitle.textContent =
+                category + " products";
+        }
+
+    }
+
+    document.querySelectorAll(".filter-btn")
+        .forEach(btn => btn.classList.remove("active"));
+
+    if(button){
+        button.classList.add("active");
+    }
+
+    scrollToShop();
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+function searchProducts(){
+
+    const input =
+        document.getElementById("searchInput");
+
+    const search =
+        String(input.value || "")
+        .trim()
+        .toLowerCase();
+
+    if(!search){
+
+        renderProducts(products);
+
+        return;
+    }
+
+    const results = products.filter(product => {
+
+        return (
+            product.name.toLowerCase().includes(search) ||
+            product.category.toLowerCase().includes(search)
+        );
+
+    });
+
+    renderProducts(results);
+
+    scrollToShop();
+}
+
+/* =========================
+   CART
+========================= */
+
+function saveCart(){
+
+    try{
+
+        localStorage.setItem(
+            "aerozoneCart",
+            JSON.stringify(cart)
+        );
+
+    }catch(error){
+
+        console.log("Cart storage unavailable.");
+
+    }
+
+}
+
+function addToCart(id){
+
+    const product = products.find(
+        p => p.id === Number(id)
+    );
+
+    if(!product){
+        return;
+    }
+
+    const existing = cart.find(
+        item => item.id === product.id
+    );
+
+    if(existing){
+
+        existing.qty = safeQty(existing.qty) + 1;
+
+    }else{
+
+        cart.push({
+            id:product.id,
+            qty:1
+        });
+
+    }
+
+    saveCart();
+    updateCartUI();
+
+    showToast(product.name + " added to cart");
+
+}
+
+function changeQty(id,amount){
+
+    const item = cart.find(
+        cartItem => cartItem.id === Number(id)
+    );
+
+    if(!item){
+        return;
+    }
+
+    item.qty =
+        safeQty(item.qty) + Number(amount);
+
+    if(item.qty <= 0){
+
+        cart = cart.filter(
+            cartItem => cartItem.id !== Number(id)
+        );
+
+    }
+
+    saveCart();
+    updateCartUI();
+    renderCart();
+
+}
+
+function cartItems(){
+
+    return cart.map(item => {
+
+        const product = products.find(
+            p => p.id === item.id
+        );
+
+        if(!product){
+            return null;
+        }
+
+        return {
+            product:product,
+            qty:safeQty(item.qty)
+        };
+
+    }).filter(Boolean);
+
+}
+
+function getSubtotal(){
+
+    return cartItems().reduce(
+        (total,item) =>
+            total +
+            safeNumber(item.product.price) *
+            safeQty(item.qty),
+        0
+    );
+
+}
+
+function isPremium(){
+
+    try{
+
+        const customer =
+            JSON.parse(
+                localStorage.getItem("aerozoneCustomer") || "{}"
+            );
+
+        return customer.premiumActive === true;
+
+    }catch(error){
+
+        return false;
+
+    }
+
+}
+
+function getDelivery(){
+
+    const subtotal = getSubtotal();
+
+    if(subtotal <= 0){
+        return 0;
+    }
+
+    if(isPremium()){
+        return 0;
+    }
+
+    if(subtotal >= 500){
+        return 0;
+    }
+
+    return 35;
+}
+
+function updateCartUI(){
+
+    const count =
+        cart.reduce(
+            (total,item) =>
+                total + safeQty(item.qty),
+            0
+        );
+
+    const subtotal = getSubtotal();
+
+    const countElement =
+        document.getElementById("cartCount");
+
+    const floating =
+        document.getElementById("floatingCartText");
+
+    if(countElement){
+        countElement.textContent = count;
+    }
+
+    if(floating){
+        floating.textContent =
+            "Cart · " + money(subtotal);
+    }
+
+}
+
+function renderCart(){
+
+    const container =
+        document.getElementById("cartItems");
+
+    if(!container){
+        return;
+    }
+
+    const items = cartItems();
+
+    if(items.length === 0){
+
+        container.innerHTML = `
+            <div style="text-align:center;padding:35px 10px;color:#777;">
+                <div style="font-size:45px;">🛒</div>
+                <h3 style="margin-top:10px;color:#111;">
+                    Your cart is empty
+                </h3>
+                <p style="margin-top:6px;">
+                    Add products to get started.
+                </p>
+            </div>
+        `;
+
+    }else{
+
+        container.innerHTML = items.map(item => {
+
+            const lineTotal =
+                safeNumber(item.product.price) *
+                safeQty(item.qty);
+
+            return `
+                <div class="cart-item">
+
+                    <div style="font-size:30px;">
+                        ${item.product.icon}
+                    </div>
+
+                    <div class="cart-item-info">
+
+                        <div class="cart-item-name">
+                            ${escapeHtml(item.product.name)}
+                        </div>
+
+                        <div class="cart-item-price">
+                            ${money(item.product.price)} each
+                        </div>
+
+                    </div>
+
+                    <div class="qty">
+
+                        <button
+                            onclick="changeQty(${item.product.id},-1)"
+                        >
+                            −
+                        </button>
+
+                        <strong>${safeQty(item.qty)}</strong>
+
+                        <button
+                            onclick="changeQty(${item.product.id},1)"
+                        >
+                            +
+                        </button>
+
+                    </div>
+
+                    <strong>
+                        ${money(lineTotal)}
+                    </strong>
+
+                </div>
+            `;
+
+        }).join("");
+
+    }
+
+    const subtotal = getSubtotal();
+    const delivery = getDelivery();
+    const total = subtotal + delivery;
+
+    document.getElementById("cartSubtotal").textContent =
+        money(subtotal);
+
+    document.getElementById("cartDelivery").textContent =
+        delivery === 0 ? "FREE" : money(delivery);
+
+    document.getElementById("cartGrandTotal").textContent =
+        money(total);
+
+    const note =
+        document.getElementById("deliveryNote");
+
+    if(isPremium()){
+
+        note.textContent =
+            "⭐ Premium member: Free delivery.";
+
+    }else if(subtotal >= 500){
+
+        note.textContent =
+            "🎉 Your order qualifies for free delivery.";
+
+    }else if(subtotal > 0){
+
+        note.textContent =
+            "Delivery is R35. Spend R500 or more for free delivery.";
+
+    }else{
+
+        note.textContent =
+            "Delivery is R35. Spend R500 or more for free delivery.";
+
+    }
+
+}
+
+function openCart(){
+
+    renderCart();
+
+    openModal("cartModal");
+
+}
+
+/* =========================
+   CHECKOUT
+========================= */
+
+function openCheckout(){
+
+    if(cartItems().length === 0){
+
+        showToast("Your cart is empty.");
+
+        return;
+    }
+
+    closeModal("cartModal");
+
+    loadAccountIntoCheckout();
+
+    openModal("checkoutModal");
+
+}
+
+function loadAccountIntoCheckout(){
+
+    try{
+
+        const customer =
+            JSON.parse(
+                localStorage.getItem("aerozoneCustomer") || "{}"
+            );
+
+        document.getElementById("checkoutName").value =
+            customer.name || "";
+
+        document.getElementById("checkoutPhone").value =
+            customer.phone || "";
+
+        document.getElementById("checkoutEmail").value =
+            customer.email || "";
+
+    }catch(error){}
+
+}
+
+function placeOrder(event){
+
+    event.preventDefault();
+
+    const items = cartItems();
+
+    if(items.length === 0){
+
+        showToast("Your cart is empty.");
+
+        return;
+
+    }
+
+    const orderNumber =
+        "AZ" +
+        Date.now().toString().slice(-8);
+
+    const subtotal = getSubtotal();
+    const delivery = getDelivery();
+    const total = subtotal + delivery;
+
+    const order = {
+
+        orderNumber:orderNumber,
+
+        date:new Date().toLocaleString(
+            "en-ZA"
+        ),
+
+        customer:{
+
+            name:
+                document.getElementById("checkoutName").value.trim(),
+
+            phone:
+                document.getElementById("checkoutPhone").value.trim(),
+
+            email:
+                document.getElementById("checkoutEmail").value.trim(),
+
+            address:
+                document.getElementById("checkoutAddress").value.trim()
+
+        },
+
+        payment:
+            document.getElementById("paymentMethod").value,
+
+        notes:
+            document.getElementById("checkoutNotes").value.trim(),
+
+        items:items.map(item => ({
+
+            name:item.product.name,
+
+            price:safeNumber(item.product.price),
+
+            quantity:safeQty(item.qty),
+
+            total:
+                safeNumber(item.product.price) *
+                safeQty(item.qty)
+
+        })),
+
+        subtotal:subtotal,
+
+        delivery:delivery,
+
+        total:total,
+
+        status:"Order Received"
+
+    };
+
+    localStorage.setItem(
+        "aerozoneLastOrder",
+        JSON.stringify(order)
+    );
+
+    localStorage.setItem(
+        "aerozoneCustomer",
+        JSON.stringify({
+
+            name:order.customer.name,
+
+            phone:order.customer.phone,
+
+            email:order.customer.email,
+
+            premiumActive:isPremium()
+
+        })
+    );
+
+    cart = [];
+
+    saveCart();
+    updateCartUI();
+
+    closeModal("checkoutModal");
+
+    showToast("Order placed successfully!");
+
+    setTimeout(() => {
+
+        openTracking();
+
+    },700);
+
+    sendWhatsAppOrder(order);
+
+}
+
+/* =========================
+   WHATSAPP
+========================= */
+
+function sendWhatsAppOrder(order){
+
+    let message =
+        "Hello AeroZone, I have placed an order." +
+        "\n\n" +
+        "Order: " + order.orderNumber +
+        "\n" +
+        "Name: " + order.customer.name +
+        "\n" +
+        "Phone: " + order.customer.phone +
+        "\n" +
+        "Address: " + order.customer.address +
+        "\n\n" +
+        "Items:";
+
+    order.items.forEach(item => {
+
+        message +=
+            "\n• " +
+            item.name +
+            " x" +
+            item.quantity +
+            " = " +
+            money(item.total);
+
+    });
+
+    message +=
+        "\n\nSubtotal: " +
+        money(order.subtotal) +
+
+        "\nDelivery: " +
+        (order.delivery === 0
+            ? "FREE"
+            : money(order.delivery)) +
+
+        "\nTotal: " +
+        money(order.total) +
+
+        "\nPayment: " +
+        order.payment;
+
+    if(order.notes){
+
+        message +=
+            "\nInstructions: " +
+            order.notes;
+
+    }
+
+    const url =
+        "https://wa.me/27688685355?text=" +
+        encodeURIComponent(message);
+
+    window.open(url,"_blank");
+
+}
+
+/* =========================
+   ACCOUNT
+========================= */
+
+function openAccount(){
+
+    try{
+
+        const customer =
+            JSON.parse(
+                localStorage.getItem("aerozoneCustomer") || "{}"
+            );
+
+        document.getElementById("accountName").value =
+            customer.name || "";
+
+        document.getElementById("accountPhone").value =
+            customer.phone || "";
+
+        document.getElementById("accountEmail").value =
+            customer.email || "";
+
+    }catch(error){}
+
+    loadLatestOrder();
+
+    openModal("accountModal");
+
+}
+
+function saveAccount(event){
+
+    event.preventDefault();
+
+    let existing = {};
+
+    try{
+
+        existing =
+            JSON.parse(
+                localStorage.getItem("aerozoneCustomer") || "{}"
+            );
+
+    }catch(error){}
+
+    const customer = {
+
+        name:
+            document.getElementById("accountName").value.trim(),
+
+        phone:
+            document.getElementById("accountPhone").value.trim(),
+
+        email:
+            document.getElementById("accountEmail").value.trim(),
+
+        premiumActive:
+            existing.premiumActive === true
+
+    };
+
+    localStorage.setItem(
+        "aerozoneCustomer",
+        JSON.stringify(customer)
+    );
+
+    updateAccountStatus();
+
+    showToast("Account saved.");
+
+}
+
+function updateAccountStatus(){
+
+    const element =
+        document.getElementById("accountStatus");
+
+    if(!element){
+        return;
+    }
+
+    try{
+
+        const customer =
+            JSON.parse(
+                localStorage.getItem("aerozoneCustomer") || "{}"
+            );
+
+        if(customer.name){
+
+            element.innerHTML = `
+                <strong>Welcome, ${escapeHtml(customer.name)}</strong>
+
+                <p style="color:#777;margin-top:5px;">
+                    ${customer.premiumActive
+                        ? "⭐ Premium member"
+                        : "AeroZone customer"}
+                </p>
+            `;
+
+        }else{
+
+            element.innerHTML = `
+                <strong>Guest customer</strong>
+
+                <p style="color:#777;margin-top:5px;">
+                    Save your details below.
+                </p>
+            `;
+
+        }
+
+    }catch(error){}
+
+}
+
+function loadLatestOrder(){
+
+    const element =
+        document.getElementById("latestOrder");
+
+    try{
+
+        const order =
+            JSON.parse(
+                localStorage.getItem("aerozoneLastOrder") || "null"
+            );
+
+        if(!order){
+
+            element.innerHTML =
+                "No orders yet.";
+
+            return;
+        }
+
+        element.innerHTML = `
+
+            <div style="background:#f5f5f5;padding:14px;border-radius:12px;">
+
+                <strong>
+                    Order ${escapeHtml(order.orderNumber)}
+                </strong>
+
+                <p style="margin-top:6px;">
+                    Total: <strong>${money(order.total)}</strong>
+                </p>
+
+                <p style="margin-top:5px;color:#777;">
+                    Status: ${escapeHtml(order.status)}
+                </p>
+
+                <button
+                    class="black-btn"
+                    style="margin-top:10px;"
+                    onclick="openTracking()"
+                >
+                    Track Order
+                </button>
+
+            </div>
+        `;
+
+    }catch(error){
+
+        element.innerHTML =
+            "No orders yet.";
+
+    }
+
+}
+
+/* =========================
+   PREMIUM
+========================= */
+
+function openPremium(){
+
+    try{
+
+        const customer =
+            JSON.parse(
+                localStorage.getItem("aerozoneCustomer") || "{}"
+            );
+
+        document.getElementById("premiumName").value =
+            customer.name || "";
+
+        document.getElementById("premiumPhone").value =
+            customer.phone || "";
+
+        document.getElementById("premiumEmail").value =
+            customer.email || "";
+
+    }catch(error){}
+
+    openModal("premiumModal");
+
+}
+
+function joinPremium(event){
+
+    event.preventDefault();
+
+    const customer = {
+
+        name:
+            document.getElementById("premiumName").value.trim(),
+
+        phone:
+            document.getElementById("premiumPhone").value.trim(),
+
+        email:
+            document.getElementById("premiumEmail").value.trim(),
+
+        premiumActive:false,
+
+        premiumStatus:"payment_pending"
+
+    };
+
+    localStorage.setItem(
+        "aerozoneCustomer",
+        JSON.stringify(customer)
+    );
+
+    closeModal("premiumModal");
+
+    showToast(
+        "Premium signup saved. Complete payment to activate."
+    );
+
+    updateAccountStatus();
+
+}
+
+/* =========================
+   TRACKING
+========================= */
+
+function openTracking(){
+
+    let order = null;
+
+    try{
+
+        order =
+            JSON.parse(
+                localStorage.getItem("aerozoneLastOrder") || "null"
+            );
+
+    }catch(error){}
+
+    const element =
+        document.getElementById("trackingContent");
+
+    if(!order){
+
+        element.innerHTML = `
+            <div style="text-align:center;padding:30px;">
+                <div style="font-size:50px;">📦</div>
+                <h3>No order found</h3>
+                <p style="color:#777;margin-top:8px;">
+                    Place an order to see tracking information.
+                </p>
+            </div>
+        `;
+
+    }else{
+
+        element.innerHTML = `
+
+            <div style="background:#f5f5f5;padding:18px;border-radius:15px;">
+
+                <h3>
+                    Order ${escapeHtml(order.orderNumber)}
+                </h3>
+
+                <p style="color:#777;margin-top:6px;">
+                    ${escapeHtml(order.date)}
+                </p>
+
+                <div style="margin-top:22px;">
+
+                    <div style="padding:13px;border-left:4px solid #000;">
+                        <strong>✓ Order Received</strong>
+                        <p style="font-size:12px;color:#777;margin-top:4px;">
+                            Your order has been received.
+                        </p>
+                    </div>
+
+                    <div style="padding:13px;border-left:4px solid #ccc;">
+                        <strong>Preparing Order</strong>
+                    </div>
+
+                    <div style="padding:13px;border-left:4px solid #ccc;">
+                        <strong>Out for Delivery</strong>
+                    </div>
+
+                    <div style="padding:13px;border-left:4px solid #ccc;">
+                        <strong>Delivered</strong>
+                    </div>
+
+                </div>
+
+                <div style="margin-top:18px;border-top:1px solid #ddd;padding-top:15px;">
+
+                    <strong>Total: ${money(order.total)}</strong>
+
+                </div>
+
+            </div>
+        `;
+
+    }
+
+    openModal("trackingModal");
+
+}
+
+/* =========================
+   MODALS
+========================= */
+
+function openModal(id){
+
+    const modal =
+        document.getElementById(id);
+
+    if(modal){
+        modal.classList.add("show");
+        document.body.style.overflow = "hidden";
+    }
+
+}
+
+function closeModal(id){
+
+    const modal =
+        document.getElementById(id);
+
+    if(modal){
+        modal.classList.remove("show");
+    }
+
+    const anyOpen =
+        document.querySelector(".modal.show");
+
+    if(!anyOpen){
+        document.body.style.overflow = "";
+    }
+
+}
+
+/* CLICK OUTSIDE MODAL */
+document.querySelectorAll(".modal").forEach(modal => {
+
+    modal.addEventListener("click",function(event){
+
+        if(event.target === modal){
+
+            closeModal(modal.id);
+
+        }
+
+    });
+
+});
+
+/* ESCAPE KEY */
+document.addEventListener("keydown",function(event){
+
+    if(event.key === "Escape"){
+
+        document.querySelectorAll(".modal.show")
+            .forEach(modal => closeModal(modal.id));
+
+    }
+
+});
+
+/* =========================
+   TOAST
+========================= */
+
+let toastTimer;
+
+function showToast(message){
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    clearTimeout(toastTimer);
+
+    toastTimer = setTimeout(() => {
+
+        toast.classList.remove("show");
+
+    },2500);
+
+}
+
+/* =========================
+   SCROLL
+========================= */
+
+function scrollToShop(){
+
+    const shop =
+        document.getElementById("shop");
+
+    if(shop){
+
+        shop.scrollIntoView({
+            behavior:"smooth"
+        });
+
+    }
+
+}
+
+/* =========================
+   STARTUP
+========================= */
+
+function startAeroZone(){
+
+    renderProducts(products);
+
+    updateCartUI();
+
+    updateAccountStatus();
+
+}
+
+/* Run only after page is ready */
+if(document.readyState === "loading"){
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        startAeroZone
+    );
+
+}else{
+
+    startAeroZone();
+
+}
+
+</script>
+
+</body>
+</html>
