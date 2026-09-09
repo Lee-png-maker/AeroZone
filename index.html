@@ -4,21 +4,41 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#000000">
-<meta name="description" content="AeroZone shopping and delivery">
-<title>AeroZone | Shopping & Delivery</title>
+<meta name="description" content="AeroZone - Shop anything you need. We send a driver to shop and deliver it to you.">
+<title>AeroZone | Shop & Delivery</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-html,body{
+html{
+  scroll-behavior:smooth;
+}
+
+body{
   background:#000;
   color:#111;
   font-family:Arial,Helvetica,sans-serif;
+  overflow-x:hidden;
 }
 
-body{overflow-x:hidden}
-button,input,textarea,select{font:inherit}
-button{cursor:pointer}
+button,
+input,
+textarea,
+select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+/* =========================
+   HEADER
+========================= */
 
 header{
   position:sticky;
@@ -26,7 +46,7 @@ header{
   z-index:1000;
   background:#000;
   color:#fff;
-  padding:14px 5%;
+  padding:13px 5%;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -34,12 +54,14 @@ header{
 }
 
 .logo{
-  font-size:26px;
+  font-size:27px;
   font-weight:900;
-  letter-spacing:-1px;
+  letter-spacing:-1.5px;
 }
 
-.logo span{color:#999}
+.logo span{
+  color:#999;
+}
 
 .header-actions{
   display:flex;
@@ -56,33 +78,44 @@ header{
   font-weight:800;
 }
 
+.header-btn:hover{
+  transform:translateY(-1px);
+}
+
 .premium-mini{
   background:#111;
   border:1px solid #444;
   color:#fff;
 }
 
+/* =========================
+   HERO
+========================= */
+
 .hero{
   background:#000;
   color:#fff;
   text-align:center;
-  padding:48px 5% 52px;
+  padding:48px 5% 50px;
 }
 
 .hero h1{
-  font-size:clamp(36px,7vw,70px);
-  line-height:1;
+  font-size:clamp(38px,7vw,72px);
+  line-height:.98;
   font-weight:900;
-  margin-bottom:16px;
+  letter-spacing:-2px;
+  margin-bottom:17px;
 }
 
 .hero p{
   color:#aaa;
-  margin-bottom:25px;
+  max-width:700px;
+  margin:0 auto 25px;
+  line-height:1.5;
 }
 
 .search-box{
-  max-width:650px;
+  max-width:680px;
   margin:auto;
 }
 
@@ -90,24 +123,43 @@ header{
   width:100%;
   border:0;
   outline:0;
-  padding:17px 20px;
+  padding:17px 21px;
   border-radius:50px;
   font-size:16px;
 }
 
-.hero-delivery{
-  max-width:650px;
+.hero-info{
+  max-width:760px;
   margin:18px auto 0;
-  padding:14px;
-  border:1px solid #333;
-  border-radius:16px;
-  background:#111;
-  font-weight:700;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
 }
+
+.hero-info-card{
+  background:#111;
+  border:1px solid #292929;
+  border-radius:16px;
+  padding:14px 10px;
+  color:#fff;
+  font-size:13px;
+  line-height:1.4;
+}
+
+.hero-info-card strong{
+  display:block;
+  font-size:14px;
+  margin-bottom:4px;
+}
+
+/* =========================
+   MAIN
+========================= */
 
 main{
   background:#f7f7f7;
-  padding:30px 5% 0;
+  padding:30px 5% 60px;
+  min-height:500px;
 }
 
 .section-title{
@@ -115,6 +167,17 @@ main{
   font-weight:900;
   margin-bottom:18px;
 }
+
+.section-subtitle{
+  color:#777;
+  line-height:1.5;
+  margin-top:-10px;
+  margin-bottom:20px;
+}
+
+/* =========================
+   CATEGORIES
+========================= */
 
 .categories{
   display:flex;
@@ -124,7 +187,9 @@ main{
   scrollbar-width:none;
 }
 
-.categories::-webkit-scrollbar{display:none}
+.categories::-webkit-scrollbar{
+  display:none;
+}
 
 .category{
   flex:0 0 auto;
@@ -136,10 +201,60 @@ main{
   font-weight:800;
 }
 
-.category:hover{
+.category:hover,
+.category.active{
   background:#000;
   color:#fff;
 }
+
+/* =========================
+   HOW IT WORKS
+========================= */
+
+.how-section{
+  margin:32px 0 42px;
+}
+
+.how-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+
+.how-card{
+  background:#fff;
+  border:1px solid #e2e2e2;
+  border-radius:20px;
+  padding:20px;
+}
+
+.how-number{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  background:#000;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+  margin-bottom:13px;
+}
+
+.how-card h3{
+  margin-bottom:7px;
+  font-size:17px;
+}
+
+.how-card p{
+  color:#777;
+  font-size:13px;
+  line-height:1.5;
+}
+
+/* =========================
+   STORE CARDS
+========================= */
 
 .store-grid{
   display:grid;
@@ -152,7 +267,7 @@ main{
   border:1px solid #e1e1e1;
   border-radius:22px;
   padding:22px;
-  min-height:165px;
+  min-height:170px;
   cursor:pointer;
   transition:.2s;
 }
@@ -163,7 +278,7 @@ main{
 }
 
 .store-icon{
-  font-size:38px;
+  font-size:39px;
   margin-bottom:13px;
 }
 
@@ -175,12 +290,17 @@ main{
 .store-card p{
   color:#777;
   font-size:14px;
+  line-height:1.4;
 }
 
 .store-arrow{
   margin-top:15px;
   font-weight:900;
 }
+
+/* =========================
+   CATALOG
+========================= */
 
 .catalog{
   margin-top:40px;
@@ -194,7 +314,9 @@ main{
   margin-bottom:18px;
 }
 
-.catalog-head small{color:#777}
+.catalog-head small{
+  color:#777;
+}
 
 .product-grid{
   display:grid;
@@ -207,6 +329,12 @@ main{
   border:1px solid #e1e1e1;
   border-radius:20px;
   padding:14px;
+  transition:.2s;
+}
+
+.product:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 30px rgba(0,0,0,.08);
 }
 
 .product-image{
@@ -253,13 +381,50 @@ main{
   font-weight:900;
 }
 
-.add-btn:hover{background:#333}
+.add-btn:hover{
+  background:#333;
+}
+
+/* =========================
+   SPECIAL SHOP REQUEST
+========================= */
+
+.special-request{
+  margin-top:35px;
+  background:#000;
+  color:#fff;
+  border-radius:24px;
+  padding:28px;
+}
+
+.special-request h2{
+  margin-bottom:9px;
+}
+
+.special-request p{
+  color:#aaa;
+  line-height:1.5;
+  margin-bottom:18px;
+}
+
+.special-btn{
+  background:#fff;
+  color:#000;
+  border:0;
+  border-radius:50px;
+  padding:13px 21px;
+  font-weight:900;
+}
+
+/* =========================
+   BENEFITS
+========================= */
 
 .benefits{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:16px;
-  margin:45px 0;
+  margin:42px 0;
 }
 
 .benefit{
@@ -274,13 +439,19 @@ main{
   margin-bottom:10px;
 }
 
-.benefit h3{margin-bottom:7px}
+.benefit h3{
+  margin-bottom:7px;
+}
 
 .benefit p{
   color:#777;
   line-height:1.5;
   font-size:14px;
 }
+
+/* =========================
+   PREMIUM
+========================= */
 
 .premium-section{
   background:#000;
@@ -334,6 +505,10 @@ main{
   font-weight:900;
 }
 
+/* =========================
+   ACCOUNT
+========================= */
+
 .account-card{
   background:#fff;
   border:1px solid #ddd;
@@ -363,15 +538,19 @@ main{
   color:#fff;
 }
 
+/* =========================
+   FOOTER
+========================= */
+
 footer{
   background:#000;
   color:#fff;
-  padding:40px 5% 35px;
+  padding:42px 5% 38px;
   text-align:center;
 }
 
 .footer-logo{
-  font-size:26px;
+  font-size:27px;
   font-weight:900;
   margin-bottom:8px;
 }
@@ -379,6 +558,22 @@ footer{
 footer p{
   color:#aaa;
   margin:7px;
+}
+
+.footer-links{
+  margin:18px 0;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:9px;
+}
+
+.footer-links button{
+  border:1px solid #333;
+  background:#111;
+  color:#fff;
+  border-radius:50px;
+  padding:9px 13px;
 }
 
 .footer-whatsapp{
@@ -392,6 +587,10 @@ footer p{
   font-weight:900;
 }
 
+/* =========================
+   CART FLOAT
+========================= */
+
 .cart-float{
   position:fixed;
   right:20px;
@@ -403,6 +602,7 @@ footer p{
   border-radius:50px;
   padding:13px 18px;
   font-weight:900;
+  box-shadow:0 8px 25px rgba(0,0,0,.25);
 }
 
 .cart-count{
@@ -417,9 +617,17 @@ footer p{
   color:#000;
 }
 
+/* =========================
+   MOBILE NAV
+========================= */
+
 .mobile-nav{
   display:none;
 }
+
+/* =========================
+   MODALS
+========================= */
 
 .modal{
   position:fixed;
@@ -432,13 +640,16 @@ footer p{
   padding:14px;
 }
 
-.modal.show{display:flex}
+.modal.show{
+  display:flex;
+}
 
 .modal-card{
   background:#fff;
+  color:#111;
   width:100%;
-  max-width:610px;
-  max-height:91vh;
+  max-width:640px;
+  max-height:92vh;
   overflow-y:auto;
   border-radius:25px 25px 15px 15px;
   padding:24px;
@@ -451,7 +662,9 @@ footer p{
   margin-bottom:20px;
 }
 
-.modal-header h2{font-size:25px}
+.modal-header h2{
+  font-size:25px;
+}
 
 .close{
   width:38px;
@@ -462,9 +675,19 @@ footer p{
   font-size:22px;
 }
 
+/* =========================
+   FORMS
+========================= */
+
 .form{
   display:grid;
   gap:12px;
+}
+
+.form label{
+  font-size:13px;
+  font-weight:800;
+  margin-top:3px;
 }
 
 .form input,
@@ -503,6 +726,15 @@ footer p{
   font-weight:800;
 }
 
+.primary:hover,
+.secondary:hover{
+  opacity:.9;
+}
+
+/* =========================
+   MESSAGES
+========================= */
+
 .message{
   padding:14px;
   border-radius:15px;
@@ -511,10 +743,28 @@ footer p{
   line-height:1.5;
 }
 
-.premium-message{
+.dark-message{
   background:#000;
   color:#fff;
 }
+
+.dark-message p{
+  color:#aaa;
+}
+
+.warning-message{
+  background:#f5f5f5;
+  border-left:4px solid #000;
+}
+
+.success-message{
+  background:#000;
+  color:#fff;
+}
+
+/* =========================
+   CART
+========================= */
 
 .cart-item{
   display:flex;
@@ -535,11 +785,17 @@ footer p{
   font-size:25px;
 }
 
-.cart-info{flex:1}
+.cart-info{
+  flex:1;
+}
 
-.cart-info h4{margin-bottom:5px}
+.cart-info h4{
+  margin-bottom:5px;
+}
 
-.cart-info small{color:#777}
+.cart-info small{
+  color:#777;
+}
 
 .qty{
   display:flex;
@@ -572,10 +828,6 @@ footer p{
   font-weight:900;
 }
 
-.delivery-progress{
-  margin-top:15px;
-}
-
 .progress-bar{
   height:8px;
   background:#eee;
@@ -594,6 +846,61 @@ footer p{
   padding:35px 10px;
   color:#777;
 }
+
+/* =========================
+   TRACKING
+========================= */
+
+.tracking-steps{
+  display:grid;
+  gap:10px;
+  margin:20px 0;
+}
+
+.tracking-step{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  padding:13px;
+  border-radius:14px;
+  background:#f1f1f1;
+}
+
+.tracking-step.done{
+  background:#000;
+  color:#fff;
+}
+
+.tracking-step.current{
+  border:2px solid #000;
+}
+
+.step-icon{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+  color:#000;
+  font-weight:900;
+}
+
+.tracking-step div:last-child{
+  font-weight:800;
+}
+
+.order-number{
+  font-size:25px;
+  font-weight:900;
+  text-align:center;
+  margin-bottom:6px;
+}
+
+/* =========================
+   ADDED MESSAGE
+========================= */
 
 .added{
   position:fixed;
@@ -616,7 +923,24 @@ footer p{
   transform:translate(-50%,0);
 }
 
-@media(max-width:900px){
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1000px){
+
+  .store-grid,
+  .product-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .how-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:750px){
+
   .store-grid,
   .product-grid{
     grid-template-columns:repeat(2,1fr);
@@ -625,55 +949,106 @@ footer p{
   .benefits{
     grid-template-columns:1fr;
   }
+
+  .hero-info{
+    grid-template-columns:1fr;
+  }
 }
 
 @media(max-width:600px){
 
-  header{padding:12px 4%}
+  header{
+    padding:12px 4%;
+  }
 
-  .logo{font-size:21px}
+  .logo{
+    font-size:21px;
+  }
+
+  .header-actions{
+    gap:5px;
+  }
 
   .header-btn{
-    padding:8px 11px;
-    font-size:12px;
+    padding:8px 10px;
+    font-size:11px;
+  }
+
+  .premium-mini{
+    display:none;
   }
 
   .hero{
     padding:35px 4% 40px;
   }
 
+  .hero h1{
+    font-size:43px;
+  }
+
   main{
-    padding:25px 4% 75px;
+    padding:25px 4% 85px;
+  }
+
+  .section-title{
+    font-size:24px;
+  }
+
+  .how-grid{
+    grid-template-columns:1fr;
   }
 
   .store-grid,
   .product-grid{
+    grid-template-columns:repeat(2,1fr);
     gap:10px;
   }
 
   .store-card{
     padding:15px;
-    min-height:145px;
+    min-height:150px;
   }
 
-  .store-icon{font-size:30px}
+  .store-icon{
+    font-size:30px;
+  }
 
-  .store-card h3{font-size:16px}
+  .store-card h3{
+    font-size:16px;
+  }
 
-  .product{padding:10px}
+  .store-card p{
+    font-size:12px;
+  }
+
+  .product{
+    padding:10px;
+  }
 
   .product-image{
     height:105px;
     font-size:50px;
   }
 
-  .product h3{font-size:14px}
+  .product h3{
+    font-size:14px;
+  }
 
-  .price{font-size:15px}
+  .price{
+    font-size:15px;
+  }
 
   .add-btn{
     width:36px;
     height:36px;
+  }
+
+  .catalog-head{
+    align-items:flex-start;
+  }
+
+  .catalog-head .secondary{
+    font-size:12px;
   }
 
   .cart-float{
@@ -710,12 +1085,26 @@ footer p{
     margin-bottom:2px;
   }
 
-  footer{padding-bottom:85px}
+  footer{
+    padding-bottom:90px;
+  }
+
+  .modal{
+    padding:7px;
+  }
+
+  .modal-card{
+    padding:20px;
+  }
 }
 </style>
 </head>
 
 <body>
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
@@ -725,15 +1114,27 @@ footer p{
 
   <div class="header-actions">
 
-    <button class="header-btn premium-mini" onclick="openPremium()">
+    <button
+      class="header-btn premium-mini"
+      onclick="openPremium()">
       ⭐ Premium
     </button>
 
-    <button class="header-btn" onclick="openAccount()">
+    <button
+      class="header-btn"
+      onclick="openTracking()">
+      📦 Track
+    </button>
+
+    <button
+      class="header-btn"
+      onclick="openAccount()">
       Account
     </button>
 
-    <button class="header-btn" onclick="openCart()">
+    <button
+      class="header-btn"
+      onclick="openCart()">
       🛒 <span id="headerCartCount">0</span>
     </button>
 
@@ -741,151 +1142,359 @@ footer p{
 
 </header>
 
+<!-- =========================
+     HERO
+========================= -->
+
 <section class="hero">
 
-  <h1>Everything you need.<br>Delivered.</h1>
+  <h1>
+    Shop anywhere.<br>
+    We deliver.
+  </h1>
 
   <p>
-    Shop groceries, meals, health products and more with AeroZone.
+    Choose what you need, tell AeroZone where you want it
+    bought, pay AeroZone securely, and we'll send a driver
+    to shop and deliver it to you.
   </p>
 
   <div class="search-box">
+
     <input
       id="searchInput"
       type="search"
       placeholder="Search for products..."
-      oninput="searchProducts()"
-    >
+      oninput="searchProducts()">
+
   </div>
 
-  <div class="hero-delivery">
-    🚚 <strong>Premium:</strong> R99/month for free delivery
-    <br>
-    🛒 Or spend <strong>R500+</strong> for free delivery on that order
+  <div class="hero-info">
+
+    <div class="hero-info-card">
+      <strong>🛍️ You choose</strong>
+      Select products and where you want to shop.
+    </div>
+
+    <div class="hero-info-card">
+      <strong>🚗 We shop</strong>
+      AeroZone assigns a driver to buy your order.
+    </div>
+
+    <div class="hero-info-card">
+      <strong>🏠 We deliver</strong>
+      Your driver brings the order to your address.
+    </div>
+
   </div>
 
 </section>
 
+<!-- =========================
+     MAIN
+========================= -->
+
 <main>
 
-  <h2 class="section-title">Shop by category</h2>
+  <h2 class="section-title">
+    Choose where you want to shop
+  </h2>
+
+  <p class="section-subtitle">
+    You don't need to have a partnership with the shop.
+    AeroZone sends a driver to shop on your behalf.
+  </p>
+
+  <!-- CATEGORIES -->
 
   <div class="categories">
 
-    <button class="category" onclick="showStores()">All</button>
+    <button
+      class="category active"
+      onclick="showStores()">
+      All
+    </button>
 
-    <button class="category" onclick="openBranch('supermarket')">
+    <button
+      class="category"
+      onclick="openBranch('supermarket')">
       🛒 Supermarket
     </button>
 
-    <button class="category" onclick="openBranch('pharmacy')">
+    <button
+      class="category"
+      onclick="openBranch('pharmacy')">
       💊 Pharmacy
     </button>
 
-    <button class="category" onclick="openBranch('restaurant')">
+    <button
+      class="category"
+      onclick="openBranch('restaurant')">
       🍽️ Restaurants
     </button>
 
-    <button class="category" onclick="openBranch('fastfood')">
+    <button
+      class="category"
+      onclick="openBranch('fastfood')">
       🍔 Fast Food
     </button>
 
-    <button class="category" onclick="openBranch('butchery')">
+    <button
+      class="category"
+      onclick="openBranch('butchery')">
       🥩 Butchery
     </button>
 
-    <button class="category" onclick="openBranch('bakery')">
+    <button
+      class="category"
+      onclick="openBranch('bakery')">
       🥐 Bakery
     </button>
 
-    <button class="category" onclick="openBranch('fruitveg')">
+    <button
+      class="category"
+      onclick="openBranch('fruitveg')">
       🥬 Fruit & Veg
     </button>
 
-    <button class="category" onclick="openBranch('home')">
+    <button
+      class="category"
+      onclick="openBranch('home')">
       🧽 Home & Cleaning
     </button>
 
   </div>
 
-  <section id="storesSection">
+  <!-- HOW IT WORKS -->
 
-    <h2 class="section-title" style="margin-top:30px;">
-      Shop our branches
+  <section class="how-section">
+
+    <h2 class="section-title">
+      How AeroZone works
     </h2>
 
-    <div class="store-grid">
+    <div class="how-grid">
 
-      <div class="store-card" onclick="openBranch('supermarket')">
-        <div class="store-icon">🛒</div>
-        <h3>Supermarket</h3>
-        <p>Groceries and everyday essentials.</p>
-        <div class="store-arrow">Shop now →</div>
+      <div class="how-card">
+        <div class="how-number">1</div>
+        <h3>Choose your shop</h3>
+        <p>
+          Select the type of store where you want your
+          products purchased.
+        </p>
       </div>
 
-      <div class="store-card" onclick="openBranch('pharmacy')">
-        <div class="store-icon">💊</div>
-        <h3>Pharmacy & Health</h3>
-        <p>Health and personal care products.</p>
-        <div class="store-arrow">Shop now →</div>
+      <div class="how-card">
+        <div class="how-number">2</div>
+        <h3>Place your order</h3>
+        <p>
+          Add your products, enter your delivery details
+          and pay AeroZone.
+        </p>
       </div>
 
-      <div class="store-card" onclick="openBranch('restaurant')">
-        <div class="store-icon">🍽️</div>
-        <h3>Restaurants</h3>
-        <p>Fresh meals delivered.</p>
-        <div class="store-arrow">Shop now →</div>
+      <div class="how-card">
+        <div class="how-number">3</div>
+        <h3>Driver shops</h3>
+        <p>
+          AeroZone assigns a driver who purchases the
+          requested products for you.
+        </p>
       </div>
 
-      <div class="store-card" onclick="openBranch('fastfood')">
-        <div class="store-icon">🍔</div>
-        <h3>Fast Food</h3>
-        <p>Quick meals and snacks.</p>
-        <div class="store-arrow">Shop now →</div>
-      </div>
-
-      <div class="store-card" onclick="openBranch('butchery')">
-        <div class="store-icon">🥩</div>
-        <h3>Butchery</h3>
-        <p>Fresh meat and poultry.</p>
-        <div class="store-arrow">Shop now →</div>
-      </div>
-
-      <div class="store-card" onclick="openBranch('bakery')">
-        <div class="store-icon">🥐</div>
-        <h3>Bakery</h3>
-        <p>Freshly baked goods.</p>
-        <div class="store-arrow">Shop now →</div>
-      </div>
-
-      <div class="store-card" onclick="openBranch('fruitveg')">
-        <div class="store-icon">🥬</div>
-        <h3>Fruit & Veg</h3>
-        <p>Fresh fruits and vegetables.</p>
-        <div class="store-arrow">Shop now →</div>
-      </div>
-
-      <div class="store-card" onclick="openBranch('home')">
-        <div class="store-icon">🧽</div>
-        <h3>Home & Cleaning</h3>
-        <p>Household essentials.</p>
-        <div class="store-arrow">Shop now →</div>
+      <div class="how-card">
+        <div class="how-number">4</div>
+        <h3>Driver delivers</h3>
+        <p>
+          After shopping, the driver collects the order
+          and delivers it to your address.
+        </p>
       </div>
 
     </div>
 
   </section>
 
-  <section id="catalogSection" class="catalog" style="display:none">
+  <!-- STORES -->
+
+  <section id="storesSection">
+
+    <h2 class="section-title">
+      Available shopping categories
+    </h2>
+
+    <div class="store-grid">
+
+      <div
+        class="store-card"
+        onclick="openBranch('supermarket')">
+
+        <div class="store-icon">🛒</div>
+
+        <h3>Supermarket</h3>
+
+        <p>
+          Groceries, drinks, household goods and everyday
+          essentials.
+        </p>
+
+        <div class="store-arrow">
+          Shop now →
+        </div>
+
+      </div>
+
+      <div
+        class="store-card"
+        onclick="openBranch('pharmacy')">
+
+        <div class="store-icon">💊</div>
+
+        <h3>Pharmacy & Health</h3>
+
+        <p>
+          Personal care, wellness and health-related
+          everyday products.
+        </p>
+
+        <div class="store-arrow">
+          Shop now →
+        </div>
+
+      </div>
+
+      <div
+        class="store-card"
+        onclick="openBranch('restaurant')">
+
+        <div class="store-icon">🍽️</div>
+
+        <h3>Restaurants</h3>
+
+        <p>
+          Meals and food from your selected restaurant.
+        </p>
+
+        <div class="store-arrow">
+          Shop now →
+        </div>
+
+      </div>
+
+      <div
+        class="store-card"
+        onclick="openBranch('fastfood')">
+
+        <div class="store-icon">🍔</div>
+
+        <h3>Fast Food</h3>
+
+        <p>
+          Quick meals, burgers, snacks and drinks.
+        </p>
+
+        <div class="store-arrow">
+          Shop now →
+        </div>
+
+      </div>
+
+      <div
+        class="store-card"
+        onclick="openBranch('butchery')">
+
+        <div class="store-icon">🥩</div>
+
+        <h3>Butchery</h3>
+
+        <p>
+          Meat, poultry, sausages and other butcher
+          products.
+        </p>
+
+        <div class="store-arrow">
+          Shop now →
+        </div>
+
+      </div>
+
+      <div
+        class="store-card"
+        onclick="openBranch('bakery')">
+
+        <div class="store-icon">🥐</div>
+
+        <h3>Bakery</h3>
+
+        <p>
+          Bread, pastries, cakes and baked goods.
+        </p>
+
+        <div class="store-arrow">
+          Shop now →
+        </div>
+
+      </div>
+
+      <div
+        class="store-card"
+        onclick="openBranch('fruitveg')">
+
+        <div class="store-icon">🥬</div>
+
+        <h3>Fruit & Veg</h3>
+
+        <p>
+          Fresh fruit, vegetables and produce.
+        </p>
+
+        <div class="store-arrow">
+          Shop now →
+        </div>
+
+      </div>
+
+      <div
+        class="store-card"
+        onclick="openBranch('home')">
+
+        <div class="store-icon">🧽</div>
+
+        <h3>Home & Cleaning</h3>
+
+        <p>
+          Cleaning products and household essentials.
+        </p>
+
+        <div class="store-arrow">
+          Shop now →
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CATALOG -->
+
+  <section
+    id="catalogSection"
+    class="catalog"
+    style="display:none">
 
     <div class="catalog-head">
 
       <div>
-        <h2 id="catalogTitle" class="section-title">
+
+        <h2
+          id="catalogTitle"
+          class="section-title">
           Products
         </h2>
 
         <small id="catalogSubtitle"></small>
+
       </div>
 
       <button
@@ -897,45 +1506,123 @@ footer p{
 
     </div>
 
-    <div id="productGrid" class="product-grid"></div>
+    <div
+      class="message"
+      style="margin-bottom:18px">
+
+      🛍️ <strong>Remember:</strong>
+      These products are examples of what you can request.
+      AeroZone can send a driver to shop at the customer's
+      selected store.
+
+    </div>
+
+    <div
+      id="productGrid"
+      class="product-grid">
+    </div>
 
   </section>
 
-  <section id="searchSection" class="catalog" style="display:none">
+  <!-- SEARCH -->
 
-    <h2 class="section-title">Search results</h2>
+  <section
+    id="searchSection"
+    class="catalog"
+    style="display:none">
 
-    <div id="searchGrid" class="product-grid"></div>
+    <h2 class="section-title">
+      Search results
+    </h2>
+
+    <div
+      id="searchGrid"
+      class="product-grid">
+    </div>
 
   </section>
+
+  <!-- SPECIAL REQUEST -->
+
+  <section class="special-request">
+
+    <h2>
+      Can't find what you need?
+    </h2>
+
+    <p>
+      Tell AeroZone what you want. Your driver can shop
+      for requested items at your chosen store, subject
+      to availability and applicable rules.
+    </p>
+
+    <button
+      class="special-btn"
+      onclick="openSpecialRequest()">
+      📝 Request an item
+    </button>
+
+  </section>
+
+  <!-- BENEFITS -->
 
   <section class="benefits">
 
     <div class="benefit">
-      <div class="benefit-icon">⭐</div>
-      <h3>AeroZone Premium</h3>
+
+      <div class="benefit-icon">
+        🚗
+      </div>
+
+      <h3>
+        Driver shopping
+      </h3>
+
       <p>
-        Subscribe for R99/month and get free delivery on eligible AeroZone orders.
+        You don't need to travel to the store. AeroZone
+        sends a driver to shop on your behalf.
       </p>
+
     </div>
 
     <div class="benefit">
-      <div class="benefit-icon">🚚</div>
-      <h3>R500+ Free Delivery</h3>
+
+      <div class="benefit-icon">
+        💳
+      </div>
+
+      <h3>
+        Pay AeroZone
+      </h3>
+
       <p>
-        Not a Premium member? Spend R500 or more and delivery is automatically free.
+        The intended live system will collect payment
+        through a secure payment provider before the
+        driver starts shopping.
       </p>
+
     </div>
 
     <div class="benefit">
-      <div class="benefit-icon">📱</div>
-      <h3>WhatsApp Ordering</h3>
+
+      <div class="benefit-icon">
+        🧾
+      </div>
+
+      <h3>
+        Receipt verification
+      </h3>
+
       <p>
-        Send your completed order directly to AeroZone through WhatsApp.
+        Drivers can provide purchase information and
+        receipts so the order can be reconciled.
       </p>
+
     </div>
 
   </section>
+
+  <!-- PREMIUM -->
 
   <section class="premium-section">
 
@@ -943,37 +1630,51 @@ footer p{
       AEROZONE PREMIUM
     </div>
 
-    <h2>Unlimited delivery savings</h2>
+    <h2>
+      Unlimited delivery savings
+    </h2>
 
     <p>
-      Get free delivery without having to reach R500 on every order.
+      Get free delivery without having to reach R500
+      on every eligible order.
     </p>
 
     <div class="premium-price">
       R99 <span>/ month</span>
     </div>
 
-    <button class="premium-btn" onclick="openPremium()">
+    <button
+      class="premium-btn"
+      onclick="openPremium()">
       Join AeroZone Premium
     </button>
 
   </section>
+
+  <!-- ACCOUNT -->
 
   <section class="account-card">
 
     <div class="account-status">
 
       <div>
+
         <h3 id="accountName">
           Guest Customer
         </h3>
 
-        <p id="accountDescription" style="color:#777;margin-top:5px">
-          Create your customer profile and manage Premium.
+        <p
+          id="accountDescription"
+          style="color:#777;margin-top:5px">
+          Create your customer profile and manage
+          Premium.
         </p>
+
       </div>
 
-      <div id="accountStatus" class="status-pill">
+      <div
+        id="accountStatus"
+        class="status-pill">
         Guest
       </div>
 
@@ -983,33 +1684,77 @@ footer p{
 
 </main>
 
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
   <div class="footer-logo">
     AeroZone
   </div>
 
-  <p>Shopping and delivery made simple.</p>
+  <p>
+    Shopping and delivery made simple.
+  </p>
 
-  <p>South Africa</p>
+  <p>
+    South Africa
+  </p>
+
+  <div class="footer-links">
+
+    <button onclick="openTracking()">
+      Track Order
+    </button>
+
+    <button onclick="openPremium()">
+      Premium
+    </button>
+
+    <button onclick="openAccount()">
+      Account
+    </button>
+
+    <button onclick="openSpecialRequest()">
+      Request Item
+    </button>
+
+  </div>
 
   <a
     class="footer-whatsapp"
     href="https://wa.me/27688685355"
     target="_blank">
-    Order via WhatsApp
+    💬 AeroZone WhatsApp Support
   </a>
 
 </footer>
 
-<button class="cart-float" onclick="openCart()">
+<!-- CART FLOAT -->
+
+<button
+  class="cart-float"
+  onclick="openCart()">
+
   🛒 Cart
-  <span id="cartCount" class="cart-count">0</span>
+  <span
+    id="cartCount"
+    class="cart-count">
+    0
+  </span>
+
 </button>
 
-<div id="addedMessage" class="added">
+<div
+  id="addedMessage"
+  class="added">
   Added to cart ✓
 </div>
+
+<!-- =========================
+     MOBILE NAV
+========================= -->
 
 <nav class="mobile-nav">
 
@@ -1018,9 +1763,9 @@ footer p{
     Home
   </button>
 
-  <button onclick="openPremium()">
-    <span>⭐</span>
-    Premium
+  <button onclick="openTracking()">
+    <span>📦</span>
+    Track
   </button>
 
   <button onclick="openCart()">
@@ -1035,17 +1780,25 @@ footer p{
 
 </nav>
 
-<!-- CART -->
+<!-- =========================
+     CART MODAL
+========================= -->
 
-<div id="cartModal" class="modal">
+<div
+  id="cartModal"
+  class="modal">
 
   <div class="modal-card">
 
     <div class="modal-header">
 
-      <h2>Your Cart</h2>
+      <h2>
+        Your Cart
+      </h2>
 
-      <button class="close" onclick="closeModal('cartModal')">
+      <button
+        class="close"
+        onclick="closeModal('cartModal')">
         ×
       </button>
 
@@ -1058,21 +1811,29 @@ footer p{
     <div class="summary">
 
       <div class="summary-row">
-        <span>Subtotal</span>
-        <strong id="cartSubtotal">R0.00</strong>
+        <span>Products</span>
+        <strong id="cartSubtotal">
+          R0.00
+        </strong>
       </div>
 
       <div class="summary-row">
         <span>Delivery</span>
-        <strong id="cartDelivery">R0.00</strong>
+        <strong id="cartDelivery">
+          R0.00
+        </strong>
       </div>
 
       <div class="summary-row summary-total">
         <span>Total</span>
-        <strong id="cartTotal">R0.00</strong>
+        <strong id="cartTotal">
+          R0.00
+        </strong>
       </div>
 
-      <button class="primary" onclick="openCheckout()">
+      <button
+        class="primary"
+        onclick="openCheckout()">
         Continue to Checkout
       </button>
 
@@ -1089,30 +1850,63 @@ footer p{
 
 </div>
 
-<!-- CHECKOUT -->
+<!-- =========================
+     CHECKOUT MODAL
+========================= -->
 
-<div id="checkoutModal" class="modal">
+<div
+  id="checkoutModal"
+  class="modal">
 
   <div class="modal-card">
 
     <div class="modal-header">
 
-      <h2>Checkout</h2>
+      <h2>
+        AeroZone Checkout
+      </h2>
 
-      <button class="close" onclick="closeModal('checkoutModal')">
+      <button
+        class="close"
+        onclick="closeModal('checkoutModal')">
         ×
       </button>
 
     </div>
 
+    <div
+      class="message dark-message">
+
+      <strong>
+        🚗 AeroZone Driver Shopping
+      </strong>
+
+      <p style="margin-top:8px">
+        After payment is confirmed, AeroZone will assign
+        a driver to shop for your order and deliver it to
+        your address.
+      </p>
+
+    </div>
+
     <div id="checkoutDeliveryMessage"></div>
 
-    <form class="form" onsubmit="placeOrder(event)">
+    <form
+      class="form"
+      onsubmit="placeOrder(event)">
+
+      <label>
+        Full name
+      </label>
 
       <input
         id="customerName"
         required
         placeholder="Full name">
+
+      <label>
+        Phone number
+      </label>
 
       <input
         id="customerPhone"
@@ -1120,34 +1914,152 @@ footer p{
         type="tel"
         placeholder="Phone number">
 
+      <label>
+        Delivery address
+      </label>
+
       <input
         id="customerAddress"
         required
-        placeholder="Delivery address">
+        placeholder="Where should we deliver?">
 
-      <select id="paymentMethod" required>
+      <label>
+        Preferred shopping location
+      </label>
+
+      <select
+        id="shoppingLocation"
+        required>
+
+        <option value="">
+          Choose where the driver should shop
+        </option>
+
+        <option>
+          Supermarket
+        </option>
+
+        <option>
+          Pharmacy
+        </option>
+
+        <option>
+          Restaurant
+        </option>
+
+        <option>
+          Fast Food
+        </option>
+
+        <option>
+          Butchery
+        </option>
+
+        <option>
+          Bakery
+        </option>
+
+        <option>
+          Fruit & Veg
+        </option>
+
+        <option>
+          Home & Cleaning
+        </option>
+
+      </select>
+
+      <label>
+        Specific shop/store name
+      </label>
+
+      <input
+        id="specificStore"
+        placeholder="Optional — e.g. the store you want the driver to visit">
+
+      <div class="message warning-message">
+
+        <strong>
+          ⚠️ Important
+        </strong>
+
+        <p style="margin-top:7px;color:#555">
+
+          AeroZone does not need the selected store to
+          integrate with our website. The driver is shopping
+          on your behalf.
+
+        </p>
+
+      </div>
+
+      <label>
+        If an item is unavailable
+      </label>
+
+      <select id="replacementOption">
+
+        <option value="Contact me">
+          Contact me before replacing
+        </option>
+
+        <option value="Choose a similar item">
+          Choose a similar item
+        </option>
+
+        <option value="Remove unavailable item">
+          Remove unavailable item
+        </option>
+
+      </select>
+
+      <label>
+        Payment method
+      </label>
+
+      <select
+        id="paymentMethod"
+        required>
 
         <option value="">
           Select payment method
         </option>
 
-        <option value="Cash on delivery">
-          Cash on delivery
+        <option value="Secure card payment">
+          Secure card payment
         </option>
 
-        <option value="Yoco / card">
-          Yoco / card
+        <option value="Yoco">
+          Yoco
         </option>
 
       </select>
 
       <textarea
         id="customerNotes"
-        placeholder="Special instructions (optional)">
+        placeholder="Special instructions for AeroZone or your driver">
       </textarea>
 
-      <button class="primary" type="submit">
-        Place Order via WhatsApp
+      <div class="message">
+
+        <strong>
+          🔒 Payment protection
+        </strong>
+
+        <p style="margin-top:7px;color:#666">
+
+          This website will only mark the order as paid
+          after your payment provider/backend confirms
+          the transaction.
+
+        </p>
+
+      </div>
+
+      <button
+        class="primary"
+        type="submit">
+        Continue to Secure Payment
       </button>
 
     </form>
@@ -1156,17 +2068,55 @@ footer p{
 
 </div>
 
-<!-- PREMIUM -->
+<!-- =========================
+     PAYMENT MODAL
+========================= -->
 
-<div id="premiumModal" class="modal">
+<div
+  id="paymentModal"
+  class="modal">
 
   <div class="modal-card">
 
     <div class="modal-header">
 
-      <h2>⭐ AeroZone Premium</h2>
+      <h2>
+        Secure Payment
+      </h2>
 
-      <button class="close" onclick="closeModal('premiumModal')">
+      <button
+        class="close"
+        onclick="closeModal('paymentModal')">
+        ×
+      </button>
+
+    </div>
+
+    <div id="paymentContent"></div>
+
+  </div>
+
+</div>
+
+<!-- =========================
+     PREMIUM MODAL
+========================= -->
+
+<div
+  id="premiumModal"
+  class="modal">
+
+  <div class="modal-card">
+
+    <div class="modal-header">
+
+      <h2>
+        ⭐ AeroZone Premium
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeModal('premiumModal')">
         ×
       </button>
 
@@ -1178,17 +2128,25 @@ footer p{
 
 </div>
 
-<!-- ACCOUNT -->
+<!-- =========================
+     ACCOUNT MODAL
+========================= -->
 
-<div id="accountModal" class="modal">
+<div
+  id="accountModal"
+  class="modal">
 
   <div class="modal-card">
 
     <div class="modal-header">
 
-      <h2>My AeroZone Account</h2>
+      <h2>
+        My AeroZone Account
+      </h2>
 
-      <button class="close" onclick="closeModal('accountModal')">
+      <button
+        class="close"
+        onclick="closeModal('accountModal')">
         ×
       </button>
 
@@ -1200,17 +2158,25 @@ footer p{
 
 </div>
 
-<!-- TRACKING -->
+<!-- =========================
+     TRACKING MODAL
+========================= -->
 
-<div id="trackingModal" class="modal">
+<div
+  id="trackingModal"
+  class="modal">
 
   <div class="modal-card">
 
     <div class="modal-header">
 
-      <h2>Track Order</h2>
+      <h2>
+        Track Order
+      </h2>
 
-      <button class="close" onclick="closeModal('trackingModal')">
+      <button
+        class="close"
+        onclick="closeModal('trackingModal')">
         ×
       </button>
 
@@ -1222,10 +2188,93 @@ footer p{
 
 </div>
 
+<!-- =========================
+     SPECIAL REQUEST MODAL
+========================= -->
+
+<div
+  id="specialModal"
+  class="modal">
+
+  <div class="modal-card">
+
+    <div class="modal-header">
+
+      <h2>
+        Request an Item
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeModal('specialModal')">
+        ×
+      </button>
+
+    </div>
+
+    <div class="message dark-message">
+
+      <strong>
+        📝 Can't find your product?
+      </strong>
+
+      <p style="margin-top:8px">
+        Tell us what you need and where you want the
+        driver to shop.
+      </p>
+
+    </div>
+
+    <form
+      class="form"
+      onsubmit="submitSpecialRequest(event)">
+
+      <input
+        id="specialName"
+        required
+        placeholder="Full name">
+
+      <input
+        id="specialPhone"
+        required
+        type="tel"
+        placeholder="Phone number">
+
+      <input
+        id="specialItem"
+        required
+        placeholder="What do you want us to buy?">
+
+      <input
+        id="specialStore"
+        placeholder="Preferred shop/store">
+
+      <input
+        id="specialAddress"
+        required
+        placeholder="Delivery address">
+
+      <textarea
+        id="specialNotes"
+        placeholder="Quantity, size, brand or other instructions">
+      </textarea>
+
+      <button
+        class="primary"
+        type="submit">
+        Send Request to AeroZone
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
+
 <script>
 
 /* =========================================================
-   AEROZONE DATA
+   AEROZONE PRODUCT DATA
 ========================================================= */
 
 const branches = {
@@ -1373,25 +2422,16 @@ const branches = {
 };
 
 /* =========================================================
-   CUSTOMER / PREMIUM DATA
+   CUSTOMER
 ========================================================= */
-
-/*
- IMPORTANT:
- premiumActive should ONLY become true after your
- payment provider confirms a successful subscription.
-
- The browser/localStorage version below is only the
- front-end structure. For a live paid subscription,
- connect this to your payment backend.
-*/
 
 let customer = JSON.parse(
   localStorage.getItem("aerozoneCustomer") || "null"
 );
 
 if(!customer){
-  customer = {
+
+  customer={
     name:"",
     phone:"",
     email:"",
@@ -1400,61 +2440,78 @@ if(!customer){
     subscriptionId:"",
     subscriptionStarted:""
   };
+
 }
 
-let cart = JSON.parse(
+let cart=JSON.parse(
   localStorage.getItem("aerozoneCart") || "[]"
 );
+
+/* =========================================================
+   CURRENT ORDER
+========================================================= */
+
+let pendingOrder=null;
 
 /* =========================================================
    MONEY
 ========================================================= */
 
 function priceNumber(value){
+
   return parseFloat(
-    String(value).replace("R","").replace(",","")
+    String(value)
+      .replace("R","")
+      .replace(",","")
   ) || 0;
+
 }
 
 function money(value){
-  return "R" + Number(value).toFixed(2);
+
+  return "R"+Number(value).toFixed(2);
+
 }
 
 /* =========================================================
-   CART
+   CART STORAGE
 ========================================================= */
 
 function saveCart(){
+
   localStorage.setItem(
     "aerozoneCart",
     JSON.stringify(cart)
   );
+
 }
 
 function getSubtotal(){
 
   return cart.reduce(
     (sum,item)=>
-      sum + priceNumber(item.price)*item.qty,
+      sum+
+      priceNumber(item.price)*item.qty,
     0
   );
+
 }
 
 /*
- DELIVERY RULE
+ Delivery model:
 
- Premium member:
- FREE delivery
+ Premium = FREE
 
- Non-member:
  R500+ = FREE
+
  Under R500 = R35
 */
+
 function getDelivery(){
 
-  const subtotal = getSubtotal();
+  const subtotal=getSubtotal();
 
-  if(subtotal <= 0){
+  if(subtotal<=0){
     return 0;
   }
 
@@ -1462,15 +2519,18 @@ function getDelivery(){
     return 0;
   }
 
-  if(subtotal >= 500){
+  if(subtotal>=500){
     return 0;
   }
 
   return 35;
+
 }
 
 function getTotal(){
+
   return getSubtotal()+getDelivery();
+
 }
 
 /* =========================================================
@@ -1479,14 +2539,25 @@ function getTotal(){
 
 function showStores(){
 
-  document.getElementById("storesSection").style.display="block";
-  document.getElementById("catalogSection").style.display="none";
-  document.getElementById("searchSection").style.display="none";
+  document.getElementById(
+    "storesSection"
+  ).style.display="block";
+
+  document.getElementById(
+    "catalogSection"
+  ).style.display="none";
+
+  document.getElementById(
+    "searchSection"
+  ).style.display="none";
 
   window.scrollTo({
-    top:document.getElementById("storesSection").offsetTop-70,
+    top:document.getElementById(
+      "storesSection"
+    ).offsetTop-80,
     behavior:"smooth"
   });
+
 }
 
 function openBranch(key){
@@ -1495,68 +2566,94 @@ function openBranch(key){
 
   if(!branch)return;
 
-  document.getElementById("storesSection").style.display="none";
-  document.getElementById("searchSection").style.display="none";
-  document.getElementById("catalogSection").style.display="block";
+  document.getElementById(
+    "storesSection"
+  ).style.display="none";
 
-  document.getElementById("catalogTitle").textContent=
+  document.getElementById(
+    "searchSection"
+  ).style.display="none";
+
+  document.getElementById(
+    "catalogSection"
+  ).style.display="block";
+
+  document.getElementById(
+    "catalogTitle"
+  ).textContent=
     branch.icon+" "+branch.name;
 
-  document.getElementById("catalogSubtitle").textContent=
+  document.getElementById(
+    "catalogSubtitle"
+  ).textContent=
     branch.subtitle;
 
   renderProducts(key);
 
-  document.getElementById("catalogSection").scrollIntoView({
+  document.getElementById(
+    "catalogSection"
+  ).scrollIntoView({
     behavior:"smooth"
   });
+
 }
 
 function renderProducts(key){
 
-  const grid=document.getElementById("productGrid");
+  const grid=
+    document.getElementById(
+      "productGrid"
+    );
 
-  grid.innerHTML=branches[key].products.map(
-    (p,index)=>{
+  grid.innerHTML=
+    branches[key].products.map(
+      (p,index)=>{
 
-      const id=key+"-"+index;
+        const id=
+          key+"-"+index;
 
-      return `
-        <div class="product">
+        return `
 
-          <div class="product-image">
-            ${p[2]}
-          </div>
+          <div class="product">
 
-          <div class="product-category">
-            ${p[3]}
-          </div>
-
-          <h3>${p[0]}</h3>
-
-          <div class="product-bottom">
-
-            <div class="price">
-              ${p[1]}
+            <div class="product-image">
+              ${p[2]}
             </div>
 
-            <button
-              class="add-btn"
-              onclick="addToCart(
-                '${id}',
-                '${escapeJs(p[0])}',
-                '${p[1]}',
-                '${p[2]}'
-              )">
-              +
-            </button>
+            <div class="product-category">
+              ${p[3]}
+            </div>
+
+            <h3>
+              ${p[0]}
+            </h3>
+
+            <div class="product-bottom">
+
+              <div class="price">
+                ${p[1]}
+              </div>
+
+              <button
+                class="add-btn"
+                onclick="addToCart(
+                  '${id}',
+                  '${escapeJs(p[0])}',
+                  '${p[1]}',
+                  '${p[2]}'
+                )">
+                +
+              </button>
+
+            </div>
 
           </div>
 
-        </div>
-      `;
-    }
-  ).join("");
+        `;
+
+      }
+    ).join("");
+
 }
 
 function escapeJs(text){
@@ -1564,21 +2661,29 @@ function escapeJs(text){
   return String(text)
     .replace(/\\/g,"\\\\")
     .replace(/'/g,"\\'");
+
 }
 
 /* =========================================================
    ADD TO CART
 ========================================================= */
 
-function addToCart(id,name,price,icon){
+function addToCart(
+  id,
+  name,
+  price,
+  icon
+){
 
-  const existing=cart.find(
-    item=>item.id===id
-  );
+  const existing=
+    cart.find(item=>item.id===id);
 
   if(existing){
+
     existing.qty++;
+
   }else{
+
     cart.push({
       id,
       name,
@@ -1586,202 +2691,832 @@ function addToCart(id,name,price,icon){
       icon,
       qty:1
     });
+
   }
 
   saveCart();
   updateCart();
   showAdded();
+
 }
 
 function updateCart(){
 
-  const count=cart.reduce(
-    (sum,item)=>sum+item.qty,
-    0
-  );
+  const count=
+    cart.reduce(
+      (sum,item)=>sum+item.qty,
+      0
+    );
 
-  document.getElementById("cartCount").textContent=count;
-  document.getElementById("headerCartCount").textContent=count;
+  document.getElementById(
+    "cartCount"
+  ).textContent=count;
+
+  document.getElementById(
+    "headerCartCount"
+  ).textContent=count;
 
   if(
-    document.getElementById("cartModal")
-      .classList.contains("show")
+    document.getElementById(
+      "cartModal"
+    ).classList.contains("show")
   ){
+
     renderCart();
+
   }
+
 }
 
 function showAdded(){
 
-  const el=document.getElementById("addedMessage");
+  const el=
+    document.getElementById(
+      "addedMessage"
+    );
 
   el.classList.add("show");
 
   setTimeout(()=>{
     el.classList.remove("show");
   },1200);
+
 }
 
 /* =========================================================
-   CART DISPLAY
+   CART
 ========================================================= */
 
 function openCart(){
 
   renderCart();
 
-  document
-    .getElementById("cartModal")
-    .classList.add("show");
+  document.getElementById(
+    "cartModal"
+  ).classList.add("show");
+
 }
 
 function renderCart(){
 
-  const container=document.getElementById("cartItems");
+  const container=
+    document.getElementById(
+      "cartItems"
+    );
 
   if(cart.length===0){
 
     container.innerHTML=`
+
       <div class="empty">
-        <div style="font-size:50px">🛒</div>
-        <h3>Your cart is empty</h3>
+
+        <div style="font-size:50px">
+          🛒
+        </div>
+
+        <h3>
+          Your cart is empty
+        </h3>
+
         <p style="margin-top:8px">
           Add products to start shopping.
         </p>
+
       </div>
+
     `;
 
   }else{
 
-    container.innerHTML=cart.map(item=>`
+    container.innerHTML=
+      cart.map(item=>`
 
-      <div class="cart-item">
+        <div class="cart-item">
 
-        <div class="cart-icon">
-          ${item.icon}
+          <div class="cart-icon">
+            ${item.icon}
+          </div>
+
+          <div class="cart-info">
+
+            <h4>
+              ${item.name}
+            </h4>
+
+            <small>
+              ${money(priceNumber(item.price))}
+              each
+            </small>
+
+          </div>
+
+          <div class="qty">
+
+            <button
+              onclick="changeQuantity(
+                '${item.id}',-1
+              )">
+              −
+            </button>
+
+            <strong>
+              ${item.qty}
+            </strong>
+
+            <button
+              onclick="changeQuantity(
+                '${item.id}',1
+              )">
+              +
+            </button>
+
+          </div>
+
         </div>
 
-        <div class="cart-info">
-          <h4>${item.name}</h4>
-          <small>
-            ${money(priceNumber(item.price))} each
-          </small>
-        </div>
+      `).join("");
 
-        <div class="qty">
-
-          <button
-            onclick="changeQuantity('${item.id}',-1)">
-            −
-          </button>
-
-          <strong>${item.qty}</strong>
-
-          <button
-            onclick="changeQuantity('${item.id}',1)">
-            +
-          </button>
-
-        </div>
-
-      </div>
-
-    `).join("");
   }
 
   const subtotal=getSubtotal();
   const delivery=getDelivery();
   const total=getTotal();
 
-  document.getElementById("cartSubtotal")
-    .textContent=money(subtotal);
+  document.getElementById(
+    "cartSubtotal"
+  ).textContent=money(subtotal);
 
-  document.getElementById("cartDelivery")
-    .textContent=delivery===0
-      ? "FREE"
-      : money(delivery);
+  document.getElementById(
+    "cartDelivery"
+  ).textContent=
+    delivery===0
+    ? "FREE"
+    : money(delivery);
 
-  document.getElementById("cartTotal")
-    .textContent=money(total);
+  document.getElementById(
+    "cartTotal"
+  ).textContent=money(total);
 
   renderDeliveryMessage();
+
 }
 
 function renderDeliveryMessage(){
 
   const subtotal=getSubtotal();
-  const container=document.getElementById(
-    "deliveryProgress"
-  );
+
+  const container=
+    document.getElementById(
+      "deliveryProgress"
+    );
 
   if(subtotal===0){
 
     container.innerHTML="";
 
     return;
+
   }
 
   if(customer.premiumActive){
 
     container.innerHTML=`
-      <div class="message premium-message">
-        ⭐ <strong>Premium active!</strong><br>
-        Your delivery is FREE.
+
+      <div class="message dark-message">
+
+        ⭐ <strong>Premium active!</strong>
+
+        <p style="margin-top:5px">
+          Your delivery is FREE.
+        </p>
+
       </div>
+
     `;
 
     return;
+
   }
 
   if(subtotal>=500){
 
     container.innerHTML=`
-      <div class="message premium-message">
-        🎉 You spent R500+!<br>
-        Your delivery is FREE.
+
+      <div class="message dark-message">
+
+        🎉 <strong>Free delivery unlocked!</strong>
+
+        <p style="margin-top:5px">
+          You spent R500+.
+        </p>
+
       </div>
+
     `;
 
     return;
+
   }
 
   const remaining=500-subtotal;
-  const percentage=(subtotal/500)*100;
+
+  const percentage=
+    Math.min(
+      100,
+      (subtotal/500)*100
+    );
 
   container.innerHTML=`
+
     <div class="message">
-      🚚 Spend <strong>${money(remaining)}</strong> more
-      to unlock FREE delivery.
+
+      🚚 Spend
+      <strong>
+        ${money(remaining)}
+      </strong>
+      more to unlock FREE delivery.
 
       <div class="progress-bar">
+
         <div
           class="progress-fill"
           style="width:${percentage}%">
         </div>
+
       </div>
+
     </div>
+
   `;
+
 }
 
-function changeQuantity(id,change){
+function changeQuantity(
+  id,
+  change
+){
 
-  const item=cart.find(
-    i=>i.id===id
-  );
+  const item=
+    cart.find(i=>i.id===id);
 
   if(!item)return;
 
   item.qty+=change;
 
   if(item.qty<=0){
+
     cart=cart.filter(
       i=>i.id!==id
     );
+
   }
 
   saveCart();
   updateCart();
   renderCart();
+
+}
+
+/* =========================================================
+   CHECKOUT
+========================================================= */
+
+function openCheckout(){
+
+  if(cart.length===0){
+
+    alert(
+      "Your cart is empty."
+    );
+
+    return;
+
+  }
+
+  const subtotal=getSubtotal();
+
+  let message="";
+
+  if(customer.premiumActive){
+
+    message=`
+
+      <div class="message dark-message">
+        ⭐ <strong>Premium delivery:</strong>
+        FREE
+      </div>
+
+    `;
+
+  }else if(subtotal>=500){
+
+    message=`
+
+      <div class="message dark-message">
+        🎉 <strong>Free delivery unlocked!</strong>
+        You spent R500+.
+      </div>
+
+    `;
+
+  }else{
+
+    message=`
+
+      <div class="message">
+
+        🚚 Delivery:
+        <strong>R35</strong>
+
+        <br><br>
+
+        Spend
+        <strong>
+          ${money(500-subtotal)}
+        </strong>
+        more for FREE delivery.
+
+      </div>
+
+    `;
+
+  }
+
+  document.getElementById(
+    "checkoutDeliveryMessage"
+  ).innerHTML=message;
+
+  closeModal("cartModal");
+
+  if(customer.name){
+
+    document.getElementById(
+      "customerName"
+    ).value=customer.name;
+
+  }
+
+  if(customer.phone){
+
+    document.getElementById(
+      "customerPhone"
+    ).value=customer.phone;
+
+  }
+
+  document.getElementById(
+    "checkoutModal"
+  ).classList.add("show");
+
+}
+
+/* =========================================================
+   PLACE ORDER
+========================================================= */
+
+function placeOrder(event){
+
+  event.preventDefault();
+
+  if(cart.length===0){
+
+    alert(
+      "Your cart is empty."
+    );
+
+    return;
+
+  }
+
+  const name=
+    document.getElementById(
+      "customerName"
+    ).value.trim();
+
+  const phone=
+    document.getElementById(
+      "customerPhone"
+    ).value.trim();
+
+  const address=
+    document.getElementById(
+      "customerAddress"
+    ).value.trim();
+
+  const shoppingLocation=
+    document.getElementById(
+      "shoppingLocation"
+    ).value;
+
+  const specificStore=
+    document.getElementById(
+      "specificStore"
+    ).value.trim();
+
+  const replacement=
+    document.getElementById(
+      "replacementOption"
+    ).value;
+
+  const payment=
+    document.getElementById(
+      "paymentMethod"
+    ).value;
+
+  const notes=
+    document.getElementById(
+      "customerNotes"
+    ).value.trim();
+
+  const subtotal=getSubtotal();
+  const delivery=getDelivery();
+  const total=getTotal();
+
+  const orderNumber=
+    "AZ"+
+    Math.floor(
+      100000+
+      Math.random()*900000
+    );
+
+  const items=
+    cart.map(item=>
+      `${item.qty} x ${item.name}`
+    ).join(", ");
+
+  pendingOrder={
+
+    orderNumber,
+
+    name,
+    phone,
+    address,
+
+    shoppingLocation,
+    specificStore,
+
+    replacement,
+
+    payment,
+
+    notes,
+
+    items,
+
+    subtotal,
+    delivery,
+    total,
+
+    premium:customer.premiumActive,
+
+    status:"Payment Required",
+
+    createdAt:
+      new Date().toISOString()
+
+  };
+
+  localStorage.setItem(
+    "aerozonePendingOrder",
+    JSON.stringify(
+      pendingOrder
+    )
+  );
+
+  /*
+   IMPORTANT:
+
+   This does NOT mark the order as paid.
+
+   In the live version this is where the
+   secure payment backend should create a
+   payment request.
+
+   Example architecture:
+
+   Website
+      ↓
+   Firebase / secure backend
+      ↓
+   Payment provider
+      ↓
+   Payment confirmation/webhook
+      ↓
+   Order marked PAID
+      ↓
+   Driver assignment
+  */
+
+  closeModal("checkoutModal");
+
+  showPaymentScreen();
+
+}
+
+/* =========================================================
+   PAYMENT SCREEN
+========================================================= */
+
+function showPaymentScreen(){
+
+  if(!pendingOrder){
+
+    pendingOrder=
+      JSON.parse(
+        localStorage.getItem(
+          "aerozonePendingOrder"
+        ) || "null"
+      );
+
+  }
+
+  if(!pendingOrder)return;
+
+  const content=
+    document.getElementById(
+      "paymentContent"
+    );
+
+  content.innerHTML=`
+
+    <div class="message dark-message">
+
+      <h3>
+        💳 Payment Required
+      </h3>
+
+      <p style="margin-top:9px">
+        Your AeroZone order has been prepared.
+        Payment must be confirmed before a driver
+        is dispatched.
+      </p>
+
+    </div>
+
+    <div class="message">
+
+      <strong>
+        Order ${pendingOrder.orderNumber}
+      </strong>
+
+      <br><br>
+
+      Products:
+      ${money(pendingOrder.subtotal)}
+
+      <br>
+
+      Delivery:
+      ${
+        pendingOrder.delivery===0
+        ? "FREE"
+        : money(pendingOrder.delivery)
+      }
+
+      <br><br>
+
+      <strong>
+        Total:
+        ${money(pendingOrder.total)}
+      </strong>
+
+    </div>
+
+    <div class="message">
+
+      <strong>
+        Shopping location
+      </strong>
+
+      <br>
+
+      ${pendingOrder.shoppingLocation}
+
+      ${
+        pendingOrder.specificStore
+        ? "<br>"+pendingOrder.specificStore
+        : ""
+      }
+
+    </div>
+
+    <button
+      class="primary"
+      onclick="startSecurePayment()">
+
+      💳 Pay
+      ${money(pendingOrder.total)}
+
+    </button>
+
+    <button
+      class="secondary"
+      style="margin-top:8px"
+      onclick="sendPendingOrderToWhatsApp()">
+
+      💬 Send Order Details to AeroZone
+
+    </button>
+
+    <div
+      class="message"
+      style="margin-top:12px">
+
+      🔒 <strong>Important:</strong>
+
+      <p style="margin-top:6px;color:#666">
+
+        The live payment provider must confirm
+        successful payment before AeroZone marks
+        this order as paid.
+
+      </p>
+
+    </div>
+
+  `;
+
+  document.getElementById(
+    "paymentModal"
+  ).classList.add("show");
+
+}
+
+/* =========================================================
+   SECURE PAYMENT PLACEHOLDER
+========================================================= */
+
+function startSecurePayment(){
+
+  /*
+   ======================================================
+   REAL PAYMENT INTEGRATION GOES HERE
+   ======================================================
+
+   Replace this function with your secure payment
+   backend / Yoco checkout integration.
+
+   DO NOT do this:
+
+       pendingOrder.status = "Paid";
+
+   merely because the customer clicked a button.
+
+   Instead:
+
+       1. Create payment request on server.
+       2. Redirect customer to payment provider.
+       3. Payment provider processes payment.
+       4. Provider sends webhook to your backend.
+       5. Backend verifies payment.
+       6. Backend marks Firebase order as PAID.
+       7. Driver assignment can begin.
+  */
+
+  alert(
+    "Your secure payment provider still needs to be connected. The order is NOT marked as paid yet."
+  );
+
+}
+
+/* =========================================================
+   WHATSAPP BACKUP
+========================================================= */
+
+function sendPendingOrderToWhatsApp(){
+
+  if(!pendingOrder){
+
+    pendingOrder=
+      JSON.parse(
+        localStorage.getItem(
+          "aerozonePendingOrder"
+        ) || "null"
+      );
+
+  }
+
+  if(!pendingOrder)return;
+
+  const message=
+`*AEROZONE ORDER REQUEST*
+
+Order: ${pendingOrder.orderNumber}
+
+*Customer*
+Name: ${pendingOrder.name}
+Phone: ${pendingOrder.phone}
+Address: ${pendingOrder.address}
+
+*SHOPPING*
+Category: ${pendingOrder.shoppingLocation}
+Store: ${pendingOrder.specificStore || "Customer to confirm"}
+
+*ITEMS*
+${pendingOrder.items}
+
+*Replacement preference*
+${pendingOrder.replacement}
+
+*PAYMENT*
+${pendingOrder.payment}
+
+Products: ${money(pendingOrder.subtotal)}
+Delivery: ${
+  pendingOrder.delivery===0
+  ? "FREE"
+  : money(pendingOrder.delivery)
+}
+Total: ${money(pendingOrder.total)}
+
+*ORDER STATUS*
+Payment Required
+
+${pendingOrder.notes
+  ? "*Notes:* "+pendingOrder.notes
+  : ""}
+
+Please assist me with this AeroZone order.`;
+
+  window.open(
+    "https://wa.me/27688685355?text="+
+    encodeURIComponent(message),
+    "_blank"
+  );
+
+}
+
+/* =========================================================
+   ORDER PAID / DRIVER FLOW
+========================================================= */
+
+function saveDemoPaidOrder(){
+
+  if(!pendingOrder)return;
+
+  const order={
+
+    ...pendingOrder,
+
+    status:"Payment Received",
+
+    driverName:"Waiting for driver",
+
+    driverPhone:"",
+
+    receipt:"",
+    
+    updatedAt:
+      new Date().toISOString()
+
+  };
+
+  localStorage.setItem(
+    "aerozoneLastOrder",
+    JSON.stringify(order)
+  );
+
+  localStorage.removeItem(
+    "aerozonePendingOrder"
+  );
+
+}
+
+/*
+ This function is intentionally NOT called
+ automatically by the payment button.
+
+ Your backend/payment webhook should eventually
+ perform the equivalent operation after verifying
+ payment.
+*/
+
+function markOrderPaidAfterVerifiedPayment(){
+
+  /*
+   BACKEND HOOK
+
+   Example Firebase logic should happen server-side.
+
+   Once payment has genuinely been confirmed:
+
+   saveDemoPaidOrder();
+
+   Then the order can move to:
+
+   Payment Received
+   ↓
+   Driver Assigned
+   ↓
+   Driver Shopping
+   ↓
+   Order Collected
+   ↓
+   On the Way
+   ↓
+   Delivered
+  */
+
 }
 
 /* =========================================================
@@ -1791,31 +3526,54 @@ function changeQuantity(id,change){
 function openPremium(){
 
   const content=
-    document.getElementById("premiumContent");
+    document.getElementById(
+      "premiumContent"
+    );
 
   if(customer.premiumActive){
 
     content.innerHTML=`
 
-      <div class="message premium-message">
-        ⭐ <strong>AeroZone Premium is active.</strong><br><br>
+      <div class="message dark-message">
 
-        You are paying R99/month and your eligible
-        AeroZone deliveries are FREE.
+        ⭐ <strong>
+          AeroZone Premium is active.
+        </strong>
+
+        <p style="margin-top:8px">
+          Your R99/month Premium subscription
+          currently gives you free delivery on
+          eligible AeroZone orders.
+        </p>
+
       </div>
 
       <div class="message">
-        <strong>Premium status</strong><br>
-        Active<br><br>
+
+        <strong>
+          Premium status
+        </strong>
+
+        <br><br>
+
+        Active
+
+        <br><br>
 
         Subscription ID:
-        ${customer.subscriptionId || "Confirmed by payment provider"}
+        ${
+          customer.subscriptionId ||
+          "Confirmed by payment provider"
+        }
+
       </div>
 
       <button
         class="secondary"
         onclick="closeModal('premiumModal')">
+
         Close
+
       </button>
 
     `;
@@ -1824,60 +3582,85 @@ function openPremium(){
 
     content.innerHTML=`
 
-      <div class="message premium-message">
+      <div class="message dark-message">
 
-        <h3 style="margin-bottom:10px">
+        <h3>
           ⭐ AeroZone Premium
         </h3>
 
-        <div style="font-size:30px;font-weight:900">
+        <div
+          style="
+          font-size:30px;
+          font-weight:900;
+          margin-top:8px">
           R99/month
         </div>
 
-        <p style="margin-top:8px;color:#bbb">
-          Get FREE delivery without needing
-          to reach R500 on every order.
+        <p style="margin-top:8px">
+
+          Get free delivery without needing
+          to reach R500 on every eligible order.
+
         </p>
 
       </div>
 
       <div class="message">
 
-        <strong>Premium benefits</strong>
+        <strong>
+          Premium benefits
+        </strong>
 
         <br><br>
 
-        ✓ Free delivery on eligible orders<br>
-        ✓ Monthly subscription<br>
-        ✓ Keep your Premium status while payments remain active<br>
-        ✓ Normal customers still get free delivery at R500+
+        ✓ Free delivery on eligible orders
+        <br>
+        ✓ Monthly subscription
+        <br>
+        ✓ Premium status while payments remain active
+        <br>
+        ✓ Normal customers still get free delivery
+        at R500+
 
       </div>
 
       <button
         class="primary"
         onclick="openPremiumSignup()">
+
         Continue to Premium Signup
+
       </button>
 
     `;
+
   }
 
-  document
-    .getElementById("premiumModal")
-    .classList.add("show");
+  document.getElementById(
+    "premiumModal"
+  ).classList.add("show");
+
 }
 
 function openPremiumSignup(){
 
   const content=
-    document.getElementById("premiumContent");
+    document.getElementById(
+      "premiumContent"
+    );
 
   content.innerHTML=`
 
     <div class="message">
-      <strong>Join AeroZone Premium</strong><br>
+
+      <strong>
+        Join AeroZone Premium
+      </strong>
+
+      <br>
+
       R99/month
+
     </div>
 
     <form
@@ -1902,20 +3685,25 @@ function openPremiumSignup(){
         placeholder="Email address">
 
       <div class="message">
-        🔒 Your subscription payment will need
-        to be confirmed by the payment provider
-        before Premium is activated.
+
+        🔒 Premium will only become active after
+        the recurring payment provider confirms
+        the subscription.
+
       </div>
 
       <button
         class="primary"
         type="submit">
+
         Continue to Secure Payment — R99/month
+
       </button>
 
     </form>
 
   `;
+
 }
 
 function startPremiumCheckout(event){
@@ -1923,16 +3711,19 @@ function startPremiumCheckout(event){
   event.preventDefault();
 
   const name=
-    document.getElementById("premiumName")
-      .value.trim();
+    document.getElementById(
+      "premiumName"
+    ).value.trim();
 
   const phone=
-    document.getElementById("premiumPhone")
-      .value.trim();
+    document.getElementById(
+      "premiumPhone"
+    ).value.trim();
 
   const email=
-    document.getElementById("premiumEmail")
-      .value.trim();
+    document.getElementById(
+      "premiumEmail"
+    ).value.trim();
 
   customer.name=name;
   customer.phone=phone;
@@ -1943,113 +3734,93 @@ function startPremiumCheckout(event){
     JSON.stringify(customer)
   );
 
-  /*
-   =====================================================
-   PAYMENT PROVIDER HOOK
-   =====================================================
+  showPremiumPaymentMessage();
 
-   Replace this section with your recurring payment
-   checkout URL / SDK.
-
-   DO NOT activate Premium here.
-
-   Your payment backend must confirm the recurring
-   payment and then securely update:
-
-       premiumActive = true
-
-   Example flow:
-
-   Customer
-      ↓
-   Secure payment page
-      ↓
-   Payment provider
-      ↓
-   Webhook/backend
-      ↓
-   Payment confirmed
-      ↓
-   AeroZone Premium activated
-  */
-
-  alert(
-    "Premium signup details saved. Next, connect this button to your recurring payment provider for the R99/month payment."
-  );
-
-  showPaymentSetupMessage();
 }
 
-function showPaymentSetupMessage(){
+function showPremiumPaymentMessage(){
 
   const content=
-    document.getElementById("premiumContent");
+    document.getElementById(
+      "premiumContent"
+    );
 
   content.innerHTML=`
 
-    <div class="message premium-message">
+    <div class="message dark-message">
 
-      <h3>⭐ Almost there!</h3>
+      <h3>
+        ⭐ Premium Signup Ready
+      </h3>
 
-      <p style="margin-top:10px">
-        Your Premium details have been saved.
+      <p style="margin-top:8px">
+
+        Your details are saved.
+        The R99/month subscription must now
+        be processed by your payment provider.
+
       </p>
 
     </div>
 
     <div class="message">
 
-      <strong>Subscription:</strong> R99/month<br><br>
+      <strong>
+        Customer
+      </strong>
 
-      <strong>Customer:</strong>
-      ${customer.name}<br>
+      <br>
 
-      <strong>Email:</strong>
-      ${customer.email}<br>
+      ${customer.name}
 
-      <strong>Phone:</strong>
+      <br>
+
+      ${customer.email}
+
+      <br>
+
       ${customer.phone}
+
+      <br><br>
+
+      <strong>
+        Subscription
+      </strong>
+
+      <br>
+
+      R99/month
 
     </div>
 
     <button
       class="primary"
       onclick="launchRecurringPayment()">
-      Pay R99/month
-    </button>
 
-    <button
-      class="secondary"
-      style="margin-top:8px"
-      onclick="closeModal('premiumModal')">
-      Cancel
+      Pay R99/month
+
     </button>
 
   `;
+
 }
 
 function launchRecurringPayment(){
 
   /*
-    =====================================================
-    REPLACE THIS WITH YOUR REAL PAYMENT CHECKOUT
-    =====================================================
+   Connect your real recurring payment provider here.
 
-    Example:
+   DO NOT set:
 
-    window.location.href =
-      "YOUR_SECURE_RECURRING_PAYMENT_CHECKOUT_URL";
+       customer.premiumActive = true;
 
-    The payment provider must return the customer
-    to your website after payment.
-
-    Premium must then be activated server-side after
-    successful payment confirmation.
+   until your backend verifies successful payment.
   */
 
   alert(
-    "Connect your recurring-payment provider here. Do not mark Premium active until the provider confirms payment."
+    "Connect your recurring payment provider here. Premium will activate only after payment is verified."
   );
+
 }
 
 /* =========================================================
@@ -2059,7 +3830,9 @@ function launchRecurringPayment(){
 function openAccount(){
 
   const content=
-    document.getElementById("accountContent");
+    document.getElementById(
+      "accountContent"
+    );
 
   if(customer.name){
 
@@ -2067,15 +3840,27 @@ function openAccount(){
 
       <div class="message">
 
-        <strong>${customer.name}</strong><br>
-        ${customer.email || ""}<br>
+        <strong>
+          ${customer.name}
+        </strong>
+
+        <br>
+
+        ${customer.email || ""}
+
+        <br>
+
         ${customer.phone || ""}
 
       </div>
 
       <div class="message">
 
-        <strong>Premium status</strong><br><br>
+        <strong>
+          Premium status
+        </strong>
+
+        <br><br>
 
         ${
           customer.premiumActive
@@ -2087,19 +3872,32 @@ function openAccount(){
 
       ${
         customer.premiumActive
+
         ? `
+
           <button
             class="secondary"
             onclick="manageSubscription()">
+
             Manage Subscription
+
           </button>
+
         `
+
         : `
+
           <button
             class="primary"
-            onclick="closeModal('accountModal');openPremium()">
+            onclick="
+              closeModal('accountModal');
+              openPremium()
+            ">
+
             Join Premium — R99/month
+
           </button>
+
         `
       }
 
@@ -2107,7 +3905,9 @@ function openAccount(){
         class="secondary"
         style="margin-top:8px"
         onclick="logoutCustomer()">
+
         Sign Out
+
       </button>
 
     `;
@@ -2117,7 +3917,10 @@ function openAccount(){
     content.innerHTML=`
 
       <div class="message">
-        Create your AeroZone customer profile.
+
+        Create your AeroZone customer profile
+        to make checkout easier.
+
       </div>
 
       <form
@@ -2143,17 +3946,21 @@ function openAccount(){
         <button
           class="primary"
           type="submit">
+
           Create Account
+
         </button>
 
       </form>
 
     `;
+
   }
 
-  document
-    .getElementById("accountModal")
-    .classList.add("show");
+  document.getElementById(
+    "accountModal"
+  ).classList.add("show");
+
 }
 
 function createCustomer(event){
@@ -2161,22 +3968,30 @@ function createCustomer(event){
   event.preventDefault();
 
   customer={
-    name:document.getElementById(
-      "accountNameInput"
-    ).value.trim(),
 
-    phone:document.getElementById(
-      "accountPhoneInput"
-    ).value.trim(),
+    name:
+      document.getElementById(
+        "accountNameInput"
+      ).value.trim(),
 
-    email:document.getElementById(
-      "accountEmailInput"
-    ).value.trim(),
+    phone:
+      document.getElementById(
+        "accountPhoneInput"
+      ).value.trim(),
+
+    email:
+      document.getElementById(
+        "accountEmailInput"
+      ).value.trim(),
 
     premiumActive:false,
+
     premiumStatus:"inactive",
+
     subscriptionId:"",
+
     subscriptionStarted:""
+
   };
 
   localStorage.setItem(
@@ -2186,16 +4001,20 @@ function createCustomer(event){
 
   updateAccountDisplay();
 
+  closeModal(
+    "accountModal"
+  );
+
   alert(
     "Your AeroZone account has been created."
   );
 
-  closeModal("accountModal");
 }
 
 function logoutCustomer(){
 
   customer={
+
     name:"",
     phone:"",
     email:"",
@@ -2203,6 +4022,7 @@ function logoutCustomer(){
     premiumStatus:"inactive",
     subscriptionId:"",
     subscriptionStarted:""
+
   };
 
   localStorage.setItem(
@@ -2212,23 +4032,33 @@ function logoutCustomer(){
 
   updateAccountDisplay();
 
-  closeModal("accountModal");
+  closeModal(
+    "accountModal"
+  );
+
 }
 
 function updateAccountDisplay(){
 
   const name=
-    document.getElementById("accountName");
+    document.getElementById(
+      "accountName"
+    );
 
   const description=
-    document.getElementById("accountDescription");
+    document.getElementById(
+      "accountDescription"
+    );
 
   const status=
-    document.getElementById("accountStatus");
+    document.getElementById(
+      "accountStatus"
+    );
 
   if(customer.name){
 
-    name.textContent=customer.name;
+    name.textContent=
+      customer.name;
 
     description.textContent=
       customer.premiumActive
@@ -2247,15 +4077,20 @@ function updateAccountDisplay(){
 
   }else{
 
-    name.textContent="Guest Customer";
+    name.textContent=
+      "Guest Customer";
 
     description.textContent=
       "Create your customer profile and manage Premium.";
 
-    status.textContent="Guest";
+    status.textContent=
+      "Guest";
 
-    status.className="status-pill";
+    status.className=
+      "status-pill";
+
   }
+
 }
 
 function manageSubscription(){
@@ -2263,185 +4098,99 @@ function manageSubscription(){
   alert(
     "Subscription management should open your payment provider's secure customer portal."
   );
+
 }
 
 /* =========================================================
-   CHECKOUT
+   SPECIAL REQUEST
 ========================================================= */
 
-function openCheckout(){
+function openSpecialRequest(){
 
-  if(cart.length===0){
+  if(customer.name){
 
-    alert("Your cart is empty.");
+    document.getElementById(
+      "specialName"
+    ).value=customer.name;
 
-    return;
   }
 
-  const subtotal=getSubtotal();
+  if(customer.phone){
 
-  let message="";
+    document.getElementById(
+      "specialPhone"
+    ).value=customer.phone;
 
-  if(customer.premiumActive){
-
-    message=`
-      <div class="message premium-message">
-        ⭐ <strong>Premium delivery:</strong>
-        FREE
-      </div>
-    `;
-
-  }else if(subtotal>=500){
-
-    message=`
-      <div class="message premium-message">
-        🎉 <strong>Free delivery unlocked!</strong>
-        You spent R500+.
-      </div>
-    `;
-
-  }else{
-
-    message=`
-      <div class="message">
-        🚚 Delivery is R35.<br>
-        Spend ${money(500-subtotal)} more for FREE delivery,
-        or <strong>join Premium for R99/month</strong>.
-      </div>
-
-      <button
-        type="button"
-        class="secondary"
-        onclick="closeModal('checkoutModal');openPremium()">
-        ⭐ Join Premium
-      </button>
-    `;
   }
 
   document.getElementById(
-    "checkoutDeliveryMessage"
-  ).innerHTML=message;
+    "specialModal"
+  ).classList.add("show");
 
-  closeModal("cartModal");
-
-  document
-    .getElementById("checkoutModal")
-    .classList.add("show");
 }
 
-function placeOrder(event){
+function submitSpecialRequest(event){
 
   event.preventDefault();
 
-  if(cart.length===0){
-
-    alert("Your cart is empty.");
-
-    return;
-  }
-
   const name=
     document.getElementById(
-      "customerName"
+      "specialName"
     ).value.trim();
 
   const phone=
     document.getElementById(
-      "customerPhone"
+      "specialPhone"
+    ).value.trim();
+
+  const item=
+    document.getElementById(
+      "specialItem"
+    ).value.trim();
+
+  const store=
+    document.getElementById(
+      "specialStore"
     ).value.trim();
 
   const address=
     document.getElementById(
-      "customerAddress"
+      "specialAddress"
     ).value.trim();
-
-  const payment=
-    document.getElementById(
-      "paymentMethod"
-    ).value;
 
   const notes=
     document.getElementById(
-      "customerNotes"
+      "specialNotes"
     ).value.trim();
 
-  const subtotal=getSubtotal();
-  const delivery=getDelivery();
-  const total=getTotal();
-
-  const orderNumber=
-    "AZ"+
-    Math.floor(
-      100000+
-      Math.random()*900000
-    );
-
-  const items=cart.map(item=>
-    `${item.qty} x ${item.name} - ${money(
-      priceNumber(item.price)*item.qty
-    )}`
-  ).join("\n");
-
   const message=
-`*AEROZONE ORDER*
+`*AEROZONE SPECIAL SHOPPING REQUEST*
 
-Order Number: ${orderNumber}
-
-*Customer*
-Name: ${name}
+Customer: ${name}
 Phone: ${phone}
-Address: ${address}
+Delivery address: ${address}
 
-*Premium*
-${customer.premiumActive ? "ACTIVE" : "NOT ACTIVE"}
+*ITEM REQUEST*
+${item}
 
-*Items*
-${items}
+Preferred store:
+${store || "Customer to confirm"}
 
-*Payment*
-${payment}
+Notes:
+${notes || "None"}
 
-*Subtotal:* ${money(subtotal)}
-*Delivery:* ${delivery===0 ? "FREE" : money(delivery)}
-*TOTAL:* ${money(total)}
-
-${notes ? "*Notes:* "+notes : ""}
-
-Please confirm my order.`;
-
-  localStorage.setItem(
-    "aerozoneLastOrder",
-    JSON.stringify({
-      orderNumber,
-      status:"Order received",
-      name,
-      phone,
-      address,
-      total,
-      premium:customer.premiumActive,
-      date:new Date().toLocaleString()
-    })
-  );
-
-  const whatsapp=
-    "https://wa.me/27688685355?text="+
-    encodeURIComponent(message);
+Please advise if AeroZone can fulfil this request.`;
 
   window.open(
-    whatsapp,
+    "https://wa.me/27688685355?text="+
+    encodeURIComponent(message),
     "_blank"
   );
 
-  cart=[];
-
-  saveCart();
-  updateCart();
-
-  closeModal("checkoutModal");
-
-  alert(
-    "Your order has been prepared and sent to WhatsApp."
+  closeModal(
+    "specialModal"
   );
+
 }
 
 /* =========================================================
@@ -2468,6 +4217,7 @@ function searchProducts(){
     ).style.display="block";
 
     return;
+
   }
 
   document.getElementById(
@@ -2484,32 +4234,54 @@ function searchProducts(){
 
   const results=[];
 
-  Object.keys(branches).forEach(key=>{
+  Object.keys(branches).forEach(
+    key=>{
 
-    branches[key].products.forEach(
-      (p,index)=>{
+      branches[key].products.forEach(
+        (p,index)=>{
 
-        if(
-          p[0].toLowerCase().includes(query) ||
-          p[3].toLowerCase().includes(query) ||
-          branches[key].name
-            .toLowerCase()
-            .includes(query)
-        ){
+          if(
 
-          results.push({
-            id:key+"-"+index,
-            name:p[0],
-            price:p[1],
-            icon:p[2]
-          });
+            p[0]
+              .toLowerCase()
+              .includes(query)
+
+            ||
+
+            p[3]
+              .toLowerCase()
+              .includes(query)
+
+            ||
+
+            branches[key]
+              .name
+              .toLowerCase()
+              .includes(query)
+
+          ){
+
+            results.push({
+
+              id:key+"-"+index,
+
+              name:p[0],
+
+              price:p[1],
+
+              icon:p[2],
+
+              category:branches[key].name
+
+            });
+
+          }
 
         }
+      );
 
-      }
-    );
-
-  });
+    }
+  );
 
   const grid=
     document.getElementById(
@@ -2519,58 +4291,82 @@ function searchProducts(){
   if(results.length===0){
 
     grid.innerHTML=`
-      <div class="empty"
-           style="grid-column:1/-1">
-        <h3>No products found</h3>
+
+      <div
+        class="empty"
+        style="grid-column:1/-1">
+
+        <h3>
+          No products found
+        </h3>
+
         <p style="margin-top:8px">
-          Try another search.
+          Try another search or request the item.
         </p>
-      </div>
-    `;
-
-    return;
-  }
-
-  grid.innerHTML=results.map(p=>`
-
-    <div class="product">
-
-      <div class="product-image">
-        ${p.icon}
-      </div>
-
-      <div class="product-category">
-        AeroZone
-      </div>
-
-      <h3>${p.name}</h3>
-
-      <div class="product-bottom">
-
-        <div class="price">
-          ${p.price}
-        </div>
 
         <button
-          class="add-btn"
-          onclick="addToCart(
-            '${p.id}',
-            '${escapeJs(p.name)}',
-            '${p.price}',
-            '${p.icon}'
-          )">
-          +
+          class="primary"
+          style="margin-top:15px"
+          onclick="openSpecialRequest()">
+
+          Request this item
+
         </button>
 
       </div>
 
-    </div>
+    `;
 
-  `).join("");
+    return;
+
+  }
+
+  grid.innerHTML=
+    results.map(p=>`
+
+      <div class="product">
+
+        <div class="product-image">
+          ${p.icon}
+        </div>
+
+        <div class="product-category">
+          ${p.category}
+        </div>
+
+        <h3>
+          ${p.name}
+        </h3>
+
+        <div class="product-bottom">
+
+          <div class="price">
+            ${p.price}
+          </div>
+
+          <button
+            class="add-btn"
+            onclick="addToCart(
+              '${p.id}',
+              '${escapeJs(p.name)}',
+              '${p.price}',
+              '${p.icon}'
+            )">
+
+            +
+
+          </button>
+
+        </div>
+
+      </div>
+
+    `).join("");
+
 }
 
 /* =========================================================
-   TRACKING
+   ORDER TRACKING
 ========================================================= */
 
 function openTracking(){
@@ -2582,66 +4378,255 @@ function openTracking(){
       ) || "null"
     );
 
+  const pending=
+    JSON.parse(
+      localStorage.getItem(
+        "aerozonePendingOrder"
+      ) || "null"
+    );
+
+  const order=saved || pending;
+
   const content=
     document.getElementById(
       "trackingContent"
     );
 
-  if(!saved){
+  if(!order){
 
     content.innerHTML=`
+
       <div class="empty">
+
         <div style="font-size:50px">
           📦
         </div>
 
-        <h3>No recent order</h3>
+        <h3>
+          No recent order
+        </h3>
 
         <p style="margin-top:8px">
           Place an order first.
         </p>
+
       </div>
+
     `;
 
   }else{
 
+    const current=
+      getTrackingIndex(
+        order.status
+      );
+
+    const steps=[
+      "Payment Received",
+      "Driver Assigned",
+      "Driver Shopping",
+      "Order Collected",
+      "On the Way",
+      "Delivered"
+    ];
+
     content.innerHTML=`
 
-      <div style="text-align:center">
+      <div class="order-number">
+        ${order.orderNumber}
+      </div>
 
-        <div style="font-size:55px">
-          📦
-        </div>
+      <p
+        style="
+        text-align:center;
+        color:#777;
+        margin-bottom:15px">
 
-        <h2>${saved.orderNumber}</h2>
+        ${formatStatus(order.status)}
 
-        <p style="margin:10px;color:#777">
-          ${saved.date}
-        </p>
+      </p>
 
-        <div class="message premium-message">
-          ✓ ${saved.status}
-        </div>
+      <div class="tracking-steps">
 
-        <p>
-          <strong>Total:</strong>
-          ${money(saved.total)}
-        </p>
+        ${
+          steps.map(
+            (step,index)=>{
 
-        <button
-          class="primary"
-          style="margin-top:18px"
-          onclick="contactWhatsApp()">
-          Contact AeroZone
-        </button>
+              let className="";
+
+              if(index<current){
+                className="done";
+              }
+
+              if(index===current){
+                className+=" current";
+              }
+
+              return `
+
+                <div
+                  class="tracking-step ${className}">
+
+                  <div class="step-icon">
+
+                    ${
+                      index<current
+                      ? "✓"
+                      : index+1
+                    }
+
+                  </div>
+
+                  <div>
+                    ${step}
+                  </div>
+
+                </div>
+
+              `;
+
+            }
+          ).join("")
+        }
 
       </div>
+
+      <div class="message">
+
+        <strong>
+          Shopping category
+        </strong>
+
+        <br>
+
+        ${order.shoppingLocation || "Not specified"}
+
+        ${
+          order.specificStore
+          ? "<br>"+order.specificStore
+          : ""
+        }
+
+      </div>
+
+      <div class="message">
+
+        <strong>
+          Total
+        </strong>
+
+        <br>
+
+        ${money(order.total)}
+
+      </div>
+
+      ${
+        order.driverName
+        ? `
+
+          <div class="message">
+
+            <strong>
+              🚗 Driver
+            </strong>
+
+            <br>
+
+            ${order.driverName}
+
+            ${
+              order.driverPhone
+              ? "<br>"+order.driverPhone
+              : ""
+            }
+
+          </div>
+
+        `
+        : ""
+      }
+
+      <button
+        class="primary"
+        onclick="contactWhatsApp()">
+
+        💬 Contact AeroZone
+
+      </button>
+
     `;
+
   }
 
-  document
-    .getElementById("trackingModal")
-    .classList.add("show");
+  document.getElementById(
+    "trackingModal"
+  ).classList.add("show");
+
+}
+
+function getTrackingIndex(status){
+
+  const map={
+
+    "Payment Required":0,
+
+    "Payment Received":0,
+
+    "Order Paid":0,
+
+    "Driver Assigned":1,
+
+    "Driver Shopping":2,
+
+    "Shopping":2,
+
+    "Order Collected":3,
+
+    "On the Way":4,
+
+    "Delivered":5,
+
+    "Order received":0
+
+  };
+
+  return map[status] ?? 0;
+
+}
+
+function formatStatus(status){
+
+  if(status==="Payment Required"){
+    return "💳 Payment required";
+  }
+
+  if(status==="Payment Received"){
+    return "✓ Payment received";
+  }
+
+  if(status==="Driver Assigned"){
+    return "🚗 Driver assigned";
+  }
+
+  if(status==="Driver Shopping"){
+    return "🛒 Driver is shopping";
+  }
+
+  if(status==="Order Collected"){
+    return "📦 Order collected";
+  }
+
+  if(status==="On the Way"){
+    return "🚗 Driver is on the way";
+  }
+
+  if(status==="Delivered"){
+    return "🏠 Delivered";
+  }
+
+  return status;
+
 }
 
 function contactWhatsApp(){
@@ -2653,6 +4638,7 @@ function contactWhatsApp(){
     ),
     "_blank"
   );
+
 }
 
 /* =========================================================
@@ -2661,9 +4647,15 @@ function contactWhatsApp(){
 
 function closeModal(id){
 
-  document
-    .getElementById(id)
-    .classList.remove("show");
+  const modal=
+    document.getElementById(id);
+
+  if(modal){
+
+    modal.classList.remove("show");
+
+  }
+
 }
 
 document
@@ -2675,7 +4667,11 @@ document
       function(event){
 
         if(event.target===modal){
-          modal.classList.remove("show");
+
+          modal.classList.remove(
+            "show"
+          );
+
         }
 
       }
@@ -2691,8 +4687,11 @@ document.addEventListener(
 
       document
         .querySelectorAll(".modal")
-        .forEach(modal=>
-          modal.classList.remove("show")
+        .forEach(
+          modal=>
+            modal.classList.remove(
+              "show"
+            )
         );
 
     }
